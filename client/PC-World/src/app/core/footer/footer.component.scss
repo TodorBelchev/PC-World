@@ -1,0 +1,45 @@
+footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin: 0 auto;
+    height: 250px;
+    background-color: black;
+    color: white;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+footer ul li {
+    padding: 5px 20px 5px 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.end {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2rem;
+}
+
+footer fa-icon {
+    font-size: 1.5rem;
+    padding: 0 10px;
+}

@@ -1,0 +1,66 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header fa-icon {
+    font-size: 1.1rem;
+    padding: 0 10px;
+}
+
+header > article {
+    display: flex;
+    align-items: center;
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+header ul li {
+    padding: 5px 20px;
+    font-size: 1.2rem;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.logo-link fa-icon {
+    color: rgb(93, 214, 255);
+}
+
+.cart,
+.favorites,
+.user {
+    position: relative;
+}
+
+.quantity {
+    background: rgb(93, 214, 255);
+    border-radius: 10px;
+    color: black;
+    padding: 0 3px;
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    position: absolute;
+    text-align: center;
+    min-width: 20px;
+    height: 20px;
+    pointer-events: none;
+    top: -8px;
+    right: -5px;
+}

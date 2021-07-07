@@ -1,0 +1,32 @@
+<header>
+    <div class="container">
+        <article>
+            <a routerLink="/" class="logo-link">
+                <fa-icon [icon]="faTshirt" size="lg"></fa-icon>
+                <h2>Fantasy fashion</h2>
+            </a>
+        </article>
+        <ul>
+            <li>
+                <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+            </li>
+            <li>
+                <a routerLink="/login" class="user">
+                    <fa-icon [icon]="faUser" size="lg"></fa-icon>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/cart" class="cart">
+                    <fa-icon [icon]="faShoppingCart" size="lg"></fa-icon>
+                    <div class="quantity">2</div>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/favorites" class="favorites">
+                    <fa-icon [icon]="faHeart" size="lg"></fa-icon>
+                    <div class="quantity">2</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>

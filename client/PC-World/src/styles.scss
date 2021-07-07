@@ -1,0 +1,32 @@
+@import url("https://use.fontawesome.com/releases/v5.15.3/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+html,
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.error {
+    color: red;
+}
