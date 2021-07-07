@@ -52,17 +52,8 @@ router.post('/register',
         .trim()
         .isLength({ min: 5 }).withMessage('Password must be at least 5 characters long!')
         .isAlphanumeric().withMessage('Password must consist only english letters and digits!'),
-    body('password')
-        .trim()
-        .custom((value, { req }) => {
-            if (value && value !== req.body.repeatPassword) {
-                throw new Error('Passwords don`t match!');
-            }
-            return true;
-        }),
     async (req, res) => {
         const { email, password } = req.body;
-
         try {
             const errors = validationResult(req).array().map(x => x.msg);
 
@@ -72,9 +63,10 @@ router.post('/register',
 
             const hashedPass = await bcrypt.hash(password, SALT_ROUNDS);
 
-            const user = new User({ email, password: hashedPass });
+            const user = new User({ email, password: hashedPass, isAdmin: false });
+            await user.save();
 
-            const { password, ...payload } = user;
+            const payload = removePass(user);
 
             const token = jwt.sign({ id: user._id }, SECRET);
             res.cookie(COOKIE_NAME, token, { httpOnly: true });
@@ -86,7 +78,16 @@ router.post('/register',
 
 router.get('/logout', isAuth(), (req, res) => {
     res.clearCookie(COOKIE_NAME);
-    res.status(204).send({ message: 'Logged out'})
+    res.status(204).send({ message: 'Logged out' })
 });
+
+function removePass(user) {
+    const payload = {
+        email: user.email,
+        _id: user._id,
+        isAdmin: user.isAdmin
+    }
+    return payload;
+}
 
 module.exports = router;

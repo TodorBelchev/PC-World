@@ -2,8 +2,8 @@ const { Router } = require('express');
 
 const router = Router();
 
-router.get('/', async (req, res) => {
-    
+router.get('/', (req, res) => {
+    res.send('It works');
 });
 
 module.exports = router;

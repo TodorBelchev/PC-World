@@ -1,3 +1,4 @@
+@import '../../shared/variables.scss';
 header {
     display: flex;
     align-items: center;
@@ -39,7 +40,7 @@ header ul li a {
 }
 
 .logo-link fa-icon {
-    color: rgb(93, 214, 255);
+    color: $primary-color;
 }
 
 .cart,
@@ -49,9 +50,9 @@ header ul li a {
 }
 
 .quantity {
-    background: rgb(93, 214, 255);
+    background: $primary-color;
     border-radius: 10px;
-    color: black;
+    color: white;
     padding: 0 3px;
     display: block;
     font-size: 13px;

@@ -3,12 +3,12 @@
         <li><a routerLink="/login">Login</a></li>
         <li class="active"><a routerLink="/register">Register</a></li>
     </ul>
-    <form>
-        <input type="email" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="password">
-        <input type="password" name="rePass" placeholder="repeat password">
-        <label for="terms"><input type="checkbox" name="terms" id="terms">I agree with <a
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input formControlName="email" [ngClass]="registerForm.get('email')?.touched && registerForm.get('email')?.invalid ? 'invalid': ''" type="email" name="email" placeholder="email">
+        <input formControlName="password" [ngClass]="registerForm.get('password')?.touched && registerForm.get('password')?.invalid ? 'invalid': ''" type="password" name="password" placeholder="password">
+        <input formControlName="rePass" [ngClass]="registerForm.get('rePass')?.touched && registerForm.get('rePass')?.invalid ? 'invalid': ''" type="password" name="rePass" id="rePass"  placeholder="repeat password">
+        <label for="terms"><input formControlName="check" type="checkbox" name="terms" id="terms">I agree with <a
                 routerLink="/terms-and-conditions">terms and conditions</a> of Fantasy fashion</label>
-        <input type="submit" value="Register">
+        <input [disabled]="registerForm.invalid" type="submit" value="Register">
     </form>
 </div>
