@@ -14,7 +14,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { authReducer } from './auth/store/auth.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
@@ -31,7 +30,7 @@ import { AuthEffects } from './auth/store/auth.effects';
     AuthModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ auth: authReducer }, {}),
+    StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
