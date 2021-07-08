@@ -1,0 +1,63 @@
+@import "../../shared/variables.scss";
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid $primary-color;
+    list-style: none;
+    padding: 10px;
+}
+
+ul li {
+    position: relative;
+    width: 250px;
+    text-align: center;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    margin: 90px;
+}
+
+ul li.active::after {
+    content: "";
+    width: 250px;
+    height: 3px;
+    background: $primary-color;
+    position: absolute;
+    left: 0;
+    top: 32px;
+}
+
+form {
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+input {
+    flex-basis: 100%;
+    margin: 20px 0 0 0;
+}
+
+input[type="submit"] {
+    background: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+}
+
+input[type="email"],
+input[type="password"] {
+    height: 2rem;
+    padding: 14px;
+}

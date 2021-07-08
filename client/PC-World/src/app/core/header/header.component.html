@@ -11,6 +11,12 @@
                 <fa-icon [icon]="faSearch" size="lg"></fa-icon>
             </li>
             <li>
+                <a routerLink="/notebooks/create" class="user" *ngIf="user">
+                    Create notebook
+                </a>
+                <a routerLink="/components/create" class="user" *ngIf="user">
+                    Create component
+                </a>
                 <a routerLink="/login" class="user" *ngIf="!user">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>

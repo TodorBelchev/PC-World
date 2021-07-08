@@ -10,7 +10,7 @@ import { login_start } from '../store/auth.actions';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup
+  loginForm: FormGroup;
   constructor(
     private fb: FormBuilder,
     private store: Store

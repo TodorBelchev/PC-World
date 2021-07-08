@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -15,6 +13,8 @@ import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AuthEffects } from './auth/store/auth.effects';
+import { NotebookModule } from './notebook/notebook.module';
+import { PartsModule } from './parts/parts.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +24,11 @@ import { AuthEffects } from './auth/store/auth.effects';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    FontAwesomeModule,
     SharedModule,
     CoreModule,
     AuthModule,
-    ReactiveFormsModule,
+    NotebookModule,
+    PartsModule,
     HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([AuthEffects]),

@@ -1,0 +1,14 @@
+<div class="container">
+    <form>
+        <label for="component">Choose component:</label>
+        <select [(ngModel)]="selected" (ngModelChange)="getComponent($event)" name="component" id="component">
+            <option value="processor">Processor</option>
+            <option value="memory">Memory</option>
+            <option value="hdd">Hard Drive</option>
+            <option value="ssd">Solid State Drive</option>
+            <option value="vga">Graphics</option>
+            <option value="display">Display</option>
+        </select>
+    </form>
+</div>
+ 
