@@ -11,7 +11,10 @@
                 <fa-icon [icon]="faSearch" size="lg"></fa-icon>
             </li>
             <li>
-                <a routerLink="/login" class="user">
+                <a routerLink="/login" class="user" *ngIf="!user">
+                    <fa-icon [icon]="faUser" size="lg"></fa-icon>
+                </a>
+                <a routerLink="/profile/{{user._id}}" class="user" *ngIf="user">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>
             </li>

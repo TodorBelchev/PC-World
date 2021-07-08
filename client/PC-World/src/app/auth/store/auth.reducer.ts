@@ -1,9 +1,9 @@
 import { createReducer, on, Action } from "@ngrx/store";
 
-import { IUser } from '../user';
+import { IUser } from '../user.interface';
 import * as AuthActions from './auth.actions';
 
-export interface State {
+export interface AuthState {
     user: IUser | null;
     authError: string | null;
     loading: boolean;
@@ -12,7 +12,7 @@ export interface State {
 
 export const featureKey = 'auth';
 
-const initialState: State = {
+const initialState: AuthState = {
     user: null,
     authError: null,
     loading: false,
@@ -44,11 +44,12 @@ const _authReducer = createReducer(
     on(AuthActions.auth_fail, (state, action) => {
         return {
             ...state,
+            loading: false,
             errorMsg: action.errorMsg
         }
     })
 )
 
-export function authReducer<ActionReducer>(state: State | undefined, action: Action): State {
+export function authReducer<ActionReducer>(state: AuthState | undefined, action: Action): AuthState {
     return _authReducer(state, action);
 }

@@ -34,7 +34,7 @@ router.post('/login',
                 throw new Error('Invalid email or password!');
             }
 
-            const { password, ...payload } = user;
+            const payload = removePass(user);
 
             const token = jwt.sign({ id: user._id }, SECRET);
             res.cookie(COOKIE_NAME, token, { httpOnly: true });
@@ -61,9 +61,15 @@ router.post('/register',
                 throw new Error(errors.join('\n'));
             }
 
+            let user = await User.findOne({ email });
+            
+            if (user) {
+                throw new Error('Account already exists');
+            }
+
             const hashedPass = await bcrypt.hash(password, SALT_ROUNDS);
 
-            const user = new User({ email, password: hashedPass, isAdmin: false });
+            user = new User({ email, password: hashedPass, isAdmin: false });
             await user.save();
 
             const payload = removePass(user);
