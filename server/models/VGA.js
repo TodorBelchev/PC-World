@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const processorSchema = new mongoose.Schema({
+const vgaSchema = new mongoose.Schema({
     brand: {
         type: String,
         required: true
@@ -14,11 +14,7 @@ const processorSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    threads: {
-        type: Number,
-        required: true
-    },
-    baseClock: {
+    gameClock: {
         type: Number,
         required: true
     },
@@ -26,16 +22,24 @@ const processorSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    cache: {
+    memory: {
         type: Number,
         required: true
     },
+    memoryClock: {
+        type: Number,
+        required: true
+    },
+    connectors: {
+        type: String,
+        required: true
+    },
+    power: [{
+        type: String,
+        required: true
+    }],
     price: {
         type: Number,
-        required: true
-    },
-    box: {
-        type: Boolean,
         required: true
     },
     warranty: {
@@ -47,6 +51,6 @@ const processorSchema = new mongoose.Schema({
     }]
 });
 
-const Processor = mongoose.model('Processor', processorSchema);
+const Processor = mongoose.model('VGA', vgaSchema);
 
 module.exports = Processor;

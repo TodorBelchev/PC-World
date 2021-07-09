@@ -26,9 +26,29 @@
             <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock">
             <label for="cache">Cache:</label>
             <input ngModel #cache="ngModel" type="number" name="cache" id="cache">
+            <label for="warranty">Warranty:</label>
+            <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
             <label for="box">
                 <input ngModel #box type="checkbox" name="box" id="box"> Box cooler included
             </label>
+        </div>
+        <div class="form" *ngIf="selected == 'vga'">
+            <label for="cores">Cores:</label>
+            <input ngModel #cores="ngModel" type="number" name="cores" id="cores">
+            <label for="gameClock">Game Clock:</label>
+            <input ngModel #base="ngModel" type="number" name="gameClock" id="gameClock">
+            <label for="boostClock">Boost Clock:</label>
+            <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock">
+            <label for="memory">Memory:</label>
+            <input ngModel #memory="ngModel" type="number" name="memory" id="memory">
+            <label for="memoryClock">Memory clock:</label>
+            <input ngModel #memoryClock="ngModel" type="number" name="memoryClock" id="memoryClock">
+            <label for="connectors">Connectors:</label>
+            <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors">
+            <label for="power">Power requirements:</label>
+            <input ngModel #power="ngModel" type="text" name="power" id="power">
+            <label for="warranty">Warranty:</label>
+            <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
         </div>
         <label for="image">Image:</label>
         <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>

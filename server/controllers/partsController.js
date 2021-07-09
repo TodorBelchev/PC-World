@@ -2,6 +2,7 @@ const { Router } = require('express');
 const formidable = require('formidable');
 
 const { createProc, getProcCount } = require('../services/processorService');
+const { createVGA, getVGACount } = require('../services/vgaService');
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 
@@ -26,11 +27,32 @@ router.post('/create/processor', async (req, res) => {
     }
 });
 
+router.post('/create/vga', async (req, res) => {
+    try {
+        const imagesURL = [];
+        const form = formidable({ multiples: true });
+        const [formData, incFiles] = await getFromData(req, form);
+
+        for (const file of Object.values(incFiles)) {
+            const url = await uploadToCloudinary(file.path);
+            imagesURL.push(url);
+        }
+
+        formData.images = imagesURL;
+        const vga = await createVGA(formData);
+        res.status(201).send(vga);
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.get('/count', async (req, res) => {
     try {
-        const count = await getProcCount();
+        const procCount = await getProcCount();
+        const vgaCount = await getVGACount();
         res.status(200).send({
-            processors: count
+            processors: procCount,
+            vga: vgaCount
         });
     } catch (error) {
         res.status(400).send({ message: error.message });

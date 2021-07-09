@@ -8,6 +8,7 @@ import { PartsService } from '../parts.service';
 })
 export class PartsComponent implements OnInit {
   processorCount: number | null = null;
+  vgaCount: number | null = null;
   constructor(
     private partsService: PartsService
   ) { }
@@ -15,6 +16,7 @@ export class PartsComponent implements OnInit {
   ngOnInit(): void {
     this.partsService.getCount().subscribe(data => {
       this.processorCount = data.processors;
+      this.vgaCount = data.vga;
     })
   }
 

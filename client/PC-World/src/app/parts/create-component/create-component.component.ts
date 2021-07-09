@@ -38,7 +38,6 @@ export class CreateComponentComponent implements OnInit {
     for (const [k, v] of Object.entries(this.fileList)) {
       formData.append('pic' + k, v as string);
     }
-
     
     this.partsService.createPart(formData, this.selected).subscribe(
       data => {
