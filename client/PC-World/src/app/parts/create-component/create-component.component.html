@@ -10,5 +10,23 @@
             <option value="display">Display</option>
         </select>
     </form>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <label for="brand">Brand:</label>
+        <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+        <label for="model">Model:</label>
+        <input ngModel #model="ngModel" type="text" name="model" id="model">
+        <div class="form" *ngIf="selected == 'processor'">
+            <label for="cores">Cores:</label>
+            <input ngModel #cores="ngModel" type="number" name="cores" id="cores">
+            <label for="threads">Threads:</label>
+            <input ngModel #threads="ngModel" type="number" name="threads" id="threads">
+            <label for="clock">Clock:</label>
+            <input ngModel #clock="ngModel" type="number" name="clock" id="clock">
+            <label for="cache">Cache:</label>
+            <input ngModel #cache="ngModel" type="number" name="cache" id="cache">
+        </div>
+        <label for="price">Price:</label>
+        <input ngModel #price="ngModel" type="number" name="price" id="price">
+        <input type="submit" value="Create">
+    </form>
 </div>
- 

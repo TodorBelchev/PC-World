@@ -12,11 +12,11 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  login(userData: any): Observable<Object> {
+  login(userData: { email: string, password: string }): Observable<Object> {
     return this.http.post(environment.api_url + 'user/login', userData, { withCredentials: true });
   }
 
-  register(userData: any): Observable<Object> {
+  register(userData: { email: string, password: string }): Observable<Object> {
     return this.http.post(environment.api_url + 'user/register', userData, { withCredentials: true });
   }
 }

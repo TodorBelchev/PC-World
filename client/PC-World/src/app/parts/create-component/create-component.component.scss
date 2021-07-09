@@ -41,9 +41,18 @@ form {
     flex-wrap: wrap;
 }
 
-input {
+.form {
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+input, label, select {
     flex-basis: 100%;
-    margin: 20px 0 0 0;
+    margin: 10px 0 0 0;
 }
 
 input[type="submit"] {
