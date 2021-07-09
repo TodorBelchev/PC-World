@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PartsService } from '../parts.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class CreateComponentComponent implements OnInit {
   selected: string = 'processor';
   fileList: {} = {};
   constructor(
-    private partsService: PartsService
+    private partsService: PartsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +26,6 @@ export class CreateComponentComponent implements OnInit {
   }
 
   onFileSelected(event: any) {
-    console.log(event.target.files);
     this.fileList = event.target.files;
   }
 
@@ -39,11 +40,9 @@ export class CreateComponentComponent implements OnInit {
     }
 
     
-    const proc = this.form.value;
-    proc.images = this.fileList;
     this.partsService.createPart(formData, this.selected).subscribe(
       data => {
-        console.log(data);
+        this.router.navigateByUrl(`components/${this.selected}/${data._id}`)
       },
       error => {
         console.log(error.message);

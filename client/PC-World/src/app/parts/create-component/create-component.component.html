@@ -26,6 +26,9 @@
             <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock">
             <label for="cache">Cache:</label>
             <input ngModel #cache="ngModel" type="number" name="cache" id="cache">
+            <label for="box">
+                <input ngModel #box type="checkbox" name="box" id="box"> Box cooler included
+            </label>
         </div>
         <label for="image">Image:</label>
         <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>

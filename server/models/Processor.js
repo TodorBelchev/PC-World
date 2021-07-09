@@ -34,6 +34,10 @@ const processorSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    box: {
+        type: Boolean,
+        required: true
+    },
     images: [{
         type: String
     }]

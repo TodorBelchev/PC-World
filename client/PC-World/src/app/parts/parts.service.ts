@@ -13,7 +13,11 @@ export class PartsService {
     private http: HttpClient
   ) { }
 
-  createPart(partData: any, partType: string): Observable<object> {
+  createPart(partData: any, partType: string): Observable<any> {
     return this.http.post(environment.api_url + 'parts/create/' + partType, partData, { withCredentials: true });
+  }
+
+  getCount(): Observable<any> {
+    return this.http.get(environment.api_url + 'parts/count');
   }
 }

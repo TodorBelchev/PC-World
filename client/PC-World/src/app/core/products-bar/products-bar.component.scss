@@ -1,0 +1,22 @@
+@import "../../shared/variables.scss";
+
+.root {
+    background: $primary-color;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-right: 50px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+}

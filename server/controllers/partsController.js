@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const formidable = require('formidable');
 
-const { createProc } = require('../services/processorService');
+const { createProc, getProcCount } = require('../services/processorService');
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 
@@ -12,7 +12,7 @@ router.post('/create/processor', async (req, res) => {
         const imagesURL = [];
         const form = formidable({ multiples: true });
         const [formData, incFiles] = await getFromData(req, form);
-        
+
         for (const file of Object.values(incFiles)) {
             const url = await uploadToCloudinary(file.path);
             imagesURL.push(url);
@@ -21,6 +21,17 @@ router.post('/create/processor', async (req, res) => {
         formData.images = imagesURL;
         const proc = await createProc(formData);
         res.status(201).send(proc);
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/count', async (req, res) => {
+    try {
+        const count = await getProcCount();
+        res.status(200).send({
+            processors: count
+        });
     } catch (error) {
         res.status(400).send({ message: error.message });
     }

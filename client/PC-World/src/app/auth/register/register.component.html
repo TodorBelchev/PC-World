@@ -8,7 +8,7 @@
         <input formControlName="password" [ngClass]="registerForm.get('password')?.touched && registerForm.get('password')?.invalid ? 'invalid': ''" type="password" name="password" placeholder="password">
         <input formControlName="rePass" [ngClass]="registerForm.get('rePass')?.touched && registerForm.get('rePass')?.invalid ? 'invalid': ''" type="password" name="rePass" id="rePass"  placeholder="repeat password">
         <label for="terms"><input formControlName="check" type="checkbox" name="terms" id="terms">I agree with <a
-                routerLink="/terms-and-conditions">terms and conditions</a> of Fantasy fashion</label>
+                routerLink="/terms-and-conditions">terms and conditions</a> of PC-World</label>
         <input [disabled]="registerForm.invalid" type="submit" value="Register">
     </form>
 </div>

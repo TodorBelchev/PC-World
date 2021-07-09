@@ -5,6 +5,11 @@ const createProc = (data) => {
     return proc.save();
 }
 
+const getProcCount = () => {
+    return Processor.collection.count();
+}
+
 module.exports = {
-    createProc
+    createProc,
+    getProcCount
 }
