@@ -10,6 +10,7 @@ import { PartsService } from '../parts.service';
 export class CreateComponentComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   selected: string = 'processor';
+  fileList: {} = {};
   constructor(
     private partsService: PartsService
   ) { }
@@ -22,10 +23,25 @@ export class CreateComponentComponent implements OnInit {
     this.form.reset();
   }
 
+  onFileSelected(event: any) {
+    console.log(event.target.files);
+    this.fileList = event.target.files;
+  }
+
   onSubmit() {
-    const part = this.form.value;
-    part.type = this.selected;
-    this.partsService.createPart(part).subscribe(
+    const formData = new FormData();
+    for (const [k, v] of Object.entries(this.form.value)) {
+      formData.append(k, v as string);
+    }
+    
+    for (const [k, v] of Object.entries(this.fileList)) {
+      formData.append('pic' + k, v as string);
+    }
+
+    
+    const proc = this.form.value;
+    proc.images = this.fileList;
+    this.partsService.createPart(formData, this.selected).subscribe(
       data => {
         console.log(data);
       },

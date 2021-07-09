@@ -10,7 +10,7 @@
             <option value="display">Display</option>
         </select>
     </form>
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
         <label for="brand">Brand:</label>
         <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
         <label for="model">Model:</label>
@@ -20,11 +20,15 @@
             <input ngModel #cores="ngModel" type="number" name="cores" id="cores">
             <label for="threads">Threads:</label>
             <input ngModel #threads="ngModel" type="number" name="threads" id="threads">
-            <label for="clock">Clock:</label>
-            <input ngModel #clock="ngModel" type="number" name="clock" id="clock">
+            <label for="baseClock">Base Clock:</label>
+            <input ngModel #base="ngModel" type="number" name="baseClock" id="baseClock">
+            <label for="boostClock">Boost Clock:</label>
+            <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock">
             <label for="cache">Cache:</label>
             <input ngModel #cache="ngModel" type="number" name="cache" id="cache">
         </div>
+        <label for="image">Image:</label>
+        <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
         <label for="price">Price:</label>
         <input ngModel #price="ngModel" type="number" name="price" id="price">
         <input type="submit" value="Create">

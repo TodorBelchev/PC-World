@@ -13,7 +13,7 @@ export class PartsService {
     private http: HttpClient
   ) { }
 
-  createPart(part: any): Observable<object> {
-    return this.http.post(environment.api_url + 'parts/create', part, { withCredentials: true });
+  createPart(partData: any, partType: string): Observable<object> {
+    return this.http.post(environment.api_url + 'parts/create/' + partType, partData, { withCredentials: true });
   }
 }
