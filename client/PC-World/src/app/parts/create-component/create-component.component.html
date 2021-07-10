@@ -4,8 +4,7 @@
         <select [(ngModel)]="selectedPart" (ngModelChange)="getComponent($event)" name="component" id="component">
             <option value="processor">Processor</option>
             <option value="memory">Memory</option>
-            <option value="hdd">Hard Drive</option>
-            <option value="ssd">Solid State Drive</option>
+            <option value="hdd">HDD/SSD</option>
             <option value="vga">Graphics</option>
             <option value="motherboard">Motherboard</option>
         </select>
@@ -83,6 +82,29 @@
             <select ngModel="desktop" #platform="ngModel" name="platform" id="platform">
                 <option value="desktop" selected>desktop</option>
                 <option value="mobile">mobile</option>
+            </select>
+        </div>
+        <div class="form" *ngIf="selectedPart == 'hdd'">
+            <label for="capacity">Capacity:</label>
+            <input ngModel #capacity="ngModel" type="number" name="capacity" id="capacity">
+            <label for="readSpeed">Read speed:</label>
+            <input ngModel #readSpeed="ngModel" type="number" name="readSpeed" id="readSpeed">
+            <label for="writeSpeed">Write speed:</label>
+            <input ngModel #writeSpeed="ngModel" type="number" name="writeSpeed" id="writeSpeed">
+            <label for="randomRead">Random read IOPS:</label>
+            <input ngModel #randomRead="ngModel" type="number" name="randomRead" id="randomRead">
+            <label for="randomWrite">Random write IOPS:</label>
+            <input ngModel #randomWrite="ngModel" type="number" name="randomWrite" id="randomWrite">
+            <label for="mtbf">MTBF:</label>
+            <input ngModel #mtbf="ngModel" type="number" name="mtbf" id="mtbf">
+            <label for="interface">Interface:</label>
+            <input ngModel #interface="ngModel" type="text" name="interface" id="interface">
+            <label for="formFactor">Form factor:</label>
+            <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor">
+            <label for="type">Type:</label>
+            <select ngModel="hdd" #type="ngModel" name="type" id="type">
+                <option value="hdd" selected>HDD</option>
+                <option value="ssd">SSD</option>
             </select>
         </div>
         <label for="warranty">Warranty:</label>
