@@ -6,7 +6,7 @@ const createProc = (data) => {
 }
 
 const getProcCount = () => {
-    return Processor.collection.count();
+    return Processor.collection.countDocuments();
 }
 
 module.exports = {

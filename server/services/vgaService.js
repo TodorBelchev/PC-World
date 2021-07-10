@@ -6,7 +6,7 @@ const createVGA = (data) => {
 }
 
 const getVGACount = () => {
-    return VGA.collection.count();
+    return VGA.collection.countDocuments();
 }
 
 module.exports = {
