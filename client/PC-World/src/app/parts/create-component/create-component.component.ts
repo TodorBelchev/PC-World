@@ -10,7 +10,7 @@ import { PartsService } from '../parts.service';
 })
 export class CreateComponentComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
-  selected: string = 'processor';
+  selectedPart: string = 'processor';
   fileList: {} = {};
   constructor(
     private partsService: PartsService,
@@ -21,7 +21,7 @@ export class CreateComponentComponent implements OnInit {
   }
 
   getComponent(event: any) {
-    this.selected = event;
+    this.selectedPart = event;
     this.form.reset();
   }
 
@@ -39,9 +39,9 @@ export class CreateComponentComponent implements OnInit {
       formData.append('pic' + k, v as string);
     }
     
-    this.partsService.createPart(formData, this.selected).subscribe(
+    this.partsService.createPart(formData, this.selectedPart).subscribe(
       data => {
-        this.router.navigateByUrl(`components/${this.selected}/${data._id}`)
+        this.router.navigateByUrl(`components/${this.selectedPart}/${data._id}`)
       },
       error => {
         console.log(error.message);

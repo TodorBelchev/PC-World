@@ -5,6 +5,7 @@ import { faSearch, faUser, faShoppingCart, faHeart, faDesktop } from '@fortaweso
 import * as authSelectors from '../../auth/store/auth.selectors';
 import { AppState } from 'src/app/shared/app-state.interface';
 import { IUser } from 'src/app/auth/user.interface';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -18,19 +19,14 @@ export class HeaderComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faHeart = faHeart;
   faDesktop = faDesktop;
-  user: IUser | null = null;
-
-
-  user$ = this.store.pipe(select(authSelectors.selectUser));
+  user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
 
   constructor(
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
-    this.user$.subscribe(user => {
-      this.user = user;
-    })
+
   }
 
 }

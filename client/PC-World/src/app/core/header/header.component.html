@@ -11,16 +11,16 @@
                 <fa-icon [icon]="faSearch" size="lg"></fa-icon>
             </li>
             <li>
-                <a routerLink="/notebooks/create" class="user" *ngIf="user">
+                <a routerLink="/notebooks/create" class="user" *ngIf="user$ | async">
                     Create notebook
                 </a>
-                <a routerLink="/components/create" class="user" *ngIf="user">
+                <a routerLink="/components/create" class="user" *ngIf="user$ | async">
                     Create component
                 </a>
-                <a routerLink="/login" class="user" *ngIf="!user">
+                <a routerLink="/login" class="user" *ngIf="!(user$ | async)">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>
-                <a routerLink="/profile/{{user._id}}" class="user" *ngIf="user">
+                <a routerLink="/profile/{{(user$ | async)?._id}}" class="user" *ngIf="user$ | async">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>
             </li>
