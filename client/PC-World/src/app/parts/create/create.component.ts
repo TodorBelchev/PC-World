@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { PartsService } from '../parts.service';
 
 @Component({
-  selector: 'app-create-component',
-  templateUrl: './create-component.component.html',
-  styleUrls: ['./create-component.component.scss']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
-export class CreateComponentComponent implements OnInit {
+export class CreateComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   selectedPart: string = 'processor';
   fileList: {} = {};

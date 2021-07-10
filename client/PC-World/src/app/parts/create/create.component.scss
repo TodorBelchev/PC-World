@@ -34,25 +34,30 @@ ul li.active::after {
 
 form {
     margin: 0 auto;
-    width: 500px;
+    width: 700px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .form {
     margin: 0 auto;
-    width: 500px;
+    width: 700px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
-input, label, select {
-    flex-basis: 100%;
-    margin: 10px 0 0 0;
+input, select {
+    flex-basis: 70%;
+    margin: 20px 0 0 0;
+}
+
+label {
+    flex-basis: 30%;
+    margin: 20px 0 0 0;
 }
 
 input[type="submit"] {
@@ -69,4 +74,9 @@ input[type="email"],
 input[type="password"] {
     height: 2rem;
     padding: 14px;
+}
+
+.checkbox {
+    flex-basis: 100%;
+    margin-top: 0;
 }

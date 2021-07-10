@@ -1,14 +1,14 @@
-<div class="container">
-    <form>
-        <label for="component">Choose component:</label>
-        <select [(ngModel)]="selectedPart" (ngModelChange)="getComponent($event)" name="component" id="component">
-            <option value="processor">Processor</option>
-            <option value="memory">Memory</option>
-            <option value="hdd">HDD/SSD</option>
-            <option value="vga">Graphics</option>
-            <option value="motherboard">Motherboard</option>
-        </select>
-    </form>
+<form>
+    <label for="component">Choose component:</label>
+    <select [(ngModel)]="selectedPart" (ngModelChange)="getComponent($event)" name="component" id="component">
+        <option value="processor">Processor</option>
+        <option value="memory">Memory</option>
+        <option value="hdd">HDD/SSD</option>
+        <option value="vga">Graphics</option>
+        <option value="motherboard">Motherboard</option>
+    </select>
+</form>
+<div class="form-container">
     <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
         <label for="brand">Brand:</label>
         <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
@@ -25,7 +25,7 @@
             <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock">
             <label for="cache">Cache:</label>
             <input ngModel #cache="ngModel" type="number" name="cache" id="cache">
-            <label for="box">
+            <label for="box" class="checkbox">
                 <input ngModel #box type="checkbox" name="box" id="box"> Box cooler included
             </label>
         </div>

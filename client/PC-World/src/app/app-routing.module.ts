@@ -4,7 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CreateNotebookComponent } from './notebook/create-notebook/create-notebook.component';
-import { CreateComponentComponent } from './parts/create-component/create-component.component';
+import { CreateComponent } from './parts/create/create.component';
 import { PartsComponent } from './parts/parts/parts.component';
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'notebooks/create', component: CreateNotebookComponent },
   { path: 'components', component: PartsComponent },
-  { path: 'components/create', component: CreateComponentComponent },
+  { path: 'components/create', component: CreateComponent },
 ];
 
 @NgModule({
