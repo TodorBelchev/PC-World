@@ -12,6 +12,7 @@ export class PartsComponent implements OnInit {
   MBCount: number | null = null;
   memoryCount: number | null = null;
   storageCount: number | null = null;
+  caseCount: number | null = null;
   constructor(
     private partsService: PartsService
   ) { }
@@ -23,6 +24,7 @@ export class PartsComponent implements OnInit {
       this.MBCount = data.MB;
       this.memoryCount = data.memory;
       this.storageCount = data.hdd;
+      this.caseCount = data.case;
     })
   }
 

@@ -9,6 +9,8 @@ import { CreateVgaComponent } from './create-vga/create-vga.component';
 import { CreateMotherboardComponent } from './create-motherboard/create-motherboard.component';
 import { CreateMemoryComponent } from './create-memory/create-memory.component';
 import { CreateHddComponent } from './create-hdd/create-hdd.component';
+import { CreateCaseComponent } from './create-case/create-case.component';
+import { CreatePowerSupplyComponent } from './create-power-supply/create-power-supply.component';
 
 
 
@@ -20,7 +22,9 @@ import { CreateHddComponent } from './create-hdd/create-hdd.component';
     CreateVgaComponent,
     CreateMotherboardComponent,
     CreateMemoryComponent,
-    CreateHddComponent
+    CreateHddComponent,
+    CreateCaseComponent,
+    CreatePowerSupplyComponent
   ],
   imports: [
     CommonModule,

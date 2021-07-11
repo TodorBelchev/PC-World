@@ -4,6 +4,7 @@ const SSD = require('../models/Ssd');
 const HDD = require('../models/Hdd');
 const Motherboard = require('../models/Motherboard');
 const Memory = require('../models/Memory');
+const Case = require('../models/Case');
 
 const parts = {
     processor: Processor,
@@ -11,7 +12,8 @@ const parts = {
     ssd: SSD,
     hdd: HDD,
     motherboard: Motherboard,
-    memory: Memory
+    memory: Memory,
+    case: Case
 }
 
 const createPart = (partName, data) => {

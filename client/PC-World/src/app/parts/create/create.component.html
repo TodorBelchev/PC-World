@@ -6,6 +6,7 @@
         <option value="hdd">HDD/SSD</option>
         <option value="vga">Graphics</option>
         <option value="motherboard">Motherboard</option>
+        <option value="case">Case</option>
     </select>
 </form>
 <div class="form-container">
@@ -14,4 +15,5 @@
     <app-create-motherboard *ngIf="selectedPart == 'motherboard'"></app-create-motherboard>
     <app-create-memory *ngIf="selectedPart == 'memory'"></app-create-memory>
     <app-create-hdd *ngIf="selectedPart == 'hdd'"></app-create-hdd>
+    <app-create-case *ngIf="selectedPart == 'case'"></app-create-case>
 </div>
