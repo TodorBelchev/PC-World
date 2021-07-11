@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+    <label for="brand">Brand:</label>
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+    <label for="model">Model:</label>
+    <input ngModel #model="ngModel" type="text" name="model" id="model">
+    <label for="socket">Socket:</label>
+    <input ngModel #socket="ngModel" type="text" name="socket" id="socket">
+    <label for="height">Height:</label>
+    <input ngModel #height="ngModel" type="number" name="height" id="height">
+    <label for="fanRPM">Fan RPM:</label>
+    <input ngModel #fanRPM="ngModel" type="number" name="fanRPM" id="fanRPM">
+    <label for="airflow">Airflow:</label>
+    <input ngModel #airflow="ngModel" type="number" name="airflow" id="airflow">
+    <label for="noise">Noise:</label>
+    <input ngModel #noise="ngModel" type="number" name="noise" id="noise">
+    <label for="fanSize">Fan size:</label>
+    <input ngModel #fanSize="ngModel" type="number" name="fanSize" id="fanSize">
+    <label for="connector">Connector:</label>
+    <input ngModel #connector="ngModel" type="text" name="connector" id="connector">
+    <label for="type">Type:</label>
+    <select ngModel="air" #type="ngModel" name="type" id="type">
+        <option value="air" selected>Air</option>
+        <option value="water">Water</option>
+    </select>
+    <label for="warranty">Warranty:</label>
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+    <label for="image">Images:</label>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <label for="price">Price:</label>
+    <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <label for="quantity">Quantity:</label>
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity">
+    <input type="submit" value="Create">
+</form>

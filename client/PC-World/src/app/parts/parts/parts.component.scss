@@ -1,3 +1,13 @@
+.parts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 80%;
+    column-gap: 30px;
+    row-gap: 15px;
+}
+
 .card {
     padding: 20px;
     box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);

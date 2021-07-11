@@ -145,6 +145,25 @@ router.post('/create/psu', async (req, res) => {
     }
 });
 
+router.post('/create/cooler', async (req, res) => {
+    try {
+        const imagesURL = [];
+        const form = formidable({ multiples: true });
+        const [formData, incFiles] = await getFromData(req, form);
+
+        for (const file of Object.values(incFiles)) {
+            const url = await uploadToCloudinary(file.path);
+            imagesURL.push(url);
+        }
+
+        formData.images = imagesURL;
+        const product = await createPart('cooler', formData);
+        res.status(201).send(product);
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.get('/count', async (req, res) => {
     try {
         const [
@@ -155,7 +174,8 @@ router.get('/count', async (req, res) => {
             hddCount,
             ssdCount,
             caseCount,
-            psuCount
+            psuCount,
+            coolerCount
         ] = await Promise.all([
             getPartCount('processor'),
             getPartCount('vga'),
@@ -164,7 +184,8 @@ router.get('/count', async (req, res) => {
             getPartCount('hdd'),
             getPartCount('ssd'),
             getPartCount('case'),
-            getPartCount('psu')
+            getPartCount('psu'),
+            getPartCount('cooler')
         ]);
         res.status(200).send({
             processors: procCount,
@@ -173,7 +194,8 @@ router.get('/count', async (req, res) => {
             memory: memoryCount,
             hdd: hddCount + ssdCount,
             case: caseCount,
-            psu: psuCount
+            psu: psuCount,
+            cooler: coolerCount
         });
     } catch (error) {
         res.status(400).send({ message: error.message });

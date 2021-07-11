@@ -6,6 +6,7 @@ const Motherboard = require('../models/Motherboard');
 const Memory = require('../models/Memory');
 const Case = require('../models/Case');
 const PSU = require('../models/Psu');
+const Cooler = require('../models/Cooler');
 
 const parts = {
     processor: Processor,
@@ -15,7 +16,8 @@ const parts = {
     motherboard: Motherboard,
     memory: Memory,
     case: Case,
-    psu: PSU
+    psu: PSU,
+    cooler: Cooler
 }
 
 const createPart = (partName, data) => {

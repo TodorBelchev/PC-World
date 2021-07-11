@@ -8,6 +8,7 @@
         <option value="motherboard">Motherboard</option>
         <option value="case">Case</option>
         <option value="psu">PSU</option>
+        <option value="cooler">Cooler</option>
     </select>
 </form>
 <div class="form-container">
@@ -18,4 +19,5 @@
     <app-create-hdd *ngIf="selectedPart == 'hdd'"></app-create-hdd>
     <app-create-case *ngIf="selectedPart == 'case'"></app-create-case>
     <app-create-power-supply *ngIf="selectedPart == 'psu'"></app-create-power-supply>
+    <app-create-cooler *ngIf="selectedPart == 'cooler'"></app-create-cooler>
 </div>

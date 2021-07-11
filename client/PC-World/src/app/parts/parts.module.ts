@@ -11,6 +11,7 @@ import { CreateMemoryComponent } from './create-memory/create-memory.component';
 import { CreateHddComponent } from './create-hdd/create-hdd.component';
 import { CreateCaseComponent } from './create-case/create-case.component';
 import { CreatePowerSupplyComponent } from './create-power-supply/create-power-supply.component';
+import { CreateCoolerComponent } from './create-coolers/create-cooler.component';
 
 
 
@@ -24,7 +25,8 @@ import { CreatePowerSupplyComponent } from './create-power-supply/create-power-s
     CreateMemoryComponent,
     CreateHddComponent,
     CreateCaseComponent,
-    CreatePowerSupplyComponent
+    CreatePowerSupplyComponent,
+    CreateCoolerComponent
   ],
   imports: [
     CommonModule,
