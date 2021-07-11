@@ -4,13 +4,12 @@ import { Router } from '@angular/router';
 import { PartsService } from '../parts.service';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  selector: 'app-create-processor',
+  templateUrl: './create-processor.component.html',
+  styleUrls: ['./create-processor.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class CreateProcessorComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
-  selectedPart: string = 'processor';
   fileList: {} = {};
   constructor(
     private partsService: PartsService,
@@ -18,10 +17,6 @@ export class CreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  }
-
-  getComponent(event: any) {
-    this.selectedPart = event;
   }
 
   onFileSelected(event: any) {
@@ -38,9 +33,9 @@ export class CreateComponent implements OnInit {
       formData.append('pic' + k, v as string);
     }
     
-    this.partsService.createPart(formData, this.selectedPart).subscribe(
+    this.partsService.createPart(formData, 'processor').subscribe(
       data => {
-        this.router.navigateByUrl(`components/${this.selectedPart}/${data._id}`)
+        this.router.navigateByUrl(`components/processor/${data._id}`)
       },
       error => {
         console.log(error.message);

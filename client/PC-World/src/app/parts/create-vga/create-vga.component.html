@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+    <label for="brand">Brand:</label>
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+    <label for="model">Model:</label>
+    <input ngModel #model="ngModel" type="text" name="model" id="model">
+    <label for="cores">Cores:</label>
+    <input ngModel #cores="ngModel" type="number" name="cores" id="cores">
+    <label for="gameClock">Game Clock:</label>
+    <input ngModel #base="ngModel" type="number" name="gameClock" id="gameClock">
+    <label for="boostClock">Boost Clock:</label>
+    <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock">
+    <label for="memory">Memory:</label>
+    <input ngModel #memory="ngModel" type="number" name="memory" id="memory">
+    <label for="memoryClock">Memory clock:</label>
+    <input ngModel #memoryClock="ngModel" type="number" name="memoryClock" id="memoryClock">
+    <label for="connectors">Connectors:</label>
+    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors">
+    <label for="power">Power requirements:</label>
+    <input ngModel #power="ngModel" type="text" name="power" id="power">
+    <label for="warranty">Warranty:</label>
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+    <label for="image">Images:</label>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <label for="price">Price:</label>
+    <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <input type="submit" value="Create">
+</form>

@@ -19,7 +19,6 @@ router.post('/create/processor', async (req, res) => {
         }
 
         formData.images = imagesURL;
-        console.log(formData);
         const proc = await createPart('processor', formData);
         res.status(201).send(proc);
     } catch (error) {

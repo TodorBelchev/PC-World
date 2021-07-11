@@ -1,0 +1,26 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+    <label for="brand">Brand:</label>
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+    <label for="model">Model:</label>
+    <input ngModel #model="ngModel" type="text" name="model" id="model">
+    <label for="ramCapacity">RAM capacity:</label>
+    <input ngModel #ramCapacity="ngModel" type="number" name="ramCapacity" id="ramCapacity">
+    <label for="memorySpeeds">Memory speed:</label>
+    <input ngModel #memorySpeeds="ngModel" type="text" name="memorySpeeds" id="memorySpeeds">
+    <label for="memoryType">Memory type:</label>
+    <input ngModel #memoryType="ngModel" type="text" name="memoryType" id="memoryType">
+    <label for="timings">Timings:</label>
+    <input ngModel #timings="ngModel" type="text" name="timings" id="timings">
+    <label for="platform">Memory platform:</label>
+    <select ngModel="desktop" #platform="ngModel" name="platform" id="platform">
+        <option value="desktop" selected>desktop</option>
+        <option value="mobile">mobile</option>
+    </select>
+    <label for="warranty">Warranty:</label>
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+    <label for="image">Images:</label>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <label for="price">Price:</label>
+    <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <input type="submit" value="Create">
+</form>

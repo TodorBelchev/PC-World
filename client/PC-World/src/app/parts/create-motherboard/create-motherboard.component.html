@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+    <label for="brand">Brand:</label>
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+    <label for="model">Model:</label>
+    <input ngModel #model="ngModel" type="text" name="model" id="model">
+    <label for="socket">Socket:</label>
+    <input ngModel #socket="ngModel" type="text" name="socket" id="socket">
+    <label for="formFactor">From factor:</label>
+    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor">
+    <label for="chipset">Chipset:</label>
+    <input ngModel #chipset="ngModel" type="text" name="chipset" id="chipset">
+    <label for="memorySlots">Memory slots:</label>
+    <input ngModel #memorySlots="ngModel" type="number" name="memorySlots" id="memorySlots">
+    <label for="memorySpeeds">Memory speeds:</label>
+    <input ngModel #memorySpeeds="ngModel" type="text" name="memorySpeeds" id="memorySpeeds">
+    <label for="ramCapacity">RAM capacity:</label>
+    <input ngModel #ramCapacity="ngModel" type="number" name="ramCapacity" id="ramCapacity">
+    <label for="audio">Audio:</label>
+    <input ngModel #audio="ngModel" type="text" name="audio" id="audio">
+    <label for="lan">LAN:</label>
+    <input ngModel #lan="ngModel" type="text" name="lan" id="lan">
+    <label for="wireless">Wireless:</label>
+    <input ngModel #wireless="ngModel" type="text" name="wireless" id="wireless">
+    <label for="connectors">Connectors:</label>
+    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors">
+    <label for="storage">Storage slots:</label>
+    <input ngModel #storage="ngModel" type="text" name="storage" id="storage">
+    <label for="warranty">Warranty:</label>
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+    <label for="image">Images:</label>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <label for="price">Price:</label>
+    <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <input type="submit" value="Create">
+</form>

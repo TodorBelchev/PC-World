@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+    <label for="brand">Brand:</label>
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+    <label for="model">Model:</label>
+    <input ngModel #model="ngModel" type="text" name="model" id="model">
+    <label for="capacity">Capacity:</label>
+    <input ngModel #capacity="ngModel" type="number" name="capacity" id="capacity">
+    <label for="readSpeed">Read speed:</label>
+    <input ngModel #readSpeed="ngModel" type="number" name="readSpeed" id="readSpeed">
+    <label for="writeSpeed">Write speed:</label>
+    <input ngModel #writeSpeed="ngModel" type="number" name="writeSpeed" id="writeSpeed">
+    <label for="randomRead">Random read IOPS:</label>
+    <input ngModel #randomRead="ngModel" type="number" name="randomRead" id="randomRead">
+    <label for="randomWrite">Random write IOPS:</label>
+    <input ngModel #randomWrite="ngModel" type="number" name="randomWrite" id="randomWrite">
+    <label for="mtbf">MTBF:</label>
+    <input ngModel #mtbf="ngModel" type="number" name="mtbf" id="mtbf">
+    <label for="interface">Interface:</label>
+    <input ngModel #interface="ngModel" type="text" name="interface" id="interface">
+    <label for="formFactor">Form factor:</label>
+    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor">
+    <label for="type">Type:</label>
+    <select ngModel="hdd" #type="ngModel" name="type" id="type">
+        <option value="hdd" selected>HDD</option>
+        <option value="ssd">SSD</option>
+    </select>
+    <label for="warranty">Warranty:</label>
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+    <label for="image">Images:</label>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <label for="price">Price:</label>
+    <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <input type="submit" value="Create">
+</form>
