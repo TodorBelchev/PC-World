@@ -30,5 +30,7 @@
     <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
     <label for="price">Price:</label>
     <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <label for="quantity">Quantity:</label>
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity">
     <input type="submit" value="Create">
 </form>

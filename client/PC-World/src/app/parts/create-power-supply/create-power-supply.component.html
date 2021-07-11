@@ -1,1 +1,29 @@
-<p>create-power-supply works!</p>
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+    <label for="brand">Brand:</label>
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+    <label for="model">Model:</label>
+    <input ngModel #model="ngModel" type="text" name="model" id="model">
+    <label for="formFactor">From factor:</label>
+    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor">
+    <label for="certificate">Certificate:</label>
+    <input ngModel #certificate="ngModel" type="text" name="certificate" id="certificate">
+    <label for="efficiency">Efficiency:</label>
+    <input ngModel #efficiency="ngModel" type="text" name="efficiency" id="efficiency">
+    <label for="type">Type:</label>
+    <select ngModel="modular" #type="ngModel" name="type" id="type">
+        <option value="modular" selected>Fully Modular</option>
+        <option value="halfModular">Half modular</option>
+        <option value="noneModular">None modular</option>
+    </select>
+    <label for="connectors">Connectors:</label>
+    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors">
+    <label for="warranty">Warranty:</label>
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+    <label for="image">Images:</label>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <label for="price">Price:</label>
+    <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <label for="quantity">Quantity:</label>
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity">
+    <input type="submit" value="Create">
+</form>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const ssdSchema = new mongoose.Schema({
+const psuSchema = new mongoose.Schema({
     brand: {
         type: String,
         required: true
@@ -10,35 +10,23 @@ const ssdSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    capacity: {
-        type: Number,
-        required: true
-    },
-    readSpeed: {
-        type: Number,
-        required: true
-    },
-    writeSpeed: {
-        type: Number,
-        required: true
-    },
-    randomRead: {
-        type: Number,
-        required: true
-    },
-    randomWrite: {
-        type: Number,
-        required: true
-    },
-    mtbf: {
-        type: Number,
-        required: true
-    },
-    interface: {
+    formFactor: {
         type: String,
         required: true
     },
-    formFactor: {
+    certificate: {
+        type: String,
+        required: true
+    },
+    efficiency: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    connectors: {
         type: String,
         required: true
     },
@@ -59,6 +47,6 @@ const ssdSchema = new mongoose.Schema({
     }]
 });
 
-const SSD = mongoose.model('SSD', ssdSchema);
+const PSU = mongoose.model('PSU', psuSchema);
 
-module.exports = SSD;
+module.exports = PSU;

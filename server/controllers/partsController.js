@@ -126,16 +126,45 @@ router.post('/create/case', async (req, res) => {
     }
 });
 
+router.post('/create/psu', async (req, res) => {
+    try {
+        const imagesURL = [];
+        const form = formidable({ multiples: true });
+        const [formData, incFiles] = await getFromData(req, form);
+
+        for (const file of Object.values(incFiles)) {
+            const url = await uploadToCloudinary(file.path);
+            imagesURL.push(url);
+        }
+
+        formData.images = imagesURL;
+        const product = await createPart('psu', formData);
+        res.status(201).send(product);
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.get('/count', async (req, res) => {
     try {
-        const [procCount, vgaCount, MBCount, memoryCount, hddCount, ssdCount, caseCount] = await Promise.all([
+        const [
+            procCount,
+            vgaCount,
+            MBCount,
+            memoryCount,
+            hddCount,
+            ssdCount,
+            caseCount,
+            psuCount
+        ] = await Promise.all([
             getPartCount('processor'),
             getPartCount('vga'),
             getPartCount('motherboard'),
             getPartCount('memory'),
             getPartCount('hdd'),
             getPartCount('ssd'),
-            getPartCount('case')
+            getPartCount('case'),
+            getPartCount('psu')
         ]);
         res.status(200).send({
             processors: procCount,
@@ -143,7 +172,8 @@ router.get('/count', async (req, res) => {
             MB: MBCount,
             memory: memoryCount,
             hdd: hddCount + ssdCount,
-            case: caseCount
+            case: caseCount,
+            psu: psuCount
         });
     } catch (error) {
         res.status(400).send({ message: error.message });

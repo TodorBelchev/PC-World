@@ -38,6 +38,10 @@ const processorSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    quantity: {
+        type: Number,
+        required: true
+    },
     warranty: {
         type: Number,
         required: true
