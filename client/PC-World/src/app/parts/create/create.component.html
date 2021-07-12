@@ -12,12 +12,20 @@
     </select>
 </form>
 <div class="form-container">
-    <app-create-processor *ngIf="selectedPart == 'processor'"></app-create-processor>
-    <app-create-vga *ngIf="selectedPart == 'vga'"></app-create-vga>
-    <app-create-motherboard *ngIf="selectedPart == 'motherboard'"></app-create-motherboard>
-    <app-create-memory *ngIf="selectedPart == 'memory'"></app-create-memory>
-    <app-create-hdd *ngIf="selectedPart == 'hdd'"></app-create-hdd>
-    <app-create-case *ngIf="selectedPart == 'case'"></app-create-case>
-    <app-create-power-supply *ngIf="selectedPart == 'psu'"></app-create-power-supply>
-    <app-create-cooler *ngIf="selectedPart == 'cooler'"></app-create-cooler>
+    <app-create-processor *ngIf="selectedPart == 'processor'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-processor>
+    <app-create-vga *ngIf="selectedPart == 'vga'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-vga>
+    <app-create-motherboard *ngIf="selectedPart == 'motherboard'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-motherboard>
+    <app-create-memory *ngIf="selectedPart == 'memory'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-memory>
+    <app-create-hdd *ngIf="selectedPart == 'hdd'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-hdd>
+    <app-create-case *ngIf="selectedPart == 'case'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-case>
+    <app-create-power-supply *ngIf="selectedPart == 'psu'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-power-supply>
+    <app-create-cooler *ngIf="selectedPart == 'cooler'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-cooler>
 </div>
