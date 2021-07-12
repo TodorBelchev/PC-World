@@ -1,29 +1,61 @@
 <div class="container">
-    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-        <label for="proccessor">Processor:</label>
-        <input type="text" name="processor" id="processor">
-        <label for="memory">Memory:</label>
-        <input type="text" name="memory" id="memory">
+    <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+        <label for="brand">Brand:</label>
+        <input ngModel type="text" name="brand" id="brand">
+        <label for="model">Model:</label>
+        <input ngModel type="text" name="model" id="model">
+        <label for="processor">Processor:</label>
+        <input ngModel type="text" name="processor" id="processor">
+        <label for="processorCores">Processor cores:</label>
+        <input ngModel type="number" name="processorCores" id="processorCores">
+        <label for="memoryType">Memory type:</label>
+        <input ngModel type="text" name="memoryType" id="memoryType">
+        <label for="memoryCapacity">Memory capacity:</label>
+        <input ngModel type="number" name="memoryCapacity" id="memoryCapacity">
+        <label for="memorySpeed">Memory speed:</label>
+        <input ngModel type="number" name="memorySpeed" id="memorySpeed">
         <label for="storage">Storage:</label>
-        <input type="text" name="storage" id="storage">
+        <input ngModel type="text" name="storage" id="storage">
+        <label for="storageCapacity">Storage capacity:</label>
+        <input ngModel type="number" name="storageCapacity" id="storageCapacity">
         <label for="graphics">Graphics:</label>
-        <input type="text" name="graphics" id="graphics">
+        <input ngModel type="text" name="graphics" id="graphics">
         <label for="display">Display:</label>
-        <input type="text" name="display" id="display">
+        <input ngModel type="text" name="display" id="display">
+        <label for="displaySize">Display size:</label>
+        <input ngModel type="number" name="displaySize" id="displaySize">
+        <label for="displayResolution">Display resolution:</label>
+        <input ngModel type="text" name="displayResolution" id="displayResolution">
+        <label for="displayRefresRate">Display refresh rate:</label>
+        <input ngModel type="number" name="displayRefreshRate" id="displayRefreshRate">
         <label for="ports">Ports:</label>
-        <input type="text" name="ports" id="ports">
+        <input ngModel type="text" name="ports" id="ports">
         <label for="weight">Weight:</label>
-        <input type="number" name="weight" id="weight">
+        <input ngModel type="number" name="weight" id="weight">
         <label for="color">Color:</label>
-        <input type="text" name="color" id="color">
+        <input ngModel type="text" name="color" id="color">
         <label for="dimensions">Dimensions:</label>
-        <input type="text" name="dimensions" id="dimensions">
+        <input ngModel type="text" name="dimensions" id="dimensions">
         <label for="battery">Battery:</label>
-        <input type="text" name="battery" id="battery">
+        <input ngModel type="text" name="battery" id="battery">
         <label for="OS">Operation system:</label>
-        <input type="text" name="OS" id="OS">
+        <input ngModel type="text" name="OS" id="OS">
+        <label for="category">Category:</label>
+        <select ngModel="home & entertainment" #category="ngModel" name="category" id="category">
+            <option value="home & entertainment" selected>home & entertainment</option>
+            <option value="business">business</option>
+            <option value="gaming">gaming</option>
+        </select>
+        <label for="warranty">Warranty:</label>
+        <input ngModel type="number" name="warranty" id="warranty">
+        <label for="image">Images:</label>
+        <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
         <label for="price">Price:</label>
-        <input type="number" name="price" id="price">
-        <input type="submit" value="Create">
+        <input ngModel type="number" name="price" id="price">
+        <label for="quantity">Quantity:</label>
+        <input ngModel type="number" name="quantity" id="quantity">
+        <div id="submit-container">
+            <input type="submit" value="Create">
+        </div>
     </form>
 </div>
