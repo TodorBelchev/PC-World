@@ -1,0 +1,7 @@
+ul {
+    list-style: none;
+    flex-basis: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
