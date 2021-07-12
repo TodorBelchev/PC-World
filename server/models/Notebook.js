@@ -18,6 +18,14 @@ const notebookSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    processorBrand: {
+        type: String,
+        required: true
+    },
+    processorModel: {
+        type: String,
+        required: true
+    },
     memoryType: {
         type: String,
         required: true

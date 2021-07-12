@@ -22,6 +22,7 @@ router.post('/create', async (req, res) => {
         const notebook = await createNotebook(formData);
         res.status(201).send(notebook);
     } catch (error) {
+        console.log(error.message);
         res.status(400).send({ message: error.message });
     }
 });
