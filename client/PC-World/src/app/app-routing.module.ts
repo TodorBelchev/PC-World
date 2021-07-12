@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
+import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
 import { CreateNotebookComponent } from './notebook/create-notebook/create-notebook.component';
 import { CreateComponent } from './parts/create/create.component';
 import { PartsComponent } from './parts/parts/parts.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'notebooks/create', component: CreateNotebookComponent },
   { path: 'components', component: PartsComponent },
   { path: 'components/create', component: CreateComponent },
+  { path: 'monitors/create', component: CreateMonitorComponent },
 ];
 
 @NgModule({

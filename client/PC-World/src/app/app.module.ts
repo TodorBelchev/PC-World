@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { MonitorModule } from './monitor/monitor.module';
 
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { PartsModule } from './parts/parts.module';
     NotebookModule,
     PartsModule,
     HttpClientModule,
+    MonitorModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({
