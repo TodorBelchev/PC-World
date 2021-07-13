@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-notebooks-list-item',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notebooks-list-item.component.scss']
 })
 export class NotebooksListItemComponent implements OnInit {
-
+  @Input() notebook: any;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.notebook);
+    
   }
 
+  onAddToCart(): void {
+    console.log('clicked');
+    
+  }
 }

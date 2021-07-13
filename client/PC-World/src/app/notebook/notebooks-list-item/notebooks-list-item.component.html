@@ -1,26 +1,44 @@
-<a routerLink="/components/processors">
-    <div class="card">
-        <img src="http://res.cloudinary.com/dex8g0z5j/image/upload/v1626083168/msfvzasup93gvsycdywl.png" alt="notebook-image">
-        <h3>Lenovo Yoga Slim 7 Pro</h3>
-        <div class="parameter">
-            <span>Processor: </span>
-            <strong>AMD Ryzen™ 7 5800H</strong>
+<div class="card-container">
+    <a routerLink="/notebooks/{{notebook._id}}">
+        <div class="card">
+            <img src="{{notebook.images[0]}}" alt="notebook-image">
+            <h3>{{notebook.brand}} {{notebook.model}}</h3>
+            <div class="parameters">
+                <div class="parameter">
+                    <span>Processor: </span>
+                    <strong>{{notebook.processorBrand}} {{notebook.processorModel}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Video card: </span>
+                    <strong>{{notebook.graphics}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Memory: </span>
+                    <strong>{{notebook.memoryCapacity}}GB {{notebook.memoryType}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Storage: </span>
+                    <strong>{{notebook.storageCapacity}}GB</strong>
+                </div>
+                <div class="parameter">
+                    <span>Display: </span>
+                    <strong>{{notebook.displaySize}}'' {{notebook.displayResolution}}</strong>
+                </div>
+            </div>
+            <div class="btn-container">
+                <div class="old-price">
+                    <span *ngIf="notebook.promoPrice !== 0">$ {{notebook.price}}</span>
+                </div>
+                <button class="btn-primary"></button>
+                <div class="promo-price" *ngIf="notebook.promoPrice">
+                    <span>$ {{notebook.promoPrice}}</span>
+                </div>
+                <div class="price" *ngIf="!notebook.promoPrice">
+                    <span>$ {{notebook.price}}</span>
+                </div>
+                <button class="btn-secondary">Details</button>
+            </div>
         </div>
-        <div class="parameter">
-            <span>Video card: </span>
-            <strong>AMD Radeon Graphics</strong>
-        </div>
-        <div class="parameter">
-            <span>Memory: </span>
-            <strong>16GB DDR4</strong>
-        </div>
-        <div class="parameter">
-            <span>Storage: </span>
-            <strong>512GB</strong>
-        </div>
-        <div class="parameter">
-            <span>Display: </span>
-            <strong>14'' 2880 x 1800</strong>
-        </div>
-    </div>
-</a>
+    </a>
+    <button (click)="onAddToCart()" class="btn-primary" id="add-btn">Add to cart</button>
+</div>

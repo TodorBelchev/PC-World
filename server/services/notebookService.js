@@ -5,6 +5,11 @@ const createNotebook = (data) => {
     return notebook.save();
 };
 
+const getNotebooksByPage = (page) => {
+    return Notebook.find({}).skip(page * 16).limit(16);
+}
+
 module.exports = {
-    createNotebook
+    createNotebook,
+    getNotebooksByPage
 }

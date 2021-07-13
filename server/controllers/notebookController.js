@@ -3,9 +3,19 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createNotebook } = require('../services/notebookService');
+const { createNotebook, getNotebooksByPage } = require('../services/notebookService');
 
 const router = Router();
+
+router.get('/', async (req, res) => {
+    try {
+        const page = Number(req.query.page) - 1;
+        const notebooks = await getNotebooksByPage(page);
+        res.status(200).send(notebooks);
+    } catch (error) {
+        
+    }
+});
 
 router.post('/create', async (req, res) => {
     try {

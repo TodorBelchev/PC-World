@@ -1,14 +1,8 @@
 <div class="container">
     <app-aside></app-aside>
     <ul>
-        <li>
-            <app-notebooks-list-item></app-notebooks-list-item>
-        </li>
-        <li>
-            <app-notebooks-list-item></app-notebooks-list-item>
-        </li>
-        <li>
-            <app-notebooks-list-item></app-notebooks-list-item>
+        <li *ngFor="let notebook of notebooks">
+            <app-notebooks-list-item [notebook]="notebook"></app-notebooks-list-item>
         </li>
     </ul>
 </div>

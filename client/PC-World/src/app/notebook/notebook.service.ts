@@ -15,4 +15,8 @@ export class NotebookService {
   create(data: any): Observable<any> {
     return this.http.post(environment.api_url + 'notebooks/create', data);
   }
+
+  getNotebooks(): Observable<any> {
+    return this.http.get(environment.api_url + 'notebooks?page=1');
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotebookService } from '../notebook.service';
 
 @Component({
   selector: 'app-notebooks-list',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notebooks-list.component.scss']
 })
 export class NotebooksListComponent implements OnInit {
-
-  constructor() { }
+  notebooks: [] =[];
+  constructor(
+    private notebookService: NotebookService
+  ) { }
 
   ngOnInit(): void {
+    this.notebookService.getNotebooks().subscribe(
+      data => {
+        this.notebooks = data;
+      },
+      error => {
+        console.log(error.message);
+      }
+    )
   }
 
 }
