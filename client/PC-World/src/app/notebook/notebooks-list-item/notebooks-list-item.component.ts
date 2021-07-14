@@ -10,7 +10,6 @@ export class NotebooksListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.notebook);
     
   }
 

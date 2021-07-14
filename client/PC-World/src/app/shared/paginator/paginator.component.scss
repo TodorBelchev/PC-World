@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.pagination {
+    width: 600px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-selector {
+    margin: 10px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    width: 37px;
+    height: 42px;
+    text-decoration: none;
+    display: inline-table;
+    text-align: center;
+    vertical-align: baseline;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: $secondary-color;
+    color: white;
+    border-color: $secondary-color;
+}

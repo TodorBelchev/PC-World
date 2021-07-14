@@ -1,0 +1,4 @@
+<div class="pagination" *ngIf="pages.length > 0">
+    <a [routerLink]="currentUrl" [queryParams]="{ page: i + 1 }" class="page-selector" [class.active]="currentPage == i + 1"
+        *ngFor="let page of pages; let i = index">{{page}}</a>
+</div>

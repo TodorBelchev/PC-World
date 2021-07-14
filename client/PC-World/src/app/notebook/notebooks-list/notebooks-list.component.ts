@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotebookService } from '../notebook.service';
 
 @Component({
@@ -7,20 +8,30 @@ import { NotebookService } from '../notebook.service';
   styleUrls: ['./notebooks-list.component.scss']
 })
 export class NotebooksListComponent implements OnInit {
-  notebooks: [] =[];
+  notebooks: [] = [];
+  pages: string[] = [];
+  page: number = 1;
   constructor(
-    private notebookService: NotebookService
+    private notebookService: NotebookService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.notebookService.getNotebooks().subscribe(
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    }
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.page = params['page'];
+    });
+    this.notebookService.getNotebooks(this.page).subscribe(
       data => {
         this.notebooks = data;
       },
       error => {
         console.log(error.message);
       }
-    )
+    );
   }
 
 }
