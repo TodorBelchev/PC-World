@@ -7,6 +7,9 @@ import { AsideItemPriceComponent } from './aside-item-price/aside-item-price.com
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import * as fromShared from './store/shared.reducer';
+import { ImagesComponent } from './images/images.component';
+import { ControlsComponent } from './controls/controls.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -14,17 +17,22 @@ import * as fromShared from './store/shared.reducer';
   declarations: [
     AsideComponent,
     PaginatorComponent,
-    AsideItemPriceComponent
+    AsideItemPriceComponent,
+    ImagesComponent,
+    ControlsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    FontAwesomeModule,
     StoreModule.forFeature(fromShared.featureKey, fromShared.sharedReducer)
   ],
   exports: [
     AsideComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    ImagesComponent,
+    ControlsComponent
   ]
 })
 export class SharedModule { }

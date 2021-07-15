@@ -1,0 +1,7 @@
+<div class="image-container">
+    <img src="{{images[imageIndex]}}" alt="notebook image">
+    <div class="image-subcontainer">
+        <img src="{{img}}" alt="notebook image" *ngFor="let img of images; let i = index"
+            (click)="onImgClick(i)">
+    </div>
+</div>

@@ -1,38 +1,8 @@
 <div class="container">
-    <div class="image-container">
-        <img src="{{notebook.images[imageIndex]}}" alt="notebook image">
-        <div class="image-subcontainer">
-            <img src="{{img}}" alt="notebook image" *ngFor="let img of notebook.images; let i = index"
-                (click)="onImgClick(i)">
-        </div>
-    </div>
+    <app-images [images]="notebook.images"></app-images>
     <div class="content">
         <h2>{{notebook.brand}} {{notebook.model}}</h2>
-        <div class="controls">
-            <div class="tooltip-container" *ngIf="notebook.quantity >= 5">
-                <fa-icon [icon]="faCheckSquare" class="green" size="lg"></fa-icon>
-                <span class="tooltip">In stock</span>
-            </div>
-            <div class="tooltip-container" *ngIf="notebook.quantity > 0 && notebook.quantity < 5">
-                <fa-icon [icon]="faCheckSquare" class="yellow" size="lg"></fa-icon>
-                <span class="tooltip">Hurry up! Only {{notebook.quantity}} left!</span>
-            </div>
-            <div class="tooltip-container" *ngIf="notebook.quantity == 0 ">
-                <fa-icon [icon]="faCheckSquare" class="red" size="lg"></fa-icon>
-                <span class="tooltip">Out of stock. Contact us for more information.</span>
-            </div>
-            <div class="old-price">
-                <span *ngIf="notebook.promoPrice !== 0">$ {{notebook.price}}</span>
-            </div>
-            <div class="promo-price" *ngIf="notebook.promoPrice">
-                <span>$ {{notebook.promoPrice}}</span>
-            </div>
-            <div class="price" *ngIf="!notebook.promoPrice">
-                <span>$ {{notebook.price}}</span>
-            </div>
-            <input class="cart" type="submit" value="add to cart" />
-            <input class="wishlist" type="submit" value="add to wishlist" />
-        </div>
+        <app-controls [product]="notebook"></app-controls>
         <div>
             <h3>Parameters:</h3>
             <div class="parameters">

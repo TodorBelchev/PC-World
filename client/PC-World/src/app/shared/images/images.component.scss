@@ -1,0 +1,19 @@
+.image-container {
+    width: 400px;
+    margin: 20px 20px 20px 0;
+}
+
+.image-container > img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+}
+
+.image-subcontainer {
+    width: 400px;
+}
+
+.image-subcontainer > img {
+    width: 100px;
+    object-fit: contain;
+}
