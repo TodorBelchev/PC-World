@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { from, of } from "rxjs";
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, mergeMap } from 'rxjs/operators';
 
 import { AuthService } from "../auth.service";
 import * as AuthActions from './auth.actions';
@@ -47,5 +47,21 @@ export class AuthEffects {
         })
     ));
 
+    addToCart$ = createEffect(() => this.actions$.pipe(
+        ofType(AuthActions.addToCart),
+        mergeMap((action: AuthActions.cartProps) => this.authService.addToCart({ _id: action._id, quantity: action.quantity })
+            .pipe(
+                map(() => ({ type: 'Success' }))
+            )
+        )
+    ));
 
+    addToWishlist$ = createEffect(() => this.actions$.pipe(
+        ofType(AuthActions.addToWishlist),
+        mergeMap((action: AuthActions.cartProps) => this.authService.addToWishlist({ _id: action._id, quantity: action.quantity })
+            .pipe(
+                map(() => ({ type: 'Success' }))
+            )
+        )
+    ));
 }

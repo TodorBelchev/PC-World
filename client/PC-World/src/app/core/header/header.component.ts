@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { faSearch, faUser, faShoppingCart, faHeart, faDesktop } from '@fortawesome/free-solid-svg-icons';
 
 import * as authSelectors from '../../auth/store/auth.selectors';
+import { cartProps } from '../../auth/store/auth.actions';
 import { AppState } from 'src/app/shared/app-state.interface';
 import { IUser } from 'src/app/auth/user.interface';
 import { Observable } from 'rxjs';
@@ -20,6 +21,8 @@ export class HeaderComponent implements OnInit {
   faHeart = faHeart;
   faDesktop = faDesktop;
   user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
+  cart$: Observable<cartProps[] | []> = this.store.pipe(select(authSelectors.selectCart));
+  wishlist$: Observable<{ _id: string }[] | []> = this.store.pipe(select(authSelectors.selectWishlist));
 
   constructor(
     private store: Store<AppState>

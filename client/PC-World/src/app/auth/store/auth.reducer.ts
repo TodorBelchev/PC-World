@@ -1,6 +1,7 @@
 import { createReducer, on, Action } from "@ngrx/store";
 
 import { IUser } from '../user.interface';
+
 import * as AuthActions from './auth.actions';
 
 export interface AuthState {
@@ -8,6 +9,8 @@ export interface AuthState {
     authError: string | null;
     loading: boolean;
     errorMsg: string | null;
+    cart: AuthActions.cartProps[];
+    wishlist: { _id: string }[];
 }
 
 export const featureKey = 'auth';
@@ -16,7 +19,9 @@ const initialState: AuthState = {
     user: null,
     authError: null,
     loading: false,
-    errorMsg: null
+    errorMsg: null,
+    cart: [],
+    wishlist: []
 };
 
 const _authReducer = createReducer(
@@ -46,6 +51,27 @@ const _authReducer = createReducer(
             ...state,
             loading: false,
             errorMsg: action.errorMsg
+        }
+    }),
+    on(AuthActions.add_cart, (state, action) => {
+        const cart = state.cart || [];
+        return {
+            ...state,
+            cart: [...cart, { _id: action._id, quantity: action.quantity }]
+        }
+    }),
+    on(AuthActions.add_wishlist, (state, action) => {
+        const wishlist = state.wishlist || [];
+        const alreadyIn = state.wishlist.find(x => x._id == action._id);
+        let newWishlist = [];
+        if (alreadyIn) {
+            newWishlist = wishlist;
+        } else {
+            newWishlist = [...wishlist, { _id: action._id }];
+        }
+        return {
+            ...state,
+            wishlist: newWishlist
         }
     })
 )

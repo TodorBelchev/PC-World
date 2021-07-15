@@ -27,13 +27,13 @@
             <li>
                 <a routerLink="/cart" class="cart">
                     <fa-icon [icon]="faShoppingCart" size="lg"></fa-icon>
-                    <div class="quantity">2</div>
+                    <div class="quantity">{{(cart$ | async)?.length}}</div>
                 </a>
             </li>
             <li>
                 <a routerLink="/favorites" class="favorites">
                     <fa-icon [icon]="faHeart" size="lg"></fa-icon>
-                    <div class="quantity">2</div>
+                    <div class="quantity">{{(wishlist$ | async)?.length}}</div>
                 </a>
             </li>
         </ul>

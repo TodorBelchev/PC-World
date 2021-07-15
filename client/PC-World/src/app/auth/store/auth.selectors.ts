@@ -8,3 +8,13 @@ export const selectUser = createSelector(
     selectFeature,
     (state: AuthState) => <IUser>state.user
 );
+
+export const selectCart = createSelector(
+    selectFeature,
+    (state: AuthState) => state.cart
+)
+
+export const selectWishlist = createSelector(
+    selectFeature,
+    (state: AuthState) => state.wishlist
+)
