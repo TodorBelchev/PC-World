@@ -6,6 +6,8 @@ import { NotebooksListComponent } from './notebooks-list/notebooks-list.componen
 import { NotebooksListItemComponent } from './notebooks-list-item/notebooks-list-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { DetailsComponent } from './details/details.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -13,13 +15,15 @@ import { RouterModule } from '@angular/router';
   declarations: [
     CreateNotebookComponent,
     NotebooksListComponent,
-    NotebooksListItemComponent
+    NotebooksListItemComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ]
 })
 export class NotebookModule { }

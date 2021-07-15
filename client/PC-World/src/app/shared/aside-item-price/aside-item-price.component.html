@@ -1,0 +1,8 @@
+<p>Filter by price:</p>
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+    <label for="from">Min price:</label>
+    <input ngModel type="number" name="from" id="from">
+    <label for="to">Max price:</label>
+    <input ngModel type="number" name="to" id="to">
+    <input type="submit" value="Filter">
+</form>

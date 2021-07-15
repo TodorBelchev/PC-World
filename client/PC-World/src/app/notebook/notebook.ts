@@ -1,0 +1,31 @@
+export interface INotebook {
+    _id: string;
+    images: string[];
+    brand: string;
+    model: string;
+    processor: string;
+    processorCores: number;
+    memoryType: string;
+    memoryCapacity: number;
+    memorySpeed: number;
+    storage: string;
+    storageCapacity: number;
+    graphics: string;
+    display: string;
+    displaySize: number;
+    displayResolution: string;
+    displayRefreshRate: number;
+    ports: string;
+    weight: number;
+    color: string;
+    dimensions: string;
+    battery: string;
+    OS: string;
+    category: string;
+    warranty: number;
+    price: number;
+    quantity: number;
+    processorBrand: string;
+    processorModel: string;
+    promoPrice: number;
+}

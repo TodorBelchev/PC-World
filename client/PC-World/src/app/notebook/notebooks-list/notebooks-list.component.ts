@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IFilter } from 'src/app/shared/store/shared.selectors';
 import { NotebookService } from '../notebook.service';
+import * as sharedSelectors from '../../shared/store/shared.selectors';
+import { AppState } from 'src/app/shared/app-state.interface';
 
 @Component({
   selector: 'app-notebooks-list',
@@ -11,11 +16,13 @@ export class NotebooksListComponent implements OnInit {
   notebooks: [] = [];
   pages: string[] = [];
   page: number = 1;
+  filter$: Observable<IFilter | null> = this.store.pipe(select(sharedSelectors.selectFilter));
   constructor(
     private notebookService: NotebookService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private store: Store<AppState>
+  ) { }  
 
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
@@ -32,6 +39,11 @@ export class NotebooksListComponent implements OnInit {
         console.log(error.message);
       }
     );
+  }
+
+  onFilter(event: any): void {
+    console.log(event);
+    
   }
 
 }

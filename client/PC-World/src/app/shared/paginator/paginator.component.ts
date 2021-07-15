@@ -28,7 +28,7 @@ export class PaginatorComponent implements OnInit {
     let service = undefined;
 
     if (this.currentUrl === '/notebooks') {
-      service = this.notebookService
+      service = this.notebookService;
     }
     service!.getCount().subscribe(
       data => {

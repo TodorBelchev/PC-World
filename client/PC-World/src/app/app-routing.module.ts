@@ -5,6 +5,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
 import { CreateNotebookComponent } from './notebook/create-notebook/create-notebook.component';
+import { DetailsComponent } from './notebook/details/details.component';
 import { NotebooksListComponent } from './notebook/notebooks-list/notebooks-list.component';
 import { CreateComponent } from './parts/create/create.component';
 import { PartsComponent } from './parts/parts/parts.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'notebooks', component: NotebooksListComponent },
   { path: 'notebooks/create', component: CreateNotebookComponent },
+  { path: 'notebooks/:id', component: DetailsComponent },
   { path: 'components', component: PartsComponent },
   { path: 'components/create', component: CreateComponent },
   { path: 'monitors/create', component: CreateMonitorComponent },

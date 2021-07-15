@@ -5,6 +5,10 @@ const createNotebook = (data) => {
     return notebook.save();
 };
 
+const getNotebookById = (id) => {
+    return Notebook.findById(id);
+}
+
 const getNotebooksByPage = (page) => {
     return Notebook.find({}).skip(page * 16).limit(16);
 }
@@ -16,5 +20,6 @@ const getCount = () => {
 module.exports = {
     createNotebook,
     getNotebooksByPage,
-    getCount
+    getCount,
+    getNotebookById
 }

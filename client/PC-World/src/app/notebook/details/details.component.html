@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="image-container">
+        <img src="{{notebook.images[imageIndex]}}" alt="notebook image">
+        <div class="image-subcontainer">
+            <img src="{{img}}" alt="notebook image" *ngFor="let img of notebook.images; let i = index"
+                (click)="onImgClick(i)">
+        </div>
+    </div>
+    <div class="content">
+        <h2>{{notebook.brand}} {{notebook.model}}</h2>
+        <div class="controls">
+            <div class="tooltip-container" *ngIf="notebook.quantity >= 5">
+                <fa-icon [icon]="faCheckSquare" class="green" size="lg"></fa-icon>
+                <span class="tooltip">In stock</span>
+            </div>
+            <div class="tooltip-container" *ngIf="notebook.quantity > 0 && notebook.quantity < 5">
+                <fa-icon [icon]="faCheckSquare" class="yellow" size="lg"></fa-icon>
+                <span class="tooltip">Hurry up! Only {{notebook.quantity}} left!</span>
+            </div>
+            <div class="tooltip-container" *ngIf="notebook.quantity == 0 ">
+                <fa-icon [icon]="faCheckSquare" class="red" size="lg"></fa-icon>
+                <span class="tooltip">Out of stock. Contact us for more information.</span>
+            </div>
+            <div class="old-price">
+                <span *ngIf="notebook.promoPrice !== 0">$ {{notebook.price}}</span>
+            </div>
+            <div class="promo-price" *ngIf="notebook.promoPrice">
+                <span>$ {{notebook.promoPrice}}</span>
+            </div>
+            <div class="price" *ngIf="!notebook.promoPrice">
+                <span>$ {{notebook.price}}</span>
+            </div>
+            <input class="cart" type="submit" value="add to cart" />
+            <input class="wishlist" type="submit" value="add to wishlist" />
+        </div>
+        <div>
+            <h3>Parameters:</h3>
+            <div class="parameters">
+                <div class="parameter">Processor:</div>
+                <div class="value">{{notebook.processor}}</div>
+                <div class="parameter">Video card:</div>
+                <div class="value">{{notebook.graphics}}</div>
+                <div class="parameter">Memory:</div>
+                <div class="value">{{notebook.memoryCapacity}}GB {{notebook.memoryType}} {{notebook.memorySpeed}}Mhz
+                </div>
+                <div class="parameter">Storage:</div>
+                <div class="value">{{notebook.storage}}</div>
+                <div class="parameter">Display:</div>
+                <div class="value">{{notebook.display}}</div>
+                <div class="parameter">Ports:</div>
+                <div class="value">{{notebook.ports}}</div>
+                <div class="parameter">Weight:</div>
+                <div class="value">{{notebook.weight}}kg</div>
+                <div class="parameter">Dimensions:</div>
+                <div class="value">{{notebook.dimensions}}</div>
+                <div class="parameter">Color:</div>
+                <div class="value">{{notebook.color}}</div>
+                <div class="parameter">Battery:</div>
+                <div class="value">{{notebook.battery}}</div>
+                <div class="parameter">Operating system:</div>
+                <div class="value">{{notebook.OS}}</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{notebook.warranty}} months</div>
+            </div>
+        </div>
+    </div>
+</div>
