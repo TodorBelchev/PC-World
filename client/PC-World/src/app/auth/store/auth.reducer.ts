@@ -53,14 +53,25 @@ const _authReducer = createReducer(
             errorMsg: action.errorMsg
         }
     }),
-    on(AuthActions.add_cart, (state, action) => {
-        const cart = state.cart || [];
+    on(AuthActions.add_cart, AuthActions.auto_load_cart, (state, action) => {
+        const cart = [...state.cart] || [];
+        const isAlreadyIn = cart.find(x => x._id == action._id);
+        if (isAlreadyIn) {
+            const index = cart.indexOf(isAlreadyIn);
+            const quantity = cart[index].quantity;
+            cart[index] = {
+                ...cart[index],
+                quantity: quantity + 1
+            }
+        } else {
+            cart.push({ _id: action._id, quantity: action.quantity });
+        }
         return {
             ...state,
-            cart: [...cart, { _id: action._id, quantity: action.quantity }]
+            cart: cart
         }
     }),
-    on(AuthActions.add_wishlist, (state, action) => {
+    on(AuthActions.add_wishlist, AuthActions.auto_load_wishlist, (state, action) => {
         const wishlist = state.wishlist || [];
         const alreadyIn = state.wishlist.find(x => x._id == action._id);
         let newWishlist = [];

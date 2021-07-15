@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faHeart = faHeart;
   faDesktop = faDesktop;
+  cartItemsCount: number = 0;
   user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
   cart$: Observable<cartProps[] | []> = this.store.pipe(select(authSelectors.selectCart));
   wishlist$: Observable<{ _id: string }[] | []> = this.store.pipe(select(authSelectors.selectWishlist));
@@ -29,7 +30,13 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.cart$.subscribe(
+      data => {
+        this.cartItemsCount = [...data].reduce((acc, curr) => acc + curr.quantity, 0);
+      },
+      error => {
+        console.log(error.message);
+      });
   }
 
 }

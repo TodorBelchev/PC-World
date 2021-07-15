@@ -27,13 +27,15 @@
             <li>
                 <a routerLink="/cart" class="cart">
                     <fa-icon [icon]="faShoppingCart" size="lg"></fa-icon>
-                    <div class="quantity">{{(cart$ | async)?.length}}</div>
+                    <div *ngIf="(cart$ | async)?.length! > 0" class="quantity-cart">{{cartItemsCount}}
+                    </div>
                 </a>
             </li>
             <li>
                 <a routerLink="/favorites" class="favorites">
                     <fa-icon [icon]="faHeart" size="lg"></fa-icon>
-                    <div class="quantity">{{(wishlist$ | async)?.length}}</div>
+                    <div *ngIf="(wishlist$ | async)?.length! > 0" class="quantity-wishlist">{{(wishlist$ |
+                        async)?.length}}</div>
                 </a>
             </li>
         </ul>

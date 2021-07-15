@@ -100,6 +100,6 @@ input.wishlist {
     transition: 500ms all;
 }
 
-.tooltip-container:hover .tooltip {
+.tooltip-container>fa-icon:hover + .tooltip {
     opacity: 1;
 }
