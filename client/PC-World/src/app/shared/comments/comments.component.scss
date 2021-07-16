@@ -1,0 +1,9 @@
+@import '../variables.scss';
+:host {
+    flex-basis: 100%;
+    color: white;
+}
+.comments-container {
+    background: $secondary-color;
+    flex-basis: 100%;
+}

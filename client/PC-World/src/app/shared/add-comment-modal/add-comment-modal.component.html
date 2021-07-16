@@ -1,0 +1,46 @@
+<div class="modal" (click)="onContainerClick()" *ngIf="showModal">
+</div>
+<!-- <form *ngIf="user$ | async" [formGroup]="commentForm" (ngSubmit)="onSubmit()"> -->
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <h3 class="form-title">Review this product:</h3>
+    <label *ngIf="(user$ | async)?.firstName == ''" for="firstName">First name:</label>
+    <input formControlName="firstName" *ngIf="(user$ | async)?.firstName == ''" type="text" id="firstName" name="firstName">
+    <label *ngIf="(user$ | async)?.firstName == ''" for="lastName">Last name:</label>
+    <input formControlName="lastName" *ngIf="(user$ | async)?.firstName == ''" type="text" id="lastName" name="lastName">
+    <label for="comment">Leave comment:</label>
+    <textarea formControlName="comment" type="text" id="comment" name="comment"> </textarea>
+    <label>Leave rating:</label>
+    <div class="rating">
+        <label>
+            <input formControlName="rating" type="radio" name="rating" value="1" />
+            <span class="icon">★</span>
+        </label>
+        <label>
+            <input formControlName="rating" type="radio" name="rating" value="2" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+        </label>
+        <label>
+            <input formControlName="rating" type="radio" name="rating" value="3" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+        </label>
+        <label>
+            <input formControlName="rating" type="radio" name="rating" value="4" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+        </label>
+        <label>
+            <input formControlName="rating" type="radio" name="rating" value="5" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+        </label>
+    </div>
+    <input type="submit" value="Comment">
+</form>

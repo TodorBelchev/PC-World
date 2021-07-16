@@ -1,8 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { AppState } from '../app-state.interface';
 import { add_cart, add_wishlist } from '../../auth/store/auth.actions';
+import { Observable } from 'rxjs';
+import { IUser } from 'src/app/auth/user.interface';
+import * as authSelectors from '../../auth/store/auth.selectors';
 
 @Component({
   selector: 'app-controls',
@@ -11,12 +14,16 @@ import { add_cart, add_wishlist } from '../../auth/store/auth.actions';
 })
 export class ControlsComponent implements OnInit {
   faCheckSquare = faCheckSquare;
+  @Input() showModal: boolean = false;
+  @Output() showModalEvent: EventEmitter<any> = new EventEmitter();
+  @Input() productName: string = '';
   @Input() product: { _id: string, price: number, quantity: number, promoPrice: number } = {
     _id: '',
     price: 0,
     quantity: 0,
     promoPrice: 0,
   };
+  user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
   constructor(
     private store: Store<AppState>
   ) { }
@@ -30,5 +37,10 @@ export class ControlsComponent implements OnInit {
 
   onAddToWishlistClick(): void {
     this.store.dispatch(add_wishlist({ _id: this.product._id, quantity: 1 }));
+  }
+
+  onAddReview(): void {
+    this.showModal = !this.showModal;
+    this.showModalEvent.emit({ showModal: this.showModal });
   }
 }

@@ -1,8 +1,9 @@
+<app-add-comment-modal (closeModal)="onCloseModal()" [showModal]="showModal" *ngIf="showModal" [product]="{ _id: notebook._id, productName: 'Notebook'}"></app-add-comment-modal>
 <div class="container">
     <app-images [images]="notebook.images"></app-images>
     <div class="content">
         <h2>{{notebook.brand}} {{notebook.model}}</h2>
-        <app-controls [product]="notebook"></app-controls>
+        <app-controls (showModalEvent)="onShowModal($event)" [showModal]="showModal" [product]="notebook"></app-controls>
         <div>
             <h3>Parameters:</h3>
             <div class="parameters">
@@ -34,4 +35,5 @@
             </div>
         </div>
     </div>
+    <app-comments></app-comments>
 </div>

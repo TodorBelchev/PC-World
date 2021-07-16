@@ -11,6 +11,7 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 })
 export class DetailsComponent implements OnInit {
   faCheckSquare = faCheckSquare;
+  showModal: boolean = false;
   notebook :INotebook  = {
     _id: '',
     images: [''],
@@ -43,6 +44,7 @@ export class DetailsComponent implements OnInit {
     promoPrice: 0,
   };
   imageIndex: number = 0;
+  id = this.router.url.split('/')[2];
 
   constructor(
     private notebookService: NotebookService,
@@ -50,8 +52,7 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this.router.url.split('/')[2];
-    this.notebookService.getNotebookById(id).subscribe(
+    this.notebookService.getNotebookById(this.id).subscribe(
       data => {
         this.notebook = data;
       },
@@ -64,4 +65,13 @@ export class DetailsComponent implements OnInit {
   onImgClick(index: number): void {
     this.imageIndex = index;
   }
+
+  onShowModal(event: any): void {
+    this.showModal = event.showModal;
+  }
+
+  onCloseModal(): void {
+    this.showModal = false;
+  }
+
 }

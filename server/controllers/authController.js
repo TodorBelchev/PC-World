@@ -91,7 +91,9 @@ function removePass(user) {
     const payload = {
         email: user.email,
         _id: user._id,
-        isAdmin: user.isAdmin
+        isAdmin: user.isAdmin,
+        firstName: user.firstName,
+        lastName: user.lastName
     }
     return payload;
 }
