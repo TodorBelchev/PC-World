@@ -1,5 +1,5 @@
 <div class="container">
-    <app-aside (submitPriceFilter)="onFilter($event)"></app-aside>
+    <app-aside></app-aside>
     <ul>
         <li *ngFor="let notebook of notebooks">
             <app-notebooks-list-item [notebook]="notebook"></app-notebooks-list-item>

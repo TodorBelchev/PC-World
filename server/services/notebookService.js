@@ -9,12 +9,12 @@ const getNotebookById = (id) => {
     return Notebook.findById(id);
 }
 
-const getNotebooksByPage = (page) => {
-    return Notebook.find({}).skip(page * 16).limit(16);
+const getNotebooksByPage = (page, filter) => {
+    return Notebook.find(filter).skip(page * 16).limit(16);
 }
 
-const getCount = () => {
-    return Notebook.collection.countDocuments();
+const getCount = (filter) => {
+    return Notebook.find(filter);
 }
 
 module.exports = {

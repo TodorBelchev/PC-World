@@ -20,11 +20,15 @@ export class NotebookService {
     return this.http.get(environment.api_url + 'notebooks/' + id);
   }
 
-  getNotebooks(page: number): Observable<any> {
-    return this.http.get(environment.api_url + 'notebooks?page=' + page);
+  getNotebooks(query?: any): Observable<any> {
+    let url = environment.api_url + 'notebooks?';
+    if (query) {
+      url += query;
+    }
+    return this.http.get(url);
   }
 
-  getCount(): Observable<any> {
-    return this.http.get(environment.api_url + 'notebooks/count');
+  getCount(query: string): Observable<any> {
+    return this.http.get(environment.api_url + 'notebooks/count' + query);
   }
 }

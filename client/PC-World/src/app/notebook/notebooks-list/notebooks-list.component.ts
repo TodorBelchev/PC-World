@@ -22,16 +22,22 @@ export class NotebooksListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>
-  ) { }  
+  ) { }
 
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     }
+    let query = '';
+
     this.activatedRoute.queryParams.subscribe(params => {
+      Object.entries(params).forEach(([k, v]) => {
+        query += '&' + k + '=' + v;
+      });
       this.page = params['page'];
     });
-    this.notebookService.getNotebooks(this.page).subscribe(
+
+    this.notebookService.getNotebooks(query).subscribe(
       data => {
         this.notebooks = data;
       },
@@ -39,11 +45,26 @@ export class NotebooksListComponent implements OnInit {
         console.log(error.message);
       }
     );
-  }
 
-  onFilter(event: any): void {
-    console.log(event);
-    
+    // this.filter$.subscribe(
+    //   filterData => {
+
+    //     if(filterData?.price.from) {
+    //       this.router.navigateByUrl('/notebooks?page=' + this.page + '&filterData=' + JSON.stringify(filterData));
+    //     }
+    //     // this.notebookService.getNotebooks(this.page, filterData).subscribe(
+    //     //   data => {
+    //     //     this.notebooks = data;
+    //     //   },
+    //     //   error => {
+    //     //     console.log(error.message);
+    //     //   }
+    //     // )
+    //   },
+    //   error => {
+    //     console.log(error.message);
+    //   }
+    // )
   }
 
 }

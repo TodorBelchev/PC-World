@@ -9,8 +9,18 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     try {
+        const incFilter = req.query;
+        const filter = {};
+        
+        if (incFilter.priceFrom && !incFilter.priceTo) {
+            filter.currentPrice = { $gte: incFilter.priceFrom };
+        } else if (incFilter.priceTo && !incFilter.priceFrom) {
+            filter.currentPrice = { $lte: incFilter.priceTo };
+        } else if (incFilter.priceTo && incFilter.priceFrom) {
+            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
+        }
         const page = Number(req.query.page) - 1;
-        const notebooks = await getNotebooksByPage(page);
+        const notebooks = await getNotebooksByPage(page, filter);
         res.status(200).send(notebooks);
     } catch (error) {
         console.log(error.message);
@@ -21,8 +31,18 @@ router.get('/', async (req, res) => {
 
 router.get('/count', async (req, res) => {
     try {
-        const count = await getCount();
-        res.status(200).send({ count });
+        const incFilter = req.query;
+        const filter = {};
+        if (incFilter.priceFrom && !incFilter.priceTo) {
+            filter.currentPrice = { $gte: incFilter.priceFrom };
+        } else if (incFilter.priceTo && !incFilter.priceFrom) {
+            filter.currentPrice = { $lte: incFilter.priceTo };
+        } else if (incFilter.priceTo && incFilter.priceFrom) {
+            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
+        }
+
+        const notebooks = await getCount(filter);
+        res.status(200).send({ count: notebooks.length });
     } catch (error) {
         console.log(error.message);
         res.status(400).send({ message: error.message });
