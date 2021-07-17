@@ -9,6 +9,11 @@ export const selectFilter = createSelector(
     (state: SharedState) => <IFilter | null>state.filter
 );
 
+export const commentCreated = createSelector(
+    selectFeature,
+    (state: SharedState) => state.commentCreated
+);
+
 export interface IFilter {
     price: {
         from: number;

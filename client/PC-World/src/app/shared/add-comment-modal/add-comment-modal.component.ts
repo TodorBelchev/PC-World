@@ -6,6 +6,8 @@ import { IUser } from 'src/app/auth/user.interface';
 import { AppState } from '../app-state.interface';
 import { SharedService } from '../shared.service';
 import * as authSelectors from '../../auth/store/auth.selectors';
+import * as sharedActions from '../store/shared.actions';
+import { IComment } from '../comment';
 
 @Component({
   selector: 'app-add-comment-modal',
@@ -14,8 +16,8 @@ import * as authSelectors from '../../auth/store/auth.selectors';
 })
 export class AddCommentModalComponent implements OnInit {
   @Input() showModal: boolean = false;
-  @Output() closeModal: EventEmitter<any> = new EventEmitter();
   @Input() product: { _id: string, productName: string } = { _id: '', productName: '' };
+  @Output() closeModal: EventEmitter<any> = new EventEmitter();
   commentForm: FormGroup;
   user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
   user: IUser | null = null;
@@ -74,6 +76,14 @@ export class AddCommentModalComponent implements OnInit {
       data => {
         this.showModal = false;
         this.closeModal.emit(true);
+        console.log(data);
+        const comment: IComment = {
+          _id: data._id,
+          body: data.body,
+          createdAt: data.createdAt,
+          modelId: data.modelId
+        }
+        this.store.dispatch(sharedActions.comment_created(comment));
       },
       error => {
         console.log(error.message);

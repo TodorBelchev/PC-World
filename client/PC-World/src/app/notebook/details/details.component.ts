@@ -12,7 +12,7 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 export class DetailsComponent implements OnInit {
   faCheckSquare = faCheckSquare;
   showModal: boolean = false;
-  notebook :INotebook  = {
+  notebook: INotebook = {
     _id: '',
     images: [''],
     brand: '',

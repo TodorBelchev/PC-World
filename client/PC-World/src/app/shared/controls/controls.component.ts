@@ -14,8 +14,8 @@ import * as authSelectors from '../../auth/store/auth.selectors';
 })
 export class ControlsComponent implements OnInit {
   faCheckSquare = faCheckSquare;
-  @Input() showModal: boolean = false;
   @Output() showModalEvent: EventEmitter<any> = new EventEmitter();
+  @Input() showModal: boolean = false;
   @Input() productName: string = '';
   @Input() product: { _id: string, price: number, quantity: number, promoPrice: number } = {
     _id: '',

@@ -29,7 +29,12 @@ const commentSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ['Notebook', 'Case', 'Cooler', 'HDD', 'Memory', 'Monitor', 'Motherboard', 'Processor', 'PSU', 'SSD', 'VGA']
+    },
+    createdAt: {
+        type: String,
+        default: Date.now
     }
+
 });
 
 const Comment = mongoose.model('Comment', commentSchema);

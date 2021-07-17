@@ -1,6 +1,38 @@
 <div class="comments-container">
-    <h3>Reviews:</h3>
-    <div class="container">
-        
+    <h3 class="comments-title">Latest reviews:</h3>
+    <div class="no-review" *ngIf="commentsCount === 0">No reviews yet!</div>
+    <div class="comment" *ngFor="let comment of comments">
+        <div class="author">{{comment.body.firstName}} {{comment.body.lastName}}</div>
+        <div class="content">{{comment.body.comment}}</div>
+        <div class="rating">
+            <label *ngIf="comment.body.rating === 1">
+                <span class="icon">★</span>
+            </label>
+            <label *ngIf="comment.body.rating === 2">
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+            </label>
+            <label *ngIf="comment.body.rating === 3">
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+            </label>
+            <label *ngIf="comment.body.rating === 4">
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+            </label>
+            <label *ngIf="comment.body.rating === 5">
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+            </label>
+        </div>
+    </div>
+    <div class="btn-container" *ngIf="commentsCount > comments.length">
+        <input type="submit" (click)="loadMore()" value="Show more">
     </div>
 </div>

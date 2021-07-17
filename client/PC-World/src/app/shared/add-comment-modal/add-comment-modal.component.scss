@@ -43,7 +43,7 @@ input {
     height: 50px;
     line-height: 50px;
     font-size: 50px;
-    margin-right: 48%;
+    flex-basis: 70%;
 }
 
 .rating label {
@@ -96,12 +96,12 @@ input {
 
 .rating:not(:hover) label input:checked ~ .icon,
 .rating:hover label:hover input ~ .icon {
-    color: $secondary-color;
+    color: $stars-color;
 }
 
 .rating label input:focus:not(:checked) ~ .icon:last-child {
     color: #000;
-    text-shadow: 0 0 5px $secondary-color;
+    text-shadow: 0 0 5px $stars-color;
 }
 
 input[type="submit"] {

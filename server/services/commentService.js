@@ -8,6 +8,16 @@ const createComment = (body, productId, productSchemaName) => {
     });
 }
 
+const getComments = (modelId, page) => {
+    return Comment.find({ modelId }).sort({ createdAt: 'desc' }).skip(page * 5).limit(5);
+}
+
+const getCount = (modelId) => {
+    return Comment.find({ modelId });
+}
+
 module.exports = {
-    createComment
+    createComment,
+    getComments,
+    getCount
 }
