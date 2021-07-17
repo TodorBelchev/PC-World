@@ -4,10 +4,11 @@ const formidable = require('formidable');
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createPart, getPartCount } = require('../services/partService');
+const isLoggedIn = require('../middlewares/isLogged');
 
 const router = Router();
 
-router.post('/create/processor', async (req, res) => {
+router.post('/create/processor', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });
@@ -26,7 +27,7 @@ router.post('/create/processor', async (req, res) => {
     }
 });
 
-router.post('/create/vga', async (req, res) => {
+router.post('/create/vga', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });
@@ -45,7 +46,7 @@ router.post('/create/vga', async (req, res) => {
     }
 });
 
-router.post('/create/motherboard', async (req, res) => {
+router.post('/create/motherboard', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });
@@ -64,7 +65,7 @@ router.post('/create/motherboard', async (req, res) => {
     }
 });
 
-router.post('/create/memory', async (req, res) => {
+router.post('/create/memory', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });
@@ -83,7 +84,7 @@ router.post('/create/memory', async (req, res) => {
     }
 });
 
-router.post('/create/hdd', async (req, res) => {
+router.post('/create/hdd', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });
@@ -107,7 +108,7 @@ router.post('/create/hdd', async (req, res) => {
     }
 });
 
-router.post('/create/case', async (req, res) => {
+router.post('/create/case', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });
@@ -126,7 +127,7 @@ router.post('/create/case', async (req, res) => {
     }
 });
 
-router.post('/create/psu', async (req, res) => {
+router.post('/create/psu', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });
@@ -145,7 +146,7 @@ router.post('/create/psu', async (req, res) => {
     }
 });
 
-router.post('/create/cooler', async (req, res) => {
+router.post('/create/cooler', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });

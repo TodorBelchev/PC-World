@@ -14,6 +14,6 @@ export class MonitorService {
   ) { }
 
   create(data: any): Observable<any> {
-    return this.http.post(environment.api_url + 'monitors/create', data);
+    return this.http.post(environment.api_url + 'monitors/create', data, { withCredentials: true });
   }
 }

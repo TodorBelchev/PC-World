@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const { COOKIE_NAME, SECRET, SALT_ROUNDS } = require('../config');
 const { isAuth } = require('../middlewares/guards');
+const { createToken } = require('../utils/jwt');
 const User = require('../models/User');
 
 const router = Router();
@@ -36,10 +37,11 @@ router.post('/login',
 
             const payload = removePass(user);
 
-            const token = jwt.sign({ id: user._id }, SECRET);
+            const token = createToken({ id: user._id });
             res.cookie(COOKIE_NAME, token, { httpOnly: true });
             res.status(200).send(payload);
         } catch (error) {
+            console.log(error.message);
             res.status(400).send({ message: error.message });
         }
     });
@@ -62,7 +64,7 @@ router.post('/register',
             }
 
             let user = await User.findOne({ email });
-            
+
             if (user) {
                 throw new Error('Account already exists');
             }
@@ -74,7 +76,7 @@ router.post('/register',
 
             const payload = removePass(user);
 
-            const token = jwt.sign({ id: user._id }, SECRET);
+            const token = createToken({ id: user._id });
             res.cookie(COOKIE_NAME, token, { httpOnly: true });
             res.status(200).send(payload);
         } catch (error) {

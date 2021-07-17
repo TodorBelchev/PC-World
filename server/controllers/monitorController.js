@@ -4,10 +4,11 @@ const formidable = require('formidable');
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createMonitor } = require('../services/monitorService');
+const isLoggedIn = require('../middlewares/isLogged');
 
 const router = Router();
 
-router.post('/create', async (req, res) => {
+router.post('/create', isLoggedIn(), async (req, res) => {
     try {
         const imagesURL = [];
         const form = formidable({ multiples: true });

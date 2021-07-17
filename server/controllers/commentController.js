@@ -1,10 +1,11 @@
 const { Router } = require('express');
 
 const { createComment, getComments, getCount } = require('../services/commentService');
+const isLoggedIn = require('../middlewares/isLogged');
 
 const router = Router();
 
-router.post('/create', async (req, res) => {
+router.post('/create', isLoggedIn(), async (req, res) => {
     try {
         const comment = await createComment(req.body.comment, req.body._id, req.body.productName);
         res.status(201).send(comment);

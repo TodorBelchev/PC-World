@@ -14,7 +14,7 @@ export class SharedService {
   ) { }
 
   createComment(comment: any, _id: string, productName: string): Observable<any> {
-    return this.http.post(environment.api_url + 'comments/create', { comment, _id, productName });
+    return this.http.post(environment.api_url + 'comments/create', { comment, _id, productName }, { withCredentials: true });
   }
 
   getCommentsByPage(productId: string, page: number = 1): Observable<any> {

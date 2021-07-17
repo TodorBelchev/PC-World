@@ -1,16 +1,16 @@
 const jwt = require('jsonwebtoken');
-const { cookie_name, secret } = require('../config');
+const { COOKIE_NAME, SECRET } = require('../config');
+const { createToken } = require('../utils/jwt');
 
 module.exports = () => (req, res, next) => {
-    const token = req.cookies[cookie_name];
+    const token = req.cookies[COOKIE_NAME];
     try {
-        const decoded = jwt.verify(token, secret);
-        req.user = decoded;
-        res.locals = decoded;
-        res.locals.isLogged = true;
+        const decoded = jwt.verify(token, SECRET);
+        res.cookie(COOKIE_NAME, createToken({ id: decoded.id }), { httpOnly: true });
+        next();
     } catch (error) {
-        res.clearCookie(cookie_name);
+        res.clearCookie(COOKIE_NAME);
+        res.status(401).send({ message: 'Invalid token' });
     }
 
-    next();
 }
