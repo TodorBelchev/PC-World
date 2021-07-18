@@ -10,7 +10,7 @@ export interface AuthState {
     loading: boolean;
     errorMsg: string | null;
     cart: AuthActions.cartProps[];
-    wishlist: { _id: string }[];
+    wishlist: AuthActions.wishlistProps[];
 }
 
 export const featureKey = 'auth';
@@ -64,7 +64,7 @@ const _authReducer = createReducer(
                 quantity: quantity + 1
             }
         } else {
-            cart.push({ _id: action._id, quantity: action.quantity });
+            cart.push({ _id: action._id, quantity: action.quantity, productType: action.productType });
         }
         return {
             ...state,
@@ -78,7 +78,19 @@ const _authReducer = createReducer(
         if (alreadyIn) {
             newWishlist = wishlist;
         } else {
-            newWishlist = [...wishlist, { _id: action._id }];
+            newWishlist = [...wishlist, { _id: action._id, productType: action.productType }];
+        }
+        return {
+            ...state,
+            wishlist: newWishlist
+        }
+    }),
+    on(AuthActions.remove_from_wishlist, (state, action) => {
+        let newWishlist = [...state.wishlist];
+        const item = state.wishlist.find(x => x._id === action._id);
+        if (item) {
+            const index = state.wishlist.indexOf(item);
+            newWishlist.splice(index, 1);
         }
         return {
             ...state,

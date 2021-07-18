@@ -52,7 +52,7 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.notebookService.getNotebookById(this.id).subscribe(
+    this.notebookService.getById(this.id).subscribe(
       data => {
         this.notebook = data;
       },

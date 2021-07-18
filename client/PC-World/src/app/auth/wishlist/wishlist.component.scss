@@ -1,0 +1,147 @@
+@import "../../shared/variables.scss";
+app-user-aside {
+    flex-basis: 20%;
+}
+
+.products-container {
+    flex-basis: 80%;
+    padding: 20px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.products-container h3 {
+    margin: 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.product img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.product-link {
+    text-decoration: none;
+    color: black;
+}
+
+.product-title {
+    display: flex;
+    align-items: center;
+}
+
+.product-title p {
+    margin-left: 20px;
+}
+
+.prices {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.old-price,
+.promo-price,
+.price {
+    text-align: start;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 10px;
+}
+
+.old-price {
+    color: gray;
+    position: relative;
+    margin-left: 50px;
+}
+
+.old-price > span::after {
+    content: "";
+    background-color: gray;
+    width: 60px;
+    height: 2px;
+    position: absolute;
+    left: 18px;
+    transform: rotate(160deg);
+    top: 16px;
+}
+
+.promo-price {
+    color: $primary-color;
+}
+
+button {
+    background: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip {
+    opacity: 0;
+    width: 200px;
+    background-color: $secondary-color;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    left: -190px;
+    top: -36px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    transition: 500ms all;
+}
+
+.tooltip-container > fa-icon:hover + .tooltip {
+    opacity: 1;
+}
+
+.green,
+.yellow,
+.red {
+    color: green;
+    left: 10px;
+    top: 10px;
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+.yellow {
+    color: #ffc107;
+}
+
+.red {
+    color: $primary-color;
+}
+
+.btn-disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+.btn-remove {
+    background: $secondary-color;
+    font-weight: bolder;
+}

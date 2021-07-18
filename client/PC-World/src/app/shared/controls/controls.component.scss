@@ -59,7 +59,7 @@ input.wishlist {
     color: $primary-color;
 }
 
-.green {
+.green, .yellow, .red {
     color: green;
     position: absolute;
     left: 10px;
@@ -69,30 +69,22 @@ input.wishlist {
 
 .yellow {
     color: #ffc107;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    font-size: 1.2rem;
 }
 
 .red {
     color: $primary-color;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    font-size: 1.2rem;
 }
 
 .tooltip {
     opacity: 0;
-    width: 120px;
+    width: 200px;
     background-color: $secondary-color;
     color: #fff;
     text-align: center;
     border-radius: 5px;
     padding: 5px 0;
-    left: -115px;
-    top: 5px;
+    left: -193px;
+    top: -18px;
 
     /* Position the tooltip */
     position: absolute;

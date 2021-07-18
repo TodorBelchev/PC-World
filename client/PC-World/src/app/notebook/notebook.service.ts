@@ -16,7 +16,7 @@ export class NotebookService {
     return this.http.post(environment.api_url + 'notebooks/create', data, { withCredentials: true });
   }
 
-  getNotebookById(id: string): Observable<any> {
+  getById(id: string): Observable<any> {
     return this.http.get(environment.api_url + 'notebooks/' + id);
   }
 

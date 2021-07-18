@@ -41,7 +41,7 @@ export class AuthService {
     return of(currentStorage);
   }
 
-  addToWishlist(product: AuthActions.cartProps): Observable<any> {
+  addToWishlist(product: AuthActions.wishlistProps): Observable<any> {
     let storage = this.localStorage.getItem('wishlist');
     let currentStorage = [];
     storage ? currentStorage = JSON.parse(this.localStorage.getItem('wishlist') || '') : null;
@@ -55,12 +55,27 @@ export class AuthService {
     return of(currentStorage);
   }
 
+  removeFromWishlist(product: AuthActions.wishlistProps): Observable<any> {
+    let storage = this.localStorage.getItem('wishlist');
+    let currentStorage = [];
+    storage ? currentStorage = JSON.parse(this.localStorage.getItem('wishlist') || '') : null;
+    const isPresent = currentStorage.find((x: AuthActions.cartProps) => x._id == product._id);
+
+    if (isPresent) {
+      const index = currentStorage.indexOf(isPresent);
+      currentStorage.splice(index, 1);
+    }
+
+    this.localStorage.setItem('wishlist', JSON.stringify(currentStorage));
+    return of(currentStorage);
+  }
+
   loadCart() {
     let storage = this.localStorage.getItem('cart');
     let currentStorage = [];
     storage ? currentStorage = JSON.parse(this.localStorage.getItem('cart') || '') : null;
-    currentStorage.forEach((x: { _id: string, quantity: number }) => {
-      this.store.dispatch(AuthActions.auto_load_cart({ _id: x._id, quantity: x.quantity }))
+    currentStorage.forEach((x: { _id: string, quantity: number, productType: string }) => {
+      this.store.dispatch(AuthActions.auto_load_cart({ _id: x._id, quantity: x.quantity, productType: x.productType }))
     });
   }
 
@@ -68,8 +83,8 @@ export class AuthService {
     let storage = this.localStorage.getItem('wishlist');
     let currentStorage = [];
     storage ? currentStorage = JSON.parse(this.localStorage.getItem('wishlist') || '') : null;
-    currentStorage.forEach((x: { _id: string, quantity: number }) => {
-      this.store.dispatch(AuthActions.auto_load_wishlist({ _id: x._id, quantity: x.quantity }))
+    currentStorage.forEach((x: { _id: string, productType: string }) => {
+      this.store.dispatch(AuthActions.auto_load_wishlist({ _id: x._id, productType: x.productType }))
     });
   }
 }

@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li>
-                <a routerLink="/favorites" class="favorites">
+                <a routerLink="/wishlist" class="wishlist">
                     <fa-icon [icon]="faHeart" size="lg"></fa-icon>
                     <div *ngIf="(wishlist$ | async)?.length! > 0" class="quantity-wishlist">{{(wishlist$ |
                         async)?.length}}</div>

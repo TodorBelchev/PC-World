@@ -3,7 +3,7 @@
     <app-images [images]="notebook.images"></app-images>
     <div class="content">
         <h2>{{notebook.brand}} {{notebook.model}}</h2>
-        <app-controls (showModalEvent)="onShowModal($event)" [showModal]="showModal" [product]="notebook"></app-controls>
+        <app-controls (showModalEvent)="onShowModal($event)" [showModal]="showModal" [product]="notebook" [productName]="'notebooks'"></app-controls>
         <div>
             <h3>Parameters:</h3>
             <div class="parameters">

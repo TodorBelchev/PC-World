@@ -49,7 +49,7 @@ export class AuthEffects {
 
     addToCart$ = createEffect(() => this.actions$.pipe(
         ofType(AuthActions.addToCart),
-        mergeMap((action: AuthActions.cartProps) => this.authService.addToCart({ _id: action._id, quantity: action.quantity })
+        mergeMap((action: AuthActions.cartProps) => this.authService.addToCart({ _id: action._id, quantity: action.quantity, productType: action.productType })
             .pipe(
                 map(() => ({ type: 'Success' }))
             )
@@ -58,10 +58,19 @@ export class AuthEffects {
 
     addToWishlist$ = createEffect(() => this.actions$.pipe(
         ofType(AuthActions.addToWishlist),
-        mergeMap((action: AuthActions.cartProps) => this.authService.addToWishlist({ _id: action._id, quantity: action.quantity })
+        mergeMap((action: AuthActions.wishlistProps) => this.authService.addToWishlist({ _id: action._id, productType: action.productType })
             .pipe(
                 map(() => ({ type: 'Success' }))
             )
         )
     ));
+
+    removeFromWishlist$ = createEffect(() => this.actions$.pipe(
+        ofType(AuthActions.removeFromWishlist),
+        switchMap((action: AuthActions.wishlistProps) => this.authService.removeFromWishlist({ _id: action._id, productType: action.productType })
+            .pipe(
+                map(() => ({ type: 'Success' }))
+            )
+        )
+    ))
 }

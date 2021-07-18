@@ -5,11 +5,11 @@
     </div>
     <div class="tooltip-container" *ngIf="product.quantity > 0 && product.quantity < 5">
         <fa-icon [icon]="faCheckSquare" class="yellow" size="lg"></fa-icon>
-        <span class="tooltip">Hurry up! Only {{product.quantity}} left!</span>
+        <span class="tooltip">Hurry up! Only {{product.quantity}} left</span>
     </div>
     <div class="tooltip-container" *ngIf="product.quantity == 0 ">
         <fa-icon [icon]="faCheckSquare" class="red" size="lg"></fa-icon>
-        <span class="tooltip">Out of stock. Contact us for more information.</span>
+        <span class="tooltip">Out of stock</span>
     </div>
     <div class="old-price">
         <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>

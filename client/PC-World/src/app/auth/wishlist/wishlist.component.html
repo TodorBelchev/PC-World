@@ -1,0 +1,41 @@
+<div class="container">
+    <app-user-aside></app-user-aside>
+    <div class="products-container">
+        <h3>Products:</h3>
+        <div class="product" *ngFor="let product of products">
+            <a routerLink="/{{product.type}}/{{product._id}}" class="product-link">
+                <div class="product-title">
+                    <img src="{{product.images[0]}}" alt="" srcset="">
+                    <p>{{product.brand}} {{product.model}}</p>
+                </div>
+            </a>
+            <div class="prices">
+                <div class="old-price">
+                    <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>
+                </div>
+                <div class="promo-price" *ngIf="product.promoPrice">
+                    <span>$ {{product.promoPrice}}</span>
+                </div>
+                <div class="price" *ngIf="!product.promoPrice">
+                    <span>$ {{product.price}}</span>
+                </div>
+                <div class="tooltip-container" *ngIf="product.quantity >= 5">
+                    <fa-icon [icon]="faCheckSquare" class="green" size="lg"></fa-icon>
+                    <span class="tooltip">In stock</span>
+                </div>
+                <div class="tooltip-container" *ngIf="product.quantity > 0 && product.quantity < 5">
+                    <fa-icon [icon]="faCheckSquare" class="yellow" size="lg"></fa-icon>
+                    <span class="tooltip">Hurry up! Only {{product.quantity}} left</span>
+                </div>
+                <div class="tooltip-container" *ngIf="product.quantity == 0 ">
+                    <fa-icon [icon]="faCheckSquare" class="red" size="lg"></fa-icon>
+                    <span class="tooltip">Out of stock</span>
+                </div>
+                <button (click)="onAddToCartClick(product)" [disabled]="product.quantity == 0" [ngClass]="product.quantity == 0 ? 'btn-disabled': ''">add to
+                    cart</button>
+                <button (click)="onRemoveFromWishlistClick(product)" class="btn-remove">X</button>
+            </div>
+        </div>
+        <p *ngIf="products.length === 0">Your wishlist is empty. See some of our best offers.</p>
+    </div>
+</div>

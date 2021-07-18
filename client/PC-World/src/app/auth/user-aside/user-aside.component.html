@@ -1,0 +1,12 @@
+<div class="aside">
+    <div class="aside-content" *ngIf="(user$ | async) !== null">
+        <div>
+            User presented
+        </div>
+    </div>
+    <div class="aside-content" *ngIf="(user$ | async) == null">
+        <div>
+            User not presented
+        </div>
+    </div>
+</div>

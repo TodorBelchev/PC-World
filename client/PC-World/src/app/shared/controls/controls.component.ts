@@ -32,11 +32,11 @@ export class ControlsComponent implements OnInit {
   }
 
   onAddToCartClick(): void {
-    this.store.dispatch(add_cart({ _id: this.product._id, quantity: 1 }));
+    this.store.dispatch(add_cart({ _id: this.product._id, quantity: 1, productType: this.productName }));
   }
 
   onAddToWishlistClick(): void {
-    this.store.dispatch(add_wishlist({ _id: this.product._id, quantity: 1 }));
+    this.store.dispatch(add_wishlist({ _id: this.product._id, productType: this.productName }));
   }
 
   onAddReview(): void {
