@@ -7,6 +7,7 @@ const { COOKIE_NAME, SECRET, SALT_ROUNDS } = require('../config');
 const { isAuth } = require('../middlewares/guards');
 const { createToken } = require('../utils/jwt');
 const User = require('../models/User');
+const isLogged = require('../middlewares/isLogged');
 
 const router = Router();
 
@@ -88,6 +89,10 @@ router.get('/logout', isAuth(), (req, res) => {
     res.clearCookie(COOKIE_NAME);
     res.status(204).send({ message: 'Logged out' })
 });
+
+router.get('/verify', isLogged(), (req, res) => {
+    res.status(200).send({ message: 'verified' });
+})
 
 function removePass(user) {
     const payload = {

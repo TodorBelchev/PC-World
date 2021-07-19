@@ -87,4 +87,17 @@ export class AuthService {
       this.store.dispatch(AuthActions.auto_load_wishlist({ _id: x._id, productType: x.productType }))
     });
   }
+
+  autoAuth() {
+    this.http.get<AuthActions.authSuccess>(environment.api_url + 'user/verify', { withCredentials: true })
+      .subscribe(
+        (data: AuthActions.authSuccess) => {
+          this.store.dispatch(AuthActions.auth_success({ email: data.email, isAdmin: data.isAdmin, firstName: data.firstName || '', lastName: data.lastName || '', _id: data._id }));
+        },
+        error => {
+          this.store.dispatch(AuthActions.auth_check_fail());
+        }
+      )
+  }
+
 }

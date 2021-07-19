@@ -96,6 +96,12 @@ const _authReducer = createReducer(
             ...state,
             wishlist: newWishlist
         }
+    }),
+    on(AuthActions.auth_check_fail, (state) => {
+        return {
+            ...state,
+            user: null
+        }
     })
 )
 

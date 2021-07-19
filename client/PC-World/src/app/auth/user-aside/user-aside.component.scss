@@ -1,3 +1,39 @@
+@import "../../shared/variables.scss";
 .aside {
-    width: 200px;
+    width: 250px;
+    padding: 25px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.aside-content {
+}
+
+.aside-content img {
+    width: 100px;
+    height: 100px;
+}
+
+a {
+    background: $primary-color;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    margin: 0 5px;
+    text-decoration: none;
+    flex-basis: 50%;
+}
+
+.blue {
+    background: $secondary-color;
+}
+
+.anonymous-title {
+    margin-bottom: 0;
 }

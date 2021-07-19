@@ -16,5 +16,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.loadCart();
     this.authService.loadWishlist();
+    this.authService.autoAuth();
   }
 }
