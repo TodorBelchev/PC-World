@@ -19,8 +19,16 @@ export class AuthEffects {
             return from(this.authService.register({ email: action.email, password: action.password }))
                 .pipe(
                     map((res: any) => {
-                        const user = { email: res.email, isAdmin: res.isAdmin, firstName: res.firstName, lastName: res.lastName, _id: res._id };
-                        localStorage.setItem('user', JSON.stringify(user));
+                        const user = {
+                            email: res.email,
+                            isAdmin: res.isAdmin,
+                            firstName: res.firstName || '',
+                            lastName: res.lastName || '',
+                            _id: res._id,
+                            phoneNumber: res.phoneNumber || '',
+                            city: res.city || '',
+                            location: res.location || ''
+                        }
                         return AuthActions.auth_success(user);
                     }),
                     catchError(error => {
@@ -36,8 +44,15 @@ export class AuthEffects {
             return from(this.authService.login({ email: action.email, password: action.password }))
                 .pipe(
                     map((res: any) => {
-                        const user = { email: res.email, isAdmin: res.isAdmin, firstName: res.firstName || '', lastName: res.lastName || '', _id: res._id };
-                        localStorage.setItem('user', JSON.stringify(user));
+                        const user = {
+                            email: res.email,
+                            isAdmin: res.isAdmin,
+                            firstName: res.firstName || '',
+                            lastName: res.lastName || '',
+                            _id: res._id, phoneNumber: res.phoneNumber || '',
+                            city: res.city || '',
+                            location: res.location || ''
+                        };
                         return AuthActions.auth_success(user);
                     }),
                     catchError(error => {

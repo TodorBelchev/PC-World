@@ -90,8 +90,18 @@ router.get('/logout', isAuth(), (req, res) => {
     res.status(204).send({ message: 'Logged out' })
 });
 
-router.get('/verify', isLogged(), (req, res) => {
-    res.status(200).send({ message: 'verified' });
+router.get('/verify', isLogged(), async (req, res) => {
+    const user = await User.findById(req.decoded.id);
+    const payload = removePass(user);
+    res.status(200).send(payload);
+});
+
+router.put('/', isLogged(), async (req, res) => {
+    const user = await User.findById(req.decoded.id);
+    Object.assign(user, req.body);
+    await user.save();
+    const payload = removePass(user);
+    res.status(200).send(payload);
 })
 
 function removePass(user) {
@@ -100,7 +110,10 @@ function removePass(user) {
         _id: user._id,
         isAdmin: user.isAdmin,
         firstName: user.firstName,
-        lastName: user.lastName
+        lastName: user.lastName,
+        phoneNumber: user.phoneNumber,
+        city: user.city,
+        location: user.location
     }
     return payload;
 }

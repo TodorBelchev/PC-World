@@ -23,6 +23,6 @@ export const auto_load_wishlist = createAction(autoLoadWishlist, props<wishlistP
 export const remove_from_wishlist = createAction(removeFromWishlist, props<wishlistProps>());
 
 export type authStart = { email: string, password: string };
-export type authSuccess = { email: string, isAdmin: boolean, firstName?: string, lastName?: string, _id: string };
+export type authSuccess = { email: string, isAdmin: boolean, firstName?: string, lastName?: string, _id: string, phoneNumber?: string, city: string, location: string };
 export type cartProps = { _id: string, quantity: number, productType: string };
 export type wishlistProps = { _id: string, productType: string };

@@ -4,4 +4,7 @@ export interface IUser {
     isAdmin: boolean;
     firstName?: string;
     lastName?: string;
+    phoneNumber?: string;
+    city?: string;
+    location?: string;
 }

@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import * as AuthActions from './store/auth.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../shared/app-state.interface';
+import { IUser } from './user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,14 @@ export class AuthService {
     return of(currentStorage);
   }
 
+  loadProfile(): Observable<any> {
+    return this.http.get(environment.api_url + 'user/verify', { withCredentials: true });
+  }
+
+  editProfile(profile: IUser): Observable<any> {
+    return this.http.put(environment.api_url + 'user', profile, { withCredentials: true });
+  }
+
   loadCart() {
     let storage = this.localStorage.getItem('cart');
     let currentStorage = [];
@@ -92,7 +101,16 @@ export class AuthService {
     this.http.get<AuthActions.authSuccess>(environment.api_url + 'user/verify', { withCredentials: true })
       .subscribe(
         (data: AuthActions.authSuccess) => {
-          this.store.dispatch(AuthActions.auth_success({ email: data.email, isAdmin: data.isAdmin, firstName: data.firstName || '', lastName: data.lastName || '', _id: data._id }));
+          this.store.dispatch(AuthActions.auth_success({
+            email: data.email,
+            isAdmin: data.isAdmin,
+            firstName: data.firstName || '',
+            lastName: data.lastName || '',
+            _id: data._id,
+            phoneNumber: data.phoneNumber || '',
+            city: data.city || '',
+            location: data.location || ''
+          }));
         },
         error => {
           this.store.dispatch(AuthActions.auth_check_fail());

@@ -10,6 +10,7 @@ import * as fromAuth from './store/auth.reducer';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { UserAsideComponent } from './user-aside/user-aside.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -18,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     RegisterComponent,
     WishlistComponent,
-    UserAsideComponent
+    UserAsideComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule,

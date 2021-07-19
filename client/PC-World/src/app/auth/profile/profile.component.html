@@ -1,0 +1,28 @@
+<div class="container">
+    <app-user-aside></app-user-aside>
+    <div class="profile" *ngIf="!editMode">
+        <h3 class="profile-title">Account data:</h3>
+        <p class="profile-parameter"><strong>Email:</strong> {{user?.email}}</p>
+        <p class="profile-parameter"><strong>First name:</strong> {{user?.firstName}}</p>
+        <p class="profile-parameter"><strong>Last name:</strong> {{user?.lastName}}</p>
+        <p class="profile-parameter"><strong>Phone number:</strong> {{user?.phoneNumber}}</p>
+        <p class="profile-parameter"><strong>Delivery address:</strong> {{user?.city}} {{user?.location}}</p>
+        <button class="profile-btn-edit" (click)="onEditClick()">Edit profile</button>
+    </div>
+    <form [formGroup]="editProfileForm" *ngIf="editMode" (ngSubmit)="onSubmit()" class="profile">
+        <label for="email">Email:</label>
+        <input formControlName="email" type="email" name="email" id="email" [value]="user?.email">
+        <label for="firstName">First name:</label>
+        <input formControlName="firstName" type="text" name="firstName" id="firstName" [value]="user?.firstName">
+        <label for="lastName">Last name:</label>
+        <input formControlName="lastName" type="text" name="lastName" id="lastName" [value]="user?.lastName">
+        <label for="phoneNumber">Phone number:</label>
+        <input formControlName="phoneNumber" type="number" name="phoneNumber" id="phoneNumber" [value]="user?.phoneNumber">
+        <label for="city">Delivery city:</label>
+        <input formControlName="city" type="text" name="city" id="city" [value]="user?.city">
+        <label for="location">Delivery address:</label>
+        <input formControlName="location" type="text" name="location" id="location"  [value]="user?.location">
+        <button type="submit" class="profile-btn-save">Save changes</button>
+        <button type="button" class="profile-btn-cancel" (click)="onEditClick()">Cancel changes</button>
+    </form>
+</div>

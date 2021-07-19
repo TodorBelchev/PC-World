@@ -16,9 +16,11 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
-    defaultAddress: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Address'
+    city: {
+        type: String
+    },
+    location: {
+        type: String
     },
     phoneNumber: {
         type: Number

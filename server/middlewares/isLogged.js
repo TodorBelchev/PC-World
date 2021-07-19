@@ -7,6 +7,7 @@ module.exports = () => (req, res, next) => {
     try {
         const decoded = jwt.verify(token, SECRET);
         res.cookie(COOKIE_NAME, createToken({ id: decoded.id }), { httpOnly: true });
+        req.decoded = decoded;
         next();
     } catch (error) {
         res.clearCookie(COOKIE_NAME);

@@ -16,7 +16,7 @@
     height: 100px;
 }
 
-a {
+.red, .blue {
     background: $primary-color;
     width: 100px;
     border: none;
@@ -36,4 +36,26 @@ a {
 
 .anonymous-title {
     margin-bottom: 0;
+}
+
+.links-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+}
+
+.links-list li {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.links-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.active, .active a {
+    background: $secondary-color;
+    color: white;
 }

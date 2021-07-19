@@ -42,7 +42,10 @@ const _authReducer = createReducer(
                 isAdmin: action.isAdmin,
                 firstName: action.firstName,
                 lastName: action.lastName,
-                _id: action._id
+                _id: action._id,
+                phoneNumber: action.phoneNumber,
+                city: action.city,
+                location: action.location
             }
         }
     }),
