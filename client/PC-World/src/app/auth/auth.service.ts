@@ -71,12 +71,68 @@ export class AuthService {
     return of(currentStorage);
   }
 
+  removeFromCart(product: AuthActions.cartProps): Observable<any> {
+    let storage = this.localStorage.getItem('cart');
+    let currentStorage = [];
+    storage ? currentStorage = JSON.parse(this.localStorage.getItem('cart') || '') : null;
+    const isPresent = currentStorage.find((x: AuthActions.cartProps) => x._id == product._id);
+
+    if (isPresent) {
+      const index = currentStorage.indexOf(isPresent);
+      currentStorage.splice(index, 1);
+    }
+
+    this.localStorage.setItem('cart', JSON.stringify(currentStorage));
+    return of(currentStorage);
+  }
+
+  increaseQuantityInCart(product: AuthActions.cartProps): Observable<any> {
+    let storage = this.localStorage.getItem('cart');
+    let currentStorage = [];
+    storage ? currentStorage = JSON.parse(this.localStorage.getItem('cart') || '') : null;
+    const isPresent = currentStorage.find((x: AuthActions.cartProps) => x._id == product._id);
+
+    if (isPresent) {
+      isPresent.quantity++;
+      const index = currentStorage.indexOf(isPresent);
+      currentStorage.splice(index, 1, isPresent);
+    }
+
+    this.localStorage.setItem('cart', JSON.stringify(currentStorage));
+    return of(currentStorage);
+  }
+
+  decreaseQuantityInCart(product: AuthActions.cartProps): Observable<any> {
+    let storage = this.localStorage.getItem('cart');
+    let currentStorage = [];
+    storage ? currentStorage = JSON.parse(this.localStorage.getItem('cart') || '') : null;
+    const isPresent = currentStorage.find((x: AuthActions.cartProps) => x._id == product._id);
+
+    if (isPresent) {
+      isPresent.quantity--;
+      const index = currentStorage.indexOf(isPresent);
+      currentStorage.splice(index, 1, isPresent);
+    }
+
+    this.localStorage.setItem('cart', JSON.stringify(currentStorage));
+    return of(currentStorage);
+  }
+
+  emptyCart(): Observable<any> {
+    this.localStorage.setItem('cart', JSON.stringify([]));
+    return of([]);
+  }
+
   loadProfile(): Observable<any> {
     return this.http.get(environment.api_url + 'user/verify', { withCredentials: true });
   }
 
   editProfile(profile: IUser): Observable<any> {
     return this.http.put(environment.api_url + 'user', profile, { withCredentials: true });
+  }
+
+  placeOrder(orderData: any): Observable<any> {
+    return this.http.post(environment.api_url + 'user/orders', orderData, { withCredentials: true });
   }
 
   loadCart() {

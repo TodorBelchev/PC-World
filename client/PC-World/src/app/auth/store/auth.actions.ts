@@ -10,6 +10,10 @@ export const addToWishlist = '[Auth] Add To Wishlist';
 export const autoLoadCart = '[Auth] Auto Load Cart';
 export const autoLoadWishlist = '[Auth] Auto Load Wishlist';
 export const removeFromWishlist = '[Auth] Remove From Wishlist';
+export const removeFromCart = '[Auth] Remove From Cart';
+export const decreaseQuantityFromCart = '[Auth] Decrease Quantity From Cart';
+export const increaseQuantityFromCart = '[Auth] Increase Quantity From Cart';
+export const emptyCart = '[Auth] Empty Cart';
 
 export const login_start = createAction(loginStart, props<authStart>());
 export const register_start = createAction(registerStart, props<authStart>());
@@ -21,6 +25,10 @@ export const add_wishlist = createAction(addToWishlist, props<wishlistProps>());
 export const auto_load_cart = createAction(autoLoadCart, props<cartProps>());
 export const auto_load_wishlist = createAction(autoLoadWishlist, props<wishlistProps>());
 export const remove_from_wishlist = createAction(removeFromWishlist, props<wishlistProps>());
+export const remove_from_cart = createAction(removeFromCart, props<cartProps>());
+export const decrease_quantity_from_cart = createAction(decreaseQuantityFromCart, props<cartProps>());
+export const increase_quantity_from_cart = createAction(increaseQuantityFromCart, props<cartProps>());
+export const empty_cart = createAction(emptyCart);
 
 export type authStart = { email: string, password: string };
 export type authSuccess = { email: string, isAdmin: boolean, firstName?: string, lastName?: string, _id: string, phoneNumber?: string, city: string, location: string };

@@ -1,22 +1,24 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { faCheckSquare, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { AppState } from 'src/app/shared/app-state.interface';
 import * as authSelectors from '../store/auth.selectors';
 import * as authActions from '../store/auth.actions';
 import { wishlistProps } from '../store/auth.actions';
 import { NotebookService } from 'src/app/notebook/notebook.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.scss']
 })
-export class WishlistComponent implements OnInit, AfterContentChecked {
+export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy {
   faCheckSquare = faCheckSquare;
   faWindowClose = faWindowClose;
   wishlist$: Observable<wishlistProps[]> = this.store.select(authSelectors.selectWishlist);
+  wishlistSub: Subscription = new Subscription();
   products: IProduct[] = [];
 
   constructor(
@@ -25,7 +27,7 @@ export class WishlistComponent implements OnInit, AfterContentChecked {
   ) { }
 
   ngOnInit(): void {
-    this.wishlist$.subscribe(
+    this.wishlistSub = this.wishlist$.pipe(first()).subscribe(
       wishlist => {
         this.products = this.fetchWishlist(wishlist);
       },
@@ -37,6 +39,10 @@ export class WishlistComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked(): void {
     this.products.sort((a, b) => b.price - a.price);
+  }
+
+  ngOnDestroy(): void {
+    this.wishlistSub.unsubscribe();
   }
 
   fetchWishlist(wishlist: wishlistProps[]): IProduct[] {
@@ -59,10 +65,16 @@ export class WishlistComponent implements OnInit, AfterContentChecked {
 
   onAddToCartClick(product: IProduct): void {
     this.store.dispatch(authActions.add_cart({ _id: product._id, productType: product.type, quantity: 1 }));
+
   }
 
   onRemoveFromWishlistClick(product: IProduct): void {
     this.store.dispatch(authActions.remove_from_wishlist({ _id: product._id, productType: product.type }));
+    const isPresent = this.products.find(x => x._id === product._id);
+    if (isPresent) {
+      const index = this.products.indexOf(isPresent);
+      this.products.splice(index, 1);
+    }
   }
 
 }

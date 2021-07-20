@@ -67,16 +67,13 @@ export class AddCommentModalComponent implements OnInit {
 
   onSubmit(): void {
     const reqBody = this.commentForm.value;
-    if (this.user?.firstName && this.user.lastName) {
-      reqBody.firstName = this.user.firstName;
-      reqBody.lastName = this.user.lastName;
-    }
+    this.user?.firstName ? reqBody.firstName = this.user.firstName : '';
+    this.user?.lastName ? reqBody.lastName = this.user.lastName : '';
 
     this.sharedService.createComment(reqBody, this.product._id, this.product.productName).subscribe(
       data => {
         this.showModal = false;
         this.closeModal.emit(true);
-        console.log(data);
         const comment: IComment = {
           _id: data._id,
           body: data.body,

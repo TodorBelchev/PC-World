@@ -100,6 +100,50 @@ const _authReducer = createReducer(
             wishlist: newWishlist
         }
     }),
+    on(AuthActions.remove_from_cart, (state, action) => {
+        let newCart = [...state.cart];
+        const item = state.cart.find(x => x._id === action._id);
+        if (item) {
+            const index = state.cart.indexOf(item);
+            newCart.splice(index, 1);
+        }
+        return {
+            ...state,
+            cart: newCart
+        }
+    }),
+    on(AuthActions.decrease_quantity_from_cart, (state, action) => {
+        let newCart = [...state.cart];
+        const item = state.cart.find(x => x._id === action._id);
+        if (item) {
+            const index = state.cart.indexOf(item);
+            const newItem = { ...newCart[index], quantity: newCart[index].quantity - 1 };
+            newCart.splice(index, 1, newItem);
+        }
+        return {
+            ...state,
+            cart: newCart
+        }
+    }),
+    on(AuthActions.increase_quantity_from_cart, (state, action) => {
+        let newCart = [...state.cart];
+        const item = state.cart.find(x => x._id === action._id);
+        if (item) {
+            const index = state.cart.indexOf(item);
+            const newItem = { ...newCart[index], quantity: newCart[index].quantity + 1 };
+            newCart.splice(index, 1, newItem);
+        }
+        return {
+            ...state,
+            cart: newCart
+        }
+    }),
+    on(AuthActions.empty_cart, (state) => {
+        return {
+            ...state,
+            cart: []
+        }
+    }),
     on(AuthActions.auth_check_fail, (state) => {
         return {
             ...state,

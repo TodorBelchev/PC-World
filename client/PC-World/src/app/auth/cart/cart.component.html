@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="products-container">
+        <h3>Products:</h3>
+        <div class="product" *ngFor="let product of products">
+            <a routerLink="/{{product.type}}/{{product._id}}" class="product-link">
+                <div class="product-title">
+                    <img src="{{product.images[0]}}" alt="" srcset="">
+                    <p>{{product.brand}} {{product.model}}</p>
+                </div>
+            </a>
+            <div class="prices">
+                <div class="old-price">
+                    <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>
+                </div>
+                <div class="promo-price" *ngIf="product.promoPrice">
+                    <span>$ {{product.promoPrice}}</span>
+                </div>
+                <div class="price" *ngIf="!product.promoPrice">
+                    <span>$ {{product.price}}</span>
+                </div>
+            </div>
+            <div class="quantity-control">
+                <fa-icon class="red" [icon]="faCaretSquareDown" size="lg" (click)="onDecreaseQuantity(product)">
+                </fa-icon>
+                <div class="quantity">
+                    {{product.quantity}}
+                </div>
+                <fa-icon class="green" [icon]="faCaretSquareUp" size="lg" (click)="onIncreaseQuantity(product)">
+                </fa-icon>
+                <button (click)="onRemoveFromCartClick(product)" class="btn-remove">X</button>
+            </div>
+        </div>
+        <p *ngIf="products.length === 0">Your cart is empty. See some of our best offers.</p>
+        <div class="total" *ngIf="products.length !== 0">
+            <p *ngIf="deliveryPrice !== 0">Delivery: $ {{deliveryPrice}}</p>
+            <p class="total-price">Total price: <strong>$ {{totalPrice + deliveryPrice}}</strong></p>
+        </div>
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" *ngIf="products.length !== 0">
+            <h3 class="form-title">Order details:</h3>
+            <label for="firstName">First name:</label>
+            <input formControlName="firstName" type="text" name="firstName" id="firstName" [value]="user?.firstName">
+            <label for="lastName">Last name:</label>
+            <input formControlName="lastName" type="text" name="lastName" id="lastName" [value]="user?.lastName">
+            <label for="phoneNumber">Phone number:</label>
+            <input formControlName="phoneNumber" type="number" name="phoneNumber" id="phoneNumber" [value]="user?.phoneNumber">
+            <label for="city">Delivery city:</label>
+            <input formControlName="city" type="text" name="city" id="city" [value]="user?.city">
+            <label for="location">Delivery address:</label>
+            <input formControlName="location" type="text" name="location" id="location" [value]="user?.location">
+            <div class="btn-container">
+                <input type="submit" class="btn-order" value="Finish order">
+            </div>
+        </form>
+    </div>
+</div>

@@ -3,7 +3,7 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createNotebook, getNotebooksByPage, getCount, getNotebookById } = require('../services/notebookService');
+const { createNotebook, getNotebooksByPage, getCount, getById } = require('../services/notebookService');
 const isLoggedIn = require('../middlewares/isLogged');
 
 const router = Router();
@@ -53,7 +53,7 @@ router.get('/count', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const notebook = await getNotebookById(id);
+        const notebook = await getById(id);
         res.status(200).send(notebook);
     } catch (error) {
         console.log(error.message);

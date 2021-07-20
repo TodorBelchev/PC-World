@@ -11,6 +11,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { UserAsideComponent } from './user-aside/user-aside.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './profile/profile.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -20,7 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     WishlistComponent,
     UserAsideComponent,
-    ProfileComponent
+    ProfileComponent,
+    CartComponent
   ],
   imports: [
     RouterModule,

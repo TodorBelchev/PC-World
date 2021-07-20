@@ -5,7 +5,7 @@ const createNotebook = (data) => {
     return notebook.save();
 };
 
-const getNotebookById = (id) => {
+const getById = (id) => {
     return Notebook.findById(id);
 }
 
@@ -21,5 +21,5 @@ module.exports = {
     createNotebook,
     getNotebooksByPage,
     getCount,
-    getNotebookById
+    getById
 }

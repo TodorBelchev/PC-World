@@ -1,13 +1,19 @@
 const { Router } = require('express');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
-const { COOKIE_NAME, SECRET, SALT_ROUNDS } = require('../config');
+const { COOKIE_NAME, SALT_ROUNDS } = require('../config');
 const { isAuth } = require('../middlewares/guards');
 const { createToken } = require('../utils/jwt');
 const User = require('../models/User');
+const Order = require('../models/Order');
 const isLogged = require('../middlewares/isLogged');
+const checkUser = require('../middlewares/checkUser');
+const notebookService = require('../services/notebookService');
+
+const services = {
+    'notebooks': notebookService
+}
 
 const router = Router();
 
@@ -84,6 +90,46 @@ router.post('/register',
             res.status(400).send({ message: error.message });
         }
     });
+
+router.post('/orders', checkUser(), async (req, res) => {
+    const mapped = [];
+    const orderData = req.body;
+    let currentUser;
+    if (!req.decoded) {
+        currentUser = {
+            firstName: orderData.firstName,
+            lastName: orderData.lastName,
+            phoneNumber: orderData.phoneNumber,
+            city: orderData.city,
+            location: orderData.location,
+        }
+        orderData.guest = currentUser;
+    } else {
+        currentUser = req.decoded.id;
+        orderData.user = currentUser;
+    }
+    req.body.products.forEach(async (x) => {
+        await services[x.type].getById(x._id)
+            .then(y => {
+                mapped.push({
+                    _id: y._id,
+                    type: x.type,
+                    purchaseQuantity: x.quantity,
+                    purchasePrice: y.promoPrice !== 0 ? y.promoPrice : y.price
+                });
+            })
+            .then(async () => {
+                orderData.products = mapped;
+                const order = new Order(orderData);
+                await order.save();
+                res.status(201).send(order);
+            })
+            .catch(error => {
+                console.log(error);
+                res.status(400).send({ message: error.message });
+            });
+    });
+});
 
 router.get('/logout', isAuth(), (req, res) => {
     res.clearCookie(COOKIE_NAME);

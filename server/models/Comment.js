@@ -34,7 +34,6 @@ const commentSchema = new mongoose.Schema({
         type: String,
         default: Date.now
     }
-
 });
 
 const Comment = mongoose.model('Comment', commentSchema);
