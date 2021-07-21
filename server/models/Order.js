@@ -24,15 +24,15 @@ const orderSchema = new mongoose.Schema({
         }
     },
     products: [{
-        _id: {
+        product: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
-            refPath: "products.type"
+            refPath: "products.onModel"
         },
-        type: {
+        onModel: {
             type: String,
             require: true,
-            enum: ['notebooks', 'Case', 'Cooler', 'HDD', 'Memory', 'Monitor', 'Motherboard', 'Processor', 'PSU', 'SSD', 'VGA']
+            enum: ['Notebook', 'Case', 'Cooler', 'HDD', 'Memory', 'Monitor', 'Motherboard', 'Processor', 'PSU', 'SSD', 'VGA']
         },
         purchaseQuantity: {
             type: Number,
@@ -50,6 +50,9 @@ const orderSchema = new mongoose.Schema({
     status: {
         type: String,
         default: 'pending'
+    },
+    deliveryPrice: {
+        type: Number
     }
 });
 

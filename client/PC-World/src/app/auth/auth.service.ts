@@ -135,6 +135,10 @@ export class AuthService {
     return this.http.post(environment.api_url + 'user/orders', orderData, { withCredentials: true });
   }
 
+  getOrders(userId: string): Observable<any> {
+    return this.http.get(environment.api_url + `user/${userId}/orders`, { withCredentials: true });
+  }
+
   loadCart() {
     let storage = this.localStorage.getItem('cart');
     let currentStorage = [];

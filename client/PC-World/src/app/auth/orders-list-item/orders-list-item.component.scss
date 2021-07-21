@@ -1,0 +1,69 @@
+@import '../../shared/variables.scss';
+:host {
+    flex-basis: 80%;
+    cursor: pointer;
+}
+
+.order-container {
+    flex-basis: 80%;
+    padding: 20px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.content {
+    flex-basis: 100%;
+    margin-top: 10px;
+    padding: 15px 15px 0 15px;
+}
+
+.order-status span {
+    background-color: $primary-color;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.content-product {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid lightgray;
+}
+
+.content-product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.content-product-title {
+    flex-basis: 76%;
+}
+
+.content-product-quantity, .content-product-price {
+    flex-basis: 12%;
+    text-align: right;
+}
+
+.order-subinfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.order-date {
+    padding: 10px;
+    flex-basis: 88%;
+}
+
+.order-price {
+   flex-basis: 20%;
+}

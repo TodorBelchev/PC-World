@@ -12,6 +12,10 @@ import { UserAsideComponent } from './user-aside/user-aside.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
+import { OrdersListComponent } from './orders-list/orders-list.component';
+import { OrdersListItemComponent } from './orders-list-item/orders-list-item.component';
+import { ProductTypePipe } from './product-type.pipe';
+import { DatePipe } from './date.pipe';
 
 
 
@@ -22,7 +26,11 @@ import { CartComponent } from './cart/cart.component';
     WishlistComponent,
     UserAsideComponent,
     ProfileComponent,
-    CartComponent
+    CartComponent,
+    OrdersListComponent,
+    OrdersListItemComponent,
+    ProductTypePipe,
+    DatePipe
   ],
   imports: [
     RouterModule,

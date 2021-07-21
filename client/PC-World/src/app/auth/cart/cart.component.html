@@ -32,7 +32,7 @@
         </div>
         <p *ngIf="products.length === 0">Your cart is empty. See some of our best offers.</p>
         <div class="total" *ngIf="products.length !== 0">
-            <p *ngIf="deliveryPrice !== 0">Delivery: $ {{deliveryPrice}}</p>
+            <p>Delivery: <strong>$ {{deliveryPrice}}</strong></p>
             <p class="total-price">Total price: <strong>$ {{totalPrice + deliveryPrice}}</strong></p>
         </div>
         <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" *ngIf="products.length !== 0">
@@ -42,7 +42,8 @@
             <label for="lastName">Last name:</label>
             <input formControlName="lastName" type="text" name="lastName" id="lastName" [value]="user?.lastName">
             <label for="phoneNumber">Phone number:</label>
-            <input formControlName="phoneNumber" type="number" name="phoneNumber" id="phoneNumber" [value]="user?.phoneNumber">
+            <input formControlName="phoneNumber" type="number" name="phoneNumber" id="phoneNumber"
+                [value]="user?.phoneNumber">
             <label for="city">Delivery city:</label>
             <input formControlName="city" type="text" name="city" id="city" [value]="user?.city">
             <label for="location">Delivery address:</label>

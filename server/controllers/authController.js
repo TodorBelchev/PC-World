@@ -10,6 +10,7 @@ const Order = require('../models/Order');
 const isLogged = require('../middlewares/isLogged');
 const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
+const { createOrder, getOrdersByUserId } = require('../services/orderService');
 
 const services = {
     'notebooks': notebookService
@@ -95,6 +96,8 @@ router.post('/orders', checkUser(), async (req, res) => {
     const mapped = [];
     const orderData = req.body;
     let currentUser;
+    let deliveryPrice = 0;
+    let totalCost = 0;
     if (!req.decoded) {
         currentUser = {
             firstName: orderData.firstName,
@@ -108,27 +111,39 @@ router.post('/orders', checkUser(), async (req, res) => {
         currentUser = req.decoded.id;
         orderData.user = currentUser;
     }
-    req.body.products.forEach(async (x) => {
-        await services[x.type].getById(x._id)
-            .then(y => {
+
+    async function asyncForEach(array, callback) {
+        for (let index = 0; index < array.length; index++) {
+            await callback(array[index], index, array);
+        }
+    }
+
+    try {
+        const createOrder = async () => {
+            await asyncForEach(req.body.products, async (x) => {
+                const currentProduct = await services[x.type].getById(x._id);
                 mapped.push({
-                    _id: y._id,
-                    type: x.type,
+                    product: currentProduct._id,
+                    onModel: x.type.substring(0, 1).toUpperCase() + x.type.substring(1, x.type.length - 1),
                     purchaseQuantity: x.quantity,
-                    purchasePrice: y.promoPrice !== 0 ? y.promoPrice : y.price
+                    purchasePrice: currentProduct.currentPrice
                 });
-            })
-            .then(async () => {
-                orderData.products = mapped;
-                const order = new Order(orderData);
-                await order.save();
-                res.status(201).send(order);
-            })
-            .catch(error => {
-                console.log(error);
-                res.status(400).send({ message: error.message });
+                console.log(mapped);
+                totalCost += currentProduct.currentPrice;
+                totalCost >= 100 ? deliveryPrice = 0 : deliveryPrice = 10;
             });
-    });
+            orderData.products = mapped;
+            orderData.deliveryPrice = deliveryPrice;
+            const order = new Order(orderData);
+            await order.save();
+            res.status(201).send(order);
+        }
+
+        createOrder();
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+    }
+
 });
 
 router.get('/logout', isAuth(), (req, res) => {
@@ -148,7 +163,17 @@ router.put('/', isLogged(), async (req, res) => {
     await user.save();
     const payload = removePass(user);
     res.status(200).send(payload);
-})
+});
+
+router.get('/:userId/orders', isLogged(), async (req, res) => {
+    try {
+        const orders = await getOrdersByUserId(req.params.userId);
+        res.status(200).send(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
 
 function removePass(user) {
     const payload = {

@@ -1,0 +1,6 @@
+<div class="container">
+    <app-user-aside></app-user-aside>
+    <div class="orders">
+        <app-orders-list-item [order]="order" *ngFor="let order of orders"></app-orders-list-item>
+    </div>
+</div>
