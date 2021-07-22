@@ -13,28 +13,6 @@
     height: 100px;
 }
 
-.red, .blue {
-    background: $primary-color;
-    width: 100px;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    color: white;
-    font-size: 1rem;
-    margin: 0 5px;
-    text-decoration: none;
-    flex-basis: 50%;
-}
-
-.blue {
-    background: $secondary-color;
-}
-
-.anonymous-title {
-    margin-bottom: 0;
-}
-
 .links-list {
     list-style: none;
     padding: 0;

@@ -2,13 +2,19 @@
     <div class="aside-content" *ngIf="(user$ | async) !== null">
         <div>
             <ul class="links-list">
-                <li routerLink="/profile/{{(user$ | async)?._id}}" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true}">Account</li>
-                <li routerLink="/profile/{{(user$ | async)?._id}}/orders" routerLinkActive="active">Orders</li>
-                <li routerLink="/wishlist" routerLinkActive="active">Wishlist</li>
-                <li routerLink="/profile/{{(user$ | async)?._id}}/warranties" routerLinkActive="active">
-                    Warranties
-                </li>
+                <a routerLink="/profile/{{(user$ | async)?._id}}" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    <li>Account</li>
+                </a>
+                <a routerLink="/profile/{{(user$ | async)?._id}}/orders" routerLinkActive="active">
+                    <li>Orders</li>
+                </a>
+                <a routerLink="/wishlist" routerLinkActive="active">
+                    <li>Wishlist</li>
+                </a>
+                <a routerLink="/profile/{{(user$ | async)?._id}}/warranties" routerLinkActive="active">
+                    <li>Warranties</li>
+                </a>
             </ul>
         </div>
     </div>

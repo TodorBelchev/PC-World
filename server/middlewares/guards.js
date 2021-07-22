@@ -1,4 +1,5 @@
 // const playService = require('../services/playService');
+const { getUserById } = require('../services/userService');
 
 const isAuth = () => {
     return (req, res, next) => {
@@ -20,6 +21,17 @@ const isGuest = () => {
     };
 };
 
+const isAdmin = () => {
+    return async (req, res, next) => {
+        const user = await getUserById(req.decoded.id);
+        if (user.isAdmin) {
+            next();
+        } else {
+            res.status(401).send({ message: 'User is not admin' });
+        }
+    };
+};
+
 const isCreator = () => async (req, res, next) => {
     // const play = await playService.getById(req.params.id);
     // const isCreator = req.user && play.creator == req.user._id;
@@ -35,5 +47,5 @@ const isCreator = () => async (req, res, next) => {
 module.exports = {
     isAuth,
     isGuest,
-    isCreator
+    isAdmin
 }

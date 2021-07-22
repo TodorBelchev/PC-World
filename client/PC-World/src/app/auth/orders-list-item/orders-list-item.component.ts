@@ -9,7 +9,6 @@ import { IOrder } from '../order.interface';
 export class OrdersListItemComponent implements OnInit {
   @Input() order: IOrder | null = null;
   isVisible: boolean = false;
-  totalPrice: number | undefined = undefined;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,7 +16,6 @@ export class OrdersListItemComponent implements OnInit {
 
   onItemClick(): void {
     this.isVisible = !this.isVisible;
-    this.totalPrice = this.order?.products.reduce((acc, curr) => acc + curr.purchasePrice, 0);
   }
 
 }

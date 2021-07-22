@@ -14,8 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersListComponent } from './orders-list/orders-list.component';
 import { OrdersListItemComponent } from './orders-list-item/orders-list-item.component';
-import { ProductTypePipe } from './product-type.pipe';
-import { DatePipe } from './date.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -28,15 +27,14 @@ import { DatePipe } from './date.pipe';
     ProfileComponent,
     CartComponent,
     OrdersListComponent,
-    OrdersListItemComponent,
-    ProductTypePipe,
-    DatePipe
+    OrdersListItemComponent
   ],
   imports: [
     RouterModule,
     CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    SharedModule,
     StoreModule.forFeature(fromAuth.featureKey, fromAuth.authReducer)
   ]
 })

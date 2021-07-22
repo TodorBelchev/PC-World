@@ -1,0 +1,115 @@
+@import '../../shared/variables.scss';
+:host {
+    flex-basis: 80%;
+}
+
+.order {
+    flex-basis: 80%;
+    padding: 20px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.order-title {
+    flex-basis: 100%;
+}
+
+.order-product {
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.order-product-title {
+    flex-basis: 70%;
+}
+
+.order-product-quantity, .order-product-price {
+    flex-basis: 15%;
+    text-align: right;
+}
+
+.order-subinfo {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid lightgray;
+}
+
+.order-date {
+    flex-basis: 50%;
+}
+
+.order-price {
+    text-align: right;
+    flex-basis: 50%;
+}
+
+.order-btn-edit, .order-btn-save, .order-btn-delete {
+    position: absolute;
+    background: green;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    right: 45px;
+    top: 10px;
+}
+
+.order-btn-save {
+    background: $secondary-color;
+    right: 182px;
+    top: 10px;
+}
+
+.order-btn-delete {
+    right: 10px;
+    width: 28px;
+    background: $primary-color;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal-confirmation {
+    background: white;
+    width: 20%;
+    transform: translate(200%, 50%);
+    top: 20%;
+    position: absolute;
+    text-align: center;
+}
+
+.modal-btn-confirm, .modal-btn-cancel {
+    background: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    right: 45px;
+    top: 10px;
+    margin: 10px;
+}
+
+.modal-btn-cancel {
+    background: $secondary-color;
+}

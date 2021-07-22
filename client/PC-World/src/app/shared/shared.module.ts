@@ -12,6 +12,8 @@ import { ControlsComponent } from './controls/controls.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommentsComponent } from './comments/comments.component';
 import { AddCommentModalComponent } from './add-comment-modal/add-comment-modal.component';
+import { DatePipe } from './pipes/date.pipe';
+import { ProductTypePipe } from './pipes/product-type.pipe';
 
 
 
@@ -23,7 +25,9 @@ import { AddCommentModalComponent } from './add-comment-modal/add-comment-modal.
     ImagesComponent,
     ControlsComponent,
     CommentsComponent,
-    AddCommentModalComponent
+    AddCommentModalComponent,
+    DatePipe,
+    ProductTypePipe
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,9 @@ import { AddCommentModalComponent } from './add-comment-modal/add-comment-modal.
     ImagesComponent,
     ControlsComponent,
     CommentsComponent,
-    AddCommentModalComponent
+    AddCommentModalComponent,
+    DatePipe,
+    ProductTypePipe
   ]
 })
 export class SharedModule { }

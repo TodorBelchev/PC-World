@@ -11,12 +11,12 @@ export interface IOrder {
             images: string[],
             brand: string,
             model: string,
-            
         },
         onModel: string
     }],
     status: string,
     user: string,
     isVisible: boolean,
-    deliveryPrice: number
+    deliveryPrice: number,
+    totalPrice: number
 }

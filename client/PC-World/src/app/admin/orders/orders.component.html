@@ -1,0 +1,33 @@
+<div *ngIf="orders.length == 0">Loading...</div>
+<div class="modal" *ngIf="showModal">
+    <div class="modal-confirmation">
+        <h4>Confirm order delete?</h4>
+        <button class="modal-btn-confirm" (click)="onConfirmedDelete()">Confirm</button>
+        <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
+    </div>
+</div>
+<div *ngFor="let order of orders">
+    <div class="order">
+        <div class="order-title">Order id: {{order._id}}</div>
+        <div class="order-status">Status: <strong>{{order?.status}}</strong></div>
+        <!-- <button class="order-btn-edit" (click)="onEditClick(order)">Edit order</button> -->
+        <button class="order-btn-edit" (click)="onChangeStatus(order)">Change status</button>
+        <button class="order-btn-save" (click)="onChangeSave(order)">Save changes</button>
+        <button class="order-btn-delete" (click)="onDeleteOrder(order)">X</button>
+        <a routerLink="/{{product?.onModel | productType}}/{{product.product._id}}" class="order-product"
+            *ngFor="let product of order?.products">
+            <div class="order-product-title">{{product.product.brand}} {{product.product.model}}</div>
+            <div class="order-product-quantity">Quantity: <strong>{{product.purchaseQuantity}}</strong></div>
+            <div class="order-product-price">Price: <strong>$ {{product.purchasePrice}}</strong></div>
+        </a>
+        <div class="order-subinfo">
+            <div class="order-date">Order date: <strong>{{order!.createdAt | date}}</strong></div>
+            <div class="order-price">
+                <div class="order-price-delivery">
+                    Delivery: <strong>$ {{ order?.deliveryPrice }}</strong>
+                </div>
+                <div class="order-price-total">Total price: <strong>$ {{order?.totalPrice}}</strong></div>
+            </div>
+        </div>
+    </div>
+</div>

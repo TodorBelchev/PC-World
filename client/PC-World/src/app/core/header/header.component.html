@@ -11,11 +11,8 @@
                 <fa-icon [icon]="faSearch" size="lg"></fa-icon>
             </li>
             <li>
-                <a routerLink="/notebooks/create" class="user" *ngIf="user$ | async">
-                    Create notebook
-                </a>
-                <a routerLink="/components/create" class="user" *ngIf="user$ | async">
-                    Create component
+                <a routerLink="/dashboard" class="user" *ngIf="(user$ | async)?.isAdmin">
+                    Dashboard
                 </a>
                 <a routerLink="/login" class="user" *ngIf="!(user$ | async)">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>

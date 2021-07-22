@@ -53,6 +53,9 @@ const orderSchema = new mongoose.Schema({
     },
     deliveryPrice: {
         type: Number
+    },
+    totalPrice: {
+        type: Number
     }
 });
 

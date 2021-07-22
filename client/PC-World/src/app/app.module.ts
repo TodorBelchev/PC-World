@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthEffects } from './auth/store/auth.effects';
 import { NotebookModule } from './notebook/notebook.module';
 import { PartsModule } from './parts/parts.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PartsModule } from './parts/parts.module';
     PartsModule,
     HttpClientModule,
     MonitorModule,
+    AdminModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({

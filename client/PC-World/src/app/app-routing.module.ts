@@ -8,7 +8,6 @@ import { RegisterComponent } from './auth/register/register.component';
 import { WishlistComponent } from './auth/wishlist/wishlist.component';
 import { HomeComponent } from './home/home.component';
 import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
-import { CreateNotebookComponent } from './notebook/create-notebook/create-notebook.component';
 import { DetailsComponent } from './notebook/details/details.component';
 import { NotebooksListComponent } from './notebook/notebooks-list/notebooks-list.component';
 import { CreateComponent } from './parts/create/create.component';
@@ -18,12 +17,12 @@ const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'dashboard', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'profile/:id/orders', component: OrdersListComponent },
   { path: 'wishlist', component: WishlistComponent },
   { path: 'cart', component: CartComponent },
   { path: 'notebooks', component: NotebooksListComponent },
-  { path: 'notebooks/create', component: CreateNotebookComponent },
   { path: 'notebooks/:id', component: DetailsComponent },
   { path: 'components', component: PartsComponent },
   { path: 'components/create', component: CreateComponent },

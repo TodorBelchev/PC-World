@@ -132,11 +132,11 @@ export class AuthService {
   }
 
   placeOrder(orderData: any): Observable<any> {
-    return this.http.post(environment.api_url + 'user/orders', orderData, { withCredentials: true });
+    return this.http.post(environment.api_url + 'orders', orderData, { withCredentials: true });
   }
 
   getOrders(userId: string): Observable<any> {
-    return this.http.get(environment.api_url + `user/${userId}/orders`, { withCredentials: true });
+    return this.http.get(environment.api_url + `orders/customer/${userId}`, { withCredentials: true });
   }
 
   loadCart() {

@@ -1,4 +1,12 @@
 @import "../../shared/variables.scss";
+:host {
+    flex-basis: 80%;
+}
+
+.container {
+    width: 100%;
+}
+
 ul {
     display: flex;
     align-items: center;

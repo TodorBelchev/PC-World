@@ -6,6 +6,7 @@ const partsController = require('../controllers/partsController');
 const notebookController = require('../controllers/notebookController');
 const monitorController = require('../controllers/monitorController');
 const commentController = require('../controllers/commentController');
+const orderController = require('../controllers/orderController');
 
 const router = Router();
 
@@ -15,5 +16,6 @@ router.use('/parts', partsController);
 router.use('/notebooks', notebookController);
 router.use('/monitors', monitorController);
 router.use('/comments', commentController);
+router.use('/orders', orderController);
 
 module.exports = router;
