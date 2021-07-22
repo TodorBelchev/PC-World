@@ -5,12 +5,9 @@ const bcrypt = require('bcrypt');
 const { COOKIE_NAME, SALT_ROUNDS } = require('../config');
 const { isAuth } = require('../middlewares/guards');
 const { createToken } = require('../utils/jwt');
-const User = require('../models/User');
-const Order = require('../models/Order');
 const isLogged = require('../middlewares/isLogged');
-const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
-const { getOrdersByUserId } = require('../services/orderService');
+const { getWarrantiesByUserId } = require('../services/orderService');
 const { createUser, getUserById, getUserByEmail } = require('../services/userService');
 
 const services = {
@@ -50,7 +47,7 @@ router.post('/login',
             res.cookie(COOKIE_NAME, token, { httpOnly: true });
             res.status(200).send(payload);
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
             res.status(400).send({ message: error.message });
         }
     });
@@ -72,7 +69,7 @@ router.post('/register',
                 throw new Error(errors.join('\n'));
             }
 
-            let user = await User.findOne({ email });
+            let user = await getUserByEmail(email);
 
             if (user) {
                 throw new Error('Account already exists');
@@ -88,6 +85,7 @@ router.post('/register',
             res.cookie(COOKIE_NAME, token, { httpOnly: true });
             res.status(200).send(payload);
         } catch (error) {
+            console.log(error);
             res.status(400).send({ message: error.message });
         }
     });
@@ -109,6 +107,16 @@ router.put('/', isLogged(), async (req, res) => {
     await user.save();
     const payload = removePass(user);
     res.status(200).send(payload);
+});
+
+router.get('/warranties', isLogged(), async (req, res) => {
+    try {
+        const warranties = await getWarrantiesByUserId(req.decoded.id);
+        res.status(200).send(warranties);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
 });
 
 function removePass(user) {

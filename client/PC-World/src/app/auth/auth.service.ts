@@ -139,6 +139,10 @@ export class AuthService {
     return this.http.get(environment.api_url + `orders/customer/${userId}`, { withCredentials: true });
   }
 
+  getWarranties(): Observable<any> {
+    return this.http.get(environment.api_url + `user/warranties`, { withCredentials: true });
+  }
+
   loadCart() {
     let storage = this.localStorage.getItem('cart');
     let currentStorage = [];

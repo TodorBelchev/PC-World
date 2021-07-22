@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { OrdersListComponent } from './auth/orders-list/orders-list.component';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { WarrantiesComponent } from './auth/warranties/warranties.component';
 import { WishlistComponent } from './auth/wishlist/wishlist.component';
 import { HomeComponent } from './home/home.component';
 import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'dashboard', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'profile/:id/orders', component: OrdersListComponent },
+  { path: 'profile/:id/warranties', component: WarrantiesComponent },
   { path: 'wishlist', component: WishlistComponent },
   { path: 'cart', component: CartComponent },
   { path: 'notebooks', component: NotebooksListComponent },

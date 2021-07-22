@@ -1,6 +1,8 @@
 <div class="order-container" (click)="onItemClick()">
     <div class="order-id">Order id: <strong>{{order?._id}}</strong></div>
-    <div class="order-status">Status: <span>{{order?.status}}</span></div>
+    <div class="order-status">Status: <span
+            [ngClass]="order?.status == 'pending' ? 'pending' : order?.status == 'sent' ? 'sent' : 'completed'">{{order?.status}}</span>
+    </div>
     <div class="content" *ngIf="isVisible">
         <a routerLink="/{{product?.onModel | productType}}/{{product.product._id}}" class="content-product"
             *ngFor="let product of order?.products">

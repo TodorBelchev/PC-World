@@ -88,4 +88,5 @@ export interface IProduct {
   promoPrice: number;
   type: string;
   quantity: number;
+  warranty: number;
 }

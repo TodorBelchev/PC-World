@@ -22,11 +22,17 @@
     padding: 15px 15px 0 15px;
 }
 
+.order-status {
+    width: 160px;
+}
+
 .order-status span {
-    background-color: $primary-color;
     color: white;
     padding: 5px;
     border-radius: 5px;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
 }
 
 .content-product {
@@ -66,4 +72,16 @@
 
 .order-price {
    flex-basis: 20%;
+}
+
+.pending {
+    background: $primary-color;
+}
+
+.sent {
+    background: $secondary-color;
+}
+
+.completed {
+    background: green;
 }

@@ -1,0 +1,65 @@
+.container {
+    align-items: flex-start;
+}
+
+.warranties {
+    flex-basis: 80%;
+    padding: 20px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.warranties-title {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.warranties-item {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.warranties-item-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.warranties-item-title {
+    padding: 20px;
+    flex-basis: 50%;
+    position: relative;
+}
+
+.warranties-item-title a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.warranties-item-link, .warranties-item-length {
+    margin: 10px 0;
+}
+
+.order {
+    padding: 20px;
+    flex-basis: 35%;
+}
+
+.order-id, .order-date {
+    margin: 10px 0;
+}
+
+.warranties-item-title::after {
+    content: '';
+    width: 1px;
+    height: 105px;
+    background: lightgray;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}

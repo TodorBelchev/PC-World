@@ -3,7 +3,7 @@ const { Router } = require('express');
 const isLogged = require('../middlewares/isLogged');
 const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
-const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder } = require('../services/orderService');
+const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty } = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
 
 const services = {
@@ -92,6 +92,19 @@ router.get('/admin/:page', isLogged(), isAdmin(), async (req, res) => {
 router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
     try {
         const order = await editOrder(req.body._id, req.body);
+        if (order.status == 'completed') {
+            order.products.forEach(x => {
+                generateWarranty({
+                    user: order.user || order.guest,
+                    product: x.product._id,
+                    onModel: x.onModel,
+                    purchaseQuantity: x.purchaseQuantity,
+                    purchasePrice: x.purchasePrice,
+                    warranty: x.product.warranty,
+                    order: order._id
+                });
+            });
+        }
         res.status(200).send(order);
     } catch (error) {
         console.log(error);

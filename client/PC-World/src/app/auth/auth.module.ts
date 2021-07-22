@@ -15,6 +15,7 @@ import { CartComponent } from './cart/cart.component';
 import { OrdersListComponent } from './orders-list/orders-list.component';
 import { OrdersListItemComponent } from './orders-list-item/orders-list-item.component';
 import { SharedModule } from '../shared/shared.module';
+import { WarrantiesComponent } from './warranties/warranties.component';
 
 
 
@@ -27,7 +28,8 @@ import { SharedModule } from '../shared/shared.module';
     ProfileComponent,
     CartComponent,
     OrdersListComponent,
-    OrdersListItemComponent
+    OrdersListItemComponent,
+    WarrantiesComponent
   ],
   imports: [
     RouterModule,

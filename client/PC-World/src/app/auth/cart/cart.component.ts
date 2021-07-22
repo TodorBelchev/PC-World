@@ -127,6 +127,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
               promoPrice: notebook.promoPrice,
               type: x.productType,
               quantity: cart[index].quantity,
+              warranty: notebook.warranty
             });
             notebook.promoPrice !== 0 ? this.totalPrice += notebook.promoPrice * cart[index].quantity : this.totalPrice += notebook.price * cart[index].quantity;
             this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
