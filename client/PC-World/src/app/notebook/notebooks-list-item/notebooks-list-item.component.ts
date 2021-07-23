@@ -14,7 +14,6 @@ export class NotebooksListItemComponent implements OnInit {
   }
 
   onAddToCart(): void {
-    console.log('clicked');
     
   }
 }

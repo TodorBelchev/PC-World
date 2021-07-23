@@ -57,6 +57,14 @@ const motherboardSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    currentPrice: {
+        type: Number,
+        required: true
+    },
+    promoPrice: {
+        type: Number,
+        required: true
+    },
     warranty: {
         type: Number,
         required: true

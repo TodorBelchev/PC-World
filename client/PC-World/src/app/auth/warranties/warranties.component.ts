@@ -27,7 +27,6 @@ export class WarrantiesComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getWarranties().subscribe(
       warranties => {
-        console.log(warranties);
         this.warranties = warranties;
       },
       error => {

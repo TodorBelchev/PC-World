@@ -23,5 +23,6 @@
                 <div class="order-date">Order date: <strong>{{warranty.order.createdAt | date}}</strong></div>
             </div>
         </article>
+        <p class="empty" *ngIf="warranties.length === 0">Your have no orders. See some of our best offers.</p>
     </section>
 </div>

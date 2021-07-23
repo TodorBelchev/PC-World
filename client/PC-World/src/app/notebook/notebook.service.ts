@@ -20,7 +20,7 @@ export class NotebookService {
     return this.http.get(environment.api_url + 'notebooks/' + id);
   }
 
-  getNotebooks(query?: any): Observable<any> {
+  getItems(query?: any): Observable<any> {
     let url = environment.api_url + 'notebooks?';
     if (query) {
       url += query;
@@ -29,6 +29,6 @@ export class NotebookService {
   }
 
   getCount(query: string): Observable<any> {
-    return this.http.get(environment.api_url + 'notebooks/count' + query);
+    return this.http.get(environment.api_url + 'notebooks/count?' + query);
   }
 }

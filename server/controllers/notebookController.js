@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     try {
         const incFilter = req.query;
         const filter = {};
-        
+
         if (incFilter.priceFrom && !incFilter.priceTo) {
             filter.currentPrice = { $gte: incFilter.priceFrom };
         } else if (incFilter.priceTo && !incFilter.priceFrom) {
@@ -20,8 +20,15 @@ router.get('/', async (req, res) => {
         } else if (incFilter.priceTo && incFilter.priceFrom) {
             filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
         }
+        if (incFilter.promotion == 'true') {
+            filter.promoPrice = { $gt: 0 };
+        } else if (incFilter.promotion == 'false') {
+            filter.promoPrice = 0;
+        }
         const page = Number(req.query.page) - 1;
+        console.log(filter);
         const notebooks = await getNotebooksByPage(page, filter);
+        console.log(notebooks.length);
         res.status(200).send(notebooks);
     } catch (error) {
         console.log(error.message);
@@ -40,6 +47,11 @@ router.get('/count', async (req, res) => {
             filter.currentPrice = { $lte: incFilter.priceTo };
         } else if (incFilter.priceTo && incFilter.priceFrom) {
             filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
+        }
+        if (incFilter.promotion == 'true') {
+            filter.promoPrice = { $gt: 0 };
+        } else if (incFilter.promotion == 'false') {
+            filter.promoPrice = 0;
         }
 
         const notebooks = await getCount(filter);
@@ -74,6 +86,7 @@ router.post('/create', isLoggedIn(), async (req, res) => {
         }
 
         formData.images = imagesURL;
+        formData.promoPrice !== 0 ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
         const notebook = await createNotebook(formData);
         res.status(201).send(notebook);
     } catch (error) {

@@ -16,4 +16,16 @@ export class MonitorService {
   create(data: any): Observable<any> {
     return this.http.post(environment.api_url + 'monitors/create', data, { withCredentials: true });
   }
+
+  getItems(query?: string): Observable<any> {
+    let url = environment.api_url + 'monitors?';
+    if (query) {
+      url += query;
+    }
+    return this.http.get(url);
+  }
+
+  getCount(query: string): Observable<any> {
+    return this.http.get(environment.api_url + 'monitors/count' + query);
+  }
 }

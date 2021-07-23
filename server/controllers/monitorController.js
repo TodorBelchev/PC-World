@@ -5,6 +5,7 @@ const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createMonitor } = require('../services/monitorService');
 const isLoggedIn = require('../middlewares/isLogged');
+const { getMonitorsByPage } = require('../services/monitorService');
 
 const router = Router();
 
@@ -20,11 +21,39 @@ router.post('/create', isLoggedIn(), async (req, res) => {
         }
 
         formData.images = imagesURL;
+        formData.promoPrice !== 0 ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
         const monitor = await createMonitor(formData);
         res.status(201).send(monitor);
     } catch (error) {
         res.status(400).send({ message: error.message });
     }
+});
+
+router.get('/', async (req, res) => {
+    try {
+        const incFilter = req.query;
+        const filter = {};
+
+        if (incFilter.priceFrom && !incFilter.priceTo) {
+            filter.currentPrice = { $gte: incFilter.priceFrom };
+        } else if (incFilter.priceTo && !incFilter.priceFrom) {
+            filter.currentPrice = { $lte: incFilter.priceTo };
+        } else if (incFilter.priceTo && incFilter.priceFrom) {
+            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
+        }
+        if (incFilter.promotion == 'true') {
+            filter.promoPrice = { $gt: 0 };
+        } else {
+            filter.promoPrice = 0;
+        }
+        const page = Number(req.query.page) - 1;
+        const monitors = await getMonitorsByPage(page, filter);
+        res.status(200).send(monitors);
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+
 });
 
 module.exports = router;

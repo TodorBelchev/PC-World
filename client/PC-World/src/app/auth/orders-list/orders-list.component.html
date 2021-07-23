@@ -2,5 +2,9 @@
     <app-user-aside></app-user-aside>
     <div class="orders">
         <app-orders-list-item [order]="order" *ngFor="let order of orders"></app-orders-list-item>
+        <div class="empty" *ngIf="orders.length === 0">
+            <h3>Orders:</h3>
+            <p>Your have no orders. See some of our best offers.</p>
+        </div>
     </div>
 </div>

@@ -5,3 +5,17 @@
 .orders {
     flex-basis: 80%;
 }
+
+.empty {
+    flex-basis: 80%;
+    padding: 20px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.empty h3 {
+    margin: 0;
+    border-bottom: 1px solid lightgray;
+}

@@ -20,4 +20,12 @@ export class PartsService {
   getCount(): Observable<any> {
     return this.http.get(environment.api_url + 'parts/count');
   }
+
+  getItems(query?: string): Observable<any> {
+    let url = environment.api_url + 'parts/';
+    if (query) {
+      url += query;
+    }
+    return this.http.get(url);
+  }
 }

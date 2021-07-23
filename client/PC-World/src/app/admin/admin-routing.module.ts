@@ -1,9 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { CreateMonitorComponent } from "../monitor/create-monitor/create-monitor.component";
 import { CreateNotebookComponent } from "../notebook/create-notebook/create-notebook.component";
+import { CreateComponent } from "../parts/create/create.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { EditOrdersComponent } from "./edit-orders/edit-orders.component";
 import { OrdersComponent } from "./orders/orders.component";
+import { ProductsComponent } from "./products/products.component";
 
 
 const routes: Routes = [
@@ -17,6 +20,18 @@ const routes: Routes = [
             {
                 path: 'notebooks/create',
                 component: CreateNotebookComponent
+            },
+            {
+                path: 'monitors/create',
+                component: CreateMonitorComponent
+            },
+            {
+                path: 'parts/create',
+                component: CreateComponent
+            },
+            {
+                path: 'products',
+                component: ProductsComponent
             },
             {
                 path: 'orders',

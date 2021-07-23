@@ -7,6 +7,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { OrdersComponent } from './orders/orders.component';
 import { SharedModule } from '../shared/shared.module';
 import { EditOrdersComponent } from './edit-orders/edit-orders.component';
+import { ProductsComponent } from './products/products.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,13 +17,15 @@ import { EditOrdersComponent } from './edit-orders/edit-orders.component';
     DashboardComponent,
     AdminAsideComponent,
     OrdersComponent,
-    EditOrdersComponent
+    EditOrdersComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

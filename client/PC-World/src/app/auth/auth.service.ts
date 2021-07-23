@@ -6,6 +6,7 @@ import * as AuthActions from './store/auth.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../shared/app-state.interface';
 import { IUser } from './user.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class AuthService {
   localStorage = localStorage;
   constructor(
     private http: HttpClient,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private router: Router
   ) { }
 
   login(userData: { email: string, password: string }): Observable<Object> {

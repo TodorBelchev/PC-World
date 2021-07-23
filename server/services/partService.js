@@ -29,7 +29,12 @@ const getPartCount = (partName) => {
     return parts[partName].collection.countDocuments();
 }
 
+const getPartsByPage = (partName, page, filter) => {
+    return parts[partName].find(filter).skip(page * 16).limit(16).sort({ brand: 'asc' });
+}
+
 module.exports = {
     createPart,
-    getPartCount
+    getPartCount,
+    getPartsByPage
 }

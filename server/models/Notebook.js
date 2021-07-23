@@ -100,7 +100,7 @@ const notebookSchema = new mongoose.Schema({
     },
     currentPrice: {
         type: Number,
-        default: this.price
+        required: true
     },
     promoPrice: {
         type: Number,
