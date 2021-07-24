@@ -19,7 +19,7 @@ export class PartsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.partsService.getCount().subscribe(data => {
+    this.partsService.getCountAll().subscribe(data => {
       this.processorCount = data.processors;
       this.vgaCount = data.vga;
       this.MBCount = data.MB;

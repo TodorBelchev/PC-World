@@ -5,7 +5,8 @@ const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createMonitor } = require('../services/monitorService');
 const isLoggedIn = require('../middlewares/isLogged');
-const { getMonitorsByPage } = require('../services/monitorService');
+const { getMonitorsByPage, getFilteredCount } = require('../services/monitorService');
+const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
 
@@ -31,9 +32,21 @@ router.post('/create', isLoggedIn(), async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
+        const filter = extractFilterFromQuery(req.query);
+        const page = Number(req.query.page) - 1;
+        const monitors = await getMonitorsByPage(page, filter);
+        res.status(200).send(monitors);
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+
+});
+
+router.get('/count', async (req, res) => {
+    try {
         const incFilter = req.query;
         const filter = {};
-
         if (incFilter.priceFrom && !incFilter.priceTo) {
             filter.currentPrice = { $gte: incFilter.priceFrom };
         } else if (incFilter.priceTo && !incFilter.priceFrom) {
@@ -43,17 +56,16 @@ router.get('/', async (req, res) => {
         }
         if (incFilter.promotion == 'true') {
             filter.promoPrice = { $gt: 0 };
-        } else {
+        } else if (incFilter.promotion == 'false') {
             filter.promoPrice = 0;
         }
-        const page = Number(req.query.page) - 1;
-        const monitors = await getMonitorsByPage(page, filter);
-        res.status(200).send(monitors);
+
+        const monitors = await getFilteredCount(filter);
+        res.status(200).send({ count: monitors.length });
     } catch (error) {
         console.log(error.message);
         res.status(400).send({ message: error.message });
     }
-
 });
 
 module.exports = router;

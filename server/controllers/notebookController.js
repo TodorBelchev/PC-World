@@ -5,30 +5,15 @@ const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createNotebook, getNotebooksByPage, getCount, getById } = require('../services/notebookService');
 const isLoggedIn = require('../middlewares/isLogged');
+const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
 
 router.get('/', async (req, res) => {
     try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else if (incFilter.promotion == 'false') {
-            filter.promoPrice = 0;
-        }
+        const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page) - 1;
-        console.log(filter);
         const notebooks = await getNotebooksByPage(page, filter);
-        console.log(notebooks.length);
         res.status(200).send(notebooks);
     } catch (error) {
         console.log(error.message);
@@ -39,21 +24,7 @@ router.get('/', async (req, res) => {
 
 router.get('/count', async (req, res) => {
     try {
-        const incFilter = req.query;
-        const filter = {};
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else if (incFilter.promotion == 'false') {
-            filter.promoPrice = 0;
-        }
-
+        const filter = extractFilterFromQuery(req.query);
         const notebooks = await getCount(filter);
         res.status(200).send({ count: notebooks.length });
     } catch (error) {

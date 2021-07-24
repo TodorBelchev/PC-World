@@ -5,29 +5,16 @@ const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createPart, getPartCount } = require('../services/partService');
 const isLoggedIn = require('../middlewares/isLogged');
-const { getPartsByPage } = require('../services/partService');
+const { getPartsByPage, getFilteredCount } = require('../services/partService');
+const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
 
-router.get('/processor', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
+        const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('processor', page, filter);
+        const parts = await getPartsByPage(req.query.product, page, filter);
         res.status(200).send(parts);
     } catch (error) {
         console.log(error.message);
@@ -36,221 +23,6 @@ router.get('/processor', async (req, res) => {
 
 });
 
-router.get('/vgas', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('vga', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
-
-router.get('/hdds', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('hdd', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
-
-router.get('/ssds', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('ssd', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
-
-router.get('/memories', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('memory', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
-
-router.get('/motherboards', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('motherboard', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
-
-router.get('/cases', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('case', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
-
-router.get('/psus', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('psu', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
-
-router.get('/coolers', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else {
-            filter.promoPrice = 0;
-        }
-        const page = Number(req.query.page) - 1;
-        const parts = await getPartsByPage('cooler', page, filter);
-        res.status(200).send(parts);
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
-
-});
 
 router.post('/create/processor', isLoggedIn(), async (req, res) => {
     try {
@@ -418,6 +190,17 @@ router.post('/create/cooler', isLoggedIn(), async (req, res) => {
 });
 
 router.get('/count', async (req, res) => {
+    try {
+        const filter = extractFilterFromQuery(req.query);
+        const part = await getFilteredCount(req.query.product, filter);
+        res.status(200).send({ count: part.length });
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/count/all', async (req, res) => {
     try {
         const [
             procCount,

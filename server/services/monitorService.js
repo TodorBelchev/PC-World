@@ -9,7 +9,12 @@ const getMonitorsByPage = (page, filter) => {
     return Monitor.find(filter).skip(page * 16).limit(16);
 }
 
+const getFilteredCount = (filter) => {
+    return Monitor.find(filter);
+}
+
 module.exports = {
     createMonitor,
-    getMonitorsByPage
+    getMonitorsByPage,
+    getFilteredCount
 }

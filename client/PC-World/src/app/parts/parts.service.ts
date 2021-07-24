@@ -17,12 +17,16 @@ export class PartsService {
     return this.http.post(environment.api_url + 'parts/create/' + partType, partData, { withCredentials: true });
   }
 
-  getCount(): Observable<any> {
-    return this.http.get(environment.api_url + 'parts/count');
+  getCountAll(): Observable<any> {
+    return this.http.get(environment.api_url + 'parts/count/all');
+  }
+
+  getCount(query: string): Observable<any> {
+    return this.http.get(environment.api_url + 'parts/count?' + query);
   }
 
   getItems(query?: string): Observable<any> {
-    let url = environment.api_url + 'parts/';
+    let url = environment.api_url + 'parts?';
     if (query) {
       url += query;
     }

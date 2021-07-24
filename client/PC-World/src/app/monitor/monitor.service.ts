@@ -26,6 +26,6 @@ export class MonitorService {
   }
 
   getCount(query: string): Observable<any> {
-    return this.http.get(environment.api_url + 'monitors/count' + query);
+    return this.http.get(environment.api_url + 'monitors/count?' + query);
   }
 }

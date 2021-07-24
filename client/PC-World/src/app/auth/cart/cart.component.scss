@@ -1,6 +1,10 @@
 @import '../../shared/variables.scss';
+.container {
+    align-items: flex-start;
+}
+
 .products-container {
-    flex-basis: 100%;
+    flex-basis: 80%;
     padding: 20px;
     box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
     margin-top: 20px;

@@ -82,7 +82,6 @@ export class ProductsComponent implements OnInit {
         || this.selectedProduct == 'cooler'
         || this.selectedProduct == 'ssd') {
 
-        query = this.selectedProduct + '?' + query;
         this.services[this.selectedProduct].getItems(query).subscribe(
           data => {
             this.products = data;
