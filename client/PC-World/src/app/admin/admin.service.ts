@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { IOrder } from '../auth/order.interface';
+import { IOrder } from '../shared/interfaces/order.interface';
 
 @Injectable({
   providedIn: 'root'

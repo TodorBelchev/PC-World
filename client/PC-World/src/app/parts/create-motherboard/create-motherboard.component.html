@@ -1,37 +1,46 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data" *ngIf="motherboard">
     <label for="brand">Brand:</label>
-    <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [(ngModel)]="motherboard.brand">
     <label for="model">Model:</label>
-    <input ngModel #model="ngModel" type="text" name="model" id="model">
+    <input ngModel #model="ngModel" type="text" name="model" id="model" [(ngModel)]="motherboard.model">
     <label for="socket">Socket:</label>
-    <input ngModel #socket="ngModel" type="text" name="socket" id="socket">
+    <input ngModel #socket="ngModel" type="text" name="socket" id="socket" [(ngModel)]="motherboard.socket">
     <label for="formFactor">From factor:</label>
-    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor">
+    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor"
+        [(ngModel)]="motherboard.formFactor">
     <label for="chipset">Chipset:</label>
-    <input ngModel #chipset="ngModel" type="text" name="chipset" id="chipset">
+    <input ngModel #chipset="ngModel" type="text" name="chipset" id="chipset" [(ngModel)]="motherboard.chipset">
     <label for="memorySlots">Memory slots:</label>
-    <input ngModel #memorySlots="ngModel" type="number" name="memorySlots" id="memorySlots">
+    <input ngModel #memorySlots="ngModel" type="number" name="memorySlots" id="memorySlots"
+        [(ngModel)]="motherboard.memorySlots">
     <label for="memorySpeeds">Memory speeds:</label>
-    <input ngModel #memorySpeeds="ngModel" type="text" name="memorySpeeds" id="memorySpeeds">
+    <input ngModel #memorySpeeds="ngModel" type="text" name="memorySpeeds" id="memorySpeeds"
+        [(ngModel)]="motherboard.memorySpeeds">
     <label for="ramCapacity">RAM capacity:</label>
-    <input ngModel #ramCapacity="ngModel" type="number" name="ramCapacity" id="ramCapacity">
+    <input ngModel #ramCapacity="ngModel" type="number" name="ramCapacity" id="ramCapacity"
+        [(ngModel)]="motherboard.ramCapacity">
     <label for="audio">Audio:</label>
-    <input ngModel #audio="ngModel" type="text" name="audio" id="audio">
+    <input ngModel #audio="ngModel" type="text" name="audio" id="audio" [(ngModel)]="motherboard.audio">
     <label for="lan">LAN:</label>
-    <input ngModel #lan="ngModel" type="text" name="lan" id="lan">
+    <input ngModel #lan="ngModel" type="text" name="lan" id="lan" [(ngModel)]="motherboard.lan">
     <label for="wireless">Wireless:</label>
-    <input ngModel #wireless="ngModel" type="text" name="wireless" id="wireless">
+    <input ngModel #wireless="ngModel" type="text" name="wireless" id="wireless" [(ngModel)]="motherboard.wireless">
     <label for="connectors">Connectors:</label>
-    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors">
+    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors"
+        [(ngModel)]="motherboard.connectors">
     <label for="storage">Storage slots:</label>
-    <input ngModel #storage="ngModel" type="text" name="storage" id="storage">
+    <input ngModel #storage="ngModel" type="text" name="storage" id="storage" [(ngModel)]="motherboard.storage">
     <label for="warranty">Warranty:</label>
-    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [(ngModel)]="motherboard.warranty">
     <label for="image">Images:</label>
     <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
     <label for="price">Price:</label>
-    <input ngModel #price="ngModel" type="number" name="price" id="price">
+    <input ngModel #price="ngModel" type="number" name="price" id="price" [(ngModel)]="motherboard.price">
+    <label for="promoPrice">Promo price:</label>
+    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice"
+        [(ngModel)]="motherboard.promoPrice">
     <label for="quantity">Quantity:</label>
-    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity">
-    <input type="submit" value="Create">
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [(ngModel)]="motherboard.quantity">
+    <input type="submit" value="Create" *ngIf="!editMode">
+    <input type="submit" value="Edit" *ngIf="editMode">
 </form>

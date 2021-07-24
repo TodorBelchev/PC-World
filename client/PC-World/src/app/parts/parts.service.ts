@@ -17,12 +17,20 @@ export class PartsService {
     return this.http.post(environment.api_url + 'parts/create/' + partType, partData, { withCredentials: true });
   }
 
+  editPart(partData: any, partType: string, id: string): Observable<any> {
+    return this.http.put(environment.api_url + `parts/part/${id}?part=` + partType, partData, { withCredentials: true });
+  }
+
   getCountAll(): Observable<any> {
     return this.http.get(environment.api_url + 'parts/count/all');
   }
 
   getCount(query: string): Observable<any> {
     return this.http.get(environment.api_url + 'parts/count?' + query);
+  }
+
+  getItem(partType: string, id: string): Observable<any> {
+    return this.http.get(environment.api_url + `parts/part/${partType}/${id}`);
   }
 
   getItems(query?: string): Observable<any> {

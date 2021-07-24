@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IUser } from 'src/app/auth/user.interface';
+import { IUser } from '../interfaces/user.interface';
 import { AppState } from '../app-state.interface';
 import { SharedService } from '../shared.service';
 import * as authSelectors from '../../auth/store/auth.selectors';

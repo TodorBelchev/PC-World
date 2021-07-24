@@ -3,9 +3,10 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createPart, getPartCount } = require('../services/partService');
+const { createPart, getPartCount, getPart } = require('../services/partService');
 const isLoggedIn = require('../middlewares/isLogged');
-const { getPartsByPage, getFilteredCount } = require('../services/partService');
+const { isAdmin } = require('../middlewares/guards');
+const { getPartsByPage, getFilteredCount, editPart } = require('../services/partService');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
@@ -16,6 +17,17 @@ router.get('/', async (req, res) => {
         const page = Number(req.query.page) - 1;
         const parts = await getPartsByPage(req.query.product, page, filter);
         res.status(200).send(parts);
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+
+});
+
+router.get('/part/:partType/:id', async (req, res) => {
+    try {
+        const part = await getPart(req.params.partType, req.params.id);
+        res.status(200).send(part);
     } catch (error) {
         console.log(error.message);
         res.status(400).send({ message: error.message });
@@ -40,6 +52,32 @@ router.post('/create/processor', isLoggedIn(), async (req, res) => {
         const proc = await createPart('processor', formData);
         res.status(201).send(proc);
     } catch (error) {
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.put('/part/:id', isLoggedIn(), isAdmin(), async (req, res) => {
+    try {
+        const partType = req.query.part;
+        const imagesURL = [];
+        const form = formidable({ multiples: true });
+        const [formData, incFiles] = await getFromData(req, form);
+
+        if (Object.values(incFiles).length > 0) {
+            for (const file of Object.values(incFiles)) {
+                const url = await uploadToCloudinary(file.path);
+                imagesURL.push(url);
+            }
+            formData.images = imagesURL;
+        } else {
+            delete formData.images;
+        }
+
+        formData.promoPrice !== 0 ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
+        const part = await editPart(partType, req.params.id, formData);
+        res.status(200).send(part);
+    } catch (error) {
+        console.log(error);
         res.status(400).send({ message: error.message });
     }
 });

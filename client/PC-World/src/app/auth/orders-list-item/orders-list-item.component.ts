@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IOrder } from '../order.interface';
+import { IOrder } from '../../shared/interfaces/order.interface';
 
 @Component({
   selector: 'app-orders-list-item',

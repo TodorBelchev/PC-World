@@ -19,7 +19,7 @@
     </div>
     <div class="products">
         <div *ngFor="let product of products" class="product">
-            <a routerLink="/{{fetchedProduct}}s/{{product._id}}/edit">
+            <a routerLink="{{link}}/{{fetchedProduct}}s/{{product._id}}/edit">
                 {{product.brand}} {{product.model}}
             </a>
         </div>

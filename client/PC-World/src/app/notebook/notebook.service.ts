@@ -16,6 +16,10 @@ export class NotebookService {
     return this.http.post(environment.api_url + 'notebooks/create', data, { withCredentials: true });
   }
 
+  edit(id: string, data: any): Observable<any> {
+    return this.http.put(environment.api_url + 'notebooks/' + id, data, { withCredentials: true });
+  }
+
   getById(id: string): Observable<any> {
     return this.http.get(environment.api_url + 'notebooks/' + id);
   }

@@ -1,4 +1,4 @@
-<form>
+<form *ngIf="!editMode">
     <label for="component">Choose component:</label>
     <select [(ngModel)]="selectedPart" (ngModelChange)="getComponent($event)" name="component" id="component">
         <option value="processor">Processor</option>
@@ -21,6 +21,8 @@
     <app-create-memory *ngIf="selectedPart == 'memory'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-memory>
     <app-create-hdd *ngIf="selectedPart == 'hdd'" (submitForm)="onSubmit($event)"
+        (submitFiles)="onFilesSubmitted($event)"></app-create-hdd>
+    <app-create-hdd *ngIf="selectedPart == 'ssd'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-hdd>
     <app-create-case *ngIf="selectedPart == 'case'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-case>

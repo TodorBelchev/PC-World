@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { IOrder } from '../order.interface';
+import { IOrder } from '../../shared/interfaces/order.interface';
 import { IProduct } from '../wishlist/wishlist.component';
 
 @Component({

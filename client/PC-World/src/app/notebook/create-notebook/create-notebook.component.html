@@ -1,67 +1,68 @@
 <div class="container">
-    <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
+    <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data" *ngIf="notebook">
         <label for="brand">Brand:</label>
-        <input ngModel type="text" name="brand" id="brand">
+        <input ngModel type="text" name="brand" id="brand" [(ngModel)]="notebook.brand">
         <label for="model">Model:</label>
-        <input ngModel type="text" name="model" id="model">
+        <input ngModel type="text" name="model" id="model" [(ngModel)]="notebook.model">
         <label for="processor">Processor:</label>
-        <input ngModel type="text" name="processor" id="processor">
+        <input ngModel type="text" name="processor" id="processor" [(ngModel)]="notebook.processor">
         <label for="processorCores">Processor cores:</label>
-        <input ngModel type="number" name="processorCores" id="processorCores">
+        <input ngModel type="number" name="processorCores" id="processorCores" [(ngModel)]="notebook.processorCores">
         <label for="processorBrand">Processor brand:</label>
-        <input ngModel type="text" name="processorBrand" id="processorBrand">
+        <input ngModel type="text" name="processorBrand" id="processorBrand" [(ngModel)]="notebook.processorBrand">
         <label for="processorModel">Processor model:</label>
-        <input ngModel type="text" name="processorModel" id="processorModel">
+        <input ngModel type="text" name="processorModel" id="processorModel" [(ngModel)]="notebook.processorModel">
         <label for="memoryType">Memory type:</label>
-        <input ngModel type="text" name="memoryType" id="memoryType">
+        <input ngModel type="text" name="memoryType" id="memoryType" [(ngModel)]="notebook.memoryType">
         <label for="memoryCapacity">Memory capacity:</label>
-        <input ngModel type="number" name="memoryCapacity" id="memoryCapacity">
+        <input ngModel type="number" name="memoryCapacity" id="memoryCapacity" [(ngModel)]="notebook.memoryCapacity">
         <label for="memorySpeed">Memory speed:</label>
-        <input ngModel type="number" name="memorySpeed" id="memorySpeed">
+        <input ngModel type="number" name="memorySpeed" id="memorySpeed" [(ngModel)]="notebook.memorySpeed">
         <label for="storage">Storage:</label>
-        <input ngModel type="text" name="storage" id="storage">
+        <input ngModel type="text" name="storage" id="storage" [(ngModel)]="notebook.storage">
         <label for="storageCapacity">Storage capacity:</label>
-        <input ngModel type="number" name="storageCapacity" id="storageCapacity">
+        <input ngModel type="number" name="storageCapacity" id="storageCapacity" [(ngModel)]="notebook.storageCapacity">
         <label for="graphics">Graphics:</label>
-        <input ngModel type="text" name="graphics" id="graphics">
+        <input ngModel type="text" name="graphics" id="graphics" [(ngModel)]="notebook.graphics">
         <label for="display">Display:</label>
-        <input ngModel type="text" name="display" id="display">
+        <input ngModel type="text" name="display" id="display" [(ngModel)]="notebook.display">
         <label for="displaySize">Display size:</label>
-        <input ngModel type="number" name="displaySize" id="displaySize">
+        <input ngModel type="number" name="displaySize" id="displaySize" [(ngModel)]="notebook.displaySize">
         <label for="displayResolution">Display resolution:</label>
-        <input ngModel type="text" name="displayResolution" id="displayResolution">
+        <input ngModel type="text" name="displayResolution" id="displayResolution" [(ngModel)]="notebook.displayResolution">
         <label for="displayRefresRate">Display refresh rate:</label>
-        <input ngModel type="number" name="displayRefreshRate" id="displayRefreshRate">
+        <input ngModel type="number" name="displayRefreshRate" id="displayRefreshRate" [(ngModel)]="notebook.displayRefreshRate">
         <label for="ports">Ports:</label>
-        <input ngModel type="text" name="ports" id="ports">
+        <input ngModel type="text" name="ports" id="ports" [(ngModel)]="notebook.ports">
         <label for="weight">Weight:</label>
-        <input ngModel type="number" name="weight" id="weight">
+        <input ngModel type="number" name="weight" id="weight" [(ngModel)]="notebook.weight">
         <label for="color">Color:</label>
-        <input ngModel type="text" name="color" id="color">
+        <input ngModel type="text" name="color" id="color" [(ngModel)]="notebook.color">
         <label for="dimensions">Dimensions:</label>
-        <input ngModel type="text" name="dimensions" id="dimensions">
+        <input ngModel type="text" name="dimensions" id="dimensions" [(ngModel)]="notebook.dimensions">
         <label for="battery">Battery:</label>
-        <input ngModel type="text" name="battery" id="battery">
+        <input ngModel type="text" name="battery" id="battery" [(ngModel)]="notebook.battery">
         <label for="OS">Operation system:</label>
-        <input ngModel type="text" name="OS" id="OS">
+        <input ngModel type="text" name="OS" id="OS" [(ngModel)]="notebook.OS">
         <label for="category">Category:</label>
-        <select ngModel="home & entertainment" #category="ngModel" name="category" id="category">
+        <select ngModel="home & entertainment" #category="ngModel" name="category" id="category" [(ngModel)]="notebook.category">
             <option value="home & entertainment" selected>home & entertainment</option>
             <option value="business">business</option>
             <option value="gaming">gaming</option>
         </select>
         <label for="warranty">Warranty:</label>
-        <input ngModel type="number" name="warranty" id="warranty">
+        <input ngModel type="number" name="warranty" id="warranty" [(ngModel)]="notebook.warranty">
         <label for="image">Images:</label>
         <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
         <label for="price">Price:</label>
-        <input ngModel type="number" name="price" id="price">
+        <input ngModel type="number" name="price" id="price" [(ngModel)]="notebook.price">
         <label for="promoPrice">Promo price:</label>
-        <input ngModel type="number" name="promoPrice" id="promoPrice">
+        <input ngModel type="number" name="promoPrice" id="promoPrice" [(ngModel)]="notebook.promoPrice">
         <label for="quantity">Quantity:</label>
-        <input ngModel type="number" name="quantity" id="quantity">
+        <input ngModel type="number" name="quantity" id="quantity" [(ngModel)]="notebook.quantity">
         <div id="submit-container">
-            <input type="submit" value="Create">
+            <input type="submit" value="Create" *ngIf="!notebook">
+            <input type="submit" value="Edit" *ngIf="notebook">
         </div>
     </form>
 </div>

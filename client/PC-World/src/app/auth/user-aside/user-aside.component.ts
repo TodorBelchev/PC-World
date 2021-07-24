@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/shared/app-state.interface';
 import * as authSelectors from '../store/auth.selectors';
-import { IUser } from '../user.interface';
+import { IUser } from '../../shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-user-aside',

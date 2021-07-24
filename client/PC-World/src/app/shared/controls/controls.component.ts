@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { AppState } from '../app-state.interface';
 import { add_cart, add_wishlist } from '../../auth/store/auth.actions';
 import { Observable } from 'rxjs';
-import { IUser } from 'src/app/auth/user.interface';
+import { IUser } from '../interfaces/user.interface';
 import * as authSelectors from '../../auth/store/auth.selectors';
 
 @Component({
@@ -17,7 +17,7 @@ export class ControlsComponent implements OnInit {
   @Output() showModalEvent: EventEmitter<any> = new EventEmitter();
   @Input() showModal: boolean = false;
   @Input() productName: string = '';
-  @Input() product: { _id: string, price: number, quantity: number, promoPrice: number } = {
+  @Input() product: { _id: string, price: number | string, quantity: number | string, promoPrice: number | string } = {
     _id: '',
     price: 0,
     quantity: 0,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { IOrder } from '../order.interface';
+import { IOrder } from '../../shared/interfaces/order.interface';
 
 @Component({
   selector: 'app-orders-list',

@@ -9,6 +9,7 @@ import { WarrantiesComponent } from './auth/warranties/warranties.component';
 import { WishlistComponent } from './auth/wishlist/wishlist.component';
 import { HomeComponent } from './home/home.component';
 import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
+import { CreateNotebookComponent } from './notebook/create-notebook/create-notebook.component';
 import { DetailsComponent } from './notebook/details/details.component';
 import { NotebooksListComponent } from './notebook/notebooks-list/notebooks-list.component';
 import { CreateComponent } from './parts/create/create.component';
@@ -26,8 +27,10 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'notebooks', component: NotebooksListComponent },
   { path: 'notebooks/:id', component: DetailsComponent },
+  { path: 'notebooks/:id/edit', component: CreateNotebookComponent },
   { path: 'components', component: PartsComponent },
   { path: 'components/create', component: CreateComponent },
+  { path: 'components/:part/:id/edit', component: CreateComponent },
   { path: 'monitors/create', component: CreateMonitorComponent },
 ];
 

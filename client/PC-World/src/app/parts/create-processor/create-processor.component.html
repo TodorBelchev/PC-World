@@ -1,32 +1,33 @@
-<div class="form-container">
+<div class="form-container" *ngIf="processor">
     <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
         <label for="brand">Brand:</label>
-        <input ngModel #brand="ngModel" type="text" name="brand" id="brand">
+        <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [(ngModel)]="processor.brand">
         <label for="model">Model:</label>
-        <input ngModel #model="ngModel" type="text" name="model" id="model">
+        <input ngModel #model="ngModel" type="text" name="model" id="model" [(ngModel)]="processor.model">
         <label for="cores">Cores:</label>
-        <input ngModel #cores="ngModel" type="number" name="cores" id="cores">
+        <input ngModel #cores="ngModel" type="number" name="cores" id="cores" [(ngModel)]="processor.cores">
         <label for="threads">Threads:</label>
-        <input ngModel #threads="ngModel" type="number" name="threads" id="threads">
+        <input ngModel #threads="ngModel" type="number" name="threads" id="threads" [(ngModel)]="processor.threads">
         <label for="baseClock">Base Clock:</label>
-        <input ngModel #base="ngModel" type="number" name="baseClock" id="baseClock">
+        <input ngModel #base="ngModel" type="number" name="baseClock" id="baseClock" [(ngModel)]="processor.baseClock">
         <label for="boostClock">Boost Clock:</label>
-        <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock">
+        <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock" [(ngModel)]="processor.boostClock">
         <label for="cache">Cache:</label>
-        <input ngModel #cache="ngModel" type="number" name="cache" id="cache">
+        <input ngModel #cache="ngModel" type="number" name="cache" id="cache" [(ngModel)]="processor.cache">
         <label for="box" class="checkbox">
-            <input ngModel #box type="checkbox" name="box" id="box"> Box cooler included
+            <input ngModel #box type="checkbox" name="box" id="box" [(ngModel)]="processor.box"> Box cooler included
         </label>
         <label for="warranty">Warranty:</label>
-        <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty">
+        <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [(ngModel)]="processor.warranty">
         <label for="image">Images:</label>
         <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
         <label for="price">Price:</label>
-        <input ngModel #price="ngModel" type="number" name="price" id="price">
+        <input ngModel #price="ngModel" type="number" name="price" id="price" [(ngModel)]="processor.price">
         <label for="promoPrice">Promo price:</label>
-        <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice">
+        <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [(ngModel)]="processor.promoPrice">
         <label for="quantity">Quantity:</label>
-        <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity">
-        <input type="submit" value="Create">
+        <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [(ngModel)]="processor.quantity">
+        <input type="submit" value="Create" *ngIf="!editMode">
+        <input type="submit" value="Edit" *ngIf="editMode">
     </form>
 </div>

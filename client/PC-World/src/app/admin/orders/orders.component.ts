@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IOrder } from 'src/app/auth/order.interface';
+import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { AdminService } from '../admin.service';
 
 @Component({

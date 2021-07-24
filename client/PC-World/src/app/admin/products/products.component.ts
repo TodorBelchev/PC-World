@@ -14,6 +14,7 @@ export class ProductsComponent implements OnInit {
   selectedProduct: string = 'notebook';
   selectedPromotion: boolean = false;
   fetchedProduct: string = '';
+  link: string = '';
   page: number = 1;
   count: number = 0;
   services: {
@@ -86,6 +87,12 @@ export class ProductsComponent implements OnInit {
           data => {
             this.products = data;
             this.fetchedProduct = this.selectedProduct;
+            this.selectedProduct == 'memory' ? this.fetchedProduct = 'memorie' : this.fetchedProduct = this.selectedProduct;
+            if (this.selectedProduct !== 'notebook' && this.selectedProduct !== 'monitor') {
+              this.link = '/components';
+            } else {
+              this.link = '';
+            }
           },
           error => {
             console.log(error.message);

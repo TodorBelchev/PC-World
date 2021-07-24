@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PartsService } from '../parts.service';
 
 @Component({
@@ -10,40 +10,67 @@ import { PartsService } from '../parts.service';
 export class CreateComponent implements OnInit {
   selectedPart: string = 'processor';
   fileList: {} = {};
+  editMode: boolean = false;
+  id: string = '';
   constructor(
     private partsService: PartsService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
+      let partName = this.activatedRoute.snapshot.url[1].path.substring(0, this.activatedRoute.snapshot.url[1].path.length - 1);
+      if (this.activatedRoute.snapshot.url[1].path === 'memories') {
+        partName = 'memory';
+      }
+      this.id = this.activatedRoute.snapshot.url[2].path;
+      this.selectedPart = partName;
+      this.editMode = true;
+    } else {
+      this.editMode = false;
+    }
   }
 
   getComponent(event: any) {
     this.selectedPart = event;
   }
 
-  onFilesSubmitted(files: any) {
-    this.fileList = files;
+  onFilesSubmitted(event: any) {
+    this.fileList = event.fileList;
   }
 
-  onSubmit(submittedForm: any) {
+  onSubmit(event: any) {
     const formData = new FormData();
-    for (const [k, v] of Object.entries(submittedForm.value)) {
+    for (const [k, v] of Object.entries(event.form.value)) {
       formData.append(k, v as string);
     }
 
-    
+
     for (const [k, v] of Object.entries(this.fileList)) {
       formData.append('pic' + k, v as string);
     }
 
-    this.partsService.createPart(formData, this.selectedPart).subscribe(
-      data => {
-        submittedForm.reset();
-        this.router.navigateByUrl(`components/${this.selectedPart}/${data._id}`)
-      },
-      error => {
-        console.log(error.message);
-      })
+
+    if (event.editMode) {
+      this.partsService.editPart(formData, this.selectedPart, this.id).subscribe(
+        part => {
+          this.router.navigateByUrl(`components/${this.selectedPart}/${part._id}`);
+        },
+        error => {
+          console.log(error.message);
+        }
+      );
+    } else {
+      this.partsService.createPart(formData, this.selectedPart).subscribe(
+        part => {
+          event.form.reset();
+          this.router.navigateByUrl(`components/${this.selectedPart}/${part._id}`)
+        },
+        error => {
+          console.log(error.message);
+        }
+      );
+    }
   }
 }

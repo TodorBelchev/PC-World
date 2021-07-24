@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { INotebook } from '../notebook';
+import { INotebook } from '../../shared/interfaces/notebook.interface';
 import { NotebookService } from '../notebook.service';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 

@@ -25,6 +25,10 @@ const createPart = (partName, data) => {
     return product.save();
 }
 
+const editPart = (partName, id, data) => {
+    return parts[partName].findOneAndUpdate({ _id: id }, data, { useFindAndModify: false });
+}
+
 const getPartCount = (partName) => {
     return parts[partName].collection.countDocuments();
 }
@@ -37,9 +41,15 @@ const getPartsByPage = (partName, page, filter) => {
     return parts[partName].find(filter).skip(page * 16).limit(16).sort({ brand: 'asc' });
 }
 
+const getPart = (partName, id) => {
+    return parts[partName].findById(id);
+}
+
 module.exports = {
     createPart,
     getPartCount,
     getPartsByPage,
-    getFilteredCount
+    getFilteredCount,
+    getPart,
+    editPart
 }

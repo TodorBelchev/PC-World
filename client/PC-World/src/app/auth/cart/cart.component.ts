@@ -8,7 +8,7 @@ import * as authActions from '../store/auth.actions';
 import * as authSelectors from '../store/auth.selectors';
 import { IProduct } from '../wishlist/wishlist.component';
 import { first } from 'rxjs/operators';
-import { IUser } from '../user.interface';
+import { IUser } from '../../shared/interfaces/user.interface';
 import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
