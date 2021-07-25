@@ -1,0 +1,19 @@
+<form [formGroup]="createPromotionForm" (ngSubmit)="onSubmit()" class="create-promotion">
+    <label for="productsType">Products type:</label>
+    <input formControlName="productsType" type="text" name="productsType" id="productsType">
+    <label for="expirationDate">Expiration date:</label>
+    <input formControlName="expirationDate" type="text" name="expirationDate" id="expirationDate">
+    <label for="image">Image:</label>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image">
+    <ng-container *ngFor="let productFormGroup of getControls(); let i = index">
+        <form [formGroup]="productFormGroup" class="form-inner">
+            <label for="productId"> Product ID:</label>
+            <input formControlName="productId" type="text" name="productId" id="productId">
+            <button type="button" (click)="removeFormControl(i)">X</button>
+        </form>
+    </ng-container>
+    <div class="btn-container">
+        <button type="button" (click)="addFormControl()">Add product</button>
+        <button type="submit" class="btn-submit">Submit</button>
+    </div>
+</form>

@@ -20,8 +20,6 @@ const getProductsWithLatestPrice = async (products) => {
                 console.log(error);
             });
     });
-    console.log(mapped);
-    return mapped;
 }
 
 

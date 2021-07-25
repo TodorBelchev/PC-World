@@ -26,4 +26,12 @@ export class AdminService {
     return this.http.delete(environment.api_url + `orders/admin/${orderId}/delete`, { withCredentials: true });
   }
 
+  createPromotion(promotionData: FormData): Observable<any> {
+    return this.http.post(environment.api_url + 'promotions', promotionData, { withCredentials: true });
+  }
+
+  getPromotionById(promoId: string): Observable<any> {
+    return this.http.get(environment.api_url + 'promotions/' + promoId);
+  }
+
 }

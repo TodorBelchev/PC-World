@@ -8,7 +8,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { SharedModule } from '../shared/shared.module';
 import { EditOrdersComponent } from './edit-orders/edit-orders.component';
 import { ProductsComponent } from './products/products.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PromotionsComponent } from './promotions/promotions.component';
+import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
 
 
 
@@ -18,14 +20,17 @@ import { FormsModule } from '@angular/forms';
     AdminAsideComponent,
     OrdersComponent,
     EditOrdersComponent,
-    ProductsComponent
+    ProductsComponent,
+    PromotionsComponent,
+    CreatePromotionComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     AdminRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

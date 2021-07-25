@@ -7,6 +7,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { EditOrdersComponent } from "./edit-orders/edit-orders.component";
 import { OrdersComponent } from "./orders/orders.component";
 import { ProductsComponent } from "./products/products.component";
+import { PromotionsComponent } from "./promotions/promotions.component";
 
 
 const routes: Routes = [
@@ -30,7 +31,11 @@ const routes: Routes = [
                 component: CreateComponent
             },
             {
-                path: 'products',
+                path: 'promotions',
+                component: PromotionsComponent
+            },
+            {
+                path: 'edit-products',
                 component: ProductsComponent
             },
             {

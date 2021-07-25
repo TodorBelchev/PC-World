@@ -9,7 +9,8 @@ module.exports = (query) => {
     }
     if (query.promotion == 'true') {
         filter.promoPrice = { $gt: 0 };
-    } else {
+    }
+    if (query.promotion == 'false') {
         filter.promoPrice = 0;
     }
     return filter;
