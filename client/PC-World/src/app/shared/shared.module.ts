@@ -17,6 +17,7 @@ import { ProductTypePipe } from './pipes/product-type.pipe';
 import { WarrantyExpirationDatePipe } from './pipes/warranty-expiration-date.pipe';
 import { PromotionCarouselComponent } from './promotion-carousel/promotion-carousel.component';
 import { NotebooksListItemComponent } from './notebooks-list-item/notebooks-list-item.component';
+import { PromoProductsCarouselComponent } from './promo-products-carousel/promo-products-carousel.component';
 
 
 
@@ -33,7 +34,8 @@ import { NotebooksListItemComponent } from './notebooks-list-item/notebooks-list
     ProductTypePipe,
     WarrantyExpirationDatePipe,
     PromotionCarouselComponent,
-    NotebooksListItemComponent
+    NotebooksListItemComponent,
+    PromoProductsCarouselComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +56,8 @@ import { NotebooksListItemComponent } from './notebooks-list-item/notebooks-list
     ProductTypePipe,
     WarrantyExpirationDatePipe,
     PromotionCarouselComponent,
-    NotebooksListItemComponent
+    NotebooksListItemComponent,
+    PromoProductsCarouselComponent
   ]
 })
 export class SharedModule { }

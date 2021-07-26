@@ -1,0 +1,30 @@
+@import '../shared/variables.scss';
+.container {
+    align-items: unset;
+    padding: 20px 0;
+}
+.benefits {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $secondary-color;
+    color: white;
+}
+
+.benefits-img {
+    flex-basis: 40%;
+}
+
+.benefits-content {
+    flex-basis: 33%;
+}
+
+.benefits-img img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.benefits-content-title {
+    font-size: 2rem;
+    margin: 10px 0;
+}

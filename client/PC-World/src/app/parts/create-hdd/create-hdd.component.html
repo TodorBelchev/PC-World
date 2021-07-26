@@ -20,8 +20,8 @@
     <label for="formFactor">Form factor:</label>
     <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [(ngModel)]="part.formFactor">
     <label for="type">Type:</label>
-    <select ngModel="part" #type="ngModel" name="type" id="type" [(ngModel)]="partType">
-        <option value="part" selected>part</option>
+    <select ngModel="type" #type="ngModel" name="type" id="type" [(ngModel)]="partType">
+        <option value="hdd">HDD</option>
         <option value="ssd">SSD</option>
     </select>
     <label for="warranty">Warranty:</label>

@@ -13,8 +13,13 @@ const getFilteredCount = (filter) => {
     return Monitor.find(filter);
 }
 
+const getPromoMonitors = () => {
+    return Monitor.find({ promoPrice: { $gt: 0 } }).limit(2).lean();
+}
+
 module.exports = {
     createMonitor,
     getMonitorsByPage,
-    getFilteredCount
+    getFilteredCount,
+    getPromoMonitors
 }

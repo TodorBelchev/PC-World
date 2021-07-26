@@ -17,9 +17,14 @@ const getCount = (filter) => {
     return Notebook.find(filter);
 }
 
+const getPromoNotebooks = () => {
+    return Notebook.find({ promoPrice: { $gt: 0 } }).limit(10).lean();
+}
+
 module.exports = {
     createNotebook,
     getNotebooksByPage,
     getCount,
-    getById
+    getById,
+    getPromoNotebooks
 }

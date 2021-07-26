@@ -45,11 +45,26 @@ const getPart = (partName, id) => {
     return parts[partName].findById(id);
 }
 
+const getPromoParts = () => {
+    return Promise.all([
+        Processor.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        VGA.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        SSD.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        HDD.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        Motherboard.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        Memory.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        Case.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        PSU.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
+        Cooler.find({ promoPrice: { $gt: 0 } }).limit(2).lean()
+    ]);
+}
+
 module.exports = {
     createPart,
     getPartCount,
     getPartsByPage,
     getFilteredCount,
     getPart,
-    editPart
+    editPart,
+    getPromoParts
 }

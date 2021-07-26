@@ -61,8 +61,8 @@
         <label for="quantity">Quantity:</label>
         <input ngModel type="number" name="quantity" id="quantity" [(ngModel)]="notebook.quantity">
         <div id="submit-container">
-            <input type="submit" value="Create" *ngIf="!notebook">
-            <input type="submit" value="Edit" *ngIf="notebook">
+            <input type="submit" value="Create" *ngIf="!editMode">
+            <input type="submit" value="Edit" *ngIf="editMode">
         </div>
     </form>
 </div>
