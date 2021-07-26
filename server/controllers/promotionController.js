@@ -1,16 +1,16 @@
 const { Router } = require('express');
 const formidable = require('formidable');
 
-const { createPromo, getById } = require('../services/promotionService');
+const { createPromo, getById, getAll } = require('../services/promotionService');
 const isLoggedIn = require('../middlewares/isLogged');
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 
 const router = Router();
 
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const promo = await getById(req.params.id);
+        const promo = await getAll();
         res.status(200).send(promo);
     } catch (error) {
         console.log(error.message);

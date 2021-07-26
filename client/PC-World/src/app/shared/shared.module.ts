@@ -15,6 +15,7 @@ import { AddCommentModalComponent } from './add-comment-modal/add-comment-modal.
 import { DatePipe } from './pipes/date.pipe';
 import { ProductTypePipe } from './pipes/product-type.pipe';
 import { WarrantyExpirationDatePipe } from './pipes/warranty-expiration-date.pipe';
+import { PromotionCarouselComponent } from './promotion-carousel/promotion-carousel.component';
 
 
 
@@ -29,7 +30,8 @@ import { WarrantyExpirationDatePipe } from './pipes/warranty-expiration-date.pip
     AddCommentModalComponent,
     DatePipe,
     ProductTypePipe,
-    WarrantyExpirationDatePipe
+    WarrantyExpirationDatePipe,
+    PromotionCarouselComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { WarrantyExpirationDatePipe } from './pipes/warranty-expiration-date.pip
     AddCommentModalComponent,
     DatePipe,
     ProductTypePipe,
-    WarrantyExpirationDatePipe
+    WarrantyExpirationDatePipe,
+    PromotionCarouselComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,15 @@
+<div class="slideshow-container">
+    <div *ngFor="let promo of promotions; let i = index">
+        <div class="mySlides fade" *ngIf="i === currentIndex">
+            <a routerLink="/promotions/{{promo.productType | productType}}/{{promo._id}}">
+                <img src="{{promo.image}}">
+            </a>
+        </div>
+        <a class="prev" (click)="onPrevClick()" *ngIf="i === currentIndex">&#10094;</a>
+        <a class="next" (click)="onNextClick()" *ngIf="i === currentIndex">&#10095;</a>
+    </div>
+    <div class="dots">
+        <span *ngFor="let promo of promotions; let i = index" class="dot" (click)="onDotClick(i)"
+            [ngClass]="i === currentIndex ? 'active' : ''"></span>
+    </div>
+</div>

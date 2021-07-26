@@ -27,4 +27,8 @@ export class SharedService {
   getCommentsCount(productId: string): Observable<any> {
     return this.http.get(environment.api_url + 'comments/count?modelId=' + productId);
   }
+
+  getPromotions(): Observable<any> {
+    return this.http.get(environment.api_url + 'promotions');
+  }
 }
