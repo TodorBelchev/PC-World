@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CreateNotebookComponent } from './create-notebook/create-notebook.component';
 import { FormsModule } from '@angular/forms';
 import { NotebooksListComponent } from './notebooks-list/notebooks-list.component';
-import { NotebooksListItemComponent } from './notebooks-list-item/notebooks-list-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
@@ -15,7 +14,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     CreateNotebookComponent,
     NotebooksListComponent,
-    NotebooksListItemComponent,
     DetailsComponent
   ],
   imports: [

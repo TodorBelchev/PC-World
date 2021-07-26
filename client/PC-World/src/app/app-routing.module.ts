@@ -14,6 +14,7 @@ import { DetailsComponent } from './notebook/details/details.component';
 import { NotebooksListComponent } from './notebook/notebooks-list/notebooks-list.component';
 import { CreateComponent } from './parts/create/create.component';
 import { PartsComponent } from './parts/parts/parts.component';
+import { PromoPageComponent } from './promo-page/promo-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'components/create', component: CreateComponent },
   { path: 'components/:part/:id/edit', component: CreateComponent },
   { path: 'monitors/create', component: CreateMonitorComponent },
+  { path: 'promotions/:productType/:id', component: PromoPageComponent },
 ];
 
 @NgModule({

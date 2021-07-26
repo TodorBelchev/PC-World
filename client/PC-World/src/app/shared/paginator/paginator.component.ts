@@ -62,7 +62,6 @@ export class PaginatorComponent implements OnInit {
         }
       )
     });
-
   }
 
 }

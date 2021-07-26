@@ -5,8 +5,11 @@ const createPromo = (data) => {
     return promo.save();
 };
 
-const getById = (id) => {
-    return Promotion.findById(id).populate('products');
+const getById = (id, filter) => {
+    return Promotion.findById(id).populate({
+        path: 'products',
+        match: filter
+    });
 }
 
 const getAll = () => {

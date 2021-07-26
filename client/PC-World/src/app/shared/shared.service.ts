@@ -31,4 +31,8 @@ export class SharedService {
   getPromotions(): Observable<any> {
     return this.http.get(environment.api_url + 'promotions');
   }
+
+  getPromotionById(id: string, query: string): Observable<any> {
+    return this.http.get(environment.api_url + `promotions/${id}?${query}`);
+  }
 }

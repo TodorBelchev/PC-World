@@ -17,11 +17,13 @@ import { AuthEffects } from './auth/store/auth.effects';
 import { NotebookModule } from './notebook/notebook.module';
 import { PartsModule } from './parts/parts.module';
 import { AdminModule } from './admin/admin.module';
+import { PromoPageComponent } from './promo-page/promo-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PromoPageComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,11 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from '../app-state.interface';
 
-import { filter_success } from '../store/shared.actions';
-import { selectFilter } from '../store/shared.selectors';
 
 @Component({
   selector: 'app-aside-item-price',
@@ -14,11 +10,9 @@ import { selectFilter } from '../store/shared.selectors';
 })
 export class AsideItemPriceComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
-  selectFilter$ = this.store.select(selectFilter);
   from: number | null = null;
   to: number | null = null;
   constructor(
-    private store: Store<AppState>,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -29,19 +23,24 @@ export class AsideItemPriceComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.store.dispatch(filter_success(this.form.value));
-    let query = '';
+    let queryParams = {};
 
-    this.selectFilter$.subscribe(filterData => {
-      if (filterData!.price.from) {
-        query += '&priceFrom=' + filterData!.price.from;
+    if (isNaN(this.from!) === false) {
+      queryParams = {
+        ...queryParams,
+        priceFrom: this.from
       }
+    }
 
-      if (filterData!.price.to) {
-        query += '&priceTo=' + filterData!.price.to;
+    if (isNaN(this.to!) === false) {
+      queryParams = {
+        ...queryParams,
+        priceTo: this.to
       }
-      this.router.navigateByUrl('/notebooks?page=1' + query);
-    })
+    }
 
+    const url = this.route.snapshot.url.map(x => `/${x.path}`).join('');
+    this.router.navigate([url], { queryParams })
   }
+
 }

@@ -5,12 +5,25 @@ const { createPromo, getById, getAll } = require('../services/promotionService')
 const isLoggedIn = require('../middlewares/isLogged');
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
+const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
 
 router.get('/', async (req, res) => {
     try {
-        const promo = await getAll();
+        const promos = await getAll();
+        res.status(200).send(promos);
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const filter = extractFilterFromQuery(req.query);
+        const promo = await getById(req.params.id, filter);
         res.status(200).send(promo);
     } catch (error) {
         console.log(error.message);
