@@ -47,6 +47,28 @@
                     <strong>{{product.brightness}} cd/m<span class="parameter-square">2</span></strong>
                 </div>
             </div>
+            <div class="parameters" *ngIf="type == 'processors'">
+                <div class="parameter">
+                    <span>Cores: </span>
+                    <strong>{{product.cores}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Threads: </span>
+                    <strong>{{product.threads}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Base clock: </span>
+                    <strong>{{product.baseClock}} GHz</strong>
+                </div>
+                <div class="parameter">
+                    <span>Boost clock: </span>
+                    <strong>{{product.boostClock}} GHz</strong>
+                </div>
+                <div class="parameter">
+                    <span>Cache: </span>
+                    <strong>{{product.cache}} MB</strong>
+                </div>
+            </div>
             <div class="btn-container">
                 <div class="old-price">
                     <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>

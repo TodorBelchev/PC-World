@@ -21,7 +21,6 @@ router.get('/', async (req, res) => {
         console.log(error.message);
         res.status(400).send({ message: error.message });
     }
-
 });
 
 router.get('/part/:partType/:id', async (req, res) => {
@@ -32,7 +31,6 @@ router.get('/part/:partType/:id', async (req, res) => {
         console.log(error.message);
         res.status(400).send({ message: error.message });
     }
-
 });
 
 

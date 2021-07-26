@@ -14,6 +14,7 @@ import { CreateNotebookComponent } from './notebook/create-notebook/create-noteb
 import { DetailsComponent } from './notebook/details/details.component';
 import { NotebooksListComponent } from './notebook/notebooks-list/notebooks-list.component';
 import { CreateComponent } from './parts/create/create.component';
+import { PartsListComponent } from './parts/parts-list/parts-list.component';
 import { PartsComponent } from './parts/parts/parts.component';
 import { PromoPageComponent } from './promo-page/promo-page.component';
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'notebooks/:id/edit', component: CreateNotebookComponent },
   { path: 'components', component: PartsComponent },
   { path: 'components/create', component: CreateComponent },
+  { path: 'components/processors', component: PartsListComponent },
   { path: 'components/:part/:id/edit', component: CreateComponent },
   { path: 'monitors', component: MonitorsListComponent },
   { path: 'monitors/create', component: CreateMonitorComponent },

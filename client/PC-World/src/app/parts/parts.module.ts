@@ -12,6 +12,8 @@ import { CreateHddComponent } from './create-hdd/create-hdd.component';
 import { CreateCaseComponent } from './create-case/create-case.component';
 import { CreatePowerSupplyComponent } from './create-power-supply/create-power-supply.component';
 import { CreateCoolerComponent } from './create-coolers/create-cooler.component';
+import { PartsListComponent } from './parts-list/parts-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -26,13 +28,15 @@ import { CreateCoolerComponent } from './create-coolers/create-cooler.component'
     CreateHddComponent,
     CreateCaseComponent,
     CreatePowerSupplyComponent,
-    CreateCoolerComponent
+    CreateCoolerComponent,
+    PartsListComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class PartsModule { }
