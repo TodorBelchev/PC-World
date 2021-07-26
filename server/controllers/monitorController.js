@@ -33,7 +33,7 @@ router.post('/create', isLoggedIn(), async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const filter = extractFilterFromQuery(req.query);
-        const page = Number(req.query.page) - 1;
+        const page = Number(req.query.page || 1) - 1;
         const monitors = await getMonitorsByPage(page, filter);
         res.status(200).send(monitors);
     } catch (error) {

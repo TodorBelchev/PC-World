@@ -54,7 +54,6 @@ router.get('/products', async (req, res) => {
         });
 
         products = shuffleArray([...products, ...notebooks, ...monitors]);
-        console.log(products);
         res.status(200).send(products);
     } catch (error) {
         console.log(error.message);

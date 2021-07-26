@@ -1,0 +1,66 @@
+<div class="card-container">
+    <a routerLink="/{{type}}/{{product._id}}">
+        <div class="card">
+            <img src="{{product.images[0]}}" alt="product-image">
+            <h3>{{product.brand}} {{product.model}}</h3>
+            <div class="parameters" *ngIf="type == 'notebooks'">
+                <div class="parameter">
+                    <span>Processor: </span>
+                    <strong>{{product.processorBrand}} {{product.processorModel}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Video card: </span>
+                    <strong>{{product.graphics}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Memory: </span>
+                    <strong>{{product.memoryCapacity}}GB {{product.memoryType}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Storage: </span>
+                    <strong>{{product.storage}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Display: </span>
+                    <strong>{{product.displaySize}}'' {{product.displayResolution}}</strong>
+                </div>
+            </div>
+            <div class="parameters" *ngIf="type == 'monitors'">
+                <div class="parameter">
+                    <span>Display type: </span>
+                    <strong>{{product.type}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Resolution: </span>
+                    <strong>{{product.resolution}}</strong>
+                </div>
+                <div class="parameter">
+                    <span>Refresh rate: </span>
+                    <strong>{{product.refreshRate}}Hz</strong>
+                </div>
+                <div class="parameter">
+                    <span>Response time: </span>
+                    <strong>{{product.responseTime}} ms</strong>
+                </div>
+                <div class="parameter">
+                    <span>Brightness: </span>
+                    <strong>{{product.brightness}} cd/m<span class="parameter-square">2</span></strong>
+                </div>
+            </div>
+            <div class="btn-container">
+                <div class="old-price">
+                    <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>
+                </div>
+                <button class="btn-primary"></button>
+                <div class="promo-price" *ngIf="product.promoPrice">
+                    <span>$ {{product.promoPrice}}</span>
+                </div>
+                <div class="price" *ngIf="!product.promoPrice">
+                    <span>$ {{product.price}}</span>
+                </div>
+                <button class="btn-secondary">Details</button>
+            </div>
+        </div>
+    </a>
+    <button (click)="onAddToCart()" class="btn-primary" id="add-btn">Add to cart</button>
+</div>

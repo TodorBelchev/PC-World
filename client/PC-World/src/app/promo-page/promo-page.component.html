@@ -1,6 +1,6 @@
 <div class="container">
     <app-aside></app-aside>
     <div class="products" *ngIf="productType === 'notebooks' && products.length > 0">
-        <app-notebooks-list-item *ngFor="let product of products" [notebook]="product"></app-notebooks-list-item>
+        <app-product-list-item *ngFor="let product of products" [product]="product" [type]="'notebooks'"></app-product-list-item>
     </div>
 </div>

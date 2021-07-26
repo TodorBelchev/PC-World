@@ -56,7 +56,7 @@ a {
 .old-price > span::after {
     content: "";
     background-color: gray;
-    width: 60px;
+    width: 50%;
     height: 2px;
     position: absolute;
     left: 18px;
@@ -94,4 +94,9 @@ a {
     right: 20px;
     bottom: 65px;
     width: 111px;
+}
+
+.parameter-square {
+    font-size: 8px;
+    position: absolute;
 }

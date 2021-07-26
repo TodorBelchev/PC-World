@@ -9,6 +9,7 @@ import { WarrantiesComponent } from './auth/warranties/warranties.component';
 import { WishlistComponent } from './auth/wishlist/wishlist.component';
 import { HomeComponent } from './home/home.component';
 import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
+import { MonitorsListComponent } from './monitor/monitors-list/monitors-list.component';
 import { CreateNotebookComponent } from './notebook/create-notebook/create-notebook.component';
 import { DetailsComponent } from './notebook/details/details.component';
 import { NotebooksListComponent } from './notebook/notebooks-list/notebooks-list.component';
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'components', component: PartsComponent },
   { path: 'components/create', component: CreateComponent },
   { path: 'components/:part/:id/edit', component: CreateComponent },
+  { path: 'monitors', component: MonitorsListComponent },
   { path: 'monitors/create', component: CreateMonitorComponent },
   { path: 'promotions/:productType/:id', component: PromoPageComponent },
 ];
