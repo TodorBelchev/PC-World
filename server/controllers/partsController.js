@@ -264,7 +264,8 @@ router.get('/count/all', async (req, res) => {
             vga: vgaCount,
             MB: MBCount,
             memory: memoryCount,
-            hdd: hddCount + ssdCount,
+            hdd: hddCount,
+            ssd: ssdCount,
             case: caseCount,
             psu: psuCount,
             cooler: coolerCount

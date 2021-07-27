@@ -18,6 +18,7 @@ import { WarrantyExpirationDatePipe } from './pipes/warranty-expiration-date.pip
 import { PromotionCarouselComponent } from './promotion-carousel/promotion-carousel.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { PromoProductsCarouselComponent } from './promo-products-carousel/promo-products-carousel.component';
+import { ShortenTextPipe } from './pipes/shorten-text.pipe';
 
 
 
@@ -35,7 +36,8 @@ import { PromoProductsCarouselComponent } from './promo-products-carousel/promo-
     WarrantyExpirationDatePipe,
     PromotionCarouselComponent,
     ProductListItemComponent,
-    PromoProductsCarouselComponent
+    PromoProductsCarouselComponent,
+    ShortenTextPipe
   ],
   imports: [
     CommonModule,

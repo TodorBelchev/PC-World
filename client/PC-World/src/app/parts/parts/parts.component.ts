@@ -11,24 +11,26 @@ export class PartsComponent implements OnInit {
   vgaCount: number | null = null;
   MBCount: number | null = null;
   memoryCount: number | null = null;
-  storageCount: number | null = null;
+  hddCount: number | null = null;
+  ssdCount: number | null = null;
   caseCount: number | null = null;
   psuCount: number | null = null;
+  coolerCount: number | null = null;
   constructor(
     private partsService: PartsService
   ) { }
 
   ngOnInit(): void {
     this.partsService.getCountAll().subscribe(data => {
-      console.log(data);
-      
       this.processorCount = data.processors;
       this.vgaCount = data.vga;
       this.MBCount = data.MB;
       this.memoryCount = data.memory;
-      this.storageCount = data.hdd;
+      this.hddCount = data.hdd;
       this.caseCount = data.case;
       this.psuCount = data.psu;
+      this.coolerCount = data.cooler;
+      this.ssdCount = data.ssd;
     })
   }
 

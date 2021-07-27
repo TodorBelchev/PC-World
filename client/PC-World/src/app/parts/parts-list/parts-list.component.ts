@@ -1,8 +1,5 @@
-import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { IProcessor } from 'src/app/shared/interfaces/processor.interface';
 import { PartsService } from '../parts.service';
 
 @Component({
@@ -12,6 +9,7 @@ import { PartsService } from '../parts.service';
 })
 export class PartsListComponent implements OnInit {
   products: [] = [];
+  type: string = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private partsService: PartsService
@@ -20,15 +18,16 @@ export class PartsListComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.url.subscribe(
       url => {
-        let type = url[1].path;
+        this.type = url[1].path;
 
-        if (type === 'memories') {
-          type = 'memory';
+        if (this.type === 'memories') {
+          this.type = 'memory';
         } else {
-          type = type.substring(0, type.length - 1);
+          this.type = this.type.substring(0, this.type.length - 1);
         }
 
-        this.partsService.getItems(`product=${type}`).subscribe(
+        
+        this.partsService.getItems(`product=${this.type}`).subscribe(
           data => {
             this.products = data;
           },
