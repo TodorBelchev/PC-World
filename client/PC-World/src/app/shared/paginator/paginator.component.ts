@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { mergeMap, tap } from 'rxjs/operators';
 import { MonitorService } from 'src/app/monitor/monitor.service';
 import { NotebookService } from 'src/app/notebook/notebook.service';
+import { PartsService } from 'src/app/parts/parts.service';
 
 @Component({
   selector: 'app-paginator',
@@ -14,43 +16,43 @@ export class PaginatorComponent implements OnInit {
   currentPage: number = 1;
   currentUrl: string = '';
   params: [{ page: number }] = [{ page: 1 }];
+  service: NotebookService | MonitorService | PartsService | undefined;
   constructor(
     private router: Router,
     private notebookService: NotebookService,
     private monitorService: MonitorService,
+    private partsService: PartsService,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      const page = params['page'];
-      this.params = [{ ...params, page: params['page'] }];
-      if (page !== undefined) {
-        this.currentPage = params['page'];
-      }
-      this.currentUrl = this.router.url.split('?')[0];
-      let service = undefined;
+    this.activatedRoute.queryParams
+      .pipe(
+        tap(() => {
+          if (this.productType === 'notebook') {
+            this.service = this.notebookService;
+          } else if (this.productType === 'monitor') {
+            this.service = this.monitorService;
+          } else {
+            this.service = this.partsService;
+          }
+          this.currentUrl = this.router.url.split('?')[0];
+        }),
+        mergeMap((params) => {
+          this.params = [{ ...params, page: params['page'] }];
+          params['page'] !== undefined ? this.currentPage = params['page'] : '';
 
-      if (this.productType === 'notebook') {
-        service = this.notebookService;
-      }
+          let countQuery = '';
 
-      if (this.productType === 'monitor') {
-        service = this.monitorService;
-      }
+          for (const [k, v] of Object.entries(params)) {
+            countQuery += `${k}=${v}&`;
+          }
+          countQuery += `&product=${this.productType}`;
 
-      let query = '';
-      let countQuery = '';
-
-      this.activatedRoute.queryParams.subscribe(urlParams => {
-        for (const [k, v] of Object.entries(urlParams)) {
-          query += `${k}=${v}&`;
-          countQuery += `${k}=${v}&`;
-        }
-
-      });
-
-      service!.getCount(countQuery).subscribe(
+          return this.service!.getCount(countQuery)
+        })
+      )
+      .subscribe(
         data => {
           this.pages = Array(Math.ceil(data.count / 16)).fill(1).map((x, i) => (i + 1).toString());
           for (let i = 0; i < this.pages.length; i++) {
@@ -60,8 +62,7 @@ export class PaginatorComponent implements OnInit {
         error => {
           console.log(error.message);
         }
-      )
-    });
+      );
   }
 
 }
