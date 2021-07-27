@@ -3,39 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { MonitorModule } from './monitor/monitor.module';
-
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AuthEffects } from './auth/store/auth.effects';
-import { NotebookModule } from './notebook/notebook.module';
-import { PartsModule } from './parts/parts.module';
-import { AdminModule } from './admin/admin.module';
+import { AuthEffects } from './user/store/auth.effects';
 import { PromoPageComponent } from './promo-page/promo-page.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PromoPageComponent
+    PromoPageComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    SharedModule,
-    CoreModule,
-    AuthModule,
-    NotebookModule,
-    PartsModule,
     HttpClientModule,
-    MonitorModule,
-    AdminModule,
+    CoreModule,
+    SharedModule,
+    UserModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({

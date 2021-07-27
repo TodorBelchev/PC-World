@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
 import { AppState } from '../app-state.interface';
-import { add_cart, add_wishlist } from '../../auth/store/auth.actions';
+import { add_cart, add_wishlist } from '../../user/store/auth.actions';
 import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
-import * as authSelectors from '../../auth/store/auth.selectors';
+import * as authSelectors from '../../user/store/auth.selectors';
 
 @Component({
   selector: 'app-controls',

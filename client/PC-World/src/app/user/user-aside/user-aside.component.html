@@ -1,0 +1,31 @@
+<div class="aside">
+    <div class="aside-content" *ngIf="(user$ | async) !== null">
+        <div>
+            <ul class="links-list">
+                <a routerLink="/users/{{(user$ | async)?._id}}" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    <li>Account</li>
+                </a>
+                <a routerLink="/users/{{(user$ | async)?._id}}/orders" routerLinkActive="active">
+                    <li>Orders</li>
+                </a>
+                <a routerLink="/users/wishlist" routerLinkActive="active">
+                    <li>Wishlist</li>
+                </a>
+                <a routerLink="/users/cart" routerLinkActive="active">
+                    <li>Cart</li>
+                </a>
+                <a routerLink="/users/{{(user$ | async)?._id}}/warranties" routerLinkActive="active">
+                    <li>Warranties</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="aside-content" *ngIf="(user$ | async) == null">
+        <img src="../../../assets/anonymous-user.png" alt="user-image">
+        <h3 class="anonymous-title">You are anonymous user currently.</h3>
+        <p>Login or register so you can access extra functionality.</p>
+        <a routerLink="/login" class="red">Login</a>
+        <a routerLink="/register" class="blue">Register</a>
+    </div>
+</div>

@@ -1,53 +1,53 @@
 <div class="parts-container">
-    <a routerLink="/components/processors">
+    <a [routerLink]="'/components/processors'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/processor.jpg" alt="processor-image">
             <h3>Processor ({{processorCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/vgas">
+    <a [routerLink]="'/components/vgas'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets//vga.jpg" alt="video-card-image">
             <h3>Video Card ({{vgaCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/motherboards">
+    <a [routerLink]="'/components/motherboards'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/motherboard.jpg" alt="motherboard-image">
             <h3>Motherboard ({{MBCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/memories">
+    <a [routerLink]="'/components/memories'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/memory.jpg" alt="memory-image">
             <h3>Memory ({{memoryCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/hdds">
+    <a [routerLink]="'/components/hdds'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/hdd.jpg" alt="hdd-image">
             <h3>Hard disk drives ({{hddCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/ssds">
+    <a [routerLink]="'/components/ssds'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/ssd.jpg" alt="hdd-image">
             <h3>Solid state disk ({{ssdCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/cases">
+    <a [routerLink]="'/components/cases'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/case.jpg" alt="case-image">
             <h3>Case ({{caseCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/psus">
+    <a [routerLink]="'/components/psus'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/psu.png" alt="power-supply-image">
             <h3>Power supply ({{psuCount}})</h3>
         </div>
     </a>
-    <a routerLink="/components/coolers">
+    <a [routerLink]="'/components/coolers'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/cooler.png" alt="cooler-image">
             <h3>Coolers ({{coolerCount}})</h3>

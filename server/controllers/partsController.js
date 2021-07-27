@@ -46,7 +46,7 @@ router.post('/create/processor', isLoggedIn(), async (req, res) => {
         }
 
         formData.images = imagesURL;
-        formData.promoPrice !== 0 ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
+        formData.promoPrice !== '0' ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
         const proc = await createPart('processor', formData);
         res.status(201).send(proc);
     } catch (error) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, tap } from 'rxjs/operators';
 import { PartsService } from '../parts.service';
 
@@ -14,13 +14,17 @@ export class PartsListComponent implements OnInit {
   page: number = 1;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private partsService: PartsService
+    private partsService: PartsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    }
     this.activatedRoute.queryParams.pipe(
       tap(() => {
-        this.type = this.activatedRoute.snapshot.url[1].path;
+        this.type = this.activatedRoute.snapshot.url[0].path;
         if (this.type === 'memories') {
           this.type = 'memory';
         } else {
@@ -35,7 +39,7 @@ export class PartsListComponent implements OnInit {
           query += '&' + k + '=' + v;
         });
 
-        query += `&product=${this.type}&page=${this.page}`;
+        query += `&product=${this.type}`;
 
         return this.partsService.getItems(query)
       })

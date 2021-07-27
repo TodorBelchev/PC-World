@@ -1,7 +1,7 @@
 <div class="container">
     <ul>
         <li class="active"><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/register">Register</a></li>
+        <li><a routerLink="/auth/register">Register</a></li>
     </ul>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <input formControlName="email" type="email" placeholder="email">

@@ -39,7 +39,7 @@ export class AsideItemPriceComponent implements OnInit {
       }
     }
 
-    const url = this.route.snapshot.url.map(x => `/${x.path}`).join('');
+    const url = this.router.routerState.snapshot.url.split('?')[0];
     this.router.navigate([url], { queryParams })
   }
 

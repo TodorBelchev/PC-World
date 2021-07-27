@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { faSearch, faUser, faShoppingCart, faHeart, faDesktop } from '@fortawesome/free-solid-svg-icons';
 
-import * as authSelectors from '../../auth/store/auth.selectors';
-import { cartProps } from '../../auth/store/auth.actions';
+import * as authSelectors from '../../user/store/auth.selectors';
+import { cartProps } from '../../user/store/auth.actions';
 import { AppState } from 'src/app/shared/app-state.interface';
 import { IUser } from '../../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';

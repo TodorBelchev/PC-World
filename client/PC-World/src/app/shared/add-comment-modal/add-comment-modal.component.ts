@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
 import { AppState } from '../app-state.interface';
 import { SharedService } from '../shared.service';
-import * as authSelectors from '../../auth/store/auth.selectors';
+import * as authSelectors from '../../user/store/auth.selectors';
 import * as sharedActions from '../store/shared.actions';
 import { IComment } from '../comment';
 

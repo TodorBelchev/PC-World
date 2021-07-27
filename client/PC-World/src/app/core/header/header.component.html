@@ -14,22 +14,22 @@
                 <a routerLink="/dashboard" class="user" *ngIf="(user$ | async)?.isAdmin">
                     Dashboard
                 </a>
-                <a routerLink="/login" class="user" *ngIf="!(user$ | async)">
+                <a routerLink="/auth/login" class="user" *ngIf="!(user$ | async)">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>
-                <a routerLink="/profile/{{(user$ | async)?._id}}" class="user" *ngIf="user$ | async">
+                <a routerLink="/users/{{(user$ | async)?._id}}" class="user" *ngIf="user$ | async">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>
             </li>
             <li>
-                <a routerLink="/cart" class="cart">
+                <a routerLink="/users/cart" class="cart">
                     <fa-icon [icon]="faShoppingCart" size="lg"></fa-icon>
                     <div *ngIf="(cart$ | async)?.length! > 0" class="quantity-cart">{{cartItemsCount}}
                     </div>
                 </a>
             </li>
             <li>
-                <a routerLink="/wishlist" class="wishlist">
+                <a routerLink="/users/wishlist" class="wishlist">
                     <fa-icon [icon]="faHeart" size="lg"></fa-icon>
                     <div *ngIf="(wishlist$ | async)?.length! > 0" class="quantity-wishlist">{{(wishlist$ |
                         async)?.length}}</div>

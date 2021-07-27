@@ -1,11 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { CreateMonitorComponent } from "../monitor/create-monitor/create-monitor.component";
-import { CreateNotebookComponent } from "../notebook/create-notebook/create-notebook.component";
-import { CreateComponent } from "../parts/create/create.component";
+import { CreateMonitorComponent } from "./create-monitor/create-monitor.component";
+import { CreateNotebookComponent } from "./create-notebook/create-notebook.component";
+import { CreateComponent } from "./create/create.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { EditOrdersComponent } from "./edit-orders/edit-orders.component";
-import { OrdersComponent } from "./orders/orders.component";
+import { AdminOrdersComponent } from "./admin-orders/admin-orders.component";
 import { ProductsComponent } from "./products/products.component";
 import { PromotionsComponent } from "./promotions/promotions.component";
 
@@ -17,7 +16,9 @@ const routes: Routes = [
         component: DashboardComponent
     },
     {
-        path: 'dashboard', component: DashboardComponent, children: [
+        path: 'dashboard',
+        component: DashboardComponent,
+        children: [
             {
                 path: 'notebooks/create',
                 component: CreateNotebookComponent
@@ -39,12 +40,12 @@ const routes: Routes = [
                 component: ProductsComponent
             },
             {
-                path: 'orders',
-                component: OrdersComponent
+                path: 'edit-products/notebooks/:id',
+                component: CreateNotebookComponent
             },
             {
-                path: 'orders/:id/edit',
-                component: EditOrdersComponent
+                path: 'admin-orders',
+                component: AdminOrdersComponent
             },
         ]
     },
