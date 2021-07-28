@@ -1,7 +1,6 @@
 @import "../variables.scss";
 
 .controls {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -63,7 +62,7 @@ input.wishlist {
     color: green;
     position: absolute;
     left: 10px;
-    top: 10px;
+    top: -27px;
     font-size: 1.2rem;
 }
 
@@ -84,12 +83,14 @@ input.wishlist {
     border-radius: 5px;
     padding: 5px 0;
     left: -193px;
-    top: -18px;
-
-    /* Position the tooltip */
+    top: -50px;
     position: absolute;
     z-index: 1;
     transition: 500ms all;
+}
+
+.tooltip-container {
+    position: relative;
 }
 
 .tooltip-container>fa-icon:hover + .tooltip {

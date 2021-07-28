@@ -1,6 +1,6 @@
 <div class="comments-container">
     <h3 class="comments-title">Latest reviews:</h3>
-    <div class="no-review" *ngIf="commentsCount === 0">No reviews yet!</div>
+    <div class="no-review" *ngIf="comments.length == 0">No reviews yet!</div>
     <div class="comment" *ngFor="let comment of comments">
         <div class="author">{{comment.body.firstName}} {{comment.body.lastName}}</div>
         <div class="content">{{comment.body.comment}}</div>

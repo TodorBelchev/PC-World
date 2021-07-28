@@ -13,9 +13,7 @@ form {
     background: white;
     position: absolute;
     z-index: 20;
-    left: 50%;
     top: 30%;
-    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,6 +28,22 @@ textarea,
 input {
     flex-basis: 70%;
     margin: 10px 0;
+}
+
+.new-modal {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .form-title {

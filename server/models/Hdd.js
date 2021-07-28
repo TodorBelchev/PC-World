@@ -55,6 +55,6 @@ const hddSchema = new mongoose.Schema({
     }]
 });
 
-const HDD = mongoose.model('HDD', hddSchema);
+const HDD = mongoose.model('Hdd', hddSchema);
 
 module.exports = HDD;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from 'src/app/shared/app-state.interface';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import * as authSelectors from '../store/auth.selectors';
 import { IUser } from '../../shared/interfaces/user.interface';
 

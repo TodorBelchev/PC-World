@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import * as AuthActions from '../user/store/auth.actions';
 import { Store } from '@ngrx/store';
-import { AppState } from '../shared/app-state.interface';
+import { AppState } from '../shared/interfaces/app-state.interface';
 
 @Injectable({
   providedIn: 'root'

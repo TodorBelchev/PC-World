@@ -1,0 +1,19 @@
+@import "../../shared/variables.scss";
+
+.content {
+    flex-basis: 60%;
+}
+
+.parameters {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.parameter {
+    font-weight: 600;
+}
+
+.parameter-square {
+    font-size: 8px;
+    position: absolute;
+}

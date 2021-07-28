@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { faCaretSquareUp, faCaretSquareDown } from '@fortawesome/free-solid-svg-icons';
 import { NotebookService } from 'src/app/notebook/notebook.service';
-import { AppState } from 'src/app/shared/app-state.interface';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import * as authActions from '../store/auth.actions';
 import * as authSelectors from '../store/auth.selectors';
 import { IProduct } from '../wishlist/wishlist.component';
@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { PartsService } from 'src/app/parts/parts.service';
+import { MonitorService } from 'src/app/monitor/monitor.service';
 
 @Component({
   selector: 'app-cart',
@@ -43,6 +44,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
     private store: Store<AppState>,
     private notebookService: NotebookService,
     private partsService: PartsService,
+    private monitorService: MonitorService,
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router
@@ -139,7 +141,26 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
           }
         );
       } else if (x.productType === 'monitors') {
-
+        this.monitorService.getItem(x._id).subscribe(
+          monitor => {
+            fetchedCart.push({
+              _id: monitor._id,
+              images: monitor.images,
+              brand: monitor.brand,
+              model: monitor.model,
+              price: monitor.price,
+              promoPrice: monitor.promoPrice,
+              type: x.productType,
+              quantity: cart[index].quantity,
+              warranty: monitor.warranty
+            });
+            monitor.promoPrice !== 0 ? this.totalPrice += monitor.promoPrice * cart[index].quantity : this.totalPrice += monitor.price * cart[index].quantity;
+            this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
+          },
+          error => {
+            console.log(error.message);
+          }
+        )
       } else {
         this.partsService.getItem(x.productType, x._id).subscribe(
           part => {

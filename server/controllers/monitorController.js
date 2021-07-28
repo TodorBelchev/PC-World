@@ -5,7 +5,7 @@ const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createMonitor } = require('../services/monitorService');
 const isLoggedIn = require('../middlewares/isLogged');
-const { getMonitorsByPage, getFilteredCount } = require('../services/monitorService');
+const { getMonitorsByPage, getFilteredCount, getById } = require('../services/monitorService');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
@@ -62,6 +62,16 @@ router.get('/count', async (req, res) => {
 
         const monitors = await getFilteredCount(filter);
         res.status(200).send({ count: monitors.length });
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const monitor = await getById(req.params.id);
+        res.status(200).send(monitor);
     } catch (error) {
         console.log(error.message);
         res.status(400).send({ message: error.message });

@@ -1,26 +1,29 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
-import { AppState } from '../app-state.interface';
+import { AppState } from '../interfaces/app-state.interface';
 import { SharedService } from '../shared.service';
 import * as authSelectors from '../../user/store/auth.selectors';
-import * as sharedActions from '../store/shared.actions';
 import { IComment } from '../comment';
+import { ISimpleProduct } from '../interfaces/simple-product.interface';
 
 @Component({
   selector: 'app-add-comment-modal',
   templateUrl: './add-comment-modal.component.html',
   styleUrls: ['./add-comment-modal.component.scss']
 })
-export class AddCommentModalComponent implements OnInit {
+export class AddCommentModalComponent implements OnInit, OnDestroy {
   @Input() showModal: boolean = false;
-  @Input() product: { _id: string, productName: string } = { _id: '', productName: '' };
-  @Output() closeModal: EventEmitter<any> = new EventEmitter();
+  @Input() product: ISimpleProduct | undefined;
+  @Input() productName: string | undefined;
+  @Output() commentCreated: EventEmitter<any> = new EventEmitter();
+  @Output() hideModal: EventEmitter<any> = new EventEmitter();
   commentForm: FormGroup;
-  user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
+  user$: Observable<IUser | null> = this.store.select(authSelectors.selectUser);
   user: IUser | null = null;
+  userSub: Subscription = new Subscription;
   constructor(
     private fb: FormBuilder,
     private sharedService: SharedService,
@@ -57,12 +60,18 @@ export class AddCommentModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user$.subscribe(user => {
-      this.user = user;
-    },
+    this.userSub = this.user$.subscribe(
+      user => {
+        this.user = user;
+      },
       error => {
         console.log(error.message);
-      });
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
   }
 
   onSubmit(): void {
@@ -70,17 +79,15 @@ export class AddCommentModalComponent implements OnInit {
     this.user?.firstName ? reqBody.firstName = this.user.firstName : '';
     this.user?.lastName ? reqBody.lastName = this.user.lastName : '';
 
-    this.sharedService.createComment(reqBody, this.product._id, this.product.productName).subscribe(
+    this.sharedService.createComment(reqBody, this.product!._id, this.productName!).subscribe(
       data => {
-        this.showModal = false;
-        this.closeModal.emit(true);
         const comment: IComment = {
           _id: data._id,
           body: data.body,
           createdAt: data.createdAt,
           modelId: data.modelId
         }
-        this.store.dispatch(sharedActions.comment_created(comment));
+        this.commentCreated.emit(comment);
       },
       error => {
         console.log(error.message);
@@ -88,9 +95,10 @@ export class AddCommentModalComponent implements OnInit {
     )
   }
 
-  onContainerClick(): void {
-    this.showModal = false;
-    this.closeModal.emit(true);
+  onContainerClick(event: any): void {
+    if (event.target.className == 'new-modal') {
+      this.showModal = false;
+      this.hideModal.emit(true);
+    }
   }
-
 }

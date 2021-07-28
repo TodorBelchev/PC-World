@@ -63,6 +63,6 @@ const vgaSchema = new mongoose.Schema({
     }]
 });
 
-const Processor = mongoose.model('VGA', vgaSchema);
+const Processor = mongoose.model('Vga', vgaSchema);
 
 module.exports = Processor;

@@ -1,0 +1,28 @@
+<!-- <app-add-comment-modal (closeModal)="onCloseModal()" [showModal]="showModal" *ngIf="showModal" [product]="{ _id: monitor!._id, productName: 'monitor'}"></app-add-comment-modal> -->
+<div class="container">
+    <app-images *ngIf="monitor" [images]="monitor.images"></app-images>
+    <div class="content" *ngIf="monitor">
+        <h2>{{monitor.brand}} {{monitor.model}}</h2>
+        <app-controls (showModalEvent)="onShowModal($event)" [showModal]="showModal" [product]="monitor" [productName]="'monitors'"></app-controls>
+        <div>
+            <h3>Parameters:</h3>
+            <div class="parameters">
+                <div class="parameter">Type:</div>
+                <div class="value">{{monitor.type}}</div>
+                <div class="parameter">Resolution:</div>
+                <div class="value">{{monitor.resolution}}</div>
+                <div class="parameter">Refresh rate:</div>
+                <div class="value">{{monitor.refreshRate}} Hz</div>
+                <div class="parameter">Response time:</div>
+                <div class="value">{{monitor.responseTime}} ms</div>
+                <div class="parameter">Brightness:</div>
+                <div class="value">{{monitor.brightness}} cd/m<span class="parameter-square">2</span></div>
+                <div class="parameter">Ports:</div>
+                <div class="value">{{monitor.ports}}</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{monitor.warranty}} months</div>
+            </div>
+        </div>
+    </div>
+    <app-comments [productId]="id"></app-comments>
+</div>

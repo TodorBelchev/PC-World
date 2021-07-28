@@ -1,4 +1,4 @@
-<div class="controls">
+<div class="controls" *ngIf="product">
     <div class="tooltip-container" *ngIf="product!.quantity >= 5">
         <fa-icon [icon]="faCheckSquare" class="green" size="lg"></fa-icon>
         <span class="tooltip">In stock</span>
@@ -23,4 +23,5 @@
     <input (click)="onAddToCartClick()" class="cart" type="submit" value="add to cart" />
     <input (click)="onAddToWishlistClick()" class="wishlist" type="submit" value="add to wishlist" />
     <input *ngIf="user$ | async" (click)="onAddReview()" class="wishlist" type="submit" value="add review" />
+    <app-add-comment-modal *ngIf="showModal" (commentCreated)="onCommentCreated()" (hideModal)="onHideModal()" [product]="product" [productName]="productName"></app-add-comment-modal>
 </div>

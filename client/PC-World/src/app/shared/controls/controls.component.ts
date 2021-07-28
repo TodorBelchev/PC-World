@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
-import { select, Store } from '@ngrx/store';
-import { AppState } from '../app-state.interface';
+import { Store } from '@ngrx/store';
+import { AppState } from '../interfaces/app-state.interface';
 import { add_cart, add_wishlist } from '../../user/store/auth.actions';
+import * as authSelectors from '../../user/store/auth.selectors';
 import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
-import * as authSelectors from '../../user/store/auth.selectors';
 import { ISimpleProduct } from '../interfaces/simple-product.interface';
 
 @Component({
@@ -13,19 +13,16 @@ import { ISimpleProduct } from '../interfaces/simple-product.interface';
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })
-export class ControlsComponent implements OnInit {
+export class ControlsComponent {
   faCheckSquare = faCheckSquare;
   @Output() showModalEvent: EventEmitter<any> = new EventEmitter();
   @Input() showModal: boolean = false;
   @Input() productName: string = '';
   @Input() product: ISimpleProduct | undefined;
-  user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
+  user$: Observable<IUser | null> = this.store.select(authSelectors.selectUser);
   constructor(
     private store: Store<AppState>
   ) { }
-
-  ngOnInit(): void {
-  }
 
   onAddToCartClick(): void {
     this.store.dispatch(add_cart({ _id: this.product!._id, quantity: 1, productType: this.productName }));
@@ -35,8 +32,17 @@ export class ControlsComponent implements OnInit {
     this.store.dispatch(add_wishlist({ _id: this.product!._id, productType: this.productName }));
   }
 
+
   onAddReview(): void {
     this.showModal = !this.showModal;
-    this.showModalEvent.emit({ showModal: this.showModal });
   }
+
+  onCommentCreated(): void {
+    this.showModal = false;
+  }
+
+  onHideModal(): void {
+    this.showModal = false;
+  }
+
 }

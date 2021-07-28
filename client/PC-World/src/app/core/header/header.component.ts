@@ -4,7 +4,7 @@ import { faSearch, faUser, faShoppingCart, faHeart, faDesktop } from '@fortaweso
 
 import * as authSelectors from '../../user/store/auth.selectors';
 import { cartProps } from '../../user/store/auth.actions';
-import { AppState } from 'src/app/shared/app-state.interface';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { IUser } from '../../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';
 

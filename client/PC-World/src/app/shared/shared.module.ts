@@ -5,8 +5,6 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { RouterModule } from '@angular/router';
 import { AsideItemPriceComponent } from './aside-item-price/aside-item-price.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import * as fromShared from './store/shared.reducer';
 import { ImagesComponent } from './images/images.component';
 import { ControlsComponent } from './controls/controls.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -44,8 +42,7 @@ import { ShortenTextPipe } from './pipes/shorten-text.pipe';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
-    StoreModule.forFeature(fromShared.featureKey, fromShared.sharedReducer)
+    FontAwesomeModule
   ],
   exports: [
     AsideComponent,

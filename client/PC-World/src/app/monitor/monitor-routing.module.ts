@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { MonitorDetailsComponent } from "./monitor-details/monitor-details.component";
 import { MonitorsListComponent } from "./monitors-list/monitors-list.component";
 
 
@@ -12,10 +13,10 @@ const routes: Routes = [
                 pathMatch: 'full',
                 component: MonitorsListComponent
             },
-            // {
-            //     path: ':id',
-            //     component: DetailsComponent
-            // },
+            {
+                path: ':id',
+                component: MonitorDetailsComponent
+            },
         ]
     }
 ];

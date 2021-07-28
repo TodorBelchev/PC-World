@@ -17,9 +17,14 @@ const getPromoMonitors = () => {
     return Monitor.find({ promoPrice: { $gt: 0 } }).limit(2).lean();
 }
 
+const getById = (id) => {
+    return Monitor.findById(id);
+}
+
 module.exports = {
     createMonitor,
     getMonitorsByPage,
     getFilteredCount,
-    getPromoMonitors
+    getPromoMonitors,
+    getById
 }

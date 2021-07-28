@@ -2,13 +2,14 @@ import { AfterContentChecked, Component, OnDestroy, OnInit } from '@angular/core
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { faCheckSquare, faWindowClose } from '@fortawesome/free-solid-svg-icons';
-import { AppState } from 'src/app/shared/app-state.interface';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import * as authSelectors from '../store/auth.selectors';
 import * as authActions from '../store/auth.actions';
 import { wishlistProps } from '../store/auth.actions';
 import { NotebookService } from 'src/app/notebook/notebook.service';
 import { first } from 'rxjs/operators';
 import { PartsService } from 'src/app/parts/parts.service';
+import { MonitorService } from 'src/app/monitor/monitor.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -25,6 +26,7 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
   constructor(
     private store: Store<AppState>,
     private notebookService: NotebookService,
+    private monitorService: MonitorService,
     private partsService: PartsService
   ) { }
 
@@ -60,7 +62,14 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
           }
         )
       } else if (x.productType === 'monitors') {
-
+        this.monitorService.getItem(x._id).subscribe(
+          monitor => {
+            fetchedWishlist.push({ ...monitor, type: x.productType });
+          },
+          error => {
+            console.log(error.message);
+          }
+        )
       } else {
         this.partsService.getItem(x.productType, x._id).subscribe(
           part => {

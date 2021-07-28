@@ -42,7 +42,6 @@ export class PartDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.partsService.getItem(this.partType, this.id).subscribe(
       data => {
-        console.log(data);
         this.part = data;
         if (this.partType == 'cases') {
           this.case = data;

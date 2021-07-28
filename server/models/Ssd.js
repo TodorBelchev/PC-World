@@ -67,6 +67,6 @@ const ssdSchema = new mongoose.Schema({
     }]
 });
 
-const SSD = mongoose.model('SSD', ssdSchema);
+const SSD = mongoose.model('Ssd', ssdSchema);
 
 module.exports = SSD;

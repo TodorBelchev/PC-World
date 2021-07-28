@@ -1,22 +1,33 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { AuthService } from '../auth/auth.service';
+import { IComment } from './comment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
 
+  commentCreated = new Subject<IComment>();
   constructor(
     private http: HttpClient,
     private authService: AuthService
   ) { }
 
   createComment(comment: any, _id: string, productName: string): Observable<any> {
-    return this.http.post(environment.api_url + 'comments/create', { comment, _id, productName }, { withCredentials: true });
+    return this.http.post(environment.api_url + 'comments/create', { comment, _id, productName }, { withCredentials: true })
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          return throwError(err.message);
+        }),
+        tap(comment => {
+          this.commentCreated.next(comment as IComment);
+        })
+      )
   }
 
   getCommentsByPage(productId: string, page: number = 1): Observable<any> {
