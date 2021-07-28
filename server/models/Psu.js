@@ -10,6 +10,10 @@ const psuSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    power: {
+        type: Number,
+        required: true
+    },
     formFactor: {
         type: String,
         required: true

@@ -2,6 +2,7 @@ export interface IPsu {
     _id: string;
     brand: string;
     model: string;
+    power: number | string;
     formFactor: string;
     certificate: string;
     efficiency: string;

@@ -1,24 +1,24 @@
 <div class="controls">
-    <div class="tooltip-container" *ngIf="product.quantity >= 5">
+    <div class="tooltip-container" *ngIf="product!.quantity >= 5">
         <fa-icon [icon]="faCheckSquare" class="green" size="lg"></fa-icon>
         <span class="tooltip">In stock</span>
     </div>
-    <div class="tooltip-container" *ngIf="product.quantity > 0 && product.quantity < 5">
+    <div class="tooltip-container" *ngIf="product!.quantity > 0 && product!.quantity < 5">
         <fa-icon [icon]="faCheckSquare" class="yellow" size="lg"></fa-icon>
-        <span class="tooltip">Hurry up! Only {{product.quantity}} left</span>
+        <span class="tooltip">Hurry up! Only {{product!.quantity}} left</span>
     </div>
-    <div class="tooltip-container" *ngIf="product.quantity == 0 ">
+    <div class="tooltip-container" *ngIf="product!.quantity == 0 ">
         <fa-icon [icon]="faCheckSquare" class="red" size="lg"></fa-icon>
         <span class="tooltip">Out of stock</span>
     </div>
     <div class="old-price">
-        <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>
+        <span *ngIf="product!.promoPrice !== 0">$ {{product!.price}}</span>
     </div>
-    <div class="promo-price" *ngIf="product.promoPrice">
-        <span>$ {{product.promoPrice}}</span>
+    <div class="promo-price" *ngIf="product!.promoPrice">
+        <span>$ {{product!.promoPrice}}</span>
     </div>
-    <div class="price" *ngIf="!product.promoPrice">
-        <span>$ {{product.price}}</span>
+    <div class="price" *ngIf="!product!.promoPrice">
+        <span>$ {{product!.price}}</span>
     </div>
     <input (click)="onAddToCartClick()" class="cart" type="submit" value="add to cart" />
     <input (click)="onAddToWishlistClick()" class="wishlist" type="submit" value="add to wishlist" />

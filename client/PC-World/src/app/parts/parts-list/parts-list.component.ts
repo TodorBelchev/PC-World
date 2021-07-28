@@ -25,11 +25,6 @@ export class PartsListComponent implements OnInit {
     this.activatedRoute.queryParams.pipe(
       tap(() => {
         this.type = this.activatedRoute.snapshot.url[0].path;
-        if (this.type === 'memories') {
-          this.type = 'memory';
-        } else {
-          this.type = this.type.substring(0, this.type.length - 1);
-        }
       }),
       mergeMap((params) => {
         this.page = params['page'];

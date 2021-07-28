@@ -3,6 +3,8 @@
     <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [(ngModel)]="psu.brand">
     <label for="model">Model:</label>
     <input ngModel #model="ngModel" type="text" name="model" id="model" [(ngModel)]="psu.model">
+    <label for="power">Power:</label>
+    <input ngModel #model="ngModel" type="text" name="power" id="power" [(ngModel)]="psu.power">
     <label for="formFactor">From factor:</label>
     <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [(ngModel)]="psu.formFactor">
     <label for="certificate">Certificate:</label>
@@ -12,8 +14,8 @@
     <label for="type">Type:</label>
     <select ngModel="modular" #type="ngModel" name="type" id="type" [(ngModel)]="psu.type">
         <option value="modular" selected>Fully Modular</option>
-        <option value="halfModular">Half modular</option>
-        <option value="noneModular">None modular</option>
+        <option value="half-modular">Half modular</option>
+        <option value="none-modular">None modular</option>
     </select>
     <label for="connectors">Connectors:</label>
     <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors" [(ngModel)]="psu.connectors">

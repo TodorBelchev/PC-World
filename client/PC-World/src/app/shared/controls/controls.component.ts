@@ -6,6 +6,7 @@ import { add_cart, add_wishlist } from '../../user/store/auth.actions';
 import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
 import * as authSelectors from '../../user/store/auth.selectors';
+import { ISimpleProduct } from '../interfaces/simple-product.interface';
 
 @Component({
   selector: 'app-controls',
@@ -17,12 +18,7 @@ export class ControlsComponent implements OnInit {
   @Output() showModalEvent: EventEmitter<any> = new EventEmitter();
   @Input() showModal: boolean = false;
   @Input() productName: string = '';
-  @Input() product: { _id: string, price: number | string, quantity: number | string, promoPrice: number | string } = {
-    _id: '',
-    price: 0,
-    quantity: 0,
-    promoPrice: 0,
-  };
+  @Input() product: ISimpleProduct | undefined;
   user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
   constructor(
     private store: Store<AppState>
@@ -32,11 +28,11 @@ export class ControlsComponent implements OnInit {
   }
 
   onAddToCartClick(): void {
-    this.store.dispatch(add_cart({ _id: this.product._id, quantity: 1, productType: this.productName }));
+    this.store.dispatch(add_cart({ _id: this.product!._id, quantity: 1, productType: this.productName }));
   }
 
   onAddToWishlistClick(): void {
-    this.store.dispatch(add_wishlist({ _id: this.product._id, productType: this.productName }));
+    this.store.dispatch(add_wishlist({ _id: this.product!._id, productType: this.productName }));
   }
 
   onAddReview(): void {

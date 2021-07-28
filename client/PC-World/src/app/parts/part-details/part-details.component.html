@@ -1,0 +1,170 @@
+<app-add-comment-modal (closeModal)="onCloseModal()" [showModal]="showModal" *ngIf="showModal"
+    [product]="{ _id: part!._id, productName: partType}"></app-add-comment-modal>
+<div class="container" *ngIf="part">
+    <app-images [images]="part.images"></app-images>
+    <div class="content">
+        <h2>{{part.brand}} {{part.model}}</h2>
+        <app-controls (showModalEvent)="onShowModal($event)" [showModal]="showModal" [product]="part"
+            [productName]="partType"></app-controls>
+        <div>
+            <h3>Parameters:</h3>
+            <div class="parameters" *ngIf="partType ==='processors'">
+                <div class="parameter">Cores:</div>
+                <div class="value">{{processor!.cores}}</div>
+                <div class="parameter">Threads:</div>
+                <div class="value">{{processor!.threads}}</div>
+                <div class="parameter">Base clock:</div>
+                <div class="value">{{processor!.baseClock}} GHz</div>
+                <div class="parameter">Boost clock:</div>
+                <div class="value">{{processor!.boostClock}} GHz</div>
+                <div class="parameter">Cache:</div>
+                <div class="value">{{processor!.cache}} MB</div>
+                <div class="parameter">Box cooler:</div>
+                <div class="value">{{processor!.box ? 'included' : 'not included'}}</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{processor!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='cases'">
+                <div class="parameter">Form factor:</div>
+                <div class="value">{{case!.formFactor}}</div>
+                <div class="parameter">Format:</div>
+                <div class="value">{{case!.supportedMB}}</div>
+                <div class="parameter">Front panel:</div>
+                <div class="value">{{case!.frontPanel}}</div>
+                <div class="parameter">Height:</div>
+                <div class="value">{{case!.height}} mm</div>
+                <div class="parameter">Width:</div>
+                <div class="value">{{case!.width}} mm</div>
+                <div class="parameter">Length:</div>
+                <div class="value">{{case!.length}} mm</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{case!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='vgas'">
+                <div class="parameter">Cores:</div>
+                <div class="value">{{vga!.cores}}</div>
+                <div class="parameter">Game clock:</div>
+                <div class="value">{{vga!.gameClock}} MHz</div>
+                <div class="parameter">Boost clock:</div>
+                <div class="value">{{vga!.boostClock}} MHz</div>
+                <div class="parameter">Memory:</div>
+                <div class="value">{{vga!.memory}} GB</div>
+                <div class="parameter">Memory clock:</div>
+                <div class="value">{{vga!.memoryClock}} Gbps</div>
+                <div class="parameter">Connectors:</div>
+                <div class="value">{{vga!.connectors}}</div>
+                <div class="parameter">Power requirements:</div>
+                <div class="value">{{vga!.power}}</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{vga!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='motherboards'">
+                <div class="parameter">Form factor:</div>
+                <div class="value">{{motherboard!.formFactor}}</div>
+                <div class="parameter">Socket:</div>
+                <div class="value">{{motherboard!.socket}}</div>
+                <div class="parameter">Chipset:</div>
+                <div class="value">{{motherboard!.chipset}}</div>
+                <div class="parameter">Memory slots:</div>
+                <div class="value">{{motherboard!.memorySlots}}</div>
+                <div class="parameter">Memory max capacity:</div>
+                <div class="value">{{motherboard!.ramCapacity}}</div>
+                <div class="parameter">Memory supported speeds:</div>
+                <div class="value">{{motherboard!.memorySpeeds}}</div>
+                <div class="parameter">Connectors:</div>
+                <div class="value">{{motherboard!.connectors}}</div>
+                <div class="parameter">Storage:</div>
+                <div class="value">{{motherboard!.storage}}</div>
+                <div class="parameter">Audio:</div>
+                <div class="value">{{motherboard!.audio}}</div>
+                <div class="parameter">Lan:</div>
+                <div class="value">{{motherboard!.lan}}</div>
+                <div class="parameter">Wireless:</div>
+                <div class="value">{{motherboard!.wireless == '' ? 'not supported' : motherboard!.wireless}}</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{motherboard!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='memories'">
+                <div class="parameter">Type:</div>
+                <div class="value">{{memory!.memoryType}}</div>
+                <div class="parameter">Platform:</div>
+                <div class="value">{{memory!.platform}}</div>
+                <div class="parameter">Memory speed:</div>
+                <div class="value">{{memory!.memorySpeeds}} MHz</div>
+                <div class="parameter">Memory timings:</div>
+                <div class="value">{{memory!.timings}}</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{memory!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='hdds'">
+                <div class="parameter">Capacity:</div>
+                <div class="value">{{hdd!.capacity}} GB</div>
+                <div class="parameter">Form factor:</div>
+                <div class="value">{{hdd!.formFactor}}</div>
+                <div class="parameter">Interface:</div>
+                <div class="value">{{hdd!.interface}}</div>
+                <div class="parameter">Read speeds:</div>
+                <div class="value">{{hdd!.readSpeed}} MB/s</div>
+                <div class="parameter">Write speeds:</div>
+                <div class="value">{{hdd!.writeSpeed}} MB/s</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{hdd!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='ssds'">
+                <div class="parameter">Capacity:</div>
+                <div class="value">{{ssd!.capacity}} GB</div>
+                <div class="parameter">Form factor:</div>
+                <div class="value">{{ssd!.formFactor}}</div>
+                <div class="parameter">Interface:</div>
+                <div class="value">{{ssd!.interface}}</div>
+                <div class="parameter">Read speeds:</div>
+                <div class="value">{{ssd!.readSpeed}} MB/s</div>
+                <div class="parameter">Write speeds:</div>
+                <div class="value">{{ssd!.writeSpeed}} MB/s</div>
+                <div class="parameter">Random read speeds:</div>
+                <div class="value">{{ssd!.randomRead}}K</div>
+                <div class="parameter">Random write speeds:</div>
+                <div class="value">{{ssd!.randomWrite}}K</div>
+                <div class="parameter">MTBF:</div>
+                <div class="value">{{ssd!.mtbf}} TBW</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{ssd!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='psus'">
+                <div class="parameter">Power:</div>
+                <div class="value">{{psu!.power}}W</div>
+                <div class="parameter">Certificate:</div>
+                <div class="value">{{psu!.certificate}}</div>
+                <div class="parameter">Efficiency:</div>
+                <div class="value">{{psu!.efficiency}}</div>
+                <div class="parameter">Type:</div>
+                <div class="value">{{psu!.type}}</div>
+                <div class="parameter">Form factor:</div>
+                <div class="value">{{psu!.formFactor}}</div>
+                <div class="parameter">Connectors:</div>
+                <div class="value">{{psu!.connectors}}</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{psu!.warranty}} months</div>
+            </div>
+            <div class="parameters" *ngIf="partType ==='coolers'">
+                <div class="parameter">Type:</div>
+                <div class="value">{{cooler!.type}}</div>
+                <div class="parameter">Sockets:</div>
+                <div class="value">{{cooler!.socket}}</div>
+                <div class="parameter">Fan size:</div>
+                <div class="value">{{cooler!.fanSize}} cm</div>
+                <div class="parameter">Fan max RPM:</div>
+                <div class="value">{{cooler!.fanRPM}} RPM</div>
+                <div class="parameter">Airflow:</div>
+                <div class="value">{{cooler!.airflow}} CFM</div>
+                <div class="parameter">Noise:</div>
+                <div class="value">{{cooler!.noise}} dBA</div>
+                <div class="parameter">Height:</div>
+                <div class="value">{{cooler!.height}} mm</div>
+                <div class="parameter">Warranty:</div>
+                <div class="value">{{cooler!.warranty}} months</div>
+            </div>
+        </div>
+    </div>
+    <app-comments [productId]="id"></app-comments>
+</div>

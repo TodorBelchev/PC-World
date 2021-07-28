@@ -1,5 +1,5 @@
 <div class="card-container">
-    <a routerLink="/{{type}}/{{product._id}}">
+    <a routerLink="/{{category}}/{{type}}/{{product._id}}">
         <div class="card">
             <img src="{{product.images[0]}}" alt="product-image">
             <h3>{{product.brand}} {{product.model}}</h3>
@@ -25,7 +25,7 @@
                     <strong>{{product.displaySize}}'' {{product.displayResolution}}</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'monitor'">
+            <div class="parameters" *ngIf="type == 'monitors'">
                 <div class="parameter">
                     <span>Display type: </span>
                     <strong>{{product.type}}</strong>
@@ -47,7 +47,7 @@
                     <strong>{{product.brightness}} cd/m<span class="parameter-square">2</span></strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'processor'">
+            <div class="parameters" *ngIf="type == 'processors'">
                 <div class="parameter">
                     <span>Cores: </span>
                     <strong>{{product.cores}}</strong>
@@ -69,7 +69,7 @@
                     <strong>{{product.cache}} MB</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'case'">
+            <div class="parameters" *ngIf="type == 'cases'">
                 <div class="parameter">
                     <span>Form factor: </span>
                     <strong>{{product.formFactor}}</strong>
@@ -91,7 +91,7 @@
                     <strong>{{product.length}} mm</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'cooler'">
+            <div class="parameters" *ngIf="type == 'coolers'">
                 <div class="parameter">
                     <span>Type: </span>
                     <strong>{{product.type}}</strong>
@@ -113,7 +113,7 @@
                     <strong>{{product.noise}} dBA</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'hdd'">
+            <div class="parameters" *ngIf="type == 'hdds'">
                 <div class="parameter">
                     <span>Capacity: </span>
                     <strong>{{product.capacity}} GB</strong>
@@ -135,7 +135,7 @@
                     <strong>{{product.writeSpeed}} MB/s</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'ssd'">
+            <div class="parameters" *ngIf="type == 'ssds'">
                 <div class="parameter">
                     <span>Capacity: </span>
                     <strong>{{product.capacity}} GB</strong>
@@ -157,7 +157,7 @@
                     <strong>{{product.writeSpeed}} MB/s</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'memory'">
+            <div class="parameters" *ngIf="type == 'memories'">
                 <div class="parameter">
                     <span>Capacity: </span>
                     <strong>{{product.ramCapacity}} GB</strong>
@@ -179,7 +179,7 @@
                     <strong>{{product.timings}}</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'motherboard'">
+            <div class="parameters" *ngIf="type == 'motherboards'">
                 <div class="parameter">
                     <span>Form factor: </span>
                     <strong>{{product.formFactor}}</strong>
@@ -201,7 +201,7 @@
                     <strong>{{product.ramCapacity}} GB</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'psu'">
+            <div class="parameters" *ngIf="type == 'psus'">
                 <div class="parameter">
                     <span>Form factor: </span>
                     <strong>{{product.formFactor}}</strong>
@@ -219,7 +219,7 @@
                     <strong>{{product.connectors | shortenText}}</strong>
                 </div>
             </div>
-            <div class="parameters" *ngIf="type == 'vga'">
+            <div class="parameters" *ngIf="type == 'vgas'">
                 <div class="parameter">
                     <span>Cores: </span>
                     <strong>{{product.cores}}</strong>

@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import { PartsListComponent } from './parts-list/parts-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { PartsRoutingModule } from './parts-routing.module';
+import { PartDetailsComponent } from './part-details/part-details.component';
 
 
 
 @NgModule({
   declarations: [
     PartsComponent,
-    PartsListComponent
+    PartsListComponent,
+    PartDetailsComponent
   ],
   imports: [
     CommonModule,

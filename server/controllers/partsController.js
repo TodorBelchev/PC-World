@@ -13,9 +13,15 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     try {
+        let type = req.query.product;
+        if (type === 'memories') {
+            type = 'memory';
+        } else {
+            type = type.substring(0, type.length - 1);
+        }
         const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page || 1) - 1;
-        const parts = await getPartsByPage(req.query.product, page, filter);
+        const parts = await getPartsByPage(type, page, filter);
         res.status(200).send(parts);
     } catch (error) {
         console.log(error.message);
@@ -25,7 +31,13 @@ router.get('/', async (req, res) => {
 
 router.get('/part/:partType/:id', async (req, res) => {
     try {
-        const part = await getPart(req.params.partType, req.params.id);
+        let type = req.params.partType;
+        if (type === 'memories') {
+            type = 'memory';
+        } else {
+            type = type.substring(0, type.length - 1);
+        }
+        const part = await getPart(type, req.params.id);
         res.status(200).send(part);
     } catch (error) {
         console.log(error.message);
@@ -227,8 +239,14 @@ router.post('/create/cooler', isLoggedIn(), async (req, res) => {
 
 router.get('/count', async (req, res) => {
     try {
+        let type = req.query.product;
+        if (type === 'memories') {
+            type = 'memory';
+        } else {
+            type = type.substring(0, type.length - 1);
+        }
         const filter = extractFilterFromQuery(req.query);
-        const part = await getFilteredCount(req.query.product, filter);
+        const part = await getFilteredCount(type, filter);
         res.status(200).send({ count: part.length });
     } catch (error) {
         console.log(error.message);

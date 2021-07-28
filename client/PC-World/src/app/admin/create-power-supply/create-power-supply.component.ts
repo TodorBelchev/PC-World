@@ -39,6 +39,7 @@ export class CreatePowerSupplyComponent implements OnInit {
         _id: '',
         brand: '',
         model: '',
+        power: '',
         formFactor: '',
         certificate: '',
         efficiency: '',

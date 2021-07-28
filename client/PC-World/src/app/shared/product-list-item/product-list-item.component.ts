@@ -6,8 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product-list-item.component.scss']
 })
 export class ProductListItemComponent implements OnInit {
-  @Input() product: any;
-  @Input() type: any;
+  @Input() product!: any;
+  @Input() type!: string;
+  @Input() category!: string;
   constructor() { }
 
   ngOnInit(): void {
