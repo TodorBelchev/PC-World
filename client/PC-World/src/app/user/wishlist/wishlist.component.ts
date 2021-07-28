@@ -8,6 +8,7 @@ import * as authActions from '../store/auth.actions';
 import { wishlistProps } from '../store/auth.actions';
 import { NotebookService } from 'src/app/notebook/notebook.service';
 import { first } from 'rxjs/operators';
+import { PartsService } from 'src/app/parts/parts.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -23,7 +24,8 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
 
   constructor(
     private store: Store<AppState>,
-    private notebookService: NotebookService
+    private notebookService: NotebookService,
+    private partsService: PartsService
   ) { }
 
   ngOnInit(): void {
@@ -51,7 +53,18 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
       if (x.productType === 'notebooks') {
         this.notebookService.getById(x._id).subscribe(
           notebook => {
-            fetchedWishlist.push({ ...notebook, type: x.productType });
+            fetchedWishlist.push({ ...notebook, type: x.productType, urlPrefix: x.productType });
+          },
+          error => {
+            console.log(error.message);
+          }
+        )
+      } else if (x.productType === 'monitors') {
+
+      } else {
+        this.partsService.getItem(x.productType, x._id).subscribe(
+          part => {
+            fetchedWishlist.push({ ...part, type: x.productType, urlPrefix: `/components/${x.productType}` });
           },
           error => {
             console.log(error.message);
@@ -89,4 +102,5 @@ export interface IProduct {
   type: string;
   quantity: number;
   warranty: number;
+  urlPrefix?: string;
 }

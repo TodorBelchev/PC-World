@@ -12,6 +12,7 @@ import { IUser } from '../../shared/interfaces/user.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { PartsService } from 'src/app/parts/parts.service';
 
 @Component({
   selector: 'app-cart',
@@ -41,6 +42,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
   constructor(
     private store: Store<AppState>,
     private notebookService: NotebookService,
+    private partsService: PartsService,
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router
@@ -135,7 +137,31 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
           error => {
             console.log(error.message);
           }
-        )
+        );
+      } else if (x.productType === 'monitors') {
+
+      } else {
+        this.partsService.getItem(x.productType, x._id).subscribe(
+          part => {
+            fetchedCart.push({
+              _id: part._id,
+              images: part.images,
+              brand: part.brand,
+              model: part.model,
+              price: part.price,
+              promoPrice: part.promoPrice,
+              type: x.productType,
+              quantity: cart[index].quantity,
+              warranty: part.warranty,
+              urlPrefix: `/components`
+            });
+            part.promoPrice !== 0 ? this.totalPrice += part.promoPrice * cart[index].quantity : this.totalPrice += part.price * cart[index].quantity;
+            this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
+          },
+          error => {
+            console.log(error.message);
+          }
+        );
       }
     });
 
