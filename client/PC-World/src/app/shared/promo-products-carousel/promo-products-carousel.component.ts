@@ -21,6 +21,7 @@ export class PromoProductsCarouselComponent implements OnInit {
       data => {
         this.promotions = data;
         this.currentProducts = this.promotions.slice(0, 5);
+        console.log(data);
       },
       error => {
         console.log(error.message);

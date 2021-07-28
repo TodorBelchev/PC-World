@@ -48,9 +48,7 @@ router.get('/products', async (req, res) => {
         });
 
         monitors.map(x => {
-            return {
-                ...x, productType: 'monitors'
-            }
+            return Object.assign(x, { productType: 'monitors' })
         });
 
         products = shuffleArray([...products, ...notebooks, ...monitors]);

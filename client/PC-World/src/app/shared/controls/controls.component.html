@@ -1,27 +1,33 @@
 <div class="controls" *ngIf="product">
-    <div class="tooltip-container" *ngIf="product!.quantity >= 5">
-        <fa-icon [icon]="faCheckSquare" class="green" size="lg"></fa-icon>
-        <span class="tooltip">In stock</span>
+    <div>
+        <div class="tooltip-container">
+            <fa-icon [icon]="faCheckSquare" size="lg" [ngClass]="quantityClass"></fa-icon>
+            <span class="tooltip">{{quantityMessage}}</span>
+        </div>
+        <div class="price-container">
+            <div *ngIf="product!.promoPrice !== 0">
+                <span class="old-price-sign">$ </span>
+                <span class="old-price">{{product!.price}}</span>
+            </div>
+            <div *ngIf="product.promoPrice">
+                <span class="promo-price">$ {{product.promoPrice}}</span>
+            </div>
+            <div *ngIf="!product.promoPrice">
+                <span class="price">$ {{product.price}}</span>
+            </div>
+        </div>
     </div>
-    <div class="tooltip-container" *ngIf="product!.quantity > 0 && product!.quantity < 5">
-        <fa-icon [icon]="faCheckSquare" class="yellow" size="lg"></fa-icon>
-        <span class="tooltip">Hurry up! Only {{product!.quantity}} left</span>
+    <div>
+        <button class="cart" (click)="onAddToCartClick()">
+            <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
+        </button>
+        <button class="wishlist" (click)="onAddToWishlistClick()">
+            <fa-icon [icon]="faHeart" size="lg"></fa-icon>
+        </button>
+        <button *ngIf="user$ | async" (click)="onAddReview()" class="wishlist">
+            <fa-icon [icon]="faComment" size="lg"></fa-icon>
+        </button>
     </div>
-    <div class="tooltip-container" *ngIf="product!.quantity == 0 ">
-        <fa-icon [icon]="faCheckSquare" class="red" size="lg"></fa-icon>
-        <span class="tooltip">Out of stock</span>
-    </div>
-    <div class="old-price">
-        <span *ngIf="product!.promoPrice !== 0">$ {{product!.price}}</span>
-    </div>
-    <div class="promo-price" *ngIf="product!.promoPrice">
-        <span>$ {{product!.promoPrice}}</span>
-    </div>
-    <div class="price" *ngIf="!product!.promoPrice">
-        <span>$ {{product!.price}}</span>
-    </div>
-    <input (click)="onAddToCartClick()" class="cart" type="submit" value="add to cart" />
-    <input (click)="onAddToWishlistClick()" class="wishlist" type="submit" value="add to wishlist" />
-    <input *ngIf="user$ | async" (click)="onAddReview()" class="wishlist" type="submit" value="add review" />
-    <app-add-comment-modal *ngIf="showModal" (commentCreated)="onCommentCreated()" (hideModal)="onHideModal()" [product]="product" [productName]="productName"></app-add-comment-modal>
+    <app-add-comment-modal *ngIf="showModal" (commentCreated)="onCommentCreated()" (hideModal)="onHideModal()"
+        [product]="product" [productName]="productName"></app-add-comment-modal>
 </div>

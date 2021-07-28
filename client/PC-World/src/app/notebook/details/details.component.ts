@@ -12,37 +12,7 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 export class DetailsComponent implements OnInit {
   faCheckSquare = faCheckSquare;
   showModal: boolean = false;
-  notebook: INotebook = {
-    _id: '',
-    images: [''],
-    brand: '',
-    model: '',
-    processor: '',
-    processorCores: 0,
-    memoryType: '',
-    memoryCapacity: 0,
-    memorySpeed: 0,
-    storage: '',
-    storageCapacity: 0,
-    graphics: '',
-    display: '',
-    displaySize: 0,
-    displayResolution: '',
-    displayRefreshRate: 0,
-    ports: '',
-    weight: 0,
-    color: '',
-    dimensions: '',
-    battery: '',
-    OS: '',
-    category: '',
-    warranty: 0,
-    price: 0,
-    quantity: 0,
-    processorBrand: '',
-    processorModel: '',
-    promoPrice: 0,
-  };
+  notebook: INotebook | undefined;
   imageIndex: number = 0;
   id = this.router.url.split('/')[2];
 

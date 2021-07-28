@@ -3,12 +3,12 @@
 .controls {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     background: rgb(235, 235, 235);
 }
 
-.controls input.cart,
-input.wishlist {
+.cart,
+.wishlist {
     margin: 10px;
     background: $primary-color;
     border: none;
@@ -17,52 +17,18 @@ input.wishlist {
     cursor: pointer;
     color: white;
     font-size: 1.2rem;
-}
-
-.controls input.wishlist {
-    background: $secondary-color;
-}
-
-.price {
-    text-align: start;
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.old-price,
-.promo-price {
-    text-align: start;
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin: 10px;
-}
-
-.old-price {
-    color: gray;
-    position: relative;
-    margin-left: 50px;
-}
-
-.old-price > span::after {
-    content: "";
-    background-color: gray;
     width: 60px;
-    height: 2px;
-    position: absolute;
-    left: 18px;
-    transform: rotate(160deg);
-    top: 16px;
 }
 
-.promo-price {
-    color: $primary-color;
+.wishlist {
+    background: $secondary-color;
 }
 
 .green, .yellow, .red {
     color: green;
     position: absolute;
     left: 10px;
-    top: -27px;
+    top: -5px;
     font-size: 1.2rem;
 }
 
@@ -83,7 +49,7 @@ input.wishlist {
     border-radius: 5px;
     padding: 5px 0;
     left: -193px;
-    top: -50px;
+    top: -35px;
     position: absolute;
     z-index: 1;
     transition: 500ms all;
@@ -95,4 +61,44 @@ input.wishlist {
 
 .tooltip-container>fa-icon:hover + .tooltip {
     opacity: 1;
+}
+
+.old-price {
+    color: gray;
+    position: relative;
+    margin-right: 20px;
+}
+
+.old-price::after {
+    content: "";
+    background-color: gray;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    right: 0;
+    transform: rotate(160deg);
+    top: 15px;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.promo-price, .old-price, .price {
+    text-align: start;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.promo-price {
+    color: $primary-color;
+}
+
+.old-price-sign {
+    text-align: start;
+    font-size: 2rem;
+    font-weight: 800;
+    color: gray;
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="notebook">
     <app-images [images]="notebook.images"></app-images>
     <div class="content">
         <h2>{{notebook.brand}} {{notebook.model}}</h2>

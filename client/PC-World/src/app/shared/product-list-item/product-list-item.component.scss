@@ -35,68 +35,59 @@ a {
     text-align: start;
 }
 
-.price {
-    text-align: start;
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.old-price,
-.promo-price {
-    text-align: start;
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.old-price {
-    color: gray;
-    position: relative;
-}
-
-.old-price > span::after {
-    content: "";
-    background-color: gray;
-    width: 50%;
-    height: 2px;
+.parameter-square {
+    font-size: 8px;
     position: absolute;
-    left: 18px;
-    transform: rotate(160deg);
-    top: 16px;
+}
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.promo-price, .price {
+    text-align: start;
+    font-size: 1.5rem;
+    font-weight: 800;
 }
 
 .promo-price {
     color: $primary-color;
 }
 
-.btn-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.btn-primary,
-.btn-secondary {
+.add-cart, .add-wishlist {
+    text-align: center;
+    width: 60px;
+    height: 40px;
     background: $primary-color;
     border: none;
     border-radius: 5px;
-    padding: 5px;
-    cursor: pointer;
     color: white;
-    height: 35px;
 }
 
-.btn-secondary {
-    background: $secondary-color;
+.price-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
 }
 
-#add-btn {
+.cart-container-add-btn {
     position: absolute;
     right: 20px;
-    bottom: 65px;
-    width: 111px;
+    bottom: 20px;
+    cursor: pointer;
 }
 
-.parameter-square {
-    font-size: 8px;
+.cart-container-wishlist-btn {
     position: absolute;
+    bottom: 20px;
+    right: 100px;
+    cursor: pointer;
+}
+
+.add-wishlist {
+    background: $secondary-color;
 }

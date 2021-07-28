@@ -118,12 +118,18 @@ input {
     text-shadow: 0 0 5px $stars-color;
 }
 
-input[type="submit"] {
-    background: $primary-color;
+input[type="submit"], input[type="button"] {
+    background: $secondary-color;
     border: none;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
     color: white;
     font-size: 1.2rem;
+    flex-basis: 30%;
+    margin: 20px 10px;
+}
+
+input[type="button"] {
+    background: $primary-color;
 }

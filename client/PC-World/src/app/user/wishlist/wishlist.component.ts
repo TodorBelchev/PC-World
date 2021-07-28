@@ -1,7 +1,8 @@
 import { AfterContentChecked, Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { faCheckSquare, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faWindowClose, faCartPlus } from '@fortawesome/free-solid-svg-icons';
+
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import * as authSelectors from '../store/auth.selectors';
 import * as authActions from '../store/auth.actions';
@@ -19,6 +20,7 @@ import { MonitorService } from 'src/app/monitor/monitor.service';
 export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy {
   faCheckSquare = faCheckSquare;
   faWindowClose = faWindowClose;
+  faCartPlus = faCartPlus;
   wishlist$: Observable<wishlistProps[]> = this.store.select(authSelectors.selectWishlist);
   wishlistSub: Subscription = new Subscription();
   products: IProduct[] = [];
@@ -87,7 +89,6 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
 
   onAddToCartClick(product: IProduct): void {
     this.store.dispatch(authActions.add_cart({ _id: product._id, productType: product.type, quantity: 1 }));
-
   }
 
   onRemoveFromWishlistClick(product: IProduct): void {

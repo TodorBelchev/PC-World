@@ -1,5 +1,5 @@
 <div class="slideshow-container">
-    <div *ngFor="let promo of promotions; let i = index">
+    <div *ngFor="let promo of promotions; let i = index" class="slides">
         <div class="mySlides fade" *ngIf="i === currentIndex">
             <a routerLink="/promotions/{{promo.productType | productType}}/{{promo._id}}">
                 <img src="{{promo.image}}">

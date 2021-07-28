@@ -101,4 +101,9 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
       this.hideModal.emit(true);
     }
   }
+
+  onCancelClick(): void {
+    this.showModal = false;
+    this.hideModal.emit(true);
+  }
 }

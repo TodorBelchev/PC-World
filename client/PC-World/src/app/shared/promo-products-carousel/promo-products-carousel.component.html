@@ -1,7 +1,8 @@
 <div class="slideshow-container">
     <div class="items-container">
         <div class="mySlides fade" *ngFor="let promo of currentProducts; let i = index">
-            <a routerLink="/{{promo.productType}}/{{promo._id}}">
+            <a
+                routerLink="/{{promo.productType !== 'notebooks' ?  promo.productType !== 'monitors' ? 'components': '' : ''}}/{{promo.productType}}/{{promo._id}}">
                 <img src="{{promo.images[0]}}">
                 <div class="title">{{promo.brand}} {{promo.model}}</div>
                 <div class="promo-price" *ngIf="promo.promoPrice">

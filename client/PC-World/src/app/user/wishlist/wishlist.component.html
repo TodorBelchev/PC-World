@@ -31,8 +31,9 @@
                     <fa-icon [icon]="faCheckSquare" class="red" size="lg"></fa-icon>
                     <span class="tooltip">Out of stock</span>
                 </div>
-                <button (click)="onAddToCartClick(product)" [disabled]="product.quantity == 0" [ngClass]="product.quantity == 0 ? 'btn-disabled': ''">add to
-                    cart</button>
+                <button (click)="onAddToCartClick(product)">
+                    <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
+                </button>
                 <button (click)="onRemoveFromWishlistClick(product)" class="btn-remove">X</button>
             </div>
         </div>

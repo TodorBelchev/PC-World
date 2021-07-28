@@ -241,20 +241,22 @@
                     <strong>{{product.memoryClock}} Gbps</strong>
                 </div>
             </div>
-            <div class="btn-container">
-                <div class="old-price">
-                    <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>
+            <div class="controls-container">
+                <div class="price-container">
+                    <div *ngIf="product.promoPrice">
+                        <span class="promo-price">$ {{product.promoPrice}}</span>
+                    </div>
+                    <div *ngIf="!product.promoPrice">
+                        <span class="price">$ {{product.price}}</span>
+                    </div>
                 </div>
-                <button class="btn-primary"></button>
-                <div class="promo-price" *ngIf="product.promoPrice">
-                    <span>$ {{product.promoPrice}}</span>
-                </div>
-                <div class="price" *ngIf="!product.promoPrice">
-                    <span>$ {{product.price}}</span>
-                </div>
-                <button class="btn-secondary">Details</button>
             </div>
         </div>
     </a>
-    <button (click)="onAddToCart()" class="btn-primary" id="add-btn">Add to cart</button>
+    <button type="button" class="cart-container-wishlist-btn add-wishlist" (click)="onAddToWishlist(product)">
+        <fa-icon [icon]="faHeart" size="lg"></fa-icon>
+    </button>
+    <button type="button" class="cart-container-add-btn add-cart" (click)="onAddToCart(product)">
+        <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
+    </button>
 </div>
