@@ -25,6 +25,7 @@ import { CreateVgaComponent } from './create-vga/create-vga.component';
 import { CreateMemoryComponent } from './create-memory/create-memory.component';
 import { SalesVolumeComponent } from './charts/sales-volume/sales-volume.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { PartsShareComponent } from './charts/parts-share/parts-share.component';
 
 
 
@@ -48,7 +49,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     CreateVgaComponent,
     CreateMemoryComponent,
     StatisticsComponent,
-    SalesVolumeComponent
+    SalesVolumeComponent,
+    PartsShareComponent
   ],
   imports: [
     CommonModule,

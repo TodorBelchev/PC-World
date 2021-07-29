@@ -55,6 +55,12 @@ export class SalesVolumeComponent implements OnInit {
               y: {
                 beginAtZero: true
               }
+            },
+            plugins: {
+              title: {
+                display: true,
+                text: 'Sales volume'
+              }
             }
           }
         });
@@ -68,7 +74,7 @@ export class SalesVolumeComponent implements OnInit {
   onSelectChange(event: any): void {
     const period = event.target.value;
     this.adminService.getCurrentSales(period).subscribe(
-      data=> {
+      data => {
         const dateLabels: string[] = [];
         const sales: number[] = [];
         data.forEach((x: { _id: string, total: number }) => {

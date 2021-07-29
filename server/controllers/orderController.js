@@ -4,8 +4,9 @@ const isLogged = require('../middlewares/isLogged');
 const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
 const partsService = require('../services/partService');
-const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty, getCurrentSales } = require('../services/orderService');
+const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty, getCurrentSales, getAllOrders } = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
+const getProductsCountFromOrders = require('../utils/getProductsCountFromOrders');
 
 const services = {
     'notebooks': notebookService,
@@ -89,6 +90,17 @@ router.get('/sales/current', isLogged(), isAdmin(), async (req, res) => {
         const period = req.query.period;
         const sales = await getCurrentSales(period);
         res.status(200).send(sales);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/sales/share', isLogged(), isAdmin(), async (req, res) => {
+    try {
+        const orders = await getAllOrders();
+        const count = getProductsCountFromOrders(orders)
+        res.status(200).send(count);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

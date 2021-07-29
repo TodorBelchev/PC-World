@@ -34,4 +34,8 @@ export class AdminService {
     return this.http.get(environment.api_url + `orders/sales/current?period=` + period, { withCredentials: true });
   }
 
+  getPartsShare(): Observable<any> {
+    return this.http.get(environment.api_url + `orders/sales/share`, { withCredentials: true });
+  }
+
 }

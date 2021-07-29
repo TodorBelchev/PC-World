@@ -51,6 +51,10 @@ const getCurrentSales = (period) => {
     ]).sort({ _id: 1 });
 }
 
+const getAllOrders = () => {
+    return Order.find({}).lean();
+}
+
 module.exports = {
     createOrder,
     getOrdersByUserId,
@@ -59,5 +63,6 @@ module.exports = {
     deleteOrder,
     generateWarranty,
     getWarrantiesByUserId,
-    getCurrentSales
+    getCurrentSales,
+    getAllOrders
 }
