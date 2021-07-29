@@ -11,17 +11,11 @@ const getOrdersByUserId = (userId) => {
 }
 
 const getOrdersByPage = (page) => {
-    return Order.find({}).sort({ createdAt: 'desc' }).skip(page * 10).limit(10).populate('products.product');
+    return Order.find({}).sort({ completed: 'asc' }).skip(page * 10).limit(10).populate('products.product');
 }
 
-const editOrder = async (orderId, data) => {
-    try {
-        const order = await Order.findById(orderId).populate('products.product');
-        Object.assign(order, { status: data.status });
-        return order.save();
-    } catch (error) {
-        throw new Error(error.message);
-    }
+const getOrder = async (orderId) => {
+    return Order.findById(orderId).populate('products.product');
 }
 
 const deleteOrder = (orderId) => {
@@ -59,7 +53,7 @@ module.exports = {
     createOrder,
     getOrdersByUserId,
     getOrdersByPage,
-    editOrder,
+    getOrder,
     deleteOrder,
     generateWarranty,
     getWarrantiesByUserId,

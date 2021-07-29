@@ -51,6 +51,10 @@ const orderSchema = new mongoose.Schema({
         type: String,
         default: 'pending'
     },
+    completed: {
+        type: Boolean,
+        default: false
+    },
     deliveryPrice: {
         type: Number
     },

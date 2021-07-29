@@ -5,7 +5,7 @@ const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
 const partsService = require('../services/partService');
 const monitorService = require('../services/monitorService');
-const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty, getCurrentSales, getAllOrders } = require('../services/orderService');
+const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty, getCurrentSales, getAllOrders, getOrder } = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
 const getProductsCountFromOrders = require('../utils/getProductsCountFromOrders');
 
@@ -29,32 +29,33 @@ const router = Router();
 
 
 router.post('/', checkUser(), async (req, res) => {
-    const mapped = [];
-    const orderData = req.body;
-    let currentUser;
-    let deliveryPrice = 0;
-    let totalCost = 0;
-    if (!req.decoded) {
-        currentUser = {
-            firstName: orderData.firstName,
-            lastName: orderData.lastName,
-            phoneNumber: orderData.phoneNumber,
-            city: orderData.city,
-            location: orderData.location,
-        }
-        orderData.guest = currentUser;
-    } else {
-        currentUser = req.decoded.id;
-        orderData.user = currentUser;
-    }
-
-    async function asyncForEach(array, callback) {
-        for (let index = 0; index < array.length; index++) {
-            await callback(array[index], index, array);
-        }
-    }
-
     try {
+
+        const mapped = [];
+        const orderData = req.body;
+        let currentUser;
+        let deliveryPrice = 0;
+        let totalCost = 0;
+        if (!req.decoded) {
+            currentUser = {
+                firstName: orderData.firstName,
+                lastName: orderData.lastName,
+                phoneNumber: orderData.phoneNumber,
+                city: orderData.city,
+                location: orderData.location,
+            }
+            orderData.guest = currentUser;
+        } else {
+            currentUser = req.decoded.id;
+            orderData.user = currentUser;
+        }
+
+        async function asyncForEach(array, callback) {
+            for (let index = 0; index < array.length; index++) {
+                await callback(array[index], index, array);
+            }
+        }
+
         const createOrderWrapper = async () => {
             await asyncForEach(req.body.products, async (x) => {
                 let partName = x.type.substring(0, x.type.length - 1);
@@ -62,6 +63,10 @@ router.post('/', checkUser(), async (req, res) => {
                     partName = 'memory';
                 }
                 const currentProduct = await services[x.type].getById(x._id, partName);
+                if (currentProduct.quantity < x.quantity) {
+                    throw new Error('Not enough quantity!');
+                }
+                console.log(currentProduct.currentPrice);
                 mapped.push({
                     product: currentProduct._id,
                     onModel: partName.substring(0, 1).toUpperCase() + partName.substring(1, partName.length),
@@ -80,8 +85,10 @@ router.post('/', checkUser(), async (req, res) => {
             res.status(201).send(order);
         }
 
-        createOrderWrapper();
+        await createOrderWrapper();
     } catch (error) {
+        console.log(error.message);
+        console.log(error);
         res.status(400).send({ message: error.message });
     }
 
@@ -132,8 +139,12 @@ router.get('/admin/:page', isLogged(), isAdmin(), async (req, res) => {
 
 router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
     try {
-        const order = await editOrder(req.body._id, req.body);
+        const order = await getOrder(req.body._id);
+        let completed = false;
         if (order.status == 'completed') {
+            throw new Error('This orders is completed!')
+        }
+        if (req.body.status == 'completed') {
             order.products.forEach(x => {
                 generateWarranty({
                     user: order.user || order.guest,
@@ -144,8 +155,13 @@ router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
                     warranty: x.product.warranty,
                     order: order._id
                 });
+                x.product.quantity -= x.purchaseQuantity;
+                x.product.save();
             });
+            completed = true;
         }
+        Object.assign(order, req.body, { completed });
+        await order.save();
         res.status(200).send(order);
     } catch (error) {
         console.log(error);

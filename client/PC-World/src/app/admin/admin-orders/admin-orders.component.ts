@@ -12,8 +12,10 @@ export class AdminOrdersComponent implements OnInit {
   orders: IOrder[] = [];
   isVisible: boolean = false;
   showModal: boolean = false;
+  showSaveModal: boolean = false;
   totalPrice: number | undefined = undefined;
   orderToDelete: IOrder | null = null;
+  orderToSave: IOrder | null = null;
   constructor(
     private adminService: AdminService,
     private router: Router
@@ -41,10 +43,12 @@ export class AdminOrdersComponent implements OnInit {
     this.orders.splice(index, 1, order);
   }
 
-  onChangeSave(order: IOrder): void {
-    this.adminService.saveOrder(order).subscribe(
+  onChangeSave(): void {
+    this.adminService.saveOrder(this.orderToSave!).subscribe(
       order => {
-
+        this.orderToSave!.completed = true;
+        this.showSaveModal = false;
+        this.orderToSave = null;
       },
       error => {
         console.log(error.message);
@@ -57,9 +61,16 @@ export class AdminOrdersComponent implements OnInit {
     this.orderToDelete = order;
   }
 
+  onSaveOrder(order: IOrder): void {
+    this.showSaveModal = true;
+    this.orderToSave = order;
+  }
+
   onCancelClick(): void {
     this.showModal = false;
     this.orderToDelete = null;
+    this.showSaveModal = false;
+    this.orderToSave = null;
   }
 
   onConfirmedDelete(): void {

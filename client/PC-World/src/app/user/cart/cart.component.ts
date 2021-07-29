@@ -100,7 +100,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
         }
       },
       error => {
-        console.log(error.message);
+        console.log(error.error.message);
       }
     )
   }

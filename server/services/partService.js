@@ -42,7 +42,7 @@ const getPartsByPage = (partName, page, filter) => {
 }
 
 const getById = (id, partName) => {
-    return parts[partName].findById(id).lean();
+    return parts[partName].findById(id);
 }
 
 const getPromoParts = () => {
