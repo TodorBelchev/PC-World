@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { INotebook } from '../../shared/interfaces/notebook.interface';
-import { NotebookService } from '../../notebook/notebook.service';
+import { NotebookService } from 'src/app/notebook/notebook.service';
+import { INotebook } from 'src/app/shared/interfaces/notebook.interface';
 
 @Component({
   selector: 'app-create-notebook',

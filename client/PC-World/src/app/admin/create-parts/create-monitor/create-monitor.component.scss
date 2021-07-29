@@ -1,10 +1,10 @@
-@import "../../shared/variables.scss";
+@import "../../../shared/variables.scss";
 :host {
     flex-basis: 80%;
 }
 
 .container {
-    width: 100%;
+    flex-basis: 100%;
 }
 
 ul {
@@ -26,22 +26,22 @@ ul li {
 
 form {
     margin: 0 auto;
-    width: 1000px;
+    width: 700px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 input,
 select {
-    flex-basis: 30%;
+    flex-basis: 70%;
     margin: 20px 0 0 0;
 }
 
 label {
-    flex-basis: 15%;
-    margin: 20px 0 0 20px;
+    flex-basis: 30%;
+    margin: 20px 0 0 0;
 }
 
 input[type="submit"] {
@@ -52,7 +52,6 @@ input[type="submit"] {
     cursor: pointer;
     color: white;
     font-size: 1.2rem;
-    width: 200px;
 }
 
 input[type="email"],
@@ -64,9 +63,4 @@ input[type="password"] {
 .checkbox {
     flex-basis: 100%;
     margin-top: 0;
-}
-
-#submit-container {
-    flex-basis: 100%;
-    text-align: center;
 }

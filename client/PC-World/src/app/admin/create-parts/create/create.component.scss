@@ -1,4 +1,4 @@
-@import "../../shared/variables.scss";
+@import '../../../shared/variables.scss';
 :host {
     flex-basis: 80%;
 }
@@ -24,6 +24,22 @@ ul li {
     text-align: center;
 }
 
+ul li a {
+    text-decoration: none;
+    color: black;
+    margin: 90px;
+}
+
+ul li.active::after {
+    content: "";
+    width: 250px;
+    height: 3px;
+    background: $primary-color;
+    position: absolute;
+    left: 0;
+    top: 32px;
+}
+
 form {
     margin: 0 auto;
     width: 700px;
@@ -33,8 +49,16 @@ form {
     flex-wrap: wrap;
 }
 
-input,
-select {
+.form {
+    margin: 0 auto;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+input, select {
     flex-basis: 70%;
     margin: 20px 0 0 0;
 }

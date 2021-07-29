@@ -28,6 +28,6 @@
             <fa-icon [icon]="faComment" size="lg"></fa-icon>
         </button>
     </div>
-    <app-add-comment-modal *ngIf="showModal" (commentCreated)="onCommentCreated()" (hideModal)="onHideModal()"
-        [product]="product" [productName]="productName"></app-add-comment-modal>
 </div>
+<app-add-comment-modal *ngIf="showModal" (commentCreated)="onCommentCreated()" (hideModal)="onHideModal()"
+    [product]="product" [productName]="productName"></app-add-comment-modal>

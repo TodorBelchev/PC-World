@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class WarrantyExpirationDatePipe implements PipeTransform {
 
   transform(value: string, warranty: number): string {
-    const date = new Date(Number(value));
+    const date = new Date(value);
     const day = date.getDate();
     const month = date.getMonth();
     const year = date.getFullYear();

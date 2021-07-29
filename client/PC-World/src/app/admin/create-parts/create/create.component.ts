@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PartsService } from '../../parts/parts.service';
+import { PartsService } from '../../../parts/parts.service';
 
 @Component({
   selector: 'app-create',

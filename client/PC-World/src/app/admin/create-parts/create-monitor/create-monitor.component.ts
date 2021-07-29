@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MonitorService } from '../../monitor/monitor.service';
+import { MonitorService } from 'src/app/monitor/monitor.service';
 
 @Component({
   selector: 'app-create-monitor',

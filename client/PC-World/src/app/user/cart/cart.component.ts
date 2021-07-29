@@ -94,7 +94,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
       data => {
         this.store.dispatch(authActions.empty_cart());
         if (this.user._id !== '') {
-          this.router.navigateByUrl('/profile/' + this.user._id + '/orders');
+          this.router.navigateByUrl('/users/' + this.user._id + '/orders');
         } else {
           this.router.navigateByUrl('/' + this.user._id);
         }

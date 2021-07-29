@@ -4,6 +4,7 @@ const isLogged = require('../middlewares/isLogged');
 const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
 const partsService = require('../services/partService');
+const monitorService = require('../services/monitorService');
 const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty, getCurrentSales, getAllOrders } = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
 const getProductsCountFromOrders = require('../utils/getProductsCountFromOrders');
@@ -12,7 +13,15 @@ const services = {
     'notebooks': notebookService,
     'processors': partsService,
     'vgas': partsService,
-    'ssds': partsService
+    'ssds': partsService,
+    'motherboards': partsService,
+    'psus': partsService,
+    'hdds': partsService,
+    'memories': partsService,
+    'cases': partsService,
+    'psus': partsService,
+    'coolers': partsService,
+    'monitors': monitorService
 }
 
 const router = Router();
@@ -48,10 +57,14 @@ router.post('/', checkUser(), async (req, res) => {
     try {
         const createOrderWrapper = async () => {
             await asyncForEach(req.body.products, async (x) => {
-                const currentProduct = await services[x.type].getById(x._id, x.type.substring(0, x.type.length - 1));
+                let partName = x.type.substring(0, x.type.length - 1);
+                if (partName === 'memorie') {
+                    partName = 'memory';
+                }
+                const currentProduct = await services[x.type].getById(x._id, partName);
                 mapped.push({
                     product: currentProduct._id,
-                    onModel: x.type.substring(0, 1).toUpperCase() + x.type.substring(1, x.type.length - 1),
+                    onModel: partName.substring(0, 1).toUpperCase() + partName.substring(1, partName.length),
                     purchaseQuantity: x.quantity,
                     purchasePrice: currentProduct.currentPrice
                 });
