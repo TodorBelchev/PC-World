@@ -32,7 +32,7 @@ const orderSchema = new mongoose.Schema({
         onModel: {
             type: String,
             require: true,
-            enum: ['Notebook', 'Case', 'Cooler', 'HDD', 'Memory', 'Monitor', 'Motherboard', 'Processor', 'PSU', 'SSD', 'VGA']
+            enum: ['Notebook', 'Case', 'Cooler', 'Hdd', 'Memory', 'Monitor', 'Motherboard', 'Processor', 'Psu', 'Ssd', 'Vga']
         },
         purchaseQuantity: {
             type: Number,
@@ -44,8 +44,8 @@ const orderSchema = new mongoose.Schema({
         }
     }],
     createdAt: {
-        type: String,
-        default: Date.now
+        type: Date,
+        required: true
     },
     status: {
         type: String,

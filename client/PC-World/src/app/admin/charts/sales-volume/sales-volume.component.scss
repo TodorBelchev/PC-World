@@ -1,0 +1,16 @@
+:host {
+    flex-basis: 100%;
+}
+
+.sales-container {
+    padding: 20px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: right;
+    flex-basis: 80%;
+}
+
+#sales-volume {
+    width: 100%;
+}

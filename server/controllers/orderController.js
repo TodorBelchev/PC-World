@@ -3,11 +3,15 @@ const { Router } = require('express');
 const isLogged = require('../middlewares/isLogged');
 const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
-const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty } = require('../services/orderService');
+const partsService = require('../services/partService');
+const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty, getCurrentSales } = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
 
 const services = {
-    'notebooks': notebookService
+    'notebooks': notebookService,
+    'processors': partsService,
+    'vgas': partsService,
+    'ssds': partsService
 }
 
 const router = Router();
@@ -43,20 +47,21 @@ router.post('/', checkUser(), async (req, res) => {
     try {
         const createOrderWrapper = async () => {
             await asyncForEach(req.body.products, async (x) => {
-                const currentProduct = await services[x.type].getById(x._id);
+                const currentProduct = await services[x.type].getById(x._id, x.type.substring(0, x.type.length - 1));
                 mapped.push({
                     product: currentProduct._id,
                     onModel: x.type.substring(0, 1).toUpperCase() + x.type.substring(1, x.type.length - 1),
                     purchaseQuantity: x.quantity,
                     purchasePrice: currentProduct.currentPrice
                 });
-                console.log(mapped);
                 totalCost += currentProduct.currentPrice;
                 totalCost >= 100 ? deliveryPrice = 0 : deliveryPrice = 10;
             });
             orderData.products = mapped;
             orderData.deliveryPrice = deliveryPrice;
             orderData.totalPrice = totalCost + deliveryPrice;
+            const date = new Date().setHours(3, 1, 1, 1);
+            orderData.createdAt = date;
             const order = await createOrder(orderData);
             res.status(201).send(order);
         }
@@ -73,6 +78,17 @@ router.get('/customer/:userId', isLogged(), async (req, res) => {
     try {
         const orders = await getOrdersByUserId(req.params.userId);
         res.status(200).send(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/sales/current', isLogged(), isAdmin(), async (req, res) => {
+    try {
+        const period = req.query.period;
+        const sales = await getCurrentSales(period);
+        res.status(200).send(sales);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

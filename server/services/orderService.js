@@ -37,6 +37,20 @@ const getWarrantiesByUserId = (userId) => {
     return Warranty.find({ user: userId }).populate('product').populate('order');
 };
 
+const getCurrentSales = (period) => {
+    let date;
+    const msSinceMidnight = new Date() - new Date().setHours(0, 0, 0, 0);
+    if (period == 'current') {
+        date = new Date(Date.now() - 518400000 - msSinceMidnight);
+    } else {
+        date = new Date(Date.now() - 2592000000 - msSinceMidnight);
+    }
+    return Order.aggregate([
+        { $match: { createdAt: { $gte: date }, status: 'completed' } },
+        { $group: { _id: "$createdAt", total: { $sum: "$totalPrice" } } }
+    ]).sort({ _id: 1 });
+}
+
 module.exports = {
     createOrder,
     getOrdersByUserId,
@@ -44,5 +58,6 @@ module.exports = {
     editOrder,
     deleteOrder,
     generateWarranty,
-    getWarrantiesByUserId
+    getWarrantiesByUserId,
+    getCurrentSales
 }

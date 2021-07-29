@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { AdminRoutingModule } from './admin-routing.module';
+
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminAsideComponent } from './admin-aside/admin-aside.component';
-import { RouterModule } from '@angular/router';
-import { AdminRoutingModule } from './admin-routing.module';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
-import { SharedModule } from '../shared/shared.module';
 import { ProductsComponent } from './products/products.component';
 import { PromotionsComponent } from './promotions/promotions.component';
 import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateMonitorComponent } from './create-monitor/create-monitor.component';
 import { CreateNotebookComponent } from './create-notebook/create-notebook.component';
 import { CreateComponent } from './create/create.component';
@@ -21,6 +23,8 @@ import { CreatePowerSupplyComponent } from './create-power-supply/create-power-s
 import { CreateProcessorComponent } from './create-processor/create-processor.component';
 import { CreateVgaComponent } from './create-vga/create-vga.component';
 import { CreateMemoryComponent } from './create-memory/create-memory.component';
+import { SalesVolumeComponent } from './charts/sales-volume/sales-volume.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 
@@ -42,7 +46,9 @@ import { CreateMemoryComponent } from './create-memory/create-memory.component';
     CreatePowerSupplyComponent,
     CreateProcessorComponent,
     CreateVgaComponent,
-    CreateMemoryComponent
+    CreateMemoryComponent,
+    StatisticsComponent,
+    SalesVolumeComponent
   ],
   imports: [
     CommonModule,

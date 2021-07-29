@@ -41,7 +41,7 @@ const getPartsByPage = (partName, page, filter) => {
     return parts[partName].find(filter).skip(page * 16).limit(16).sort({ brand: 'asc' });
 }
 
-const getPart = (partName, id) => {
+const getById = (id, partName) => {
     return parts[partName].findById(id).lean();
 }
 
@@ -64,7 +64,7 @@ module.exports = {
     getPartCount,
     getPartsByPage,
     getFilteredCount,
-    getPart,
+    getById,
     editPart,
     getPromoParts
 }

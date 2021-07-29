@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DatePipe implements PipeTransform {
 
   transform(value: string): string {
-    const date = new Date(Number(value));
+    const date = new Date(value);
     const day = date.getDate();
     const month = date.getMonth();
     const year = date.getFullYear();

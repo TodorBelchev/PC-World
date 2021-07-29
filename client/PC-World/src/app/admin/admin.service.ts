@@ -30,4 +30,8 @@ export class AdminService {
     return this.http.post(environment.api_url + 'promotions', promotionData, { withCredentials: true });
   }
 
+  getCurrentSales(period: string): Observable<any> {
+    return this.http.get(environment.api_url + `orders/sales/current?period=` + period, { withCredentials: true });
+  }
+
 }

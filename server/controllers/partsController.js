@@ -3,7 +3,7 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createPart, getPartCount, getPart } = require('../services/partService');
+const { createPart, getPartCount, getById } = require('../services/partService');
 const isLoggedIn = require('../middlewares/isLogged');
 const { isAdmin } = require('../middlewares/guards');
 const { getPartsByPage, getFilteredCount, editPart } = require('../services/partService');
@@ -37,7 +37,7 @@ router.get('/part/:partType/:id', async (req, res) => {
         } else {
             type = type.substring(0, type.length - 1);
         }
-        const part = await getPart(type, req.params.id);
+        const part = await getById(req.params.id, type);
         res.status(200).send(part);
     } catch (error) {
         console.log(error.message);

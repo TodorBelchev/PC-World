@@ -7,18 +7,23 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AdminOrdersComponent } from "./admin-orders/admin-orders.component";
 import { ProductsComponent } from "./products/products.component";
 import { PromotionsComponent } from "./promotions/promotions.component";
+import { StatisticsComponent } from "./statistics/statistics.component";
 
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        component: DashboardComponent
+        redirectTo: 'statistics'
     },
     {
-        path: 'dashboard',
+        path: '',
         component: DashboardComponent,
         children: [
+            {
+                path: 'statistics',
+                component: StatisticsComponent
+            },
             {
                 path: 'notebooks/create',
                 component: CreateNotebookComponent
