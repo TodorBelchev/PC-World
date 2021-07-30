@@ -23,8 +23,8 @@ export class CreateCoolerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      this.partsService.getItem('cooler', this.activatedRoute.snapshot.url[2].path).subscribe(
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.partsService.getItem('coolers', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.cooler = part;
           this.editMode = true;
@@ -34,27 +34,7 @@ export class CreateCoolerComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.cooler = {
-        _id: '',
-        brand: '',
-        model: '',
-        socket: '',
-        height: '',
-        price: '',
-        fanRPM: '',
-        airflow: '',
-        noise: '',
-        fanSize: '',
-        connector: '',
-        type: '',
-        currentPrice: '',
-        promoPrice: '',
-        quantity: '',
-        warranty: '',
-        images: []
-      };
+      );
     }
   }
 

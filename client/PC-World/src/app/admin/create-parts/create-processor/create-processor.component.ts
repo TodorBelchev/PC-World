@@ -23,8 +23,8 @@ export class CreateProcessorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      this.partsService.getItem('processor', this.activatedRoute.snapshot.url[2].path).subscribe(
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.partsService.getItem('processors', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.processor = part;
           this.editMode = true;
@@ -34,25 +34,7 @@ export class CreateProcessorComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.processor = {
-        _id: '',
-        baseClock: '',
-        boostClock: '',
-        box: false,
-        brand: '',
-        cache: '',
-        cores: '',
-        currentPrice: '',
-        images: [],
-        model: '',
-        price: '',
-        promoPrice: '',
-        quantity: '',
-        threads: '',
-        warranty: ''
-      };
+      );
     }
   }
 

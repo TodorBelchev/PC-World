@@ -23,8 +23,8 @@ export class CreateMotherboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      this.partsService.getItem('motherboard', this.activatedRoute.snapshot.url[2].path).subscribe(
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.partsService.getItem('motherboards', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.motherboard = part;
           this.editMode = true;
@@ -34,30 +34,7 @@ export class CreateMotherboardComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.motherboard = {
-        _id: '',
-        brand: '',
-        model: '',
-        socket: '',
-        formFactor: '',
-        chipset: '',
-        memorySlots: '',
-        memorySpeeds: '',
-        ramCapacity: '',
-        audio: '',
-        lan: '',
-        wireless: '',
-        connectors: '',
-        storage: '',
-        price: '',
-        currentPrice: '',
-        promoPrice: '',
-        quantity: '',
-        warranty: '',
-        images: []
-      };
+      );
     }
   }
 

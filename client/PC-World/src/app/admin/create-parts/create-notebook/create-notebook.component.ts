@@ -12,45 +12,13 @@ import { INotebook } from 'src/app/shared/interfaces/notebook.interface';
 export class CreateNotebookComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   fileList: {} = {};
-  notebook: INotebook;
+  notebook: INotebook | undefined;
   editMode: boolean = false;
   constructor(
     private notebookService: NotebookService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {
-    this.notebook = {
-      _id: '',
-      OS: '',
-      battery: '',
-      brand: '',
-      category: '',
-      color: '',
-      dimensions: '',
-      display: '',
-      displayRefreshRate: '',
-      displayResolution: '',
-      displaySize: '',
-      graphics: '',
-      images: [],
-      memoryCapacity: '',
-      memorySpeed: '',
-      memoryType: '',
-      model: '',
-      ports: '',
-      price: '',
-      processor: '',
-      processorBrand: '',
-      processorCores: '',
-      processorModel: '',
-      promoPrice: '',
-      quantity: '',
-      storage: '',
-      storageCapacity: '',
-      warranty: '',
-      weight: ''
-    };
-  }
+  ) { }
 
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.url[0] && this.activatedRoute.snapshot.url[0].path === 'edit-products') {
@@ -93,7 +61,7 @@ export class CreateNotebookComponent implements OnInit {
           console.log(error.message);
         });
     } else {
-      this.notebookService.edit(this.notebook._id, formData).subscribe(
+      this.notebookService.edit(this.notebook!._id, formData).subscribe(
         data => {
           this.form.reset();
           this.router.navigateByUrl('notebooks/' + data._id);

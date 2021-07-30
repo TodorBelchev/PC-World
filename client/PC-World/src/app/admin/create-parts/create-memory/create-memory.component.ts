@@ -22,8 +22,8 @@ export class CreateMemoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      this.partsService.getItem('memory', this.activatedRoute.snapshot.url[2].path).subscribe(
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.partsService.getItem('memories', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.memory = part;
           this.editMode = true;
@@ -33,24 +33,7 @@ export class CreateMemoryComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.memory = {
-        _id: '',
-        brand: '',
-        model: '',
-        ramCapacity: '',
-        memorySpeeds: '',
-        memoryType: '',
-        timings: '',
-        platform: '',
-        price: '',
-        currentPrice: '',
-        promoPrice: '',
-        quantity: '',
-        warranty: '',
-        images: []
-      };
+      );
     }
   }
 

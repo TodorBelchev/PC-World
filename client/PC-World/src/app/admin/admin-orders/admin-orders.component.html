@@ -1,4 +1,4 @@
-<div *ngIf="orders.length == 0">Loading...</div>
+<div *ngIf="isLoading">Loading...</div>
 <div class="modal" *ngIf="showModal">
     <div class="modal-confirmation">
         <h4>Confirm order delete?</h4>
@@ -13,6 +13,7 @@
         <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
     </div>
 </div>
+<p *ngIf="orders.length === 0">No active orders.</p>
 <div *ngFor="let order of orders">
     <div class="order">
         <div class="order-title">Order id: {{order._id}}</div>

@@ -23,8 +23,8 @@ export class CreateVgaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      this.partsService.getItem('vga', this.activatedRoute.snapshot.url[2].path).subscribe(
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.partsService.getItem('vgas', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.vga = part;
           this.editMode = true;
@@ -34,26 +34,7 @@ export class CreateVgaComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.vga = {
-        _id: '',
-        brand: '',
-        model: '',
-        cores: '',
-        gameClock: '',
-        boostClock: '',
-        memory: '',
-        memoryClock: '',
-        connectors: '',
-        power: '',
-        quantity: '',
-        warranty: '',
-        images: [],
-        currentPrice: '',
-        promoPrice: '',
-        price: ''
-      };
+      );
     }
   }
 

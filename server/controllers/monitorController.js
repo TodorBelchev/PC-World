@@ -78,4 +78,32 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.put('/:id', async (req, res) => {
+    try {
+        const imagesURL = [];
+        const form = formidable({ multiples: true });
+        const [formData, incFiles] = await getFromData(req, form);
+
+        if (Object.values(incFiles).length > 0) {
+            for (const file of Object.values(incFiles)) {
+                const url = await uploadToCloudinary(file.path);
+                imagesURL.push(url);
+            }
+            formData.images = imagesURL;
+        } else {
+            delete formData.images;
+        }
+
+        formData.promoPrice !== 0 ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
+        const id = req.params.id;
+        const monitor = await getById(id);
+        Object.assign(monitor, formData);
+        await monitor.save();
+        res.status(200).send(monitor);
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+});
+
 module.exports = router;

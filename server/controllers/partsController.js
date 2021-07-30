@@ -68,7 +68,10 @@ router.post('/create/processor', isLoggedIn(), async (req, res) => {
 
 router.put('/part/:id', isLoggedIn(), isAdmin(), async (req, res) => {
     try {
-        const partType = req.query.part;
+        let partType = req.query.part.substring(0, req.query.part.length - 1);
+        if (partType == 'memorie') {
+            partType = 'memory';
+        }
         const imagesURL = [];
         const form = formidable({ multiples: true });
         const [formData, incFiles] = await getFromData(req, form);

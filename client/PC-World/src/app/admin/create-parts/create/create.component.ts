@@ -19,12 +19,9 @@ export class CreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      let partName = this.activatedRoute.snapshot.url[1].path.substring(0, this.activatedRoute.snapshot.url[1].path.length - 1);
-      if (this.activatedRoute.snapshot.url[1].path === 'memories') {
-        partName = 'memory';
-      }
-      this.id = this.activatedRoute.snapshot.url[2].path;
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      let partName = this.activatedRoute.snapshot.url[2].path;
+      this.id = this.activatedRoute.snapshot.url[3].path;
       this.selectedPart = partName;
       this.editMode = true;
     } else {

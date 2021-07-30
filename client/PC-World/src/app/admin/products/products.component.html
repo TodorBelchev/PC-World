@@ -1,17 +1,17 @@
 <div class="products-container">
     <div class="products-selects">
         <select name="products" id="products-select" [(ngModel)]="selectedProduct">
-            <option value="notebook">Notebook</option>
-            <option value="monitor">Monitor</option>
-            <option value="processor">Processor</option>
-            <option value="vga">Video card</option>
-            <option value="hdd">HDD</option>
-            <option value="ssd">SSD</option>
-            <option value="memory">Memory</option>
-            <option value="motherboard">Motherboard</option>
-            <option value="case">Case</option>
-            <option value="psu">PSU</option>
-            <option value="cooler">Cooler</option>
+            <option value="notebooks">Notebook</option>
+            <option value="monitors">Monitor</option>
+            <option value="processors">Processor</option>
+            <option value="vgas">Video card</option>
+            <option value="hdds">HDD</option>
+            <option value="ssds">SSD</option>
+            <option value="memories">Memory</option>
+            <option value="motherboards">Motherboard</option>
+            <option value="cases">Case</option>
+            <option value="psus">PSU</option>
+            <option value="coolers">Cooler</option>
         </select>
         <label for="promotion">Promotion:</label>
         <input type="checkbox" id="promotion" name="" [(ngModel)]="selectedPromotion">
@@ -19,7 +19,7 @@
     </div>
     <div class="products">
         <div *ngFor="let product of products" class="product">
-            <a routerLink="/dashboard/edit-products/{{link}}/{{fetchedProduct}}s/{{product._id}}">
+            <a routerLink="/dashboard/edit-products/{{link}}/{{fetchedProduct}}/{{product._id}}">
                 {{product.brand}} {{product.model}}
             </a>
         </div>

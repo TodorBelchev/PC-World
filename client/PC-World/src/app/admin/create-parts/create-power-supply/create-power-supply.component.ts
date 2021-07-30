@@ -22,8 +22,8 @@ export class CreatePowerSupplyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      this.partsService.getItem('psu', this.activatedRoute.snapshot.url[2].path).subscribe(
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.partsService.getItem('psus', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.psu = part;
           this.editMode = true;
@@ -33,25 +33,7 @@ export class CreatePowerSupplyComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.psu = {
-        _id: '',
-        brand: '',
-        model: '',
-        power: '',
-        formFactor: '',
-        certificate: '',
-        efficiency: '',
-        type: '',
-        connectors: '',
-        price: '',
-        currentPrice: '',
-        promoPrice: '',
-        quantity: '',
-        warranty: '',
-        images: []
-      };
+      );
     }
   }
 

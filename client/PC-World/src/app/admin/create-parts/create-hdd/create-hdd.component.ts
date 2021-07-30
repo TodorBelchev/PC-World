@@ -27,16 +27,15 @@ export class CreateHddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      if (this.activatedRoute.snapshot.url[1].path === 'hdds') {
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      if (this.activatedRoute.snapshot.url[2].path === 'hdds') {
         this.part = this.hdd;
         this.partType = 'hdd';
       } else {
         this.part = this.ssd;
         this.partType = 'ssd';
       }
-
-      this.partsService.getItem(this.partType, this.activatedRoute.snapshot.url[2].path).subscribe(
+      this.partsService.getItem(this.partType + 's', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.part = part;
           this.editMode = true;
@@ -46,27 +45,7 @@ export class CreateHddComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.part = {
-        _id: '',
-        brand: '',
-        model: '',
-        capacity: '',
-        readSpeed: '',
-        writeSpeed: '',
-        randomRead: '',
-        randomWrite: '',
-        mtbf: '',
-        interface: '',
-        formFactor: '',
-        price: '',
-        currentPrice: '',
-        promoPrice: '',
-        quantity: '',
-        warranty: '',
-        images: []
-      };
+      );
     }
   }
 

@@ -23,8 +23,8 @@ export class CreateCaseComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[3] && this.activatedRoute.snapshot.url[3].path === 'edit') {
-      this.partsService.getItem('case', this.activatedRoute.snapshot.url[2].path).subscribe(
+    if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.partsService.getItem('cases', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
           this.case = part;
           this.editMode = true;
@@ -34,25 +34,7 @@ export class CreateCaseComponent implements OnInit {
           this.editMode = false;
           console.log(error.message);
         }
-      )
-    } else {
-      this.case = {
-        _id: '',
-        brand: '',
-        model: '',
-        formFactor: '',
-        supportedMB: '',
-        frontPanel: '',
-        height: '',
-        width: '',
-        length: '',
-        price: '',
-        currentPrice: '',
-        promoPrice: '',
-        quantity: '',
-        warranty: '',
-        images: []
-      };
+      );
     }
   }
 

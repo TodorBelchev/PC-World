@@ -9,6 +9,8 @@ import { ProductsComponent } from "./products/products.component";
 import { PromotionsComponent } from "./promotions/promotions.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { AdminArchivedOrdersComponent } from "./admin-archived-orders/admin-archived-orders.component";
+import { CreateProcessorComponent } from "./create-parts/create-processor/create-processor.component";
+import { CreateCaseComponent } from "./create-parts/create-case/create-case.component";
 
 
 const routes: Routes = [
@@ -48,6 +50,46 @@ const routes: Routes = [
             {
                 path: 'edit-products/notebooks/:id',
                 component: CreateNotebookComponent
+            },
+            {
+                path: 'edit-products/monitors/:id',
+                component: CreateMonitorComponent
+            },
+            {
+                path: 'edit-products/components/processors/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/cases/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/coolers/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/hdds/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/ssds/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/memories/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/motherboards/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/psus/:id',
+                component: CreateComponent
+            },
+            {
+                path: 'edit-products/components/vgas/:id',
+                component: CreateComponent
             },
             {
                 path: 'admin-orders/active',

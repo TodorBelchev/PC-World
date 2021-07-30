@@ -1,35 +1,36 @@
 <div class="container">
     <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
         <label for="brand">Brand:</label>
-        <input ngModel type="text" name="brand" id="brand">
+        <input ngModel type="text" name="brand" id="brand" [ngModel]="monitor?.brand">
         <label for="model">Model:</label>
-        <input ngModel type="text" name="model" id="model">
+        <input ngModel type="text" name="model" id="model" [ngModel]="monitor?.model">
         <label for="type">Display type:</label>
-        <input ngModel type="text" name="type" id="type">
+        <input ngModel type="text" name="type" id="type" [ngModel]="monitor?.type">
         <label for="size">Display size:</label>
-        <input ngModel type="number" name="size" id="size">
+        <input ngModel type="number" name="size" id="size" [ngModel]="monitor?.size">
         <label for="resolution">Display resolution:</label>
-        <input ngModel type="text" name="resolution" id="resolution">
+        <input ngModel type="text" name="resolution" id="resolution" [ngModel]="monitor?.resolution">
         <label for="refreshRate">Display refresh rate:</label>
-        <input ngModel type="number" name="refreshRate" id="refreshRate">
+        <input ngModel type="number" name="refreshRate" id="refreshRate" [ngModel]="monitor?.refreshRate">
         <label for="responseTime">Display response time:</label>
-        <input ngModel type="number" name="responseTime" id="responseTime">
+        <input ngModel type="number" name="responseTime" id="responseTime" [ngModel]="monitor?.responseTime">
         <label for="brightness">Brightness:</label>
-        <input ngModel type="number" name="brightness" id="brightness">
+        <input ngModel type="number" name="brightness" id="brightness" [ngModel]="monitor?.brightness">
         <label for="ports">Ports:</label>
-        <input ngModel type="text" name="ports" id="ports">
+        <input ngModel type="text" name="ports" id="ports" [ngModel]="monitor?.ports">
         <label for="warranty">Warranty:</label>
-        <input ngModel type="number" name="warranty" id="warranty">
+        <input ngModel type="number" name="warranty" id="warranty" [ngModel]="monitor?.warranty">
         <label for="image">Images:</label>
         <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
         <label for="price">Price:</label>
-        <input ngModel type="number" name="price" id="price">
+        <input ngModel type="number" name="price" id="price" [ngModel]="monitor?.price">
         <label for="promoPrice">Promo price:</label>
-        <input ngModel type="number" name="promoPrice" id="promoPrice">
+        <input ngModel type="number" name="promoPrice" id="promoPrice" [ngModel]="monitor?.promoPrice">
         <label for="quantity">Quantity:</label>
-        <input ngModel type="number" name="quantity" id="quantity">
+        <input ngModel type="number" name="quantity" id="quantity" [ngModel]="monitor?.quantity">
         <div id="submit-container">
-            <input type="submit" value="Create">
+            <input type="submit" value="Create" *ngIf="!editMode">
+            <input type="submit" value="Edit" *ngIf="editMode">
         </div>
     </form>
 </div>

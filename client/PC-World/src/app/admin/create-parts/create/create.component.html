@@ -12,22 +12,22 @@
     </select>
 </form>
 <div class="form-container">
-    <app-create-processor *ngIf="selectedPart == 'processor'" (submitForm)="onSubmit($event)"
+    <app-create-processor *ngIf="selectedPart == 'processors'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-processor>
-    <app-create-vga *ngIf="selectedPart == 'vga'" (submitForm)="onSubmit($event)"
+    <app-create-vga *ngIf="selectedPart == 'vgas'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-vga>
-    <app-create-motherboard *ngIf="selectedPart == 'motherboard'" (submitForm)="onSubmit($event)"
+    <app-create-motherboard *ngIf="selectedPart == 'motherboards'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-motherboard>
-    <app-create-memory *ngIf="selectedPart == 'memory'" (submitForm)="onSubmit($event)"
+    <app-create-memory *ngIf="selectedPart == 'memories'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-memory>
-    <app-create-hdd *ngIf="selectedPart == 'hdd'" (submitForm)="onSubmit($event)"
+    <app-create-hdd *ngIf="selectedPart == 'hdds'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-hdd>
-    <app-create-hdd *ngIf="selectedPart == 'ssd'" (submitForm)="onSubmit($event)"
+    <app-create-hdd *ngIf="selectedPart == 'ssds'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-hdd>
-    <app-create-case *ngIf="selectedPart == 'case'" (submitForm)="onSubmit($event)"
+    <app-create-case *ngIf="selectedPart == 'cases'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-case>
-    <app-create-power-supply *ngIf="selectedPart == 'psu'" (submitForm)="onSubmit($event)"
+    <app-create-power-supply *ngIf="selectedPart == 'psus'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-power-supply>
-    <app-create-cooler *ngIf="selectedPart == 'cooler'" (submitForm)="onSubmit($event)"
+    <app-create-cooler *ngIf="selectedPart == 'coolers'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-cooler>
 </div>

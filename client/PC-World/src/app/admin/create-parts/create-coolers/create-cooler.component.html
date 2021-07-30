@@ -1,38 +1,38 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data" *ngIf="cooler">
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
     <label for="brand">Brand:</label>
-    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [(ngModel)]="cooler.brand">
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="cooler?.brand">
     <label for="model">Model:</label>
-    <input ngModel #model="ngModel" type="text" name="model" id="model" [(ngModel)]="cooler.model">
+    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="cooler?.model">
     <label for="socket">Socket:</label>
-    <input ngModel #socket="ngModel" type="text" name="socket" id="socket" [(ngModel)]="cooler.socket">
+    <input ngModel #socket="ngModel" type="text" name="socket" id="socket" [ngModel]="cooler?.socket">
     <label for="height">Height:</label>
-    <input ngModel #height="ngModel" type="number" name="height" id="height" [(ngModel)]="cooler.height">
+    <input ngModel #height="ngModel" type="number" name="height" id="height" [ngModel]="cooler?.height">
     <label for="fanRPM">Fan RPM:</label>
-    <input ngModel #fanRPM="ngModel" type="number" name="fanRPM" id="fanRPM" [(ngModel)]="cooler.fanRPM">
+    <input ngModel #fanRPM="ngModel" type="number" name="fanRPM" id="fanRPM" [ngModel]="cooler?.fanRPM">
     <label for="airflow">Airflow:</label>
-    <input ngModel #airflow="ngModel" type="number" name="airflow" id="airflow" [(ngModel)]="cooler.airflow">
+    <input ngModel #airflow="ngModel" type="number" name="airflow" id="airflow" [ngModel]="cooler?.airflow">
     <label for="noise">Noise:</label>
-    <input ngModel #noise="ngModel" type="number" name="noise" id="noise" [(ngModel)]="cooler.noise">
+    <input ngModel #noise="ngModel" type="number" name="noise" id="noise" [ngModel]="cooler?.noise">
     <label for="fanSize">Fan size:</label>
-    <input ngModel #fanSize="ngModel" type="number" name="fanSize" id="fanSize" [(ngModel)]="cooler.fanSize">
+    <input ngModel #fanSize="ngModel" type="number" name="fanSize" id="fanSize" [ngModel]="cooler?.fanSize">
     <label for="connector">Connector:</label>
-    <input ngModel #connector="ngModel" type="text" name="connector" id="connector" [(ngModel)]="cooler.connector">
+    <input ngModel #connector="ngModel" type="text" name="connector" id="connector" [ngModel]="cooler?.connector">
     <label for="type">Type:</label>
-    <select ngModel="air" #type="ngModel" name="type" id="type" [(ngModel)]="cooler.type">
+    <select ngModel="air" #type="ngModel" name="type" id="type" [ngModel]="cooler?.type">
         <option value="air" selected>Air</option>
         <option value="water">Water</option>
     </select>
     <label for="warranty">Warranty:</label>
-    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [(ngModel)]="cooler.warranty">
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="cooler?.warranty">
     <label for="image">Images:</label>
     <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
     <label for="price">Price:</label>
-    <input ngModel #price="ngModel" type="number" name="price" id="price" [(ngModel)]="cooler.price">
+    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="cooler?.price">
     <label for="promoPrice">Promo price:</label>
     <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice"
-        [(ngModel)]="cooler.promoPrice">
+        [ngModel]="cooler?.promoPrice">
     <label for="quantity">Quantity:</label>
-    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [(ngModel)]="cooler.quantity">
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="cooler?.quantity">
     <input type="submit" value="Create" *ngIf="!editMode">
     <input type="submit" value="Edit" *ngIf="editMode">
 </form>

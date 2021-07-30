@@ -10,6 +10,7 @@ import { AdminService } from '../admin.service';
 })
 export class AdminOrdersComponent implements OnInit {
   orders: IOrder[] = [];
+  isLoading: boolean = true;
   isVisible: boolean = false;
   showModal: boolean = false;
   showSaveModal: boolean = false;
@@ -25,9 +26,11 @@ export class AdminOrdersComponent implements OnInit {
     this.adminService.getOrders().subscribe(
       orders => {
         this.orders = orders;
+        this.isLoading = false;
       },
       error => {
         console.log(error.message);
+        this.isLoading = false;
       }
     );
 
