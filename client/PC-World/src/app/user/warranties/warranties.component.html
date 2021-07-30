@@ -1,28 +1,33 @@
 <div class="container">
     <app-user-aside></app-user-aside>
-    <section class="warranties">
-        <h3 class="warranties-title">My warranties:</h3>
-        <article class="warranties-item" *ngFor="let warranty of warranties">
-            <img class="warranties-item-image" src="{{warranty.product.images[0]}}" alt="product-image">
-            <div class="warranties-item-title">
-                <div class="warranties-item-link">
-                    <a routerLink="/{{warranty.onModel | productType}}/{{warranty.product._id}}">{{warranty.product.brand}}
-                        {{warranty.product.model}}</a>
+    <div class="warranties-container">
+        <section class="warranties">
+            <h3 class="warranties-title">My warranties:</h3>
+            <article class="warranties-item" *ngFor="let warranty of warranties">
+                <img class="warranties-item-image" src="{{warranty.product.images[0]}}" alt="product-image">
+                <div class="warranties-item-title">
+                    <div class="warranties-item-link">
+                        <a routerLink="/{{warranty.onModel | productType}}/{{warranty.product._id}}">{{warranty.product.brand}}
+                            {{warranty.product.model}}</a>
+                    </div>
+                    <div class="warranties-item-length">
+                        Warranty: <strong>{{warranty.product.warranty}} months</strong>
+                    </div>
+                    <div class="warranties-item-expiration">
+                        Valid until: <strong>{{ warranty.order.createdAt |
+                            warrantyExpirationDate:warranty.warranty
+                            }}</strong>
+                    </div>
                 </div>
-                <div class="warranties-item-length">
-                    Warranty: <strong>{{warranty.product.warranty}} months</strong>
+                <div class="order">
+                    <div class="order-id">
+                        Order id: <strong>{{warranty.order._id}}</strong>
+                    </div>
+                    <div class="order-date">Order date: <strong>{{warranty.order.createdAt | date}}</strong></div>
                 </div>
-                <div class="warranties-item-expiration">
-                    Valid until: <strong>{{ warranty.order.createdAt | warrantyExpirationDate:warranty.product.warranty }}</strong>
-                </div>
-            </div>
-            <div class="order">
-                <div class="order-id">
-                    Order id: <strong>{{warranty.order._id}}</strong>
-                </div>
-                <div class="order-date">Order date: <strong>{{warranty.order.createdAt | date}}</strong></div>
-            </div>
-        </article>
-        <p class="empty" *ngIf="warranties.length === 0">Your have no orders. See some of our best offers.</p>
-    </section>
+            </article>
+            <p class="empty" *ngIf="warranties.length === 0">Your have no orders. See some of our best offers.</p>
+        </section>
+        <app-paginator [count]="count" [itemsPerPage]="10" *ngIf="count > 10"></app-paginator>
+    </div>
 </div>

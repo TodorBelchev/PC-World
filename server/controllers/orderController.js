@@ -5,7 +5,21 @@ const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
 const partsService = require('../services/partService');
 const monitorService = require('../services/monitorService');
-const { createOrder, getOrdersByUserId, getActiveOrdersByPage, deleteOrder, generateWarranty, getCurrentSales, getAllOrders, getOrder, getArchivedOrders, getArchivedOrdersCount } = require('../services/orderService');
+const {
+    createOrder,
+    getOrdersByUserIdAndPage,
+    deleteWarrantiesByOrderId,
+    getActiveOrdersByPage,
+    deleteOrder,
+    generateWarranty,
+    getCurrentSales,
+    getAllOrders,
+    getOrder,
+    getArchivedOrders,
+    getArchivedOrdersCount,
+    updateOrder,
+    getOrdersCountByUser
+} = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
 const getProductsCountFromOrders = require('../utils/getProductsCountFromOrders');
 
@@ -25,7 +39,6 @@ const services = {
 }
 
 const router = Router();
-
 
 
 router.post('/', checkUser(), async (req, res) => {
@@ -66,7 +79,6 @@ router.post('/', checkUser(), async (req, res) => {
                 if (currentProduct.quantity < x.quantity) {
                     throw new Error('Not enough quantity!');
                 }
-                console.log(currentProduct.currentPrice);
                 mapped.push({
                     product: currentProduct._id,
                     onModel: partName.substring(0, 1).toUpperCase() + partName.substring(1, partName.length),
@@ -97,8 +109,9 @@ router.post('/', checkUser(), async (req, res) => {
 
 router.get('/customer/:userId', isLogged(), async (req, res) => {
     try {
-        const orders = await getOrdersByUserId(req.params.userId);
-        res.status(200).send(orders);
+        const orders = await getOrdersByUserIdAndPage(req.params.userId, req.query.page - 1);
+        const ordersCount = await getOrdersCountByUser(req.params.userId);
+        res.status(200).send({ orders, count: ordersCount.length });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -137,7 +150,7 @@ router.get('/admin/archived', isLogged(), isAdmin(), async (req, res) => {
         const page = Number(req.query.page || 1) - 1;
         const orders = await getArchivedOrders(page, startDate, endDate);
         const ordersCount = await getArchivedOrdersCount(startDate, endDate);
-        res.status(200).send({ orders, count: ordersCount.length});
+        res.status(200).send({ orders, count: ordersCount.length });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -177,9 +190,12 @@ router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
             });
             completed = true;
         }
-        Object.assign(order, req.body, { completed });
-        await order.save();
-        res.status(200).send(order);
+
+        const newData = req.body;
+        newData.completed = completed;
+        await updateOrder(req.body._id, req.body);
+        const updated = await getOrder(req.body._id);
+        res.status(200).send(updated);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -189,6 +205,7 @@ router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
 router.delete('/admin/:id/delete', isLogged(), isAdmin(), async (req, res) => {
     try {
         const result = await deleteOrder(req.params.id);
+        await deleteWarrantiesByOrderId(req.params.id);
         res.status(200).send(result);
     } catch (error) {
         console.log(error);

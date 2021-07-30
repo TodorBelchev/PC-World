@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IOrder } from '../../shared/interfaces/order.interface';
 import { UserService } from '../user.service';
 
@@ -11,24 +11,31 @@ import { UserService } from '../user.service';
 export class OrdersListComponent implements OnInit {
   orders: IOrder[] = [];
   userId: string = '';
+  count: number = 0;
+  page: number = 1;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    }
+    this.userId = this.activatedRoute.snapshot.url[0].path;
+    this.activatedRoute.queryParams.subscribe(
       params => {
-        this.userId = params['id'];
-      },
-      error => {
-        console.log(error.message);
-      }
-    );
-
-    this.userService.getOrders(this.userId).subscribe(
-      orders => {
-        this.orders = orders;
+        this.page = params['page'] || 1;
+        this.userService.getOrders(this.userId, this.page).subscribe(
+          data => {
+            this.orders = data.orders;
+            this.count = data.count;
+          },
+          error => {
+            console.log(error.message);
+          }
+        );
       },
       error => {
         console.log(error.message);

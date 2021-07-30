@@ -124,11 +124,11 @@ export class UserService {
     return this.http.post(environment.api_url + 'orders', orderData, { withCredentials: true });
   }
 
-  getOrders(userId: string): Observable<any> {
-    return this.http.get(environment.api_url + `orders/customer/${userId}`, { withCredentials: true });
+  getOrders(userId: string, page: number): Observable<any> {
+    return this.http.get(environment.api_url + `orders/customer/${userId}?page=${page}`, { withCredentials: true });
   }
 
-  getWarranties(): Observable<any> {
-    return this.http.get(environment.api_url + `user/warranties`, { withCredentials: true });
+  getWarranties(page: number): Observable<any> {
+    return this.http.get(environment.api_url + `user/warranties?page=` + page, { withCredentials: true });
   }
 }

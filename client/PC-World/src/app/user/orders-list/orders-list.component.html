@@ -1,10 +1,13 @@
 <div class="container">
     <app-user-aside></app-user-aside>
-    <div class="orders">
-        <app-orders-list-item [order]="order" *ngFor="let order of orders"></app-orders-list-item>
-        <div class="empty" *ngIf="orders.length === 0">
-            <h3>Orders:</h3>
-            <p>Your have no orders. See some of our best offers.</p>
+    <section class="wrapper">
+        <div class="orders">
+            <app-orders-list-item [order]="order" *ngFor="let order of orders"></app-orders-list-item>
+            <div class="empty" *ngIf="orders.length === 0">
+                <h3>Orders:</h3>
+                <p>Your have no orders. See some of our best offers.</p>
+            </div>
         </div>
-    </div>
+        <app-paginator [count]="count" [itemsPerPage]="10" *ngIf="count > 10"></app-paginator>
+    </section>
 </div>

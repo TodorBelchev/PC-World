@@ -7,7 +7,7 @@ const { isAuth } = require('../middlewares/guards');
 const { createToken } = require('../utils/jwt');
 const isLogged = require('../middlewares/isLogged');
 const notebookService = require('../services/notebookService');
-const { getWarrantiesByUserId } = require('../services/orderService');
+const { getWarrantiesByUserIdAndPage, getAllWarrantiesByUserId } = require('../services/orderService');
 const { createUser, getUserById, getUserByEmail } = require('../services/userService');
 
 const services = {
@@ -111,8 +111,9 @@ router.put('/', isLogged(), async (req, res) => {
 
 router.get('/warranties', isLogged(), async (req, res) => {
     try {
-        const warranties = await getWarrantiesByUserId(req.decoded.id);
-        res.status(200).send(warranties);
+        const warranties = await getWarrantiesByUserIdAndPage(req.decoded.id, req.query.page - 1);
+        const warrantiesCount = await getAllWarrantiesByUserId(req.decoded.id);
+        res.status(200).send({ warranties, count: warrantiesCount.length });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

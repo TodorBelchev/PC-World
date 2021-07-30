@@ -10,14 +10,17 @@
                 </div>
             </a>
             <div class="prices">
-                <div class="old-price">
-                    <span *ngIf="product.promoPrice !== 0">$ {{product.price}}</span>
-                </div>
-                <div class="promo-price" *ngIf="product.promoPrice">
-                    <span>$ {{product.promoPrice}}</span>
-                </div>
-                <div class="price" *ngIf="!product.promoPrice">
-                    <span>$ {{product.price}}</span>
+                <div class="price-container">
+                    <div *ngIf="product!.promoPrice !== 0">
+                        <span class="old-price-sign">$ </span>
+                        <span class="old-price">{{product!.price}}</span>
+                    </div>
+                    <div *ngIf="product.promoPrice">
+                        <span class="promo-price">$ {{product.promoPrice}}</span>
+                    </div>
+                    <div *ngIf="!product.promoPrice">
+                        <span class="price">$ {{product.price}}</span>
+                    </div>
                 </div>
             </div>
             <div class="quantity-control">

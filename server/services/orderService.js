@@ -6,8 +6,12 @@ const createOrder = (orderData) => {
     return order.save();
 }
 
-const getOrdersByUserId = (userId) => {
-    return Order.find({ user: userId }).populate('products.product').sort({ createdAt: 'desc' });
+const getOrdersByUserIdAndPage = (userId, page) => {
+    return Order.find({ user: userId }).skip(page * 10).limit(10).sort({ createdAt: 'desc' }).populate('products.product');
+}
+
+const getOrdersCountByUser = (userId) => {
+    return Order.find({ user: userId });
 }
 
 const getActiveOrdersByPage = (page) => {
@@ -27,9 +31,17 @@ const generateWarranty = (product) => {
     return warranty.save();
 }
 
-const getWarrantiesByUserId = (userId) => {
-    return Warranty.find({ user: userId }).populate('product').populate('order');
+const getWarrantiesByUserIdAndPage = (userId, page) => {
+    return Warranty.find({ user: userId }).skip(page * 10).limit(10).populate('product').populate('order');
 };
+
+const getAllWarrantiesByUserId = (userId) => {
+    return Warranty.find({ user: userId });
+}
+
+const deleteWarrantiesByOrderId = (orderId) => {
+    return Warranty.deleteMany({ order: orderId });
+}
 
 const getCurrentSales = (period) => {
     let date;
@@ -67,16 +79,24 @@ const getArchivedOrdersCount = (startDate, endDate) => {
     });
 }
 
+const updateOrder = (id, body) => {
+    return Order.findOneAndUpdate({ _id: id }, body, { useFindAndModify: false });
+}
+
 module.exports = {
     createOrder,
-    getOrdersByUserId,
+    getOrdersByUserIdAndPage,
     getActiveOrdersByPage,
     getOrder,
     deleteOrder,
     generateWarranty,
-    getWarrantiesByUserId,
+    getWarrantiesByUserIdAndPage,
     getCurrentSales,
     getAllOrders,
     getArchivedOrders,
-    getArchivedOrdersCount
+    getArchivedOrdersCount,
+    getAllWarrantiesByUserId,
+    deleteWarrantiesByOrderId,
+    updateOrder,
+    getOrdersCountByUser
 }
