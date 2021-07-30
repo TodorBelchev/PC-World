@@ -18,6 +18,14 @@ export class AdminService {
     return this.http.get(environment.api_url + `orders/admin/1`, { withCredentials: true });
   }
 
+  getArchivedOrdersByPage(query: string): Observable<any> {
+    return this.http.get(environment.api_url + `orders/admin/archived` + query, { withCredentials: true });
+  }
+
+  getArchivedOrdersCount(query: string): Observable<any> {
+    return this.http.get(environment.api_url + `orders/admin/archived/count` + query, { withCredentials: true });
+  }
+
   saveOrder(order: IOrder): Observable<any> {
     return this.http.put(environment.api_url + 'orders/admin', order, { withCredentials: true });
   }

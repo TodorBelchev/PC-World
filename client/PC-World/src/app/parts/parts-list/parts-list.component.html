@@ -5,5 +5,5 @@
             <app-product-list-item [product]="product" [type]="type" [category]="'components'"></app-product-list-item>
         </li>
     </ul>
-    <app-paginator [productType]="type"></app-paginator>
+    <app-paginator [count]="count" [itemsPerPage]="16" *ngIf="count > 16"></app-paginator>
 </div>

@@ -5,7 +5,7 @@ const checkUser = require('../middlewares/checkUser');
 const notebookService = require('../services/notebookService');
 const partsService = require('../services/partService');
 const monitorService = require('../services/monitorService');
-const { createOrder, getOrdersByUserId, getOrdersByPage, editOrder, deleteOrder, generateWarranty, getCurrentSales, getAllOrders, getOrder } = require('../services/orderService');
+const { createOrder, getOrdersByUserId, getActiveOrdersByPage, deleteOrder, generateWarranty, getCurrentSales, getAllOrders, getOrder, getArchivedOrders, getArchivedOrdersCount } = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
 const getProductsCountFromOrders = require('../utils/getProductsCountFromOrders');
 
@@ -127,9 +127,34 @@ router.get('/sales/share', isLogged(), isAdmin(), async (req, res) => {
     }
 });
 
+router.get('/admin/archived', isLogged(), isAdmin(), async (req, res) => {
+    try {
+        const startDate = new Date(req.query.startDate).setHours(3, 1, 1, 1);
+        const endDate = new Date(req.query.endDate).setHours(3, 1, 1, 1);
+        const page = Number(req.query.page || 1) - 1;
+        const orders = await getArchivedOrders(page, startDate, endDate);
+        res.status(200).send(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/admin/archived/count', isLogged(), isAdmin(), async (req, res) => {
+    try {
+        const startDate = new Date(req.query.startDate).setHours(3, 1, 1, 1);
+        const endDate = new Date(req.query.endDate).setHours(3, 1, 1, 1);
+        const orders = await getArchivedOrdersCount(startDate, endDate);
+        res.status(200).send({ count: orders.length });
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.get('/admin/:page', isLogged(), isAdmin(), async (req, res) => {
     try {
-        const orders = await getOrdersByPage(req.params.page - 1);
+        const orders = await getActiveOrdersByPage(req.params.page - 1);
         res.status(200).send(orders);
     } catch (error) {
         console.log(error);
@@ -142,7 +167,7 @@ router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
         const order = await getOrder(req.body._id);
         let completed = false;
         if (order.status == 'completed') {
-            throw new Error('This orders is completed!')
+            throw new Error('This order is completed!')
         }
         if (req.body.status == 'completed') {
             order.products.forEach(x => {

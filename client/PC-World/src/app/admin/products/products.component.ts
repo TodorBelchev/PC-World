@@ -119,7 +119,6 @@ export class ProductsComponent implements OnInit {
     urlParams.promotion = this.selectedPromotion;
 
     this.router.navigate([], { relativeTo: this.route, queryParams: urlParams });
-
   }
 
   onLoadMoreClick(): void {

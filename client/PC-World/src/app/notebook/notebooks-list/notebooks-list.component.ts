@@ -11,6 +11,7 @@ export class NotebooksListComponent implements OnInit {
   notebooks: [] = [];
   pages: string[] = [];
   page: number = 1;
+  count: number = 0;
   constructor(
     private notebookService: NotebookService,
     private activatedRoute: ActivatedRoute,
@@ -21,6 +22,7 @@ export class NotebooksListComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     }
+
     let query = '';
 
     this.activatedRoute.queryParams.subscribe(params => {
@@ -38,6 +40,15 @@ export class NotebooksListComponent implements OnInit {
         console.log(error.message);
       }
     );
+
+    this.notebookService.getCount(query).subscribe(
+      data => {
+        this.count = data.count;
+      },
+      error => {
+        console.log(error.error.message);
+      }
+    )
 
   }
 

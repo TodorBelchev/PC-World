@@ -8,6 +8,7 @@ import { AdminOrdersComponent } from "./admin-orders/admin-orders.component";
 import { ProductsComponent } from "./products/products.component";
 import { PromotionsComponent } from "./promotions/promotions.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
+import { AdminArchivedOrdersComponent } from "./admin-archived-orders/admin-archived-orders.component";
 
 
 const routes: Routes = [
@@ -49,8 +50,12 @@ const routes: Routes = [
                 component: CreateNotebookComponent
             },
             {
-                path: 'admin-orders',
+                path: 'admin-orders/active',
                 component: AdminOrdersComponent
+            },
+            {
+                path: 'admin-orders/archive',
+                component: AdminArchivedOrdersComponent
             },
         ]
     },

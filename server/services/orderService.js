@@ -10,8 +10,8 @@ const getOrdersByUserId = (userId) => {
     return Order.find({ user: userId }).populate('products.product').sort({ createdAt: 'desc' });
 }
 
-const getOrdersByPage = (page) => {
-    return Order.find({}).sort({ completed: 'asc' }).skip(page * 10).limit(10).populate('products.product');
+const getActiveOrdersByPage = (page) => {
+    return Order.find({ completed: false }).sort({ completed: 'asc' }).skip(page * 10).limit(10).populate('products.product');
 }
 
 const getOrder = async (orderId) => {
@@ -49,14 +49,34 @@ const getAllOrders = () => {
     return Order.find({}).lean();
 }
 
+const getArchivedOrders = (page, startDate, endDate) => {
+    return Order.find({
+        completed: true, createdAt: {
+            $gte: startDate,
+            $lte: endDate
+        }
+    }).sort({ createImageBitmap: 'asc' }).skip(page * 10).limit(10).populate('products.product');
+}
+
+const getArchivedOrdersCount = (startDate, endDate) => {
+    return Order.find({
+        completed: true, createdAt: {
+            $gte: startDate,
+            $lte: endDate
+        }
+    });
+}
+
 module.exports = {
     createOrder,
     getOrdersByUserId,
-    getOrdersByPage,
+    getActiveOrdersByPage,
     getOrder,
     deleteOrder,
     generateWarranty,
     getWarrantiesByUserId,
     getCurrentSales,
-    getAllOrders
+    getAllOrders,
+    getArchivedOrders,
+    getArchivedOrdersCount
 }

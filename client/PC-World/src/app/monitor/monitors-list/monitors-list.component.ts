@@ -10,6 +10,7 @@ import { MonitorService } from '../monitor.service';
 export class MonitorsListComponent implements OnInit {
   monitors: [] = [];
   page: number = 1;
+  count: number = 0;
   constructor(
     private monitorService: MonitorService,
     private activatedRoute: ActivatedRoute,
@@ -27,15 +28,25 @@ export class MonitorsListComponent implements OnInit {
         query += '&' + k + '=' + v;
       });
       this.page = params['page'];
+
+      this.monitorService.getItems(query).subscribe(
+        data => {
+          this.monitors = data;
+        },
+        error => {
+          console.log(error.message);
+        }
+      );
+
+      this.monitorService.getCount(query).subscribe(
+        data => {
+          this.count = data.count;
+        },
+        error => {
+          console.log(error.message);
+        }
+      )
     });
-    this.monitorService.getItems(query).subscribe(
-      data => {
-        this.monitors = data;
-      },
-      error => {
-        console.log(error.message);
-      }
-    )
   }
 
 }

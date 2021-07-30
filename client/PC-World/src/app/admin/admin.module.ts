@@ -26,6 +26,7 @@ import { CreateMemoryComponent } from './create-parts/create-memory/create-memor
 import { SalesVolumeComponent } from './charts/sales-volume/sales-volume.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { PartsShareComponent } from './charts/parts-share/parts-share.component';
+import { AdminArchivedOrdersComponent } from './admin-archived-orders/admin-archived-orders.component';
 
 
 
@@ -50,7 +51,8 @@ import { PartsShareComponent } from './charts/parts-share/parts-share.component'
     CreateMemoryComponent,
     StatisticsComponent,
     SalesVolumeComponent,
-    PartsShareComponent
+    PartsShareComponent,
+    AdminArchivedOrdersComponent
   ],
   imports: [
     CommonModule,

@@ -46,6 +46,8 @@ export class AdminOrdersComponent implements OnInit {
   onChangeSave(): void {
     this.adminService.saveOrder(this.orderToSave!).subscribe(
       order => {
+        const index = this.orders.indexOf(this.orderToSave!);
+        this.orders.splice(index, 1);
         this.orderToSave!.completed = true;
         this.showSaveModal = false;
         this.orderToSave = null;
