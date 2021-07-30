@@ -43,21 +43,13 @@ export class AdminArchivedOrdersComponent implements OnInit {
       if (query != '?') {
         this.adminService.getArchivedOrdersByPage(query).subscribe(
           data => {
-            this.orders = data;
-          },
-          error => {
-            console.log(error.error.message);
-          }
-        );
-
-        this.adminService.getArchivedOrdersCount(countQuery).subscribe(
-          data => {
+            this.orders = data.orders;
             this.count = data.count;
           },
           error => {
             console.log(error.error.message);
           }
-        )
+        );
       }
 
     });

@@ -78,7 +78,7 @@
     background: $primary-color;
 }
 
-.modal {
+.modal-background {
     background: rgba(0, 0, 0, 0.5);
     z-index: 10;
     position: absolute;
@@ -91,10 +91,11 @@
 .modal-confirmation {
     background: white;
     width: 20%;
-    transform: translate(200%, 50%);
+    transform: translate(50%, 50%);
     top: 20%;
-    position: absolute;
+    position: fixed;
     text-align: center;
+    z-index: 15;
 }
 
 .modal-btn-confirm, .modal-btn-cancel {

@@ -1,17 +1,14 @@
 <div *ngIf="isLoading">Loading...</div>
-<div class="modal" *ngIf="showModal">
-    <div class="modal-confirmation">
-        <h4>Confirm order delete?</h4>
-        <button class="modal-btn-confirm" (click)="onConfirmedDelete()">Confirm</button>
-        <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
-    </div>
+<div class="modal-background" *ngIf="showModal || showSaveModal" (click)="onCancelClick()"></div>
+<div class="modal-confirmation" *ngIf="showModal">
+    <h4>Confirm order delete?</h4>
+    <button class="modal-btn-confirm" (click)="onConfirmedDelete()">Confirm</button>
+    <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
 </div>
-<div class="modal" *ngIf="showSaveModal">
-    <div class="modal-confirmation">
-        <h4>Confirm order save? Once completed status is set order can`t be edited again!</h4>
-        <button class="modal-btn-confirm" (click)="onChangeSave()">Confirm</button>
-        <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
-    </div>
+<div class="modal-confirmation" *ngIf="showSaveModal">
+    <h4>Confirm order save? Once completed status is set order can`t be edited again!</h4>
+    <button class="modal-btn-confirm" (click)="onChangeSave()">Confirm</button>
+    <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
 </div>
 <p *ngIf="orders.length === 0">No active orders.</p>
 <div *ngFor="let order of orders">

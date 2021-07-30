@@ -19,10 +19,20 @@
     </div>
     <div class="products">
         <div *ngFor="let product of products" class="product">
-            <a routerLink="/dashboard/edit-products/{{link}}/{{fetchedProduct}}/{{product._id}}">
+            <div class="product-name">
                 {{product.brand}} {{product.model}}
-            </a>
+            </div>
+            <div>
+                <a routerLink="/dashboard/edit-products/{{link}}/{{fetchedProduct}}/{{product._id}}">Edit</a>
+                <button class="btn-delete" (click)="onDeleteOrder(product)">X</button>
+            </div>
         </div>
     </div>
+</div>
+<div class="modal-background" *ngIf="showModal" (click)="onCancelClick()"></div>
+<div class="modal-confirmation" *ngIf="showModal">
+    <h4>Confirm product delete?</h4>
+    <button class="modal-btn-confirm" (click)="onConfirmedDelete()">Confirm</button>
+    <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
 </div>
 <app-paginator [productType]="selectedProduct" *ngIf="count > 16"></app-paginator>

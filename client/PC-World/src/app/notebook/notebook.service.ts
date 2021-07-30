@@ -32,7 +32,11 @@ export class NotebookService {
     return this.http.get(url);
   }
 
-  getCount(query: string): Observable<any> {
-    return this.http.get(environment.api_url + 'notebooks/count?' + query);
+  // getCount(query: string): Observable<any> {
+  //   return this.http.get(environment.api_url + 'notebooks/count?' + query);
+  // }
+
+  delete(id: string): Observable<any> {
+    return this.http.delete(environment.api_url + 'notebooks/' + id, { withCredentials: true });
   }
 }

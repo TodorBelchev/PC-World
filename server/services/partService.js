@@ -59,6 +59,11 @@ const getPromoParts = () => {
     ]);
 }
 
+const deletePart = (id, partName) => {
+    console.log(partName);
+    return parts[partName].deleteOne({ _id: id });
+}
+
 module.exports = {
     createPart,
     getPartCount,
@@ -66,5 +71,6 @@ module.exports = {
     getFilteredCount,
     getById,
     editPart,
-    getPromoParts
+    getPromoParts,
+    deletePart
 }

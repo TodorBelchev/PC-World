@@ -25,10 +25,6 @@ export class PartsService {
     return this.http.get(environment.api_url + 'parts/count/all');
   }
 
-  getCount(query: string): Observable<any> {
-    return this.http.get(environment.api_url + 'parts/count?' + query);
-  }
-
   getItem(partType: string, id: string): Observable<any> {
     return this.http.get(environment.api_url + `parts/part/${partType}/${id}`);
   }
@@ -40,5 +36,9 @@ export class PartsService {
     }
     return this.http.get(url);
   }
-  
+
+  delete(id: string, partType?: string): Observable<any> {
+    return this.http.delete(environment.api_url + `parts/part/${partType}/${id}`, { withCredentials: true });
+  }
+
 }

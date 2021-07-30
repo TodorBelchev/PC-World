@@ -5,7 +5,8 @@ const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createMonitor } = require('../services/monitorService');
 const isLoggedIn = require('../middlewares/isLogged');
-const { getMonitorsByPage, getFilteredCount, getById } = require('../services/monitorService');
+const { isAdmin } = require('../middlewares/guards');
+const { getMonitorsByPage, getFilteredCount, getById, deleteMonitor } = require('../services/monitorService');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
@@ -35,37 +36,13 @@ router.get('/', async (req, res) => {
         const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page || 1) - 1;
         const monitors = await getMonitorsByPage(page, filter);
-        res.status(200).send(monitors);
+        const monitorsCount = await getFilteredCount(filter);
+        res.status(200).send({ products: monitors, count: monitorsCount.length });
     } catch (error) {
         console.log(error.message);
         res.status(400).send({ message: error.message });
     }
 
-});
-
-router.get('/count', async (req, res) => {
-    try {
-        const incFilter = req.query;
-        const filter = {};
-        if (incFilter.priceFrom && !incFilter.priceTo) {
-            filter.currentPrice = { $gte: incFilter.priceFrom };
-        } else if (incFilter.priceTo && !incFilter.priceFrom) {
-            filter.currentPrice = { $lte: incFilter.priceTo };
-        } else if (incFilter.priceTo && incFilter.priceFrom) {
-            filter.currentPrice = { $gte: incFilter.priceFrom, $lte: incFilter.priceTo };
-        }
-        if (incFilter.promotion == 'true') {
-            filter.promoPrice = { $gt: 0 };
-        } else if (incFilter.promotion == 'false') {
-            filter.promoPrice = 0;
-        }
-
-        const monitors = await getFilteredCount(filter);
-        res.status(200).send({ count: monitors.length });
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
 });
 
 router.get('/:id', async (req, res) => {
@@ -102,6 +79,16 @@ router.put('/:id', async (req, res) => {
         res.status(200).send(monitor);
     } catch (error) {
         console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.delete('/:id', isLoggedIn(), isAdmin(), async (req, res) => {
+    try {
+        const result = await deleteMonitor(req.params.id);
+        res.status(200).send(result);
+    } catch (error) {
+        console.log(error);
         res.status(400).send({ message: error.message });
     }
 });

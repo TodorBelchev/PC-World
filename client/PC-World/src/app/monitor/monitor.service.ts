@@ -33,7 +33,7 @@ export class MonitorService {
     return this.http.get(environment.api_url + 'monitors/' + id);
   }
 
-  getCount(query: string): Observable<any> {
-    return this.http.get(environment.api_url + 'monitors/count?' + query);
+  delete(id: string): Observable<any> {
+    return this.http.delete(environment.api_url + 'monitors/' + id, { withCredentials: true });
   }
 }

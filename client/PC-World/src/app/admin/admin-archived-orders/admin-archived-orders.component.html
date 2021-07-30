@@ -28,11 +28,10 @@
         </div>
     </div>
 </div>
-<div class="modal" *ngIf="showModal">
-    <div class="modal-confirmation">
-        <h4>Confirm order delete?</h4>
-        <button class="modal-btn-confirm" (click)="onConfirmedDelete()">Confirm</button>
-        <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
-    </div>
+<div class="modal-background" *ngIf="showModal" (click)="onCancelClick()"></div>
+<div class="modal-confirmation" *ngIf="showModal">
+    <h4>Confirm order delete?</h4>
+    <button class="modal-btn-confirm" (click)="onConfirmedDelete()">Confirm</button>
+    <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
 </div>
 <app-paginator [count]="count" [itemsPerPage]="10" *ngIf="count > 10"></app-paginator>

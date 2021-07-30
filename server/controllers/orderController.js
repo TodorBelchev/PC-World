@@ -129,23 +129,15 @@ router.get('/sales/share', isLogged(), isAdmin(), async (req, res) => {
 
 router.get('/admin/archived', isLogged(), isAdmin(), async (req, res) => {
     try {
+        if (!req.query.startDate || !req.query.endDate) {
+            throw new Error('Start and end date are required!');
+        }
         const startDate = new Date(req.query.startDate).setHours(3, 1, 1, 1);
         const endDate = new Date(req.query.endDate).setHours(3, 1, 1, 1);
         const page = Number(req.query.page || 1) - 1;
         const orders = await getArchivedOrders(page, startDate, endDate);
-        res.status(200).send(orders);
-    } catch (error) {
-        console.log(error);
-        res.status(400).send({ message: error.message });
-    }
-});
-
-router.get('/admin/archived/count', isLogged(), isAdmin(), async (req, res) => {
-    try {
-        const startDate = new Date(req.query.startDate).setHours(3, 1, 1, 1);
-        const endDate = new Date(req.query.endDate).setHours(3, 1, 1, 1);
-        const orders = await getArchivedOrdersCount(startDate, endDate);
-        res.status(200).send({ count: orders.length });
+        const ordersCount = await getArchivedOrdersCount(startDate, endDate);
+        res.status(200).send({ orders, count: ordersCount.length});
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

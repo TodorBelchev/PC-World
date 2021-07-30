@@ -21,10 +21,15 @@ const getPromoNotebooks = () => {
     return Notebook.find({ promoPrice: { $gt: 0 } }).limit(10).lean();
 }
 
+const deleteNotebook = (id) => {
+    return Notebook.deleteOne({ _id: id });
+}
+
 module.exports = {
     createNotebook,
     getNotebooksByPage,
     getCount,
     getById,
-    getPromoNotebooks
+    getPromoNotebooks,
+    deleteNotebook
 }

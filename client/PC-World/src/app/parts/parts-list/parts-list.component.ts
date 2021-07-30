@@ -34,16 +34,8 @@ export class PartsListComponent implements OnInit {
       query += `&product=${this.type}`;
 
       this.partsService.getItems(query).subscribe(
-        products => {
-          this.products = products;
-        },
-        error => {
-          console.log(error.message);
-        }
-      );
-
-      this.partsService.getCount(query).subscribe(
         data => {
+          this.products = data.products;
           this.count = data.count;
         },
         error => {

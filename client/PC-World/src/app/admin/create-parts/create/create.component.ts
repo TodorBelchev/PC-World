@@ -8,7 +8,7 @@ import { PartsService } from '../../../parts/parts.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  selectedPart: string = 'processor';
+  selectedPart: string = 'processors';
   fileList: {} = {};
   editMode: boolean = false;
   id: string = '';

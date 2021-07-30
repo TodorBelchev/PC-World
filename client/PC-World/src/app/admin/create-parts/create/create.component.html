@@ -1,14 +1,14 @@
 <form *ngIf="!editMode">
     <label for="component">Choose component:</label>
-    <select [(ngModel)]="selectedPart" (ngModelChange)="getComponent($event)" name="component" id="component">
-        <option value="processor">Processor</option>
-        <option value="memory">Memory</option>
-        <option value="hdd">HDD/SSD</option>
-        <option value="vga">Graphics</option>
-        <option value="motherboard">Motherboard</option>
-        <option value="case">Case</option>
-        <option value="psu">PSU</option>
-        <option value="cooler">Cooler</option>
+    <select [ngModel]="selectedPart" (ngModelChange)="getComponent($event)" name="component" id="component">
+        <option value="processors">Processor</option>
+        <option value="memories">Memory</option>
+        <option value="hdds">HDD/SSD</option>
+        <option value="vgas">Graphics</option>
+        <option value="motherboards">Motherboard</option>
+        <option value="cases">Case</option>
+        <option value="psus">PSU</option>
+        <option value="coolers">Cooler</option>
     </select>
 </form>
 <div class="form-container">

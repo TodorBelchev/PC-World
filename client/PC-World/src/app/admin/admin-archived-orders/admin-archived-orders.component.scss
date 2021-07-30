@@ -90,7 +90,7 @@ label, input {
     background: $primary-color;
 }
 
-.modal {
+.modal-background {
     background: rgba(0, 0, 0, 0.5);
     z-index: 10;
     position: absolute;
@@ -103,10 +103,11 @@ label, input {
 .modal-confirmation {
     background: white;
     width: 20%;
-    transform: translate(200%, 50%);
+    transform: translate(50%, 50%);
     top: 20%;
-    position: absolute;
+    position: fixed;
     text-align: center;
+    z-index: 15;
 }
 
 .modal-btn-confirm, .modal-btn-cancel {
@@ -124,4 +125,14 @@ label, input {
 
 .modal-btn-cancel {
     background: $secondary-color;
+}
+
+input[type="submit"] {
+    background: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    // font-size: 1.2rem;
 }

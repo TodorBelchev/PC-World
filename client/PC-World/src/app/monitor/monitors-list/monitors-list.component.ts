@@ -31,21 +31,13 @@ export class MonitorsListComponent implements OnInit {
 
       this.monitorService.getItems(query).subscribe(
         data => {
-          this.monitors = data;
-        },
-        error => {
-          console.log(error.message);
-        }
-      );
-
-      this.monitorService.getCount(query).subscribe(
-        data => {
+          this.monitors = data.products;
           this.count = data.count;
         },
         error => {
           console.log(error.message);
         }
-      )
+      );
     });
   }
 

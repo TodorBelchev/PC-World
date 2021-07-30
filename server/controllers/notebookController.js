@@ -3,8 +3,9 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createNotebook, getNotebooksByPage, getCount, getById } = require('../services/notebookService');
+const { createNotebook, getNotebooksByPage, getCount, getById, deleteNotebook } = require('../services/notebookService');
 const isLoggedIn = require('../middlewares/isLogged');
+const { isAdmin } = require('../middlewares/guards');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
@@ -14,23 +15,13 @@ router.get('/', async (req, res) => {
         const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page) - 1;
         const notebooks = await getNotebooksByPage(page, filter);
-        res.status(200).send(notebooks);
+        const notebooksCount = await getCount(filter);
+        res.status(200).send({ products: notebooks, count: notebooksCount.length });
     } catch (error) {
         console.log(error.message);
         res.status(400).send({ message: error.message });
     }
 
-});
-
-router.get('/count', async (req, res) => {
-    try {
-        const filter = extractFilterFromQuery(req.query);
-        const notebooks = await getCount(filter);
-        res.status(200).send({ count: notebooks.length });
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).send({ message: error.message });
-    }
 });
 
 router.get('/:id', async (req, res) => {
@@ -90,6 +81,16 @@ router.post('/create', isLoggedIn(), async (req, res) => {
         res.status(201).send(notebook);
     } catch (error) {
         console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.delete('/:id', isLoggedIn(), isAdmin(), async (req, res) => {
+    try {
+        const result = await deleteNotebook(req.params.id);
+        res.status(200).send(result);
+    } catch (error) {
+        console.log(error);
         res.status(400).send({ message: error.message });
     }
 });

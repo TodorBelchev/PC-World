@@ -34,22 +34,13 @@ export class NotebooksListComponent implements OnInit {
 
     this.notebookService.getItems(query).subscribe(
       data => {
-        this.notebooks = data;
+        this.notebooks = data.products;
+        this.count = data.count;
       },
       error => {
         console.log(error.message);
       }
     );
-
-    this.notebookService.getCount(query).subscribe(
-      data => {
-        this.count = data.count;
-      },
-      error => {
-        console.log(error.error.message);
-      }
-    )
-
   }
 
 }

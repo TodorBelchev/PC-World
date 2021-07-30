@@ -20,7 +20,6 @@
     text-align: left;
     margin-left: 35px;
     padding-bottom: 15px;
-    border-bottom: 1px solid lightgray;
 }
 
 label {
@@ -38,18 +37,28 @@ label {
     flex-basis: 50%;
     padding: 20px;
     text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .product a {
     text-decoration: none;
-    color: black;
-    padding: 20px;
+    background: $secondary-color;
+    color: white;
+    padding: 5px;
     border-radius: 5px;
 }
 
-.product a:hover {
-    background-color: $secondary-color;
-    color: white;
+.product:nth-child(1),
+.product:nth-child(2),
+.product:nth-child(5),
+.product:nth-child(6),
+.product:nth-child(9),
+.product:nth-child(10),
+.product:nth-child(13),
+.product:nth-child(14) {
+    background: lightgray;
 }
 
 button {
@@ -61,4 +70,47 @@ button {
     color: white;
     font-size: 1rem;
     margin-left: 10px;
+}
+
+.btn-delete {
+    background: $primary-color;
+    width: 30px;
+    height: 33px;
+}
+
+.modal-background {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal-confirmation {
+    background: white;
+    width: 20%;
+    transform: translate(50%, 50%);
+    top: 20%;
+    position: fixed;
+    text-align: center;
+    z-index: 15;
+}
+
+.modal-btn-confirm, .modal-btn-cancel {
+    background: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    right: 45px;
+    top: 10px;
+    margin: 10px;
+}
+
+.modal-btn-cancel {
+    background: $secondary-color;
 }

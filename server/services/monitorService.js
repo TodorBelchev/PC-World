@@ -21,10 +21,15 @@ const getById = (id) => {
     return Monitor.findById(id);
 }
 
+const deleteMonitor = (id) => {
+    return Monitor.deleteOne({ _id: id });
+}
+
 module.exports = {
     createMonitor,
     getMonitorsByPage,
     getFilteredCount,
     getPromoMonitors,
-    getById
+    getById,
+    deleteMonitor
 }
