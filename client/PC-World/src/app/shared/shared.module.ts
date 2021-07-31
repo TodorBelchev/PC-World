@@ -35,7 +35,7 @@ import { ShortenTextPipe } from './pipes/shorten-text.pipe';
     PromotionCarouselComponent,
     ProductListItemComponent,
     PromoProductsCarouselComponent,
-    ShortenTextPipe
+    ShortenTextPipe,
   ],
   imports: [
     CommonModule,
@@ -56,7 +56,7 @@ import { ShortenTextPipe } from './pipes/shorten-text.pipe';
     WarrantyExpirationDatePipe,
     PromotionCarouselComponent,
     ProductListItemComponent,
-    PromoProductsCarouselComponent
+    PromoProductsCarouselComponent,
   ]
 })
 export class SharedModule { }

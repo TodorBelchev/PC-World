@@ -70,6 +70,10 @@ input[type="password"] {
     padding: 14px;
 }
 
-.invalid {
+input.ng-touched.ng-invalid {
     border: 1px solid $primary-color;
+}
+
+.error {
+    color: $primary-color;
 }

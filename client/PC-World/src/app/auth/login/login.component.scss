@@ -61,3 +61,11 @@ input[type="password"] {
     height: 2rem;
     padding: 14px;
 }
+
+input.ng-touched.ng-invalid {
+    border: 1px solid $primary-color;
+}
+
+.error {
+    color: $primary-color;
+}

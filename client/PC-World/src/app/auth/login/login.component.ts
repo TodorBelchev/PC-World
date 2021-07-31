@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { emailValidatorFactory, minLengthFactory } from 'src/app/shared/validators';
+
 
 import { login_start } from '../../user/store/auth.actions';
 
@@ -13,24 +15,12 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private store: Store
+    private store: Store,
   ) {
     this.loginForm = this.fb.group({
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email
-        ]
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8)
-        ]
-      ]
-    })
+      email: ['', [Validators.required,], emailValidatorFactory()],
+      password: ['', [Validators.required], minLengthFactory(8)]
+    });
   }
 
   ngOnInit(): void {

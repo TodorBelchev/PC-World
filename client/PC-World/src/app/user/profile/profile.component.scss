@@ -65,3 +65,11 @@
     margin: 0 auto;
     margin: 0 auto 0 10px;
 }
+
+input[type="email"] {
+    position: relative;
+}
+
+input.ng-touched.ng-invalid {
+    border: 1px solid $primary-color;
+}

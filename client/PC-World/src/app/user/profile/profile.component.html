@@ -10,7 +10,17 @@
         <button class="profile-btn-edit" (click)="onEditClick()">Edit profile</button>
     </div>
     <form [formGroup]="editProfileForm" *ngIf="editMode" (ngSubmit)="onSubmit()" class="profile">
-        <label for="email">Email:</label>
+        <label for="email">
+            <div class="error" *ngIf="(editProfileForm.get('email')?.touched || editProfileForm.get('email')?.dirty) && editProfileForm.get('email')?.errors?.required">
+                Email is required!
+            </div>
+            <div class="error" *ngIf="(editProfileForm.get('email')?.touched || editProfileForm.get('email')?.dirty) && editProfileForm.get('email')?.errors?.invalidEmail">
+                Invalid email!
+            </div>
+            <div *ngIf="!editProfileForm.get('email')?.errors">
+                Email:
+            </div>
+        </label>
         <input formControlName="email" type="email" name="email" id="email" [value]="user?.email">
         <label for="firstName">First name:</label>
         <input formControlName="firstName" type="text" name="firstName" id="firstName" [value]="user?.firstName">

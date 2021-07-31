@@ -5,7 +5,22 @@
     </ul>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <input formControlName="email" type="email" placeholder="email">
+        <div class="error"
+            *ngIf="(loginForm.get('email')?.touched || loginForm.get('email')?.dirty) && loginForm.get('email')?.errors?.required">
+            Email is required!
+        </div>
+        <div class="error" *ngIf="loginForm.get('email')?.errors?.invalidEmail">
+            Email is invalid!
+        </div>
         <input formControlName="password" type="password" placeholder="password">
+        <div class="error"
+            *ngIf="(loginForm.get('password')?.touched || loginForm.get('password')?.dirty) && loginForm.get('password')?.errors?.required">
+            Password is required!
+        </div>
+        <div class="error"
+            *ngIf="(loginForm.get('password')?.touched || loginForm.get('password')?.dirty) && loginForm.get('password')?.errors?.minLength">
+            Password must be at least 8 characters long!
+        </div>
         <input type="submit" value="Login">
     </form>
 </div>

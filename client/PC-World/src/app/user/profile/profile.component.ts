@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
+import { emailValidatorFactory } from 'src/app/shared/validators';
 import { IUser } from '../../shared/interfaces/user.interface';
 import * as AuthActions from '../store/auth.actions';
 import { UserService } from '../user.service';
@@ -12,16 +13,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  user: IUser = {
-    email: '',
-    _id: '',
-    isAdmin: false,
-    city: '',
-    location: '',
-    firstName: '',
-    lastName: '',
-    phoneNumber: ''
-  };
+  user: IUser | undefined;
   editMode: boolean = false;
   editProfileForm: FormGroup;
 
@@ -31,13 +23,7 @@ export class ProfileComponent implements OnInit {
     private store: Store<AppState>
   ) {
     this.editProfileForm = this.fb.group({
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email
-        ]
-      ],
+      email: ['', [Validators.required], emailValidatorFactory()],
       firstName: [''],
       lastName: [''],
       phoneNumber: [''],
@@ -49,7 +35,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.loadProfile().subscribe(
       user => {
-        this.user = Object.assign(this.user, user);
+        this.user = user;
         this.editProfileForm.patchValue(user);
       },
       error => {
@@ -63,8 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.editProfileForm.value);
-
+    if (this.editProfileForm.invalid) { return; }
     this.userService.editProfile(this.editProfileForm.value)
       .subscribe(
         user => {
