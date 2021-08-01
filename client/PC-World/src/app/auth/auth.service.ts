@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import * as AuthActions from '../user/store/auth.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../shared/interfaces/app-state.interface';
+import { IUser } from '../shared/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +17,12 @@ export class AuthService {
     private store: Store<AppState>
   ) { }
 
-  login(userData: { email: string, password: string }): Observable<Object> {
-    return this.http.post(environment.api_url + 'user/login', userData, { withCredentials: true });
+  login(userData: { email: string, password: string }): Observable<IUser> {
+    return this.http.post<IUser>(environment.api_url + 'user/login', userData, { withCredentials: true });
   }
 
-  register(userData: { email: string, password: string }): Observable<Object> {
-    return this.http.post(environment.api_url + 'user/register', userData, { withCredentials: true });
+  register(userData: { email: string, password: string }): Observable<IUser> {
+    return this.http.post<IUser>(environment.api_url + 'user/register', userData, { withCredentials: true });
   }
 
   loadCart() {

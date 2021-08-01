@@ -6,9 +6,6 @@ import * as AuthActions from './auth.actions';
 
 export interface AuthState {
     user: IUser | null;
-    authError: string | null;
-    loading: boolean;
-    errorMsg: string | null;
     cart: AuthActions.cartProps[];
     wishlist: AuthActions.wishlistProps[];
 }
@@ -17,26 +14,17 @@ export const featureKey = 'auth';
 
 const initialState: AuthState = {
     user: null,
-    authError: null,
-    loading: false,
-    errorMsg: null,
     cart: [],
     wishlist: []
 };
 
 const _authReducer = createReducer(
     initialState,
-    on(AuthActions.login_start, AuthActions.register_start, state => {
-        return {
-            ...state,
-            loading: true
-        }
-    }),
     on(AuthActions.auth_success, (state, action) => {
         return {
             ...state,
             loading: false,
-            errorMsg: null,
+            errorMsg: '',
             user: {
                 email: action.email,
                 isAdmin: action.isAdmin,
@@ -47,13 +35,6 @@ const _authReducer = createReducer(
                 city: action.city,
                 location: action.location
             }
-        }
-    }),
-    on(AuthActions.auth_fail, (state, action) => {
-        return {
-            ...state,
-            loading: false,
-            errorMsg: action.errorMsg
         }
     }),
     on(AuthActions.add_cart, AuthActions.auto_load_cart, (state, action) => {

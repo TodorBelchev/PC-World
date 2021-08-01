@@ -1,0 +1,66 @@
+@import "../variables.scss";
+.error, .success {
+    background: $primary-color;
+    color: white;
+    position: relative;
+    animation: scale-up-hor-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.success {
+    background-color: green;
+}
+
+.error p, .success p {
+    padding: 20px;
+    max-width: 300px;
+    margin-left: 60px;
+}
+
+.error span, .success span {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    color: $primary-color;
+    background: white;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid $primary-color;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.success span {
+    color: green; 
+    border: 2px solid green;
+}
+
+.error fa-icon, .success fa-icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.error p::after, .success p::after {
+    content: "";
+    width: 2px;
+    height: 70%;
+    background: white;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 70px;
+}
+
+@keyframes scale-up-hor-right {
+    0% {
+        transform: scaleX(0.4);
+        transform-origin: 100% 100%;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: 100% 100%;
+    }
+}
+

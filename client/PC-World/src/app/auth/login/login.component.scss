@@ -1,4 +1,8 @@
 @import '../../shared/variables.scss';
+.container {
+    position: relative;
+}
+
 ul {
     display: flex;
     align-items: center;
@@ -68,4 +72,10 @@ input.ng-touched.ng-invalid {
 
 .error {
     color: $primary-color;
+}
+
+app-notification {
+    position: absolute;
+    right: 0;
+    top: 50px;
 }

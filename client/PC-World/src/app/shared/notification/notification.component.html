@@ -1,0 +1,10 @@
+<div class="error" *ngIf="type === 'error'">
+    <fa-icon [icon]="faExclamationTriangle" size="2x"></fa-icon>
+    <p>{{message}}</p>
+    <span (click)="onCloseClick()">X</span>
+</div>
+<div class="success" *ngIf="type === 'success'">
+    <fa-icon [icon]="faCheckSquare" size="2x"></fa-icon>
+    <p>{{message}}</p>
+    <span (click)="onCloseClick()">X</span>
+</div>

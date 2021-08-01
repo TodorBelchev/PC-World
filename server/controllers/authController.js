@@ -10,9 +10,6 @@ const notebookService = require('../services/notebookService');
 const { getWarrantiesByUserIdAndPage, getAllWarrantiesByUserId } = require('../services/orderService');
 const { createUser, getUserById, getUserByEmail } = require('../services/userService');
 
-const services = {
-    'notebooks': notebookService
-}
 
 const router = Router();
 
@@ -22,8 +19,7 @@ router.post('/login',
         .isEmail().withMessage('Invalid email!'),
     body('password')
         .trim()
-        .isLength({ min: 5 }).withMessage('Password must be at least 5 characters long!')
-        .isAlphanumeric().withMessage('Password must consist only english letters and digits!'),
+        .isLength({ min: 8 }).withMessage('Password must be at least 8 characters long!'),
     async (req, res) => {
         const { email, password } = req.body;
 
@@ -35,6 +31,9 @@ router.post('/login',
             }
 
             const user = await getUserByEmail(email);
+            if (!user) {
+                throw new Error('Invalid email or password!');
+            }
             const isMatch = await bcrypt.compare(password, user.password);
 
             if (!isMatch) {
@@ -48,6 +47,7 @@ router.post('/login',
             res.status(200).send(payload);
         } catch (error) {
             console.log(error);
+
             res.status(400).send({ message: error.message });
         }
     });
@@ -58,8 +58,7 @@ router.post('/register',
         .isEmail().withMessage('Invalid email!'),
     body('password')
         .trim()
-        .isLength({ min: 5 }).withMessage('Password must be at least 5 characters long!')
-        .isAlphanumeric().withMessage('Password must consist only english letters and digits!'),
+        .isLength({ min: 8 }).withMessage('Password must be at least 8 characters long!'),
     async (req, res) => {
         const { email, password } = req.body;
         try {

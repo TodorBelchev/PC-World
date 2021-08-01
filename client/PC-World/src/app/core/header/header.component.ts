@@ -21,9 +21,9 @@ export class HeaderComponent implements OnInit {
   faHeart = faHeart;
   faDesktop = faDesktop;
   cartItemsCount: number = 0;
-  user$: Observable<IUser | null> = this.store.pipe(select(authSelectors.selectUser));
-  cart$: Observable<cartProps[] | []> = this.store.pipe(select(authSelectors.selectCart));
-  wishlist$: Observable<{ _id: string }[] | []> = this.store.pipe(select(authSelectors.selectWishlist));
+  user$: Observable<IUser | null> = this.store.select(authSelectors.selectUser);
+  cart$: Observable<cartProps[] | []> = this.store.select(authSelectors.selectCart);
+  wishlist$: Observable<{ _id: string }[] | []> = this.store.select(authSelectors.selectWishlist);
 
   constructor(
     private store: Store<AppState>

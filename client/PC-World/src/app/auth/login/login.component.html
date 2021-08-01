@@ -21,6 +21,7 @@
             *ngIf="(loginForm.get('password')?.touched || loginForm.get('password')?.dirty) && loginForm.get('password')?.errors?.minLength">
             Password must be at least 8 characters long!
         </div>
+        <app-notification (closeNotification)="onCloseNotification()" *ngIf="error.length !== 0" [message]="error" [type]="'error'"></app-notification>
         <input type="submit" value="Login">
     </form>
 </div>

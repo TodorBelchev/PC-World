@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { emailValidatorFactory, minLengthFactory } from 'src/app/shared/validators';
 
 
-import { login_start } from '../../user/store/auth.actions';
+import { auth_success } from '../../user/store/auth.actions';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +15,11 @@ import { login_start } from '../../user/store/auth.actions';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  error: string= '';
   constructor(
     private fb: FormBuilder,
-    private store: Store,
+    private store: Store<AppState>,
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required,], emailValidatorFactory()],
@@ -24,12 +28,47 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   onSubmit() {
+    if (this.loginForm.invalid || this.loginForm.pending) {
+      let message = '';
+      this.loginForm.get('email')?.hasError('required') ? message += `Email is required.` : '';
+      this.loginForm.get('email')?.hasError('invalidEmail') ? message += `\nInvalid email.` : '';
+      this.loginForm.get('password')?.hasError('required') ? message += `\nPassword is required.` : '';
+      this.loginForm.get('password')?.hasError('minLength') ? message += `\nPassword must be at least 8 characters!` : '';
+      this.error = message;
+      return;
+    }
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-    this.store.dispatch(login_start({ email, password }));
-    this.loginForm.reset();
+    this.authService.login({ email, password }).subscribe(
+      user => {
+        this.store.dispatch(auth_success({
+          _id: user._id,
+          city: user.city || '',
+          email: user.email,
+          isAdmin: user.isAdmin,
+          location: user.location || '',
+          firstName: user.firstName || '',
+          lastName: user.lastName || '',
+          phoneNumber: user.phoneNumber || ''
+        }));
+        this.loginForm.reset();
+      },
+      error => {
+        if (error.status === 0 || error.status === 500) {
+          this.error = 'Something went wrong. Please try again later.'
+        } else {
+          this.error = error.error.message;
+        }
+      }
+    )
   }
+
+  onCloseNotification(): void {
+    this.error = '';
+  }
+
 }

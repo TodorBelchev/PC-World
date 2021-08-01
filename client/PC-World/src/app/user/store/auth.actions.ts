@@ -1,9 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-export const loginStart = '[Auth] Login Start';
-export const registerStart = '[Auth] Register Start';
 export const authSuccess = '[Auth] Auth Success';
-export const authFail = '[Auth] Auth Fail';
 export const authCheckFail = '[Auth] Auth Check Fail';
 export const addToCart = '[Auth] Add To Cart';
 export const addToWishlist = '[Auth] Add To Wishlist';
@@ -15,10 +12,7 @@ export const decreaseQuantityFromCart = '[Auth] Decrease Quantity From Cart';
 export const increaseQuantityFromCart = '[Auth] Increase Quantity From Cart';
 export const emptyCart = '[Auth] Empty Cart';
 
-export const login_start = createAction(loginStart, props<authStart>());
-export const register_start = createAction(registerStart, props<authStart>());
 export const auth_success = createAction(authSuccess, props<authSuccess>());
-export const auth_fail = createAction(authFail, props<{ errorMsg: string }>());
 export const auth_check_fail = createAction(authCheckFail);
 export const add_cart = createAction(addToCart, props<cartProps>());
 export const add_wishlist = createAction(addToWishlist, props<wishlistProps>());
