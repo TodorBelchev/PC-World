@@ -158,6 +158,10 @@ form input {
     width: 200px;
 }
 
+.btn-order:disabled {
+    background: grey;
+}
+
 .old-price {
     color: gray;
     position: relative;
@@ -196,4 +200,8 @@ form input {
     font-size: 1.5rem;
     font-weight: 800;
     color: gray;
+}
+
+input.ng-invalid {
+    border: 1px solid $primary-color;
 }

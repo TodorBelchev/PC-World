@@ -14,8 +14,8 @@ export class AdminService {
     private http: HttpClient
   ) { }
 
-  getOrders(): Observable<any> {
-    return this.http.get(environment.api_url + `orders/admin/1`, { withCredentials: true });
+  getOrders(page: number): Observable<any> {
+    return this.http.get(environment.api_url + `orders/admin/${page}`, { withCredentials: true });
   }
 
   getArchivedOrdersByPage(query: string): Observable<any> {

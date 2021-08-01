@@ -28,16 +28,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
   products: IProduct[] = [];
   deliveryPrice = 0;
   totalPrice: number = 0;
-  user: IUser = {
-    email: '',
-    _id: '',
-    isAdmin: false,
-    city: '',
-    location: '',
-    firstName: '',
-    lastName: '',
-    phoneNumber: ''
-  };
+  user: IUser | undefined;
   orderForm: FormGroup;
 
   constructor(
@@ -70,7 +61,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
 
     this.userService.loadProfile().subscribe(
       user => {
-        this.user = Object.assign(this.user, user);
+        this.user = user;
         this.orderForm.patchValue(user);
       },
       error => {
@@ -93,10 +84,14 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
     this.userService.placeOrder(orderData).subscribe(
       data => {
         this.store.dispatch(authActions.empty_cart());
-        if (this.user._id !== '') {
+        this.store.dispatch(authActions.add_message({
+          text: 'Order successful',
+          msgType: 'success'
+        }));
+        if (this.user) {
           this.router.navigateByUrl('/users/' + this.user._id + '/orders');
         } else {
-          this.router.navigateByUrl('/' + this.user._id);
+          this.router.navigateByUrl('/');
         }
       },
       error => {

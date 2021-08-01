@@ -53,7 +53,7 @@
             <label for="location">Delivery address:</label>
             <input formControlName="location" type="text" name="location" id="location" [value]="user?.location">
             <div class="btn-container">
-                <input type="submit" class="btn-order" value="Finish order">
+                <input type="submit" class="btn-order" value="Finish order" [disabled]="orderForm.invalid">
             </div>
         </form>
     </div>

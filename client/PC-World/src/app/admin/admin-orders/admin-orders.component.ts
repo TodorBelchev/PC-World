@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { of, pipe } from 'rxjs';
+import { filter, first, map, switchMap } from 'rxjs/operators';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { AdminService } from '../admin.service';
 
@@ -10,6 +12,8 @@ import { AdminService } from '../admin.service';
 })
 export class AdminOrdersComponent implements OnInit {
   orders: IOrder[] = [];
+  count: number = 0;
+  page: number = 1;
   isLoading: boolean = true;
   isVisible: boolean = false;
   showModal: boolean = false;
@@ -19,21 +23,30 @@ export class AdminOrdersComponent implements OnInit {
   orderToSave: IOrder | null = null;
   constructor(
     private adminService: AdminService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.adminService.getOrders().subscribe(
-      orders => {
-        this.orders = orders;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    }
+    this.activatedRoute.queryParams.pipe(
+      switchMap(params => {
+        this.page = params['page'] || 1;
+        return this.adminService.getOrders(this.page)
+      })
+    ).subscribe(
+      data => {
+        this.orders = data.orders;
         this.isLoading = false;
+        this.count = data.count;
       },
       error => {
         console.log(error.message);
         this.isLoading = false;
       }
     );
-
   }
 
   onEditClick(order: IOrder): void {

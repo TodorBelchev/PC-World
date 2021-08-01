@@ -1,3 +1,4 @@
+<app-notification (closeNotification)="onCloseNotification()" *ngIf="message" [message]="message" [type]="type || 'error'"></app-notification>
 <div class="container">
     <app-promotion-carousel></app-promotion-carousel>
 </div>

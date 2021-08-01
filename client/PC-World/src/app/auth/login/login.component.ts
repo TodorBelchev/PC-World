@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { emailValidatorFactory, minLengthFactory } from 'src/app/shared/validators';
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required,], emailValidatorFactory()],
@@ -34,6 +36,11 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.invalid || this.loginForm.pending) {
       let message = '';
+      if (this.loginForm.pending) {
+        message = 'Something went wrong. Try again.';
+      } else {
+        message = '';
+      }
       this.loginForm.get('email')?.hasError('required') ? message += `Email is required.` : '';
       this.loginForm.get('email')?.hasError('invalidEmail') ? message += `\nInvalid email.` : '';
       this.loginForm.get('password')?.hasError('required') ? message += `\nPassword is required.` : '';
@@ -56,6 +63,7 @@ export class LoginComponent implements OnInit {
           phoneNumber: user.phoneNumber || ''
         }));
         this.loginForm.reset();
+        this.router.navigateByUrl('/');
       },
       error => {
         if (error.status === 0 || error.status === 500) {

@@ -18,6 +18,10 @@ const getActiveOrdersByPage = (page) => {
     return Order.find({ completed: false }).sort({ completed: 'asc' }).skip(page * 10).limit(10).populate('products.product');
 }
 
+const getActiveOrdersCount = () => {
+    return Order.find({ completed: false });
+}
+
 const getOrder = async (orderId) => {
     return Order.findById(orderId).populate('products.product');
 }
@@ -98,5 +102,6 @@ module.exports = {
     getAllWarrantiesByUserId,
     deleteWarrantiesByOrderId,
     updateOrder,
-    getOrdersCountByUser
+    getOrdersCountByUser,
+    getActiveOrdersCount
 }

@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { AuthService } from '../auth.service';
 import { auth_success } from 'src/app/user/store/auth.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required], emailValidatorFactory()
@@ -41,6 +43,11 @@ export class RegisterComponent {
   onSubmit(): void {
     if (this.registerForm.invalid || this.registerForm.pending) {
       let message = '';
+      if (this.registerForm.pending) {
+        message = 'Something went wrong. Try again.';
+      } else {
+        message = '';
+      }
       this.registerForm.get('email')?.hasError('required') ? message += `Email is required.` : '';
       this.registerForm.get('email')?.hasError('invalidEmail') ? message += `\nInvalid email.` : '';
       this.registerForm.get('password')?.hasError('required') ? message += `\nPassword is required.` : '';
@@ -67,6 +74,7 @@ export class RegisterComponent {
           lastName: user.lastName || '',
           phoneNumber: user.phoneNumber || ''
         }));
+        this.router.navigateByUrl('/');
         this.registerForm.reset();
       },
       error => {

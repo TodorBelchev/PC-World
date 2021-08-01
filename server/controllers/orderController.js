@@ -18,7 +18,8 @@ const {
     getArchivedOrders,
     getArchivedOrdersCount,
     updateOrder,
-    getOrdersCountByUser
+    getOrdersCountByUser,
+    getActiveOrdersCount
 } = require('../services/orderService');
 const { isAdmin } = require('../middlewares/guards');
 const getProductsCountFromOrders = require('../utils/getProductsCountFromOrders');
@@ -160,7 +161,8 @@ router.get('/admin/archived', isLogged(), isAdmin(), async (req, res) => {
 router.get('/admin/:page', isLogged(), isAdmin(), async (req, res) => {
     try {
         const orders = await getActiveOrdersByPage(req.params.page - 1);
-        res.status(200).send(orders);
+        const ordersCount = await getActiveOrdersCount();
+        res.status(200).send({ orders, count: ordersCount.length });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

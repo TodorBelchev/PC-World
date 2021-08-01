@@ -16,6 +16,8 @@ export class ProfileComponent implements OnInit {
   user: IUser | undefined;
   editMode: boolean = false;
   editProfileForm: FormGroup;
+  message: string = '';
+  type: string = '';
 
   constructor(
     private userService: UserService,
@@ -49,18 +51,34 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.editProfileForm.invalid) { return; }
+    if (this.editProfileForm.invalid || this.editProfileForm.pending) {
+      let message = '';
+      this.type = 'error';
+      this.editProfileForm.get('email')?.hasError('required') ? message += 'Email is required.' : '';
+      this.editProfileForm.get('email')?.hasError('invalidEmail') ? message += 'Email is invalid.' : '';
+      this.message = message;
+      return;
+    }
     this.userService.editProfile(this.editProfileForm.value)
       .subscribe(
         user => {
           this.store.dispatch(AuthActions.auth_success(user));
           this.editMode = !this.editMode;
           this.user = Object.assign(this.user, user);
+          this.type = 'success';
+          this.message = 'Profile saved';
         },
         error => {
+          this.type = 'error';
+          this.message = error.error.message;
           console.log(error.message);
         }
       )
+  }
+
+  onCloseNotification(): void {
+    this.message = '';
+    this.type = '';
   }
 
 }

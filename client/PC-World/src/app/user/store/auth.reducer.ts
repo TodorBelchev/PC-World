@@ -8,6 +8,7 @@ export interface AuthState {
     user: IUser | null;
     cart: AuthActions.cartProps[];
     wishlist: AuthActions.wishlistProps[];
+    message: AuthActions.msgProps | null;
 }
 
 export const featureKey = 'auth';
@@ -15,7 +16,8 @@ export const featureKey = 'auth';
 const initialState: AuthState = {
     user: null,
     cart: [],
-    wishlist: []
+    wishlist: [],
+    message: null
 };
 
 const _authReducer = createReducer(
@@ -129,6 +131,18 @@ const _authReducer = createReducer(
         return {
             ...state,
             user: null
+        }
+    }),
+    on(AuthActions.add_message, (state, action) => {
+        return {
+            ...state,
+            message: action
+        }
+    }),
+    on(AuthActions.clear_message, (state) => {
+        return {
+            ...state,
+            message: null
         }
     })
 )

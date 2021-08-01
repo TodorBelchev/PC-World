@@ -1,6 +1,7 @@
 @import '../../shared/variables.scss';
 .container {
     align-items: flex-start;
+    position: relative;
 }
 
 .profile {
@@ -54,6 +55,10 @@
     margin: 0 10px 0 auto;
 }
 
+.profile-btn-save:disabled {
+    background: grey;
+}
+
 .profile-btn-cancel {
     background: $secondary-color;
     border: none;
@@ -72,4 +77,11 @@ input[type="email"] {
 
 input.ng-touched.ng-invalid {
     border: 1px solid $primary-color;
+}
+
+app-notification {
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    z-index: 5;
 }

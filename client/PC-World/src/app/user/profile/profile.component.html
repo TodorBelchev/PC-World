@@ -9,6 +9,7 @@
         <p class="profile-parameter"><strong>Delivery address:</strong> {{user?.city}} {{user?.location}}</p>
         <button class="profile-btn-edit" (click)="onEditClick()">Edit profile</button>
     </div>
+    <app-notification (closeNotification)="onCloseNotification()" [message]="message" [type]="type"></app-notification>
     <form [formGroup]="editProfileForm" *ngIf="editMode" (ngSubmit)="onSubmit()" class="profile">
         <label for="email">
             <div class="error" *ngIf="(editProfileForm.get('email')?.touched || editProfileForm.get('email')?.dirty) && editProfileForm.get('email')?.errors?.required">
@@ -32,7 +33,7 @@
         <input formControlName="city" type="text" name="city" id="city" [value]="user?.city">
         <label for="location">Delivery address:</label>
         <input formControlName="location" type="text" name="location" id="location"  [value]="user?.location">
-        <button type="submit" class="profile-btn-save">Save changes</button>
+        <button type="submit" class="profile-btn-save" [disabled]="editProfileForm.invalid || editProfileForm.pending">Save changes</button>
         <button type="button" class="profile-btn-cancel" (click)="onEditClick()">Cancel changes</button>
     </form>
 </div>

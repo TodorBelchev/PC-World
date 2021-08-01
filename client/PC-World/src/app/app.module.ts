@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthEffects } from './user/store/auth.effects';
 import { PromoPageComponent } from './promo-page/promo-page.component';
 import { UserModule } from './user/user.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     AppRoutingModule,
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     CoreModule,

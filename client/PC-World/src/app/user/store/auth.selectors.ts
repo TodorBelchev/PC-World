@@ -18,3 +18,8 @@ export const selectWishlist = createSelector(
     selectFeature,
     (state: AuthState) => state.wishlist
 )
+
+export const selectMessage = createSelector(
+    selectFeature,
+    (state: AuthState) => state.message
+)
