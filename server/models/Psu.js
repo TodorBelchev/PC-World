@@ -30,6 +30,10 @@ const psuSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
     connectors: {
         type: String,
         required: true

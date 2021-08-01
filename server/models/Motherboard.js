@@ -30,6 +30,10 @@ const motherboardSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
     ramCapacity: {
         type: Number,
         required: true

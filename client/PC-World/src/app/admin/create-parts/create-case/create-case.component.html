@@ -1,31 +1,31 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data" *ngIf="case">
+<form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
     <label for="brand">Brand:</label>
-    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [(ngModel)]="case.brand">
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="case?.brand">
     <label for="model">Model:</label>
-    <input ngModel #model="ngModel" type="text" name="model" id="model" [(ngModel)]="case.model">
+    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="case?.model">
     <label for="formFactor">From factor:</label>
-    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [(ngModel)]="case.formFactor">
+    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [ngModel]="case?.formFactor">
     <label for="supportedMB">Motherboard types:</label>
     <input ngModel #supportedMB="ngModel" type="text" name="supportedMB" id="supportedMB"
-        [(ngModel)]="case.supportedMB">
+        [ngModel]="case?.supportedMB">
     <label for="frontPanel">Front panel:</label>
-    <input ngModel #frontPanel="ngModel" type="text" name="frontPanel" id="frontPanel" [(ngModel)]="case.frontPanel">
+    <input ngModel #frontPanel="ngModel" type="text" name="frontPanel" id="frontPanel" [ngModel]="case?.frontPanel">
     <label for="height">Height:</label>
-    <input ngModel #height="ngModel" type="number" name="height" id="height" [(ngModel)]="case.height">
+    <input ngModel #height="ngModel" type="number" name="height" id="height" [ngModel]="case?.height">
     <label for="width">Width:</label>
-    <input ngModel #width="ngModel" type="number" name="width" id="width" [(ngModel)]="case.width">
+    <input ngModel #width="ngModel" type="number" name="width" id="width" [ngModel]="case?.width">
     <label for="length">Length:</label>
-    <input ngModel #length="ngModel" type="number" name="length" id="length" [(ngModel)]="case.length">
+    <input ngModel #length="ngModel" type="number" name="length" id="length" [ngModel]="case?.length">
     <label for="warranty">Warranty:</label>
-    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [(ngModel)]="case.warranty">
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="case?.warranty">
     <label for="image">Images:</label>
     <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
     <label for="price">Price:</label>
-    <input ngModel #price="ngModel" type="number" name="price" id="price" [(ngModel)]="case.price">
+    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="case?.price">
     <label for="promoPrice">Promo price:</label>
-    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [(ngModel)]="case.promoPrice">
+    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="case?.promoPrice">
     <label for="quantity">Quantity:</label>
-    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [(ngModel)]="case.quantity">
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="case?.quantity">
     <input type="submit" value="Create" *ngIf="!editMode">
     <input type="submit" value="Edit" *ngIf="editMode">
 </form>

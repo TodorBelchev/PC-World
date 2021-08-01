@@ -22,8 +22,6 @@
         (submitFiles)="onFilesSubmitted($event)"></app-create-memory>
     <app-create-hdd *ngIf="selectedPart == 'hdds'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-hdd>
-    <app-create-hdd *ngIf="selectedPart == 'ssds'" (submitForm)="onSubmit($event)"
-        (submitFiles)="onFilesSubmitted($event)"></app-create-hdd>
     <app-create-case *ngIf="selectedPart == 'cases'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-case>
     <app-create-power-supply *ngIf="selectedPart == 'psus'" (submitForm)="onSubmit($event)"

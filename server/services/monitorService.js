@@ -6,23 +6,19 @@ const createMonitor = (data) => {
 };
 
 const getMonitorsByPage = (page, filter) => {
-    return Monitor.find(filter).skip(page * 16).limit(16);
+    return Monitor.find({ ...filter, isDeleted: false }).skip(page * 16).limit(16);
 }
 
 const getFilteredCount = (filter) => {
-    return Monitor.find(filter);
+    return Monitor.find({ ...filter, isDeleted: false });
 }
 
 const getPromoMonitors = () => {
-    return Monitor.find({ promoPrice: { $gt: 0 } }).limit(2).lean();
+    return Monitor.find({ promoPrice: { $gt: 0 }, isDeleted: false }).limit(2).lean();
 }
 
 const getById = (id) => {
     return Monitor.findById(id);
-}
-
-const deleteMonitor = (id) => {
-    return Monitor.deleteOne({ _id: id });
 }
 
 module.exports = {
@@ -30,6 +26,5 @@ module.exports = {
     getMonitorsByPage,
     getFilteredCount,
     getPromoMonitors,
-    getById,
-    deleteMonitor
+    getById
 }

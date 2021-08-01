@@ -34,11 +34,11 @@ const getPartCount = (partName) => {
 }
 
 const getFilteredCount = (partName, filter) => {
-    return parts[partName].find(filter);
+    return parts[partName].find({ ...filter, isDeleted: false });
 }
 
 const getPartsByPage = (partName, page, filter) => {
-    return parts[partName].find(filter).skip(page * 16).limit(16).sort({ brand: 'asc' });
+    return parts[partName].find({ ...filter, isDeleted: false }).skip(page * 16).limit(16).sort({ brand: 'asc' });
 }
 
 const getById = (id, partName) => {
@@ -59,10 +59,6 @@ const getPromoParts = () => {
     ]);
 }
 
-const deletePart = (id, partName) => {
-    return parts[partName].deleteOne({ _id: id });
-}
-
 module.exports = {
     createPart,
     getPartCount,
@@ -70,6 +66,5 @@ module.exports = {
     getFilteredCount,
     getById,
     editPart,
-    getPromoParts,
-    deletePart
+    getPromoParts
 }

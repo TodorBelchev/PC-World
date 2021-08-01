@@ -6,7 +6,7 @@ const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createMonitor } = require('../services/monitorService');
 const isLoggedIn = require('../middlewares/isLogged');
 const { isAdmin } = require('../middlewares/guards');
-const { getMonitorsByPage, getFilteredCount, getById, deleteMonitor } = require('../services/monitorService');
+const { getMonitorsByPage, getFilteredCount, getById } = require('../services/monitorService');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
@@ -85,8 +85,10 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', isLoggedIn(), isAdmin(), async (req, res) => {
     try {
-        const result = await deleteMonitor(req.params.id);
-        res.status(200).send(result);
+        const monitor = await getById(req.params.id);
+        Object.assign(monitor, { isDeleted: true });
+        await monitor.save();
+        res.status(200).send(monitor);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

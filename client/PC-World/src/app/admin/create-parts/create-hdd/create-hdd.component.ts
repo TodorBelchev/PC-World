@@ -12,8 +12,8 @@ import { ISsd } from 'src/app/shared/interfaces/ssd.interface';
 })
 export class CreateHddComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
-  @Output() submitForm = new EventEmitter<{ form: NgForm, editMode: boolean }>();
-  @Output() submitFiles = new EventEmitter<{ fileList: {}, editMode: boolean }>();
+  @Output() submitForm = new EventEmitter<{ form: NgForm, editMode: boolean, partType: string }>();
+  @Output() submitFiles = new EventEmitter<{ fileList: {}, editMode: boolean, partType: string }>();
   partType: string = '';
   hdd: IHdd | undefined;
   ssd: ISsd | undefined;
@@ -54,8 +54,8 @@ export class CreateHddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitFiles.emit({ fileList: this.fileList, editMode: this.editMode });
-    this.submitForm.emit({ form: this.form, editMode: this.editMode });
+    this.submitFiles.emit({ fileList: this.fileList, editMode: this.editMode, partType: this.partType });
+    this.submitForm.emit({ form: this.form, editMode: this.editMode, partType: this.partType });
   }
 
 }

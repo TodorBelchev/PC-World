@@ -30,6 +30,10 @@ const processorSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
     price: {
         type: Number,
         required: true

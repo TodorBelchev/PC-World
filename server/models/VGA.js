@@ -34,6 +34,10 @@ const vgaSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
     power: [{
         type: String,
         required: true

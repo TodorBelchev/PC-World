@@ -51,7 +51,7 @@ export class CreateNotebookComponent implements OnInit {
       formData.append('pic' + k, v as string);
     }
 
-    if (this.notebook?._id === '') {
+    if (!this.notebook) {
       this.notebookService.create(formData).subscribe(
         data => {
           this.form.reset();

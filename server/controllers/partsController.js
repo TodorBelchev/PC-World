@@ -3,7 +3,7 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createPart, getPartCount, getById, deletePart } = require('../services/partService');
+const { createPart, getPartCount, getById } = require('../services/partService');
 const isLoggedIn = require('../middlewares/isLogged');
 const { isAdmin } = require('../middlewares/guards');
 const { getPartsByPage, getFilteredCount, editPart } = require('../services/partService');
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
         const page = Number(req.query.page || 1) - 1;
         const parts = await getPartsByPage(type, page, filter);
         const partsCount = await getFilteredCount(type, filter);
-        res.status(200).send({ products: parts, count: partsCount.length});
+        res.status(200).send({ products: parts, count: partsCount.length });
     } catch (error) {
         console.log(error.message);
         res.status(400).send({ message: error.message });
@@ -54,7 +54,9 @@ router.delete('/part/:partType/:id', isLoggedIn(), isAdmin(), async (req, res) =
         } else {
             type = type.substring(0, type.length - 1);
         }
-        const result = await deletePart(req.params.id, type);
+        const result = await getById(req.params.id, type);
+        Object.assign(result, { isDeleted: true });
+        await result.save();
         res.status(200).send(result);
     } catch (error) {
         console.log(error);

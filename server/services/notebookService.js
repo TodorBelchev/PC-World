@@ -10,19 +10,15 @@ const getById = (id) => {
 }
 
 const getNotebooksByPage = (page, filter) => {
-    return Notebook.find(filter).skip(page * 16).limit(16);
+    return Notebook.find({ ...filter, isDeleted: false }).skip(page * 16).limit(16);
 }
 
 const getCount = (filter) => {
-    return Notebook.find(filter);
+    return Notebook.find({ ...filter, isDeleted: false });
 }
 
 const getPromoNotebooks = () => {
-    return Notebook.find({ promoPrice: { $gt: 0 } }).limit(10).lean();
-}
-
-const deleteNotebook = (id) => {
-    return Notebook.deleteOne({ _id: id });
+    return Notebook.find({ promoPrice: { $gt: 0 }, isDeleted: false }).limit(10).lean();
 }
 
 module.exports = {
@@ -30,6 +26,5 @@ module.exports = {
     getNotebooksByPage,
     getCount,
     getById,
-    getPromoNotebooks,
-    deleteNotebook
+    getPromoNotebooks
 }

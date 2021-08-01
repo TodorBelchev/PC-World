@@ -3,7 +3,7 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createNotebook, getNotebooksByPage, getCount, getById, deleteNotebook } = require('../services/notebookService');
+const { createNotebook, getNotebooksByPage, getCount, getById } = require('../services/notebookService');
 const isLoggedIn = require('../middlewares/isLogged');
 const { isAdmin } = require('../middlewares/guards');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
@@ -87,7 +87,9 @@ router.post('/create', isLoggedIn(), async (req, res) => {
 
 router.delete('/:id', isLoggedIn(), isAdmin(), async (req, res) => {
     try {
-        const result = await deleteNotebook(req.params.id);
+        const result = await getById(req.params.id);
+        Object.assign(result, { isDeleted: true });
+        await result.save();
         res.status(200).send(result);
     } catch (error) {
         console.log(error);

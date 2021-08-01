@@ -30,6 +30,10 @@ const ssdSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
     mtbf: {
         type: Number,
         required: true

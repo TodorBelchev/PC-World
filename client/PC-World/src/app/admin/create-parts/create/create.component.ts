@@ -38,6 +38,9 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit(event: any) {
+    if (event.partType) {
+      this.selectedPart = event.partType + 's';
+    }
     const formData = new FormData();
     for (const [k, v] of Object.entries(event.form.value)) {
       formData.append(k, v as string);
