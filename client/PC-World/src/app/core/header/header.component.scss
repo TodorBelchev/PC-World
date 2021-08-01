@@ -70,3 +70,44 @@ header ul li a {
 .quantity-wishlist {
     background: $secondary-color;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
+    z-index: 1;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.logout {
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.logout:hover {
+    background-color: $secondary-color;
+    color: white;
+}
+
+.logout:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+
+.logout:nth-child(2) {
+    border-radius: 0 0 5px 5px;
+}

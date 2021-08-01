@@ -13,6 +13,7 @@ export const increaseQuantityFromCart = '[Auth] Increase Quantity From Cart';
 export const emptyCart = '[Auth] Empty Cart';
 export const addMessage = '[Auth] Add Message';
 export const clearMessage = '[Auth] Clear Message';
+export const logoutUser = '[Auth] Logout User';
 
 export const auth_success = createAction(authSuccess, props<authSuccess>());
 export const auth_check_fail = createAction(authCheckFail);
@@ -27,6 +28,7 @@ export const increase_quantity_from_cart = createAction(increaseQuantityFromCart
 export const empty_cart = createAction(emptyCart);
 export const add_message = createAction(addMessage, props<msgProps>());
 export const clear_message = createAction(clearMessage);
+export const logout_user = createAction(logoutUser);
 
 export type authStart = { email: string, password: string };
 export type authSuccess = { email: string, isAdmin: boolean, firstName?: string, lastName?: string, _id: string, phoneNumber?: string, city: string, location: string };

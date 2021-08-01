@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { faSearch, faUser, faShoppingCart, faHeart, faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { Store } from '@ngrx/store';
+import { faSearch, faUser, faShoppingCart, faHeart, faDesktop, faCogs } from '@fortawesome/free-solid-svg-icons';
 
 import * as authSelectors from '../../user/store/auth.selectors';
+import * as authActions from '../../user/store/auth.actions';
 import { cartProps } from '../../user/store/auth.actions';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { IUser } from '../../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,13 +23,16 @@ export class HeaderComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faHeart = faHeart;
   faDesktop = faDesktop;
+  faCogs = faCogs;
   cartItemsCount: number = 0;
   user$: Observable<IUser | null> = this.store.select(authSelectors.selectUser);
   cart$: Observable<cartProps[] | []> = this.store.select(authSelectors.selectCart);
   wishlist$: Observable<{ _id: string }[] | []> = this.store.select(authSelectors.selectWishlist);
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +43,18 @@ export class HeaderComponent implements OnInit {
       error => {
         console.log(error.message);
       });
+  }
+
+  onLogout(): void {
+    this.authService.logout().subscribe(
+      res => {
+        this.store.dispatch(authActions.logout_user());
+        this.router.navigateByUrl('/');
+      },
+      error => {
+        console.log(error.error.message);
+      }
+    )
   }
 
 }

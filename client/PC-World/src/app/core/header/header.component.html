@@ -8,18 +8,23 @@
         </article>
         <ul>
             <li>
-                <fa-icon [icon]="faSearch" size="lg"></fa-icon>
-            </li>
-            <li>
                 <a routerLink="/dashboard" class="user" *ngIf="(user$ | async)?.isAdmin">
-                    Dashboard
+                    <fa-icon [icon]="faCogs" size="lg"></fa-icon>
                 </a>
+            </li>
+            <li class="dropdown">
                 <a routerLink="/auth/login" class="user" *ngIf="!(user$ | async)">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>
-                <a routerLink="/users/{{(user$ | async)?._id}}" class="user" *ngIf="user$ | async">
+                <a routerLink="/users/{{(user$ | async)?._id}}" class="user dropbtn" *ngIf="user$ | async">
                     <fa-icon [icon]="faUser" size="lg"></fa-icon>
                 </a>
+                <div class="dropdown-content" *ngIf="user$ | async">
+                    <div class="logout" routerLink="/users/{{(user$ | async)?._id}}">
+                        Profile
+                    </div>
+                    <div class="logout" (click)="onLogout()">logout</div>
+                </div>
             </li>
             <li>
                 <a routerLink="/users/cart" class="cart">

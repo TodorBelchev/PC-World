@@ -25,6 +25,10 @@ export class AuthService {
     return this.http.post<IUser>(environment.api_url + 'user/register', userData, { withCredentials: true });
   }
 
+  logout(): Observable<any> {
+    return this.http.get(environment.api_url + 'user/logout', { withCredentials: true });
+  }
+
   loadCart() {
     let storage = this.localStorage.getItem('cart');
     let currentStorage = [];

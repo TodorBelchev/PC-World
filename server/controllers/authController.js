@@ -89,7 +89,7 @@ router.post('/register',
         }
     });
 
-router.get('/logout', isAuth(), (req, res) => {
+router.get('/logout', isLogged(), (req, res) => {
     res.clearCookie(COOKIE_NAME);
     res.status(204).send({ message: 'Logged out' })
 });
