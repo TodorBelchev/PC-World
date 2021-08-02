@@ -91,3 +91,7 @@ a {
 .add-wishlist {
     background: $secondary-color;
 }
+
+button:disabled {
+    background: gray;
+}

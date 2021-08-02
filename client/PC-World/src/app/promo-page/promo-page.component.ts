@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { INotebook } from '../shared/interfaces/notebook.interface';
 import { SharedService } from '../shared/shared.service';
 
@@ -26,14 +27,16 @@ export class PromoPageComponent implements OnInit {
     this.promoId = this.activatedRoute.snapshot.params['id'];
 
 
-    this.activatedRoute.queryParams.subscribe(params => {
-      let query = '';
-      Object.entries(params).forEach(([k, v]) => {
-        query += '&' + k + '=' + v;
-      });
+    this.activatedRoute.queryParams.pipe(
+      switchMap(params => {
+        let query = '';
+        Object.entries(params).forEach(([k, v]) => {
+          query += '&' + k + '=' + v;
+        });
 
-      this.isLoading = true;
-      this.sharedService.getPromotionById(this.promoId, query).subscribe(
+        this.isLoading = true;
+        return this.sharedService.getPromotionById(this.promoId, query)
+      })).subscribe(
         data => {
           this.products = data.products;
           this.isLoading = false;
@@ -42,10 +45,7 @@ export class PromoPageComponent implements OnInit {
           this.isLoading = false;
           this.message = 'Something went wrong. Please try again later.';
           this.msgType = 'error';
-        }
-      );
-    });
-
-  }
+        });
+  };
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { MonitorService } from '../monitor.service';
 
 @Component({
@@ -26,14 +27,16 @@ export class MonitorsListComponent implements OnInit {
     }
     let query = '';
 
-    this.activatedRoute.queryParams.subscribe(params => {
-      Object.entries(params).forEach(([k, v]) => {
-        query += '&' + k + '=' + v;
-      });
-      this.page = params['page'];
+    this.activatedRoute.queryParams.pipe(
+      switchMap(params => {
+        Object.entries(params).forEach(([k, v]) => {
+          query += '&' + k + '=' + v;
+        });
+        this.page = params['page'];
 
-      this.isLoading = true;
-      this.monitorService.getItems(query).subscribe(
+        this.isLoading = true;
+        return this.monitorService.getItems(query);
+      })).subscribe(
         data => {
           this.monitors = data.products;
           this.count = data.count;
@@ -44,8 +47,7 @@ export class MonitorsListComponent implements OnInit {
           this.message = 'Something went wrong. Please try again later.';
           this.msgType = 'error';
         }
-      );
-    });
+      );;
   }
 
 }

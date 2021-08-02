@@ -34,7 +34,7 @@ export class AdminOrdersComponent implements OnInit {
       switchMap(params => {
         this.page = params['page'] || 1;
         this.isLoading = true;
-        return this.adminService.getOrders(this.page)
+        return this.adminService.getOrders(this.page);
       })
     ).subscribe(
       data => {

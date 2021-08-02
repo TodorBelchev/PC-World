@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { AdminService } from '../admin.service';
 
@@ -33,36 +35,33 @@ export class AdminArchivedOrdersComponent implements OnInit {
     let query = '?';
     let countQuery = '?';
 
-    this.activatedRoute.queryParams.subscribe(params => {
-      for (const [k, v] of Object.entries(params)) {
-        query += `${k}=${v}&`;
-        countQuery += `${k}=${v}&`;
+    this.activatedRoute.queryParams.pipe(
+      switchMap(params => {
+        for (const [k, v] of Object.entries(params)) {
+          query += `${k}=${v}&`;
+          countQuery += `${k}=${v}&`;
+        }
+        this.page = params['page'] || 1;
+        this.startDate = params['startDate'] || undefined;
+        this.endDate = params['endDate'] || undefined;
+        return this.adminService.getArchivedOrdersByPage(query)
+      })
+    ).subscribe(
+      data => {
+        this.isLoading = false;
+        this.orders = data.orders;
+        this.count = data.count;
+        if (this.orders.length == 0) {
+          this.noOrders = true;
+        } else {
+          this.noOrders = false;
+        }
+      },
+      error => {
+        this.isLoading = false;
+        console.log(error.error.message);
       }
-      this.page = params['page'] || 1;
-      this.startDate = params['startDate'] || undefined;
-      this.endDate = params['endDate'] || undefined;
-
-      if (query != '?') {
-        this.isLoading = true;
-        this.adminService.getArchivedOrdersByPage(query).subscribe(
-          data => {
-            this.isLoading = false;
-            this.orders = data.orders;
-            this.count = data.count;
-            if (this.orders.length == 0) {
-              this.noOrders = true;
-            } else {
-              this.noOrders = false;
-            }
-          },
-          error => {
-            this.isLoading = false;
-            console.log(error.error.message);
-          }
-        );
-      }
-
-    });
+    );
   }
 
   onSubmit(): void {

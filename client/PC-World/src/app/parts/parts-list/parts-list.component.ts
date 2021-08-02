@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { PartsService } from '../parts.service';
 
 @Component({
@@ -25,19 +26,21 @@ export class PartsListComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     }
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.type = this.activatedRoute.snapshot.url[0].path;
-      this.page = params['page'];
-      let query = '';
+    this.activatedRoute.queryParams.pipe(
+      switchMap(params => {
+        this.type = this.activatedRoute.snapshot.url[0].path;
+        this.page = params['page'];
+        let query = '';
 
-      Object.entries(params).forEach(([k, v]) => {
-        query += '&' + k + '=' + v;
-      });
+        Object.entries(params).forEach(([k, v]) => {
+          query += '&' + k + '=' + v;
+        });
 
-      query += `&product=${this.type}`;
+        query += `&product=${this.type}`;
 
-      this.isLoading = true;
-      this.partsService.getItems(query).subscribe(
+        this.isLoading = true;
+        return this.partsService.getItems(query)
+      })).subscribe(
         data => {
           this.products = data.products;
           this.count = data.count;
@@ -49,7 +52,5 @@ export class PartsListComponent implements OnInit {
           this.msgType = 'error';
         }
       );
-    });
-  }
-
+  };
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { ISimpleProduct } from '../interfaces/simple-product.interface';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './product-list-item.component.html',
   styleUrls: ['./product-list-item.component.scss']
 })
-export class ProductListItemComponent implements OnInit {
+export class ProductListItemComponent {
   @Input() product!: any;
   @Input() type!: string;
   @Input() category!: string;
@@ -23,10 +23,6 @@ export class ProductListItemComponent implements OnInit {
     private store: Store<AppState>,
     private router: Router
   ) { }
-
-  ngOnInit(): void {
-
-  }
 
   onAddToCart(product: ISimpleProduct): void {
     let productType = '';

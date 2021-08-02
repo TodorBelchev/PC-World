@@ -256,7 +256,7 @@
     <button type="button" class="cart-container-wishlist-btn add-wishlist" (click)="onAddToWishlist(product)">
         <fa-icon [icon]="faHeart" size="lg"></fa-icon>
     </button>
-    <button type="button" class="cart-container-add-btn add-cart" (click)="onAddToCart(product)">
+    <button type="button" class="cart-container-add-btn add-cart" [disabled]="product.quantity == 0" (click)="onAddToCart(product)">
         <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
     </button>
 </div>

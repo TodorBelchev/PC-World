@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { NotebookService } from '../notebook.service';
 
 @Component({
@@ -28,26 +29,27 @@ export class NotebooksListComponent implements OnInit {
 
     let query = '';
 
-    this.activatedRoute.queryParams.subscribe(params => {
-      Object.entries(params).forEach(([k, v]) => {
-        query += '&' + k + '=' + v;
-      });
-      this.page = params['page'];
-    });
-
-    this.isLoading = true;
-    this.notebookService.getItems(query).subscribe(
-      data => {
-        this.notebooks = data.products;
-        this.count = data.count;
-        this.isLoading = false;
-      },
-      error => {
-        this.isLoading = false;
-        this.message = 'Something went wrong. Please try again later.';
-        this.msgType = 'error';
-      }
-    );
+    this.activatedRoute.queryParams.pipe(
+      switchMap(
+        params => {
+          Object.entries(params).forEach(([k, v]) => {
+            query += '&' + k + '=' + v;
+          });
+          this.page = params['page'];
+          this.isLoading = true;
+          return this.notebookService.getItems(query);
+        })).subscribe(
+          data => {
+            this.notebooks = data.products;
+            this.count = data.count;
+            this.isLoading = false;
+          },
+          error => {
+            this.isLoading = false;
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
+          }
+        );
   }
 
 }
