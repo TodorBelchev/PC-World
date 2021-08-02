@@ -61,3 +61,26 @@ input {
     width: 24px;
     height: 24px;
 }
+
+.break {
+    flex-basis: 100%;
+}
+
+.error {
+    text-align: center;
+    color: $primary-color;
+    flex-basis: 100%;
+    margin-bottom: 10px;
+}
+
+input.ng-touched.ng-invalid {
+    border: 1px solid $primary-color;
+}
+
+app-spinner {
+    flex-basis: 80%;
+}
+
+.btn-container button:disabled {
+    background: gray;
+}

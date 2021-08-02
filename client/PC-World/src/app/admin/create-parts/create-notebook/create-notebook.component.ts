@@ -15,6 +15,7 @@ export class CreateNotebookComponent implements OnInit {
   notebook: INotebook | undefined;
   editMode: boolean = false;
   isLoading: boolean = false;
+  error: string | undefined;
   constructor(
     private notebookService: NotebookService,
     private router: Router,
@@ -63,7 +64,9 @@ export class CreateNotebookComponent implements OnInit {
           this.isLoading = false;
         },
         error => {
-          console.log(error.message);
+          this.isLoading = false;
+          this.error = error.error.message;
+          console.log(error.error.message);
         });
     } else {
       this.notebookService.edit(this.notebook!._id, formData).subscribe(
@@ -72,6 +75,8 @@ export class CreateNotebookComponent implements OnInit {
           this.isLoading = false;
         },
         error => {
+          this.isLoading = false;
+          this.error = error.error.message;
           console.log(error.message);
         }
       );

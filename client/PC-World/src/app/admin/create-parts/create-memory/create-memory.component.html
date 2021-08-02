@@ -1,31 +1,31 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
     <label for="brand">Brand:</label>
-    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="memory?.brand">
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="memory?.brand" required>
     <label for="model">Model:</label>
-    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="memory?.model">
+    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="memory?.model" required>
     <label for="ramCapacity">RAM capacity:</label>
-    <input ngModel #ramCapacity="ngModel" type="number" name="ramCapacity" id="ramCapacity" [ngModel]="memory?.ramCapacity">
+    <input ngModel #ramCapacity="ngModel" type="number" name="ramCapacity" id="ramCapacity" [ngModel]="memory?.ramCapacity" required>
     <label for="memorySpeeds">Memory speed:</label>
-    <input ngModel #memorySpeeds="ngModel" type="text" name="memorySpeeds" id="memorySpeeds" [ngModel]="memory?.memorySpeeds">
+    <input ngModel #memorySpeeds="ngModel" type="text" name="memorySpeeds" id="memorySpeeds" [ngModel]="memory?.memorySpeeds" required>
     <label for="memoryType">Memory type:</label>
-    <input ngModel #memoryType="ngModel" type="text" name="memoryType" id="memoryType" [ngModel]="memory?.memoryType">
+    <input ngModel #memoryType="ngModel" type="text" name="memoryType" id="memoryType" [ngModel]="memory?.memoryType" required>
     <label for="timings">Timings:</label>
-    <input ngModel #timings="ngModel" type="text" name="timings" id="timings" [ngModel]="memory?.timings">
+    <input ngModel #timings="ngModel" type="text" name="timings" id="timings" [ngModel]="memory?.timings" required>
     <label for="platform">Memory platform:</label>
-    <select ngModel="desktop" #platform="ngModel" name="platform" id="platform" [ngModel]="memory?.platform">
+    <select ngModel="desktop" #platform="ngModel" name="platform" id="platform" [ngModel]="memory?.platform" required>
         <option value="desktop" selected>desktop</option>
         <option value="mobile">mobile</option>
     </select>
     <label for="warranty">Warranty:</label>
-    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="memory?.warranty">
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="memory?.warranty" required>
     <label for="image">Images:</label>
-    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple required>
     <label for="price">Price:</label>
-    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="memory?.price">
+    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="memory?.price" required>
     <label for="promoPrice">Promo price:</label>
-    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="memory?.promoPrice">
+    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="memory?.promoPrice" required>
     <label for="quantity">Quantity:</label>
-    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="memory?.quantity">
-    <input type="submit" value="Create" *ngIf="!editMode">
-    <input type="submit" value="Edit" *ngIf="editMode">
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="memory?.quantity" required>
+    <input type="submit" value="Create" *ngIf="!editMode" [disabled]="f.invalid">
+    <input type="submit" value="Edit" *ngIf="editMode" [disabled]="f.invalid">
 </form>

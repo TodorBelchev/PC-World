@@ -12,4 +12,8 @@ export class PromotionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCreatedPromo(): void {
+    this.ngOnInit();
+  }
+
 }

@@ -70,3 +70,16 @@ input[type="password"] {
     flex-basis: 100%;
     text-align: center;
 }
+
+input.ng-touched.ng-invalid {
+    border: 1px solid $primary-color;
+}
+
+input[type="submit"]:disabled {
+    background: gray;
+}
+
+.error {
+    flex-basis: 100%;
+    text-align: center;
+}

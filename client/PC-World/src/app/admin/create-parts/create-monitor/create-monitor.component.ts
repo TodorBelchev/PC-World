@@ -15,6 +15,7 @@ export class CreateMonitorComponent implements OnInit {
   monitor: IMonitor | undefined;
   editMode: boolean = false;
   isLoading: boolean = false;
+  error: string | undefined;
   constructor(
     private monitorService: MonitorService,
     private router: Router,
@@ -33,7 +34,7 @@ export class CreateMonitorComponent implements OnInit {
         error => {
           this.editMode = false;
           this.isLoading = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       )
     }
@@ -62,7 +63,8 @@ export class CreateMonitorComponent implements OnInit {
           this.isLoading = false;
         },
         error => {
-          console.log(error.message);
+          this.error = error.error.message;
+          console.log(error.error.message);
           this.isLoading = false;
         }
       )
@@ -73,7 +75,8 @@ export class CreateMonitorComponent implements OnInit {
           this.isLoading = false;
         },
         error => {
-          console.log(error.message);
+          this.error = error.error.message;
+          console.log(error.error.message);
           this.isLoading = false;
         }
       );

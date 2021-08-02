@@ -46,4 +46,8 @@ export class AdminService {
     return this.http.get(environment.api_url + `orders/sales/share`, { withCredentials: true });
   }
 
+  deletePromo(id: string): Observable<any> {
+    return this.http.delete(environment.api_url + '/promotions/' + id, { withCredentials: true });
+  }
+
 }

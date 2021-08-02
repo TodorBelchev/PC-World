@@ -29,4 +29,7 @@
         (submitFiles)="onFilesSubmitted($event)"></app-create-power-supply>
     <app-create-cooler *ngIf="selectedPart == 'coolers'" (submitForm)="onSubmit($event)"
         (submitFiles)="onFilesSubmitted($event)"></app-create-cooler>
+    <div class="error">
+        {{error}}
+    </div>
 </div>

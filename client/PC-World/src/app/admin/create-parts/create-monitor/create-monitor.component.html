@@ -2,36 +2,39 @@
 <div class="container" *ngIf="!isLoading">
     <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
         <label for="brand">Brand:</label>
-        <input ngModel type="text" name="brand" id="brand" [ngModel]="monitor?.brand">
+        <input ngModel type="text" name="brand" id="brand" [ngModel]="monitor?.brand" required>
         <label for="model">Model:</label>
-        <input ngModel type="text" name="model" id="model" [ngModel]="monitor?.model">
+        <input ngModel type="text" name="model" id="model" [ngModel]="monitor?.model" required>
         <label for="type">Display type:</label>
-        <input ngModel type="text" name="type" id="type" [ngModel]="monitor?.type">
+        <input ngModel type="text" name="type" id="type" [ngModel]="monitor?.type" required>
         <label for="size">Display size:</label>
-        <input ngModel type="number" name="size" id="size" [ngModel]="monitor?.size">
+        <input ngModel type="number" name="size" id="size" [ngModel]="monitor?.size" required>
         <label for="resolution">Display resolution:</label>
-        <input ngModel type="text" name="resolution" id="resolution" [ngModel]="monitor?.resolution">
+        <input ngModel type="text" name="resolution" id="resolution" [ngModel]="monitor?.resolution" required>
         <label for="refreshRate">Display refresh rate:</label>
-        <input ngModel type="number" name="refreshRate" id="refreshRate" [ngModel]="monitor?.refreshRate">
+        <input ngModel type="number" name="refreshRate" id="refreshRate" [ngModel]="monitor?.refreshRate" required>
         <label for="responseTime">Display response time:</label>
-        <input ngModel type="number" name="responseTime" id="responseTime" [ngModel]="monitor?.responseTime">
+        <input ngModel type="number" name="responseTime" id="responseTime" [ngModel]="monitor?.responseTime" required>
         <label for="brightness">Brightness:</label>
-        <input ngModel type="number" name="brightness" id="brightness" [ngModel]="monitor?.brightness">
+        <input ngModel type="number" name="brightness" id="brightness" [ngModel]="monitor?.brightness" required>
         <label for="ports">Ports:</label>
-        <input ngModel type="text" name="ports" id="ports" [ngModel]="monitor?.ports">
+        <input ngModel type="text" name="ports" id="ports" [ngModel]="monitor?.ports" required>
         <label for="warranty">Warranty:</label>
-        <input ngModel type="number" name="warranty" id="warranty" [ngModel]="monitor?.warranty">
+        <input ngModel type="number" name="warranty" id="warranty" [ngModel]="monitor?.warranty" required>
         <label for="image">Images:</label>
-        <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+        <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple required>
         <label for="price">Price:</label>
-        <input ngModel type="number" name="price" id="price" [ngModel]="monitor?.price">
+        <input ngModel type="number" name="price" id="price" [ngModel]="monitor?.price" required>
         <label for="promoPrice">Promo price:</label>
-        <input ngModel type="number" name="promoPrice" id="promoPrice" [ngModel]="monitor?.promoPrice">
+        <input ngModel type="number" name="promoPrice" id="promoPrice" [ngModel]="monitor?.promoPrice" required>
         <label for="quantity">Quantity:</label>
-        <input ngModel type="number" name="quantity" id="quantity" [ngModel]="monitor?.quantity">
+        <input ngModel type="number" name="quantity" id="quantity" [ngModel]="monitor?.quantity" required>
+        <div class="error">
+            {{error}}
+        </div>
         <div id="submit-container">
-            <input type="submit" value="Create" *ngIf="!editMode">
-            <input type="submit" value="Edit" *ngIf="editMode">
+            <input type="submit" value="Create" *ngIf="!editMode" [disabled]="f.invalid">
+            <input type="submit" value="Edit" *ngIf="editMode" [disabled]="f.invalid">
         </div>
     </form>
 </div>

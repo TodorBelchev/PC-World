@@ -1,11 +1,12 @@
 const { Router } = require('express');
 const formidable = require('formidable');
 
-const { createPromo, getById, getAll } = require('../services/promotionService');
+const { createPromo, getById, getAll, deletePromo } = require('../services/promotionService');
 const { getPromoNotebooks } = require('../services/notebookService');
 const { getPromoParts } = require('../services/partService');
 const { getPromoMonitors } = require('../services/monitorService');
 const isLoggedIn = require('../middlewares/isLogged');
+const { isAdmin } = require('../middlewares/guards');
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
@@ -83,9 +84,24 @@ router.post('/', isLoggedIn(), async (req, res) => {
         }
 
         formData.image = imagesURL[0];
+        if (!formData.image || formData.products.length == 0 || !formData.productType || !formData.expirationTime || !formData.promoName) {
+            throw new Error('All fields are required!');
+        }
         const promo = await createPromo(formData);
         res.status(201).send(promo);
     } catch (error) {
+        console.log(error.message);
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.delete('/:id', isLoggedIn(), isAdmin(), async (req, res) => {
+    try {
+        await deletePromo(req.params.id);
+        res.status(201).send({});
+    } catch (error) {
+        console.log(error);
         console.log(error.message);
         res.status(400).send({ message: error.message });
     }

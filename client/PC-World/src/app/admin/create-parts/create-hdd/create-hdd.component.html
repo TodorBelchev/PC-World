@@ -1,14 +1,14 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
     <label for="brand">Brand:</label>
-    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="part?.brand">
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="part?.brand" required>
     <label for="model">Model:</label>
-    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="part?.model">
+    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="part?.model" required>
     <label for="capacity">Capacity:</label>
-    <input ngModel #capacity="ngModel" type="number" name="capacity" id="capacity" [ngModel]="part?.capacity">
+    <input ngModel #capacity="ngModel" type="number" name="capacity" id="capacity" [ngModel]="part?.capacity" required>
     <label for="readSpeed">Read speed:</label>
-    <input ngModel #readSpeed="ngModel" type="number" name="readSpeed" id="readSpeed" [ngModel]="part?.readSpeed">
+    <input ngModel #readSpeed="ngModel" type="number" name="readSpeed" id="readSpeed" [ngModel]="part?.readSpeed" required>
     <label for="writeSpeed">Write speed:</label>
-    <input ngModel #writeSpeed="ngModel" type="number" name="writeSpeed" id="writeSpeed" [ngModel]="part?.writeSpeed">
+    <input ngModel #writeSpeed="ngModel" type="number" name="writeSpeed" id="writeSpeed" [ngModel]="part?.writeSpeed" required>
     <label for="randomRead">Random read IOPS:</label>
     <input ngModel #randomRead="ngModel" type="number" name="randomRead" id="randomRead" [ngModel]="part?.randomRead">
     <label for="randomWrite">Random write IOPS:</label>
@@ -16,24 +16,24 @@
     <label for="mtbf">MTBF:</label>
     <input ngModel #mtbf="ngModel" type="number" name="mtbf" id="mtbf" [ngModel]="part?.mtbf">
     <label for="interface">Interface:</label>
-    <input ngModel #interface="ngModel" type="text" name="interface" id="interface" [ngModel]="part?.interface">
+    <input ngModel #interface="ngModel" type="text" name="interface" id="interface" [ngModel]="part?.interface" required>
     <label for="formFactor">Form factor:</label>
-    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [ngModel]="part?.formFactor">
+    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [ngModel]="part?.formFactor" required>
     <label for="type">Type:</label>
-    <select ngModel="type" #type="ngModel" name="type" id="type" [(ngModel)]="partType">
+    <select ngModel="type" #type="ngModel" name="type" id="type" [(ngModel)]="partType" required>
         <option value="hdd">HDD</option>
         <option value="ssd">SSD</option>
     </select>
     <label for="warranty">Warranty:</label>
-    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="part?.warranty">
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="part?.warranty" required>
     <label for="image">Images:</label>
-    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple required>
     <label for="price">Price:</label>
-    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="part?.price">
+    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="part?.price" required>
     <label for="promoPrice">Promo price:</label>
-    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="part?.promoPrice">
+    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="part?.promoPrice" required>
     <label for="quantity">Quantity:</label>
-    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="part?.quantity">
-    <input type="submit" value="Create" *ngIf="!editMode">
-    <input type="submit" value="Edit" *ngIf="editMode">
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="part?.quantity" required>
+    <input type="submit" value="Create" *ngIf="!editMode" [disabled]="f.invalid">
+    <input type="submit" value="Edit" *ngIf="editMode" [disabled]="f.invalid">
 </form>

@@ -56,3 +56,11 @@ input[type="password"] {
     flex-basis: 100%;
     margin-top: 0;
 }
+
+input.ng-touched.ng-invalid {
+    border: 1px solid $primary-color;
+}
+
+input[type="submit"]:disabled {
+    background: gray;
+}

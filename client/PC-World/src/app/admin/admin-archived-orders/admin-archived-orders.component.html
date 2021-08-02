@@ -4,6 +4,9 @@
     <label for="endDate">To:</label>
     <input ngModel type="date" id="endDate" name="endDate" [ngModel]="endDate">
     <input type="submit" value="Search">
+    <div class="error">
+        {{error}}
+    </div>
 </form>
 <app-spinner *ngIf="isLoading"></app-spinner>
 <div class="order" *ngIf="noOrders">
@@ -13,7 +16,8 @@
     <div class="order">
         <div class="order-title">Order id: {{order._id}}</div>
         <div class="order-title" *ngIf="order.user">User id: {{order.user}}</div>
-        <div class="order-title" *ngIf="order.guest">Guest user: {{order.guest.firstName}} {{order.guest.lastName}}</div>
+        <div class="order-title" *ngIf="order.guest">Guest user: {{order.guest.firstName}} {{order.guest.lastName}}
+        </div>
         <div class="order-status">Status: <strong>{{order?.status}}</strong></div>
         <button class="order-btn-delete" (click)="onDeleteOrder(order)">X</button>
         <a routerLink="/{{product?.onModel | productType}}/{{product.product._id}}" class="order-product"

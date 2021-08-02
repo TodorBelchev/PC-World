@@ -1,10 +1,14 @@
-<form [formGroup]="createPromotionForm" (ngSubmit)="onSubmit()" class="create-promotion">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<form [formGroup]="createPromotionForm" (ngSubmit)="onSubmit()" class="create-promotion" *ngIf="!isLoading">
+    <label for="promoName">Promo name:</label>
+    <input formControlName="promoName" type="text" name="promoName" id="promoName">
     <label for="productsType">Products type:</label>
     <input formControlName="productsType" type="text" name="productsType" id="productsType">
     <label for="expirationDate">Expiration date:</label>
     <input formControlName="expirationDate" type="text" name="expirationDate" id="expirationDate">
     <label for="image">Image:</label>
     <input (change)="onFileSelected($event)" type="file" name="image" id="image">
+    <div class="break"></div>
     <ng-container *ngFor="let productFormGroup of getControls(); let i = index">
         <form [formGroup]="productFormGroup" class="form-inner">
             <label for="productId"> Product ID:</label>
@@ -12,8 +16,10 @@
             <button type="button" (click)="removeFormControl(i)">X</button>
         </form>
     </ng-container>
+    <div class="break"></div>
+    <div class="error" *ngIf="error">{{error}}</div>
     <div class="btn-container">
         <button type="button" (click)="addFormControl()">Add product</button>
-        <button type="submit" class="btn-submit">Submit</button>
+        <button type="submit" class="btn-submit" [disabled]="createPromotionForm.invalid">Submit</button>
     </div>
 </form>

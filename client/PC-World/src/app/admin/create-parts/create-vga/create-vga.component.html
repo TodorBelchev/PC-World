@@ -1,32 +1,32 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
     <label for="brand">Brand:</label>
-    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="vga?.brand">
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="vga?.brand" required>
     <label for="model">Model:</label>
-    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="vga?.model">
+    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="vga?.model" required>
     <label for="cores">Cores:</label>
-    <input ngModel #cores="ngModel" type="number" name="cores" id="cores" [ngModel]="vga?.cores">
+    <input ngModel #cores="ngModel" type="number" name="cores" id="cores" [ngModel]="vga?.cores" required>
     <label for="gameClock">Game Clock:</label>
-    <input ngModel #base="ngModel" type="number" name="gameClock" id="gameClock" [ngModel]="vga?.gameClock">
+    <input ngModel #base="ngModel" type="number" name="gameClock" id="gameClock" [ngModel]="vga?.gameClock" required>
     <label for="boostClock">Boost Clock:</label>
-    <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock" [ngModel]="vga?.boostClock">
+    <input ngModel #boost="ngModel" type="number" name="boostClock" id="boostClock" [ngModel]="vga?.boostClock" required>
     <label for="memory">Memory:</label>
-    <input ngModel #memory="ngModel" type="number" name="memory" id="memory" [ngModel]="vga?.memory">
+    <input ngModel #memory="ngModel" type="number" name="memory" id="memory" [ngModel]="vga?.memory" required>
     <label for="memoryClock">Memory clock:</label>
-    <input ngModel #memoryClock="ngModel" type="number" name="memoryClock" id="memoryClock" [ngModel]="vga?.memoryClock">
+    <input ngModel #memoryClock="ngModel" type="number" name="memoryClock" id="memoryClock" [ngModel]="vga?.memoryClock" required>
     <label for="connectors">Connectors:</label>
-    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors" [ngModel]="vga?.connectors">
+    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors" [ngModel]="vga?.connectors" required>
     <label for="power">Power requirements:</label>
-    <input ngModel #power="ngModel" type="text" name="power" id="power" [ngModel]="vga?.power">
+    <input ngModel #power="ngModel" type="text" name="power" id="power" [ngModel]="vga?.power" required>
     <label for="warranty">Warranty:</label>
-    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="vga?.warranty">
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="vga?.warranty" required>
     <label for="image">Images:</label>
-    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple required>
     <label for="price">Price:</label>
-    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="vga?.price">
+    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="vga?.price" required>
     <label for="promoPrice">Promo price:</label>
-    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="vga?.promoPrice">
+    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="vga?.promoPrice" required>
     <label for="quantity">Quantity:</label>
-    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="vga?.quantity">
-    <input type="submit" value="Create" *ngIf="!editMode">
-    <input type="submit" value="Edit" *ngIf="editMode">
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="vga?.quantity" required>
+    <input type="submit" value="Create" *ngIf="!editMode" [disabled]="f.invalid">
+    <input type="submit" value="Edit" *ngIf="editMode" [disabled]="f.invalid">
 </form>

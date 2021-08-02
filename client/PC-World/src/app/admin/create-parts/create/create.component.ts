@@ -13,6 +13,7 @@ export class CreateComponent implements OnInit {
   editMode: boolean = false;
   isLoading: boolean = false;
   id: string = '';
+  error: string | undefined;
   constructor(
     private partsService: PartsService,
     private router: Router,
@@ -63,7 +64,8 @@ export class CreateComponent implements OnInit {
         },
         error => {
           this.isLoading = false;
-          console.log(error.message);
+          this.error = error.error.message;
+          console.log(error.error.message);
         }
       );
     } else {
@@ -75,7 +77,8 @@ export class CreateComponent implements OnInit {
         },
         error => {
           this.isLoading = false;
-          console.log(error.message);
+          this.error = error.error.message;
+          console.log(error.error.message);
         }
       );
     }

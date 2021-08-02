@@ -20,6 +20,7 @@ export class AdminArchivedOrdersComponent implements OnInit {
   orderToDelete: IOrder | null = null;
   startDate: string | undefined;
   endDate: string | undefined;
+  error: string | undefined;
   page: number = 1;
   count: number = 0;
   constructor(
@@ -44,10 +45,17 @@ export class AdminArchivedOrdersComponent implements OnInit {
         this.page = params['page'] || 1;
         this.startDate = params['startDate'] || undefined;
         this.endDate = params['endDate'] || undefined;
+        if (!this.startDate || !this.endDate) {
+          return of({ error: true });
+        }
+        this.isLoading = true;
         return this.adminService.getArchivedOrdersByPage(query)
       })
     ).subscribe(
       data => {
+        if (data.error) {
+          return;
+        }
         this.isLoading = false;
         this.orders = data.orders;
         this.count = data.count;
@@ -72,6 +80,10 @@ export class AdminArchivedOrdersComponent implements OnInit {
     urlParams.startDate = this.startDate;
     urlParams.endDate = this.endDate;
     urlParams.page = 1;
+    if (!urlParams.startDate || !urlParams.endDate) {
+      this.error = 'Start and end date are required!';
+      return;
+    }
 
     this.router.navigate([], { relativeTo: this.activatedRoute, queryParams: urlParams });
   }

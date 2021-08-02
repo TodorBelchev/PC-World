@@ -16,8 +16,13 @@ const getAll = () => {
     return Promotion.find({});
 }
 
+const deletePromo = (id) => {
+    return Promotion.findByIdAndDelete(id);
+}
+
 module.exports = {
     createPromo,
     getById,
-    getAll
+    getAll,
+    deletePromo
 }

@@ -1,34 +1,34 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
     <label for="brand">Brand:</label>
-    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="psu?.brand">
+    <input ngModel #brand="ngModel" type="text" name="brand" id="brand" [ngModel]="psu?.brand" required>
     <label for="model">Model:</label>
-    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="psu?.model">
+    <input ngModel #model="ngModel" type="text" name="model" id="model" [ngModel]="psu?.model" required>
     <label for="power">Power:</label>
-    <input ngModel #model="ngModel" type="text" name="power" id="power" [ngModel]="psu?.power">
+    <input ngModel #model="ngModel" type="text" name="power" id="power" [ngModel]="psu?.power" required>
     <label for="formFactor">From factor:</label>
-    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [ngModel]="psu?.formFactor">
+    <input ngModel #formFactor="ngModel" type="text" name="formFactor" id="formFactor" [ngModel]="psu?.formFactor" required>
     <label for="certificate">Certificate:</label>
-    <input ngModel #certificate="ngModel" type="text" name="certificate" id="certificate" [ngModel]="psu?.certificate">
+    <input ngModel #certificate="ngModel" type="text" name="certificate" id="certificate" [ngModel]="psu?.certificate" required>
     <label for="efficiency">Efficiency:</label>
-    <input ngModel #efficiency="ngModel" type="text" name="efficiency" id="efficiency" [ngModel]="psu?.efficiency">
+    <input ngModel #efficiency="ngModel" type="text" name="efficiency" id="efficiency" [ngModel]="psu?.efficiency" required>
     <label for="type">Type:</label>
-    <select ngModel="modular" #type="ngModel" name="type" id="type" [ngModel]="psu?.type">
+    <select ngModel="modular" #type="ngModel" name="type" id="type" [ngModel]="psu?.type" required>
         <option value="modular" selected>Fully Modular</option>
         <option value="half-modular">Half modular</option>
         <option value="none-modular">None modular</option>
     </select>
     <label for="connectors">Connectors:</label>
-    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors" [ngModel]="psu?.connectors">
+    <input ngModel #connectors="ngModel" type="text" name="connectors" id="connectors" [ngModel]="psu?.connectors" required>
     <label for="warranty">Warranty:</label>
-    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="psu?.warranty">
+    <input ngModel #warranty="ngModel" type="number" name="warranty" id="warranty" [ngModel]="psu?.warranty" required>
     <label for="image">Images:</label>
-    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple>
+    <input (change)="onFileSelected($event)" type="file" name="image" id="image" multiple required>
     <label for="price">Price:</label>
-    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="psu?.price">
+    <input ngModel #price="ngModel" type="number" name="price" id="price" [ngModel]="psu?.price" required>
     <label for="promoPrice">Promo price:</label>
-    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="psu?.promoPrice">
+    <input ngModel #promoPrice="ngModel" type="number" name="promoPrice" id="promoPrice" [ngModel]="psu?.promoPrice" required>
     <label for="quantity">Quantity:</label>
-    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="psu?.quantity">
-    <input type="submit" value="Create" *ngIf="!editMode">
-    <input type="submit" value="Edit" *ngIf="editMode">
+    <input ngModel #quantity="ngModel" type="number" name="quantity" id="quantity" [ngModel]="psu?.quantity" required>
+    <input type="submit" value="Create" *ngIf="!editMode" [disabled]="f.invalid">
+    <input type="submit" value="Edit" *ngIf="editMode" [disabled]="f.invalid">
 </form>

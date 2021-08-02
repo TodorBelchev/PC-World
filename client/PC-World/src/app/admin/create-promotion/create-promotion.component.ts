@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -11,16 +12,20 @@ export class CreatePromotionComponent implements OnInit {
   fileList: {} = {};
   createPromotionForm: FormGroup;
   productForm: FormGroup;
+  isLoading: boolean = false;
+  error: string | undefined;
   constructor(
     private fb: FormBuilder,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router
   ) {
     this.productForm = this.fb.group({
-      productId: ['']
+      productId: ['', Validators.required]
     });
     this.createPromotionForm = this.fb.group({
-      productsType: this.fb.control(''),
-      expirationDate: this.fb.control(''),
+      promoName: this.fb.control('', Validators.required),
+      productsType: this.fb.control('', Validators.required),
+      expirationDate: this.fb.control('', Validators.required),
       productIdGroup: this.fb.array([
         this.productForm
       ])
@@ -70,14 +75,18 @@ export class CreatePromotionComponent implements OnInit {
     });
     formData.append('products', JSON.stringify(products));
 
+    this.isLoading = true;
     this.adminService.createPromotion(formData).subscribe(
       data => {
-        console.log(data);
+        this.router.navigateByUrl('/');
+        this.isLoading = false;
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.error = error.error.message;
+        console.log(error.error.message);
       }
     );
   }
-  
+
 }

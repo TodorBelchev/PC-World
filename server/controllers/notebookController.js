@@ -76,6 +76,9 @@ router.post('/create', isLoggedIn(), async (req, res) => {
         }
 
         formData.images = imagesURL;
+        if (formData.images.length == 0) {
+            throw new Error('At least one image is required!');
+        }
         formData.promoPrice !== 0 ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
         const notebook = await createNotebook(formData);
         res.status(201).send(notebook);
