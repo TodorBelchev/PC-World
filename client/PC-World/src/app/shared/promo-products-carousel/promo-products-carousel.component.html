@@ -1,4 +1,5 @@
-<div class="slideshow-container">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="slideshow-container" *ngIf="!isLoading && !error">
     <div class="items-container">
         <div class="mySlides fade" *ngFor="let promo of currentProducts; let i = index">
             <a

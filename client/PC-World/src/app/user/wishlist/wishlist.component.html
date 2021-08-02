@@ -1,6 +1,8 @@
 <div class="container">
     <app-user-aside></app-user-aside>
-    <div class="products-container">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    <div class="products-container" *ngIf="!isLoading && !message">
         <h3>Products:</h3>
         <div class="product" *ngFor="let product of products">
             <a routerLink="/{{product.urlPrefix}}/{{product._id}}" class="product-link">

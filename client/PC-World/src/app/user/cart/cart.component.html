@@ -1,6 +1,8 @@
 <div class="container">
     <app-user-aside></app-user-aside>
-    <div class="products-container">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    <div class="products-container" *ngIf="!isLoading && !message">
         <h3>Products:</h3>
         <div class="product" *ngFor="let product of products">
             <a routerLink="/{{product.urlPrefix}}/{{product.type}}/{{product._id}}" class="product-link">
@@ -42,16 +44,16 @@
         <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" *ngIf="products.length !== 0">
             <h3 class="form-title">Order details:</h3>
             <label for="firstName">First name:</label>
-            <input formControlName="firstName" type="text" name="firstName" id="firstName" [value]="user?.firstName">
+            <input formControlName="firstName" type="text" name="firstName" id="firstName" [value]="user?.firstName || ''">
             <label for="lastName">Last name:</label>
-            <input formControlName="lastName" type="text" name="lastName" id="lastName" [value]="user?.lastName">
+            <input formControlName="lastName" type="text" name="lastName" id="lastName" [value]="user?.lastName || ''">
             <label for="phoneNumber">Phone number:</label>
             <input formControlName="phoneNumber" type="number" name="phoneNumber" id="phoneNumber"
-                [value]="user?.phoneNumber">
+                [value]="user?.phoneNumber || ''">
             <label for="city">Delivery city:</label>
-            <input formControlName="city" type="text" name="city" id="city" [value]="user?.city">
+            <input formControlName="city" type="text" name="city" id="city" [value]="user?.city || ''">
             <label for="location">Delivery address:</label>
-            <input formControlName="location" type="text" name="location" id="location" [value]="user?.location">
+            <input formControlName="location" type="text" name="location" id="location" [value]="user?.location || ''">
             <div class="btn-container">
                 <input type="submit" class="btn-order" value="Finish order" [disabled]="orderForm.invalid">
             </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of, pipe } from 'rxjs';
-import { filter, first, map, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { AdminService } from '../admin.service';
 
@@ -14,7 +13,7 @@ export class AdminOrdersComponent implements OnInit {
   orders: IOrder[] = [];
   count: number = 0;
   page: number = 1;
-  isLoading: boolean = true;
+  isLoading: boolean = false;
   isVisible: boolean = false;
   showModal: boolean = false;
   showSaveModal: boolean = false;
@@ -34,17 +33,18 @@ export class AdminOrdersComponent implements OnInit {
     this.activatedRoute.queryParams.pipe(
       switchMap(params => {
         this.page = params['page'] || 1;
+        this.isLoading = true;
         return this.adminService.getOrders(this.page)
       })
     ).subscribe(
       data => {
         this.orders = data.orders;
-        this.isLoading = false;
         this.count = data.count;
+        this.isLoading = false;
       },
       error => {
-        console.log(error.message);
         this.isLoading = false;
+        console.log(error.message);
       }
     );
   }
@@ -60,17 +60,22 @@ export class AdminOrdersComponent implements OnInit {
   }
 
   onChangeSave(): void {
+    this.isLoading = true;
+    this.showSaveModal = false;
     this.adminService.saveOrder(this.orderToSave!).subscribe(
       order => {
         if (order.completed) {
           const index = this.orders.indexOf(this.orderToSave!);
           this.orders.splice(index, 1);
+          this.count--;
           this.orderToSave!.completed = true;
+          this.orderToSave = null;
+          this.ngOnInit();
         }
-        this.showSaveModal = false;
-        this.orderToSave = null;
+        this.isLoading = false;
       },
       error => {
+        this.isLoading = false;
         console.log(error.message);
       }
     )
@@ -95,16 +100,20 @@ export class AdminOrdersComponent implements OnInit {
 
   onConfirmedDelete(): void {
     if (this.orderToDelete) {
+      this.showModal = false;
+      this.isLoading = true;
       this.adminService.deleteOrder(this.orderToDelete?._id).subscribe(
         data => {
           const index = this.orders.indexOf(this.orderToDelete!);
           this.orders.splice(index, 1);
-          this.showModal = false;
           this.orderToDelete = null;
+          this.isLoading = false;
+          this.count--;
+          this.ngOnInit();
         },
         error => {
-          this.showModal = false;
           this.orderToDelete = null;
+          this.isLoading = false;
           console.log(error.message);
         }
       )

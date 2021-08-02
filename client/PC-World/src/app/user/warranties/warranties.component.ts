@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IOrder } from '../../shared/interfaces/order.interface';
+import { IWarranty } from 'src/app/shared/interfaces/warranty.interface';
 import { UserService } from '../user.service';
-import { IProduct } from '../wishlist/wishlist.component';
 
 @Component({
   selector: 'app-warranties',
@@ -12,17 +11,10 @@ import { IProduct } from '../wishlist/wishlist.component';
 export class WarrantiesComponent implements OnInit {
   count: number = 0;
   page: number = 1;
-  warranties: {
-    _id: string,
-    purchaseQuantity: number,
-    warranty: number,
-    user: string,
-    product: IProduct,
-    onModel: string,
-    purchasePrice: number,
-    order: IOrder,
-    createdAt: number
-  }[] = [];
+  warranties: IWarranty[] = [];
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -33,6 +25,7 @@ export class WarrantiesComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     }
+    this.isLoading = true;
     this.activatedRoute.queryParamMap.subscribe(
       params => {
         this.page = Number(params.get('page')) || 1;
@@ -40,14 +33,16 @@ export class WarrantiesComponent implements OnInit {
           data => {
             this.warranties = data.warranties;
             this.count = data.count;
+            this.isLoading = false;
           },
           error => {
-            console.log(error.message);
+            this.isLoading = false;
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
           }
         )
       }
-    )
-
+    );
   }
 
 }

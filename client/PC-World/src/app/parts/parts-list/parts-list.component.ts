@@ -12,6 +12,9 @@ export class PartsListComponent implements OnInit {
   type: string = '';
   page: number = 1;
   count: number = 0;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private activatedRoute: ActivatedRoute,
     private partsService: PartsService,
@@ -33,13 +36,17 @@ export class PartsListComponent implements OnInit {
 
       query += `&product=${this.type}`;
 
+      this.isLoading = true;
       this.partsService.getItems(query).subscribe(
         data => {
           this.products = data.products;
           this.count = data.count;
+          this.isLoading = false;
         },
         error => {
-          console.log(error.message);
+          this.isLoading = false;
+          this.message = 'Something went wrong. Please try again later.';
+          this.msgType = 'error';
         }
       );
     });

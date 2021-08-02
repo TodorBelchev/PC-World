@@ -9,12 +9,14 @@ import { AdminService } from '../../admin.service';
 })
 export class PartsShareComponent implements OnInit {
   myChart: Chart | undefined;
+  isLoading: boolean = false;
   constructor(
     private adminService: AdminService
   ) { }
 
   ngOnInit(): void {
     const ctx = document.getElementById('parts-share') as HTMLCanvasElement;
+    this.isLoading = true;
     this.adminService.getPartsShare().subscribe(
       data => {
         const dateLabels: string[] = [];
@@ -23,6 +25,7 @@ export class PartsShareComponent implements OnInit {
           dateLabels.push(k);
           sales.push(v);
         });
+        this.isLoading = false;
         this.myChart = new Chart(ctx, {
           type: 'pie',
           data: {
@@ -75,7 +78,8 @@ export class PartsShareComponent implements OnInit {
         });
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        console.log(error.error.message);
       }
     )
   }

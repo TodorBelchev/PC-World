@@ -1,4 +1,8 @@
-<div class="parts-container">
+<div class="container">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+</div>
+<div class="parts-container" *ngIf="processorCount != null">
     <a [routerLink]="'/components/processors'" [queryParams]="{ page: 1 }">
         <div class="card">
             <img src="../../../assets/processor.jpg" alt="processor-image">

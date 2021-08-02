@@ -9,8 +9,15 @@
     border-radius: 10px;
     text-align: right;
     flex-basis: 80%;
+    position: relative;
 }
 
 #sales-volume {
     width: 100%;
+}
+
+app-spinner {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }

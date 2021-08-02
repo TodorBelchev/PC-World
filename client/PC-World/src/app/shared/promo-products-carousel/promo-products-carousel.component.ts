@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../interfaces/app-state.interface';
 import { SharedService } from '../shared.service';
+import * as authActions from '../../user/store/auth.actions';
 
 @Component({
   selector: 'app-promo-products-carousel',
@@ -12,18 +15,25 @@ export class PromoProductsCarouselComponent implements OnInit {
   dotsArr: string[] = ['', '', '', '', '', ''];
   index: number = 0;
   dotIndex: number = 0;
+  isLoading: boolean = false;
+  error: string | undefined;
   constructor(
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.sharedService.getPromoProducts().subscribe(
       data => {
         this.promotions = data;
         this.currentProducts = this.promotions.slice(0, 5);
+        this.isLoading = false;
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.error = 'Something went wrong. Please try again later.';
+        this.store.dispatch(authActions.add_message({ msgType: 'error', text: this.error }));
       }
     );
   }

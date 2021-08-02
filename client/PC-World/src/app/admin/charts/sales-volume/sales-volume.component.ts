@@ -9,14 +9,17 @@ import { AdminService } from '../../admin.service';
 })
 export class SalesVolumeComponent implements OnInit {
   myChart: Chart | undefined;
+  isLoading: boolean = false;
   constructor(
     private adminService: AdminService
   ) { }
 
   ngOnInit(): void {
     const ctx = document.getElementById('sales-volume') as HTMLCanvasElement;
+    this.isLoading = true;
     this.adminService.getCurrentSales('current').subscribe(
       data => {
+        this.isLoading = false;
         const dateLabels: string[] = [];
         const sales: number[] = [];
         data.forEach((x: { _id: string, total: number }) => {
@@ -66,7 +69,8 @@ export class SalesVolumeComponent implements OnInit {
         });
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        console.log(error.error.message);
       }
     )
   }

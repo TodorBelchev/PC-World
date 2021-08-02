@@ -1,6 +1,8 @@
 <div class="container">
     <app-user-aside></app-user-aside>
-    <section class="wrapper">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    <section class="wrapper" *ngIf="!isLoading && !message">
         <div class="orders">
             <app-orders-list-item [order]="order" *ngFor="let order of orders"></app-orders-list-item>
             <div class="empty" *ngIf="orders.length === 0">

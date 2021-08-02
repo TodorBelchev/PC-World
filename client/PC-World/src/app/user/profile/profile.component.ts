@@ -16,8 +16,10 @@ export class ProfileComponent implements OnInit {
   user: IUser | undefined;
   editMode: boolean = false;
   editProfileForm: FormGroup;
-  message: string = '';
-  type: string = '';
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
+  serverError: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -35,13 +37,18 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.userService.loadProfile().subscribe(
       user => {
         this.user = user;
         this.editProfileForm.patchValue(user);
+        this.isLoading = false;
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
+        this.serverError = true;
       }
     );
   }
@@ -53,32 +60,35 @@ export class ProfileComponent implements OnInit {
   onSubmit(): void {
     if (this.editProfileForm.invalid || this.editProfileForm.pending) {
       let message = '';
-      this.type = 'error';
+      this.msgType = 'error';
       this.editProfileForm.get('email')?.hasError('required') ? message += 'Email is required.' : '';
       this.editProfileForm.get('email')?.hasError('invalidEmail') ? message += 'Email is invalid.' : '';
       this.message = message;
       return;
     }
+    this.isLoading = true;
     this.userService.editProfile(this.editProfileForm.value)
       .subscribe(
         user => {
           this.store.dispatch(AuthActions.auth_success(user));
           this.editMode = !this.editMode;
           this.user = Object.assign(this.user, user);
-          this.type = 'success';
+          this.msgType = 'success';
           this.message = 'Profile saved';
+          this.isLoading = false;
         },
         error => {
-          this.type = 'error';
-          this.message = error.error.message;
-          console.log(error.message);
+          this.isLoading = false;
+          this.message = 'Something went wrong. Please try again later.';
+          this.msgType = 'error';
+          this.serverError = true;
         }
       )
   }
 
   onCloseNotification(): void {
-    this.message = '';
-    this.type = '';
+    this.msgType = undefined;
+    this.message = undefined;
   }
 
 }

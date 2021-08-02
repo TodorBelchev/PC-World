@@ -13,6 +13,8 @@ export class AdminArchivedOrdersComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   orders: IOrder[] = [];
   showModal: boolean = false;
+  noOrders: boolean = false;
+  isLoading: boolean = false;
   orderToDelete: IOrder | null = null;
   startDate: string | undefined;
   endDate: string | undefined;
@@ -41,12 +43,20 @@ export class AdminArchivedOrdersComponent implements OnInit {
       this.endDate = params['endDate'] || undefined;
 
       if (query != '?') {
+        this.isLoading = true;
         this.adminService.getArchivedOrdersByPage(query).subscribe(
           data => {
+            this.isLoading = false;
             this.orders = data.orders;
             this.count = data.count;
+            if (this.orders.length == 0) {
+              this.noOrders = true;
+            } else {
+              this.noOrders = false;
+            }
           },
           error => {
+            this.isLoading = false;
             console.log(error.error.message);
           }
         );
@@ -62,7 +72,7 @@ export class AdminArchivedOrdersComponent implements OnInit {
 
     urlParams.startDate = this.startDate;
     urlParams.endDate = this.endDate;
-    urlParams.page = this.page;
+    urlParams.page = 1;
 
     this.router.navigate([], { relativeTo: this.activatedRoute, queryParams: urlParams });
   }
@@ -74,19 +84,22 @@ export class AdminArchivedOrdersComponent implements OnInit {
 
   onConfirmedDelete(): void {
     if (this.orderToDelete) {
+      this.isLoading = true;
+      this.showModal = false;
       this.adminService.deleteOrder(this.orderToDelete?._id).subscribe(
         data => {
           const index = this.orders.indexOf(this.orderToDelete!);
           this.orders.splice(index, 1);
-          this.showModal = false;
           this.orderToDelete = null;
+          this.isLoading = false;
         },
         error => {
-          this.showModal = false;
           this.orderToDelete = null;
+          this.isLoading = false;
           console.log(error.message);
         }
-      )
+      );
+      this.ngOnInit();
     }
   }
 

@@ -11,6 +11,7 @@ export class CreateComponent implements OnInit {
   selectedPart: string = 'processors';
   fileList: {} = {};
   editMode: boolean = false;
+  isLoading: boolean = false;
   id: string = '';
   constructor(
     private partsService: PartsService,
@@ -52,12 +53,16 @@ export class CreateComponent implements OnInit {
     }
 
 
+    this.isLoading = true;
     if (event.editMode) {
       this.partsService.editPart(formData, this.selectedPart, this.id).subscribe(
         part => {
+          event.form.reset();
           this.router.navigateByUrl(`components/${this.selectedPart}/${part._id}`);
+          this.isLoading = false;
         },
         error => {
+          this.isLoading = false;
           console.log(error.message);
         }
       );
@@ -66,8 +71,10 @@ export class CreateComponent implements OnInit {
         part => {
           event.form.reset();
           this.router.navigateByUrl(`components/${this.selectedPart}/${part._id}`)
+          this.isLoading = false;
         },
         error => {
+          this.isLoading = false;
           console.log(error.message);
         }
       );

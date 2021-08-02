@@ -11,6 +11,9 @@ export class MonitorsListComponent implements OnInit {
   monitors: [] = [];
   page: number = 1;
   count: number = 0;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private monitorService: MonitorService,
     private activatedRoute: ActivatedRoute,
@@ -29,13 +32,17 @@ export class MonitorsListComponent implements OnInit {
       });
       this.page = params['page'];
 
+      this.isLoading = true;
       this.monitorService.getItems(query).subscribe(
         data => {
           this.monitors = data.products;
           this.count = data.count;
+          this.isLoading = false;
         },
         error => {
-          console.log(error.message);
+          this.isLoading = false;
+          this.message = 'Something went wrong. Please try again later.';
+          this.msgType = 'error';
         }
       );
     });

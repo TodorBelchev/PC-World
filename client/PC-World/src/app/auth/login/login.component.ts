@@ -17,6 +17,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   error: string= '';
+  isLoading: boolean = false;
   constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
     }
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
+    this.isLoading = true;
     this.authService.login({ email, password }).subscribe(
       user => {
         this.store.dispatch(auth_success({
@@ -62,10 +64,12 @@ export class LoginComponent implements OnInit {
           lastName: user.lastName || '',
           phoneNumber: user.phoneNumber || ''
         }));
+        this.isLoading = false;
         this.loginForm.reset();
         this.router.navigateByUrl('/');
       },
       error => {
+        this.isLoading = false;
         if (error.status === 0 || error.status === 500) {
           this.error = 'Something went wrong. Please try again later.'
         } else {

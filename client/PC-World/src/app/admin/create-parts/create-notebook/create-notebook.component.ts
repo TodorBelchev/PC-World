@@ -14,6 +14,7 @@ export class CreateNotebookComponent implements OnInit {
   fileList: {} = {};
   notebook: INotebook | undefined;
   editMode: boolean = false;
+  isLoading: boolean = false;
   constructor(
     private notebookService: NotebookService,
     private router: Router,
@@ -22,13 +23,16 @@ export class CreateNotebookComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.url[0] && this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.isLoading = true;
       this.notebookService.getById(this.activatedRoute.snapshot.url[2].path).subscribe(
         notebook => {
           this.notebook = notebook;
           this.editMode = true;
+          this.isLoading = false;
         },
         error => {
           this.editMode = false;
+          this.isLoading = false;
           console.log(error.message);
         }
       )
@@ -51,11 +55,12 @@ export class CreateNotebookComponent implements OnInit {
       formData.append('pic' + k, v as string);
     }
 
+    this.isLoading = true;
     if (!this.notebook) {
       this.notebookService.create(formData).subscribe(
         data => {
-          this.form.reset();
           this.router.navigateByUrl('notebooks/' + data._id);
+          this.isLoading = false;
         },
         error => {
           console.log(error.message);
@@ -63,8 +68,8 @@ export class CreateNotebookComponent implements OnInit {
     } else {
       this.notebookService.edit(this.notebook!._id, formData).subscribe(
         data => {
-          this.form.reset();
           this.router.navigateByUrl('notebooks/' + data._id);
+          this.isLoading = false;
         },
         error => {
           console.log(error.message);

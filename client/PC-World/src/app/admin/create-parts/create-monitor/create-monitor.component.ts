@@ -14,6 +14,7 @@ export class CreateMonitorComponent implements OnInit {
   fileList: {} = {};
   monitor: IMonitor | undefined;
   editMode: boolean = false;
+  isLoading: boolean = false;
   constructor(
     private monitorService: MonitorService,
     private router: Router,
@@ -22,13 +23,16 @@ export class CreateMonitorComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.url[0] && this.activatedRoute.snapshot.url[0].path === 'edit-products') {
+      this.isLoading = true;
       this.monitorService.getItem(this.activatedRoute.snapshot.url[2].path).subscribe(
         monitor => {
           this.monitor = monitor;
           this.editMode = true;
+          this.isLoading = false;
         },
         error => {
           this.editMode = false;
+          this.isLoading = false;
           console.log(error.message);
         }
       )
@@ -50,23 +54,27 @@ export class CreateMonitorComponent implements OnInit {
       formData.append('pic' + k, v as string);
     }
 
+    this.isLoading = true;
     if (this.editMode) {
       this.monitorService.edit(this.monitor!._id, formData).subscribe(
         data => {
           this.router.navigateByUrl('/monitors/' + this.monitor!._id);
+          this.isLoading = false;
         },
         error => {
           console.log(error.message);
+          this.isLoading = false;
         }
       )
     } else {
       this.monitorService.create(formData).subscribe(
         data => {
-          this.form.reset();
           this.router.navigateByUrl('/monitors/' + data._id);
+          this.isLoading = false;
         },
         error => {
           console.log(error.message);
+          this.isLoading = false;
         }
       );
     }

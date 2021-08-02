@@ -13,6 +13,9 @@ export class OrdersListComponent implements OnInit {
   userId: string = '';
   count: number = 0;
   page: number = 1;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
@@ -27,20 +30,20 @@ export class OrdersListComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(
       params => {
         this.page = params['page'] || 1;
+        this.isLoading = true;
         this.userService.getOrders(this.userId, this.page).subscribe(
           data => {
             this.orders = data.orders;
             this.count = data.count;
+            this.isLoading = false;
           },
           error => {
-            console.log(error.message);
+            this.isLoading = false;
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
           }
         );
-      },
-      error => {
-        console.log(error.message);
-      }
-    );
+      });
   }
 
 }

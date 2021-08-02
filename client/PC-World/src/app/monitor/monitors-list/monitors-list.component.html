@@ -1,5 +1,7 @@
-<div class="container">
-    <app-aside></app-aside>
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="container" *ngIf="!isLoading">
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    <app-aside *ngIf="!message && !msgType"></app-aside>
     <ul>
         <li *ngFor="let monitor of monitors">
             <app-product-list-item [product]="monitor" [type]="'monitors'"></app-product-list-item>

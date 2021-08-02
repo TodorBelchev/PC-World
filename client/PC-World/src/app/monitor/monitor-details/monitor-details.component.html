@@ -1,9 +1,13 @@
-<!-- <app-add-comment-modal (closeModal)="onCloseModal()" [showModal]="showModal" *ngIf="showModal" [product]="{ _id: monitor!._id, productName: 'monitor'}"></app-add-comment-modal> -->
-<div class="container">
+<div class="notificaiotns">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+</div>
+<div class="container" *ngIf="!isLoading && monitor">
     <app-images *ngIf="monitor" [images]="monitor.images"></app-images>
     <div class="content" *ngIf="monitor">
         <h2>{{monitor.brand}} {{monitor.model}}</h2>
-        <app-controls (showModalEvent)="onShowModal($event)" [showModal]="showModal" [product]="monitor" [productName]="'monitors'"></app-controls>
+        <app-controls (showModalEvent)="onShowModal($event)" [showModal]="showModal" [product]="monitor"
+            [productName]="'monitors'"></app-controls>
         <div>
             <h3>Parameters:</h3>
             <div class="parameters">

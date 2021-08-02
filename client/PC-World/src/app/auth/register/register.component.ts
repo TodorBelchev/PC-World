@@ -18,6 +18,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   killSubscription = new Subject();
   error: string = '';
+  isLoading: boolean = false;
   constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
@@ -62,6 +63,7 @@ export class RegisterComponent {
 
     const email = this.registerForm.value.email;
     const password = this.registerForm.value.password;
+    this.isLoading = true;
     this.authService.register({ email, password }).subscribe(
       user => {
         this.store.dispatch(auth_success({
@@ -74,10 +76,12 @@ export class RegisterComponent {
           lastName: user.lastName || '',
           phoneNumber: user.phoneNumber || ''
         }));
-        this.router.navigateByUrl('/');
+        this.isLoading = false;
         this.registerForm.reset();
+        this.router.navigateByUrl('/');
       },
       error => {
+        this.isLoading = false;
         if (error.status === 0 || error.status === 500) {
           this.error = 'Something went wrong. Please try again later.'
         } else {

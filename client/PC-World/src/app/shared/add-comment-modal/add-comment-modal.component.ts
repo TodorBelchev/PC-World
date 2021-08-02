@@ -24,6 +24,10 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
   user$: Observable<IUser | null> = this.store.select(authSelectors.selectUser);
   user: IUser | null = null;
   userSub: Subscription = new Subscription;
+  formError: string | undefined;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private fb: FormBuilder,
     private sharedService: SharedService,
@@ -31,31 +35,10 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
 
   ) {
     this.commentForm = this.fb.group({
-      comment: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(10)
-        ]
-      ],
-      rating: [
-        '',
-        [
-          Validators.required
-        ]
-      ],
-      firstName: [
-        '',
-        [
-          Validators.required
-        ]
-      ],
-      lastName: [
-        '',
-        [
-          Validators.required
-        ]
-      ]
+      comment: ['', [Validators.required, Validators.minLength(10)]],
+      rating: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]]
     })
   }
 
@@ -63,6 +46,7 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
     this.userSub = this.user$.subscribe(
       user => {
         this.user = user;
+        this.commentForm.patchValue(user!);
       },
       error => {
         console.log(error.message);
@@ -76,9 +60,16 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     const reqBody = this.commentForm.value;
-    this.user?.firstName ? reqBody.firstName = this.user.firstName : '';
-    this.user?.lastName ? reqBody.lastName = this.user.lastName : '';
+    if (this.commentForm.get('firstName')?.hasError('required')
+      || this.commentForm.get('lastName')?.hasError('required')
+      || this.commentForm.get('comment')?.hasError('required')
+      || this.commentForm.get('rating')?.hasError('required')
+    ) {
+      this.formError = 'All fields are required!';
+      return;
+    }
 
+    this.isLoading = true;
     this.sharedService.createComment(reqBody, this.product!._id, this.productName!).subscribe(
       data => {
         const comment: IComment = {
@@ -87,10 +78,13 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
           createdAt: data.createdAt,
           modelId: data.modelId
         }
+        this.isLoading = false;
         this.commentCreated.emit(comment);
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     )
   }

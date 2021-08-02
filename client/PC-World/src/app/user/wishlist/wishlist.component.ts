@@ -11,6 +11,7 @@ import { NotebookService } from 'src/app/notebook/notebook.service';
 import { first } from 'rxjs/operators';
 import { PartsService } from 'src/app/parts/parts.service';
 import { MonitorService } from 'src/app/monitor/monitor.service';
+import { IProduct } from 'src/app/shared/interfaces/simple-product.interface';
 
 @Component({
   selector: 'app-wishlist',
@@ -24,6 +25,9 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
   wishlist$: Observable<wishlistProps[]> = this.store.select(authSelectors.selectWishlist);
   wishlistSub: Subscription = new Subscription();
   products: IProduct[] = [];
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
 
   constructor(
     private store: Store<AppState>,
@@ -35,10 +39,13 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
   ngOnInit(): void {
     this.wishlistSub = this.wishlist$.pipe(first()).subscribe(
       wishlist => {
+        this.isLoading = true;
         this.products = this.fetchWishlist(wishlist);
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     );
   }
@@ -53,37 +60,49 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
 
   fetchWishlist(wishlist: wishlistProps[]): IProduct[] {
     const fetchedWishlist: IProduct[] = [];
+    if (wishlist.length == 0) {
+      this.isLoading = false;
+      return [];
+    }
     wishlist.forEach((x: { _id: string, productType: string }) => {
       if (x.productType === 'notebooks') {
         this.notebookService.getById(x._id).subscribe(
           notebook => {
+            this.isLoading = false;
             fetchedWishlist.push({ ...notebook, type: x.productType, urlPrefix: x.productType });
           },
           error => {
-            console.log(error.message);
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
+            this.isLoading = false;
           }
         )
       } else if (x.productType === 'monitors') {
         this.monitorService.getItem(x._id).subscribe(
           monitor => {
+            this.isLoading = false;
             fetchedWishlist.push({ ...monitor, type: x.productType });
           },
           error => {
-            console.log(error.message);
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
+            this.isLoading = false;
           }
         )
-      } else {
+      } else if (x.productType !== '') {
         this.partsService.getItem(x.productType, x._id).subscribe(
           part => {
+            this.isLoading = false;
             fetchedWishlist.push({ ...part, type: x.productType, urlPrefix: `/components/${x.productType}` });
           },
           error => {
-            console.log(error.message);
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
+            this.isLoading = false;
           }
         )
       }
     });
-
     return fetchedWishlist;
   }
 
@@ -100,17 +119,4 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
     }
   }
 
-}
-
-export interface IProduct {
-  _id: string;
-  images: string[];
-  brand: string;
-  model: string;
-  price: number;
-  promoPrice: number;
-  type: string;
-  quantity: number;
-  warranty: number;
-  urlPrefix?: string;
 }

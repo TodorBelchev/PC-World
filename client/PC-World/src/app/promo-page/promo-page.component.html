@@ -1,6 +1,11 @@
-<div class="container">
+<div class="notifications">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+</div>
+<div class="container" *ngIf="!isLoading && products.length > 0">
     <app-aside></app-aside>
-    <div class="products" *ngIf="productType === 'notebooks' && products.length > 0">
-        <app-product-list-item *ngFor="let product of products" [product]="product" [type]="'notebooks'"></app-product-list-item>
+    <div class="products" *ngIf="productType && products.length > 0">
+        <app-product-list-item *ngFor="let product of products" [product]="product" [type]="productType">
+        </app-product-list-item>
     </div>
 </div>

@@ -17,7 +17,8 @@
         <input type="checkbox" id="promotion" name="" [(ngModel)]="selectedPromotion">
         <button (click)="onSelectClick()">Select</button>
     </div>
-    <div class="products">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <div class="products" *ngIf="!isLoading">
         <div *ngFor="let product of products" class="product">
             <div class="product-name">
                 {{product.brand}} {{product.model}}
@@ -35,4 +36,4 @@
     <button class="modal-btn-confirm" (click)="onConfirmedDelete()">Confirm</button>
     <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
 </div>
-<app-paginator [productType]="selectedProduct" *ngIf="count > 16"></app-paginator>
+<app-paginator [productType]="selectedProduct" [itemsPerPage]="16" [count]="count" *ngIf="count > 16"></app-paginator>

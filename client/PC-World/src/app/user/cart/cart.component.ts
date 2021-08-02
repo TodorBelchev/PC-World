@@ -6,7 +6,6 @@ import { NotebookService } from 'src/app/notebook/notebook.service';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import * as authActions from '../store/auth.actions';
 import * as authSelectors from '../store/auth.selectors';
-import { IProduct } from '../wishlist/wishlist.component';
 import { first } from 'rxjs/operators';
 import { IUser } from '../../shared/interfaces/user.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,6 +13,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { PartsService } from 'src/app/parts/parts.service';
 import { MonitorService } from 'src/app/monitor/monitor.service';
+import { IProduct } from 'src/app/shared/interfaces/simple-product.interface';
 
 @Component({
   selector: 'app-cart',
@@ -29,6 +29,9 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
   deliveryPrice = 0;
   totalPrice: number = 0;
   user: IUser | undefined;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   orderForm: FormGroup;
 
   constructor(
@@ -52,6 +55,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
   ngOnInit(): void {
     this.cartSub = this.cart$.pipe(first()).subscribe(
       cart => {
+        this.isLoading = true;
         this.products = this.fetchCart(cart);
       },
       error => {
@@ -81,8 +85,10 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
   onSubmit(): void {
     const orderData = this.orderForm.value;
     orderData.products = [...this.products];
+    this.isLoading = true;
     this.userService.placeOrder(orderData).subscribe(
       data => {
+        this.isLoading = false;
         this.store.dispatch(authActions.empty_cart());
         this.store.dispatch(authActions.add_message({
           text: 'Order successful',
@@ -95,7 +101,9 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
         }
       },
       error => {
-        console.log(error.error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     )
   }
@@ -113,10 +121,15 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
 
   fetchCart(cart: authActions.cartProps[]): IProduct[] {
     const fetchedCart: IProduct[] = [];
+    if (cart.length == 0 ) {
+      this.isLoading = false;
+      return [];
+    }
     cart.forEach((x: { _id: string, productType: string }, index) => {
       if (x.productType === 'notebooks') {
         this.notebookService.getById(x._id).subscribe(
           notebook => {
+            this.isLoading = false;
             fetchedCart.push({
               _id: notebook._id,
               images: notebook.images,
@@ -132,12 +145,15 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
             this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
           },
           error => {
-            console.log(error.message);
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
+            this.isLoading = false;
           }
         );
       } else if (x.productType === 'monitors') {
         this.monitorService.getItem(x._id).subscribe(
           monitor => {
+            this.isLoading = false;
             fetchedCart.push({
               _id: monitor._id,
               images: monitor.images,
@@ -153,12 +169,16 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
             this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
           },
           error => {
-            console.log(error.message);
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
+            this.isLoading = false;
           }
         )
-      } else {
+      } else if (x.productType !== '') {
+        
         this.partsService.getItem(x.productType, x._id).subscribe(
           part => {
+            this.isLoading = false;
             fetchedCart.push({
               _id: part._id,
               images: part.images,
@@ -175,12 +195,14 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
             this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
           },
           error => {
-            console.log(error.message);
+            this.message = 'Something went wrong. Please try again later.';
+            this.msgType = 'error';
+            this.isLoading = false;
           }
         );
       }
     });
-
+    
     return fetchedCart;
   }
 

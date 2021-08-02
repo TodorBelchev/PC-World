@@ -7,6 +7,16 @@
     text-align: right;
 }
 
+.share-container {
+    position: relative;
+}
+
 #parts-share {
     width: 100%;
+}
+
+app-spinner {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }

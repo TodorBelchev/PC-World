@@ -7,3 +7,16 @@ export interface ISimpleProduct {
     price: number | string;
     promoPrice: number | string;
 }
+
+export interface IProduct {
+    _id: string;
+    brand: string;
+    model: string;
+    images: string[];
+    quantity: number;
+    price: number;
+    promoPrice: number;
+    type: string;
+    warranty: number;
+    urlPrefix?: string;
+  }

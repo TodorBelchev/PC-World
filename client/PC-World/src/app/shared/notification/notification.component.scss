@@ -1,4 +1,8 @@
 @import "../variables.scss";
+:host {
+    max-width: 400px;
+}
+
 .error, .success {
     background: $primary-color;
     color: white;
@@ -12,7 +16,6 @@
 
 .error p, .success p {
     padding: 20px;
-    max-width: 300px;
     margin-left: 60px;
 }
 

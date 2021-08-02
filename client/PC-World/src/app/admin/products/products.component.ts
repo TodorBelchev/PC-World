@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MonitorService } from 'src/app/monitor/monitor.service';
 import { NotebookService } from 'src/app/notebook/notebook.service';
 import { PartsService } from 'src/app/parts/parts.service';
-import { IProduct } from 'src/app/user/wishlist/wishlist.component';
+import { IProduct } from 'src/app/shared/interfaces/simple-product.interface';
 
 @Component({
   selector: 'app-products',
@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
   link: string = '';
   page: number = 1;
   count: number = 0;
+  isLoading: boolean = false;
   services: {
     notebooks: NotebookService,
     monitors: MonitorService,
@@ -58,14 +59,12 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(urlParams => {
       let query = '';
-      let countQuery = '';
       this.selectedProduct = urlParams.product;
 
       urlParams.promotion === 'true' ? this.selectedPromotion = true : this.selectedPromotion = false;
 
       for (const [k, v] of Object.entries(urlParams)) {
         query += `${k}=${v}&`;
-        countQuery += `${k}=${v}&`;
       }
 
       if (this.selectedProduct === 'notebooks'
@@ -80,6 +79,7 @@ export class ProductsComponent implements OnInit {
         || this.selectedProduct == 'coolers'
         || this.selectedProduct == 'ssds') {
 
+        this.isLoading = true;
         this.services[this.selectedProduct].getItems(query).subscribe(
           data => {
             this.products = data.products;
@@ -90,8 +90,10 @@ export class ProductsComponent implements OnInit {
             } else {
               this.link = '';
             }
+            this.isLoading = false;
           },
           error => {
+            this.isLoading = false;
             console.log(error.message);
           }
         );
@@ -102,17 +104,10 @@ export class ProductsComponent implements OnInit {
   onSelectClick(): void {
     const urlParams = Object.assign({}, this.route.snapshot.queryParams);
 
-    urlParams.page = this.page;
+    urlParams.page = 1;
     urlParams.product = this.selectedProduct;
     urlParams.promotion = this.selectedPromotion;
 
-    this.router.navigate([], { relativeTo: this.route, queryParams: urlParams });
-  }
-
-  onLoadMoreClick(): void {
-    const urlParams = Object.assign({}, this.route.snapshot.queryParams);
-    this.page++;
-    urlParams.page = this.page;
     this.router.navigate([], { relativeTo: this.route, queryParams: urlParams });
   }
 
@@ -138,15 +133,19 @@ export class ProductsComponent implements OnInit {
       || this.selectedProduct == 'psus'
       || this.selectedProduct == 'coolers'
       || this.selectedProduct == 'ssds') {
-        
+
+      this.isLoading = true;
+      this.showModal = false;
       this.services[this.selectedProduct].delete(this.productToDelete!._id, this.selectedProduct).subscribe(
         data => {
           const index = this.products.indexOf(this.productToDelete!);
           this.products.splice(index, 1);
-          this.showModal = false;
           this.productToDelete = null;
+          this.isLoading = false;
+          this.ngOnInit();
         },
         error => {
+          this.isLoading = false;
           console.log(error.error.message);
         }
       )

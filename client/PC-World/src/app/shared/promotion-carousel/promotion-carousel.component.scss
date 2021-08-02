@@ -85,6 +85,12 @@
     animation-duration: 1s;
 }
 
+app-notification {
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+}
+
 @-webkit-keyframes fade {
     from {
         opacity: 0.4;

@@ -16,22 +16,33 @@ export class PartsComponent implements OnInit {
   caseCount: number | null = null;
   psuCount: number | null = null;
   coolerCount: number | null = null;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private partsService: PartsService
   ) { }
 
   ngOnInit(): void {
-    this.partsService.getCountAll().subscribe(data => {
-      this.processorCount = data.processors;
-      this.vgaCount = data.vga;
-      this.MBCount = data.MB;
-      this.memoryCount = data.memory;
-      this.hddCount = data.hdd;
-      this.caseCount = data.case;
-      this.psuCount = data.psu;
-      this.coolerCount = data.cooler;
-      this.ssdCount = data.ssd;
-    })
+    this.isLoading = true;
+    this.partsService.getCountAll().subscribe(
+      data => {
+        this.processorCount = data.processors;
+        this.vgaCount = data.vga;
+        this.MBCount = data.MB;
+        this.memoryCount = data.memory;
+        this.hddCount = data.hdd;
+        this.caseCount = data.case;
+        this.psuCount = data.psu;
+        this.coolerCount = data.cooler;
+        this.ssdCount = data.ssd;
+        this.isLoading = false;
+      },
+      error => {
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
+      });
   }
 
 }

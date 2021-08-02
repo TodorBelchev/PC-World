@@ -5,10 +5,15 @@
     <input ngModel type="date" id="endDate" name="endDate" [ngModel]="endDate">
     <input type="submit" value="Search">
 </form>
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="order" *ngIf="noOrders">
+    No orders for selected period.
+</div>
 <div *ngFor="let order of orders">
     <div class="order">
         <div class="order-title">Order id: {{order._id}}</div>
-        <div class="order-title">User id: {{order.user}}</div>
+        <div class="order-title" *ngIf="order.user">User id: {{order.user}}</div>
+        <div class="order-title" *ngIf="order.guest">Guest user: {{order.guest.firstName}} {{order.guest.lastName}}</div>
         <div class="order-status">Status: <strong>{{order?.status}}</strong></div>
         <button class="order-btn-delete" (click)="onDeleteOrder(order)">X</button>
         <a routerLink="/{{product?.onModel | productType}}/{{product.product._id}}" class="order-product"

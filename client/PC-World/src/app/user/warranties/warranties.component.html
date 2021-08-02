@@ -1,6 +1,8 @@
 <div class="container">
     <app-user-aside></app-user-aside>
-    <div class="warranties-container">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    <div class="warranties-container" *ngIf="!isLoading && !message">
         <section class="warranties">
             <h3 class="warranties-title">My warranties:</h3>
             <article class="warranties-item" *ngFor="let warranty of warranties">

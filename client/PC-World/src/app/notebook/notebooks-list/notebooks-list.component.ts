@@ -12,6 +12,9 @@ export class NotebooksListComponent implements OnInit {
   pages: string[] = [];
   page: number = 1;
   count: number = 0;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private notebookService: NotebookService,
     private activatedRoute: ActivatedRoute,
@@ -32,13 +35,17 @@ export class NotebooksListComponent implements OnInit {
       this.page = params['page'];
     });
 
+    this.isLoading = true;
     this.notebookService.getItems(query).subscribe(
       data => {
         this.notebooks = data.products;
         this.count = data.count;
+        this.isLoading = false;
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     );
   }

@@ -1,4 +1,5 @@
-<div class="slideshow-container">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="slideshow-container" *ngIf="!isLoading && !error">
     <div *ngFor="let promo of promotions; let i = index" class="slides">
         <div class="mySlides fade" *ngIf="i === currentIndex">
             <a routerLink="/promotions/{{promo.productType | productType}}/{{promo._id}}">

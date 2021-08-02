@@ -15,7 +15,11 @@ export interface IOrder {
         onModel: string;
     }];
     status: string;
-    user: string;
+    user?: string;
+    guest?: {
+        firstName: string;
+        lastName: string;
+    }
     isVisible: boolean;
     deliveryPrice: number;
     totalPrice: number;

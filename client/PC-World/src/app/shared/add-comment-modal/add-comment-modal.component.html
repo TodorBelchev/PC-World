@@ -1,12 +1,10 @@
 <div class="new-modal" (click)="onContainerClick($event)">
-    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading && !message">
         <h3 class="form-title">Review this product:</h3>
-        <label *ngIf="(user$ | async)?.firstName == ''" for="firstName">First name:</label>
-        <input formControlName="firstName" *ngIf="(user$ | async)?.firstName == ''" type="text" id="firstName"
-            name="firstName">
-        <label *ngIf="(user$ | async)?.lastName == ''" for="lastName">Last name:</label>
-        <input formControlName="lastName" *ngIf="(user$ | async)?.lastName == ''" type="text" id="lastName"
-            name="lastName">
+        <label for="firstName">First name:</label>
+        <input formControlName="firstName" type="text" id="firstName" name="firstName">
+        <label for="lastName">Last name:</label>
+        <input formControlName="lastName" type="text" id="lastName" name="lastName">
         <label for="comment">Leave comment:</label>
         <textarea formControlName="comment" type="text" id="comment" name="comment"> </textarea>
         <label>Leave rating:</label>
@@ -42,7 +40,14 @@
                 <span class="icon">&#9733;</span>
             </label>
         </div>
+        <div class="error" *ngIf="formError">
+            {{formError}}
+        </div>
         <input type="submit" value="Comment">
         <input type="button" value="Cancel" (click)="onCancelClick()">
     </form>
+    <div class="spinner-container">
+        <app-spinner *ngIf="isLoading"></app-spinner>
+        <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    </div>
 </div>

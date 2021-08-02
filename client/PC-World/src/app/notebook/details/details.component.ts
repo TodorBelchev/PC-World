@@ -15,6 +15,9 @@ export class DetailsComponent implements OnInit {
   notebook: INotebook | undefined;
   imageIndex: number = 0;
   id = this.router.url.split('/')[2];
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
 
   constructor(
     private notebookService: NotebookService,
@@ -22,12 +25,16 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.notebookService.getById(this.id).subscribe(
       data => {
         this.notebook = data;
+        this.isLoading = false;
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     )
   }

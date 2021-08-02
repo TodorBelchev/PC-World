@@ -15,18 +15,25 @@ export class MonitorDetailsComponent implements OnInit {
   imageIndex: number = 0;
   id = this.router.url.split('/')[2];
   monitor: IMonitor | undefined;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private monitorService: MonitorService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.monitorService.getItem(this.id).subscribe(
       data => {
         this.monitor = data;
+        this.isLoading = false;
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     )
   }

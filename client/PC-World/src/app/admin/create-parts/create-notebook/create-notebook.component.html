@@ -1,4 +1,5 @@
-<div class="container">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="container" *ngIf="!isLoading">
     <form (ngSubmit)="onSubmit()" #f="ngForm" enctype="multipart/form-data">
         <label for="brand">Brand:</label>
         <input ngModel type="text" name="brand" id="brand" [ngModel]="notebook?.brand">

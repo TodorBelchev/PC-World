@@ -35,8 +35,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onCloseNotification(): void {
-    this.message = undefined;
-    this.type = undefined;
     this.store.dispatch(authActions.clear_message());
   }
 

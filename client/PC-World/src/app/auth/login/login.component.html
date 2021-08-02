@@ -3,7 +3,8 @@
         <li class="active"><a routerLink="/login">Login</a></li>
         <li><a routerLink="/auth/register">Register</a></li>
     </ul>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
         <input formControlName="email" type="email" placeholder="email">
         <div class="error"
             *ngIf="(loginForm.get('email')?.touched || loginForm.get('email')?.dirty) && loginForm.get('email')?.errors?.required">
@@ -21,7 +22,8 @@
             *ngIf="(loginForm.get('password')?.touched || loginForm.get('password')?.dirty) && loginForm.get('password')?.errors?.minLength">
             Password must be at least 8 characters long!
         </div>
-        <app-notification (closeNotification)="onCloseNotification()" *ngIf="error.length !== 0" [message]="error" [type]="'error'"></app-notification>
+        <app-notification (closeNotification)="onCloseNotification()" *ngIf="error.length !== 0" [message]="error"
+            [type]="'error'"></app-notification>
         <input type="submit" value="Login">
     </form>
 </div>

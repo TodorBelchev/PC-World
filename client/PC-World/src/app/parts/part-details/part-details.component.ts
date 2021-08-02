@@ -34,14 +34,19 @@ export class PartDetailsComponent implements OnInit {
   ssd: ISsd | undefined;
   psu: IPsu | undefined;
   cooler: ICooler | undefined;
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private router: Router,
     private partsService: PartsService
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.partsService.getItem(this.partType, this.id).subscribe(
       data => {
+        this.isLoading = false;
         this.part = data;
         if (this.partType == 'cases') {
           this.case = data;
@@ -64,7 +69,9 @@ export class PartDetailsComponent implements OnInit {
         }
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     )
   }

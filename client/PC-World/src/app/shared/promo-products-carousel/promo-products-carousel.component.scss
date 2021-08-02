@@ -19,7 +19,6 @@
 .mySlides.fade {
     width: 20%;
     height: 20%;
-    // position: absolute;
     left: 0;
     top: 0;
     right: 0;
@@ -108,6 +107,12 @@
 .active,
 .dot:hover {
     background-color: #717171;
+}
+
+app-notification {
+    display: block;
+    width: 40%;
+    margin: 0 auto;
 }
 
 @-webkit-keyframes fade {

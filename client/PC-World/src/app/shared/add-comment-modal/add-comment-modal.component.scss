@@ -131,3 +131,17 @@ input[type="submit"], input[type="button"] {
 input[type="button"] {
     background: $primary-color;
 }
+
+.error {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.spinner-container {
+    width: 500px;
+    height: 250px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

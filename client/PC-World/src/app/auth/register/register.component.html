@@ -3,7 +3,8 @@
         <li><a routerLink="/auth/login">Login</a></li>
         <li class="active"><a routerLink="/register">Register</a></li>
     </ul>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
         <input formControlName="email" type="email" name="email" placeholder="email">
         <div class="error"
             *ngIf="(registerForm.get('email')?.touched || registerForm.get('email')?.dirty) && registerForm.get('email')?.errors?.required">

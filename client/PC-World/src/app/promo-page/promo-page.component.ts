@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NotebookService } from '../notebook/notebook.service';
 import { INotebook } from '../shared/interfaces/notebook.interface';
 import { SharedService } from '../shared/shared.service';
 
@@ -13,6 +12,9 @@ export class PromoPageComponent implements OnInit {
   productType: string = '';
   promoId: string = '';
   products: INotebook[] = [];
+  isLoading: boolean = false;
+  message: string | undefined;
+  msgType: string | undefined;
   constructor(
     private activatedRoute: ActivatedRoute,
     private sharedService: SharedService
@@ -23,19 +25,23 @@ export class PromoPageComponent implements OnInit {
     this.productType = this.activatedRoute.snapshot.params['productType'];
     this.promoId = this.activatedRoute.snapshot.params['id'];
 
-    
+
     this.activatedRoute.queryParams.subscribe(params => {
       let query = '';
       Object.entries(params).forEach(([k, v]) => {
         query += '&' + k + '=' + v;
       });
 
+      this.isLoading = true;
       this.sharedService.getPromotionById(this.promoId, query).subscribe(
         data => {
           this.products = data.products;
+          this.isLoading = false;
         },
         error => {
-          console.log(error);
+          this.isLoading = false;
+          this.message = 'Something went wrong. Please try again later.';
+          this.msgType = 'error';
         }
       );
     });

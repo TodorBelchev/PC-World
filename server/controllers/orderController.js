@@ -172,11 +172,10 @@ router.get('/admin/:page', isLogged(), isAdmin(), async (req, res) => {
 router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
     try {
         const order = await getOrder(req.body._id);
-        let completed = false;
         if (order.status == 'completed') {
             throw new Error('This order is completed!')
         }
-        if (req.body.status == 'completed') {
+        if (req.body.status == 'completed' && order.user) {
             order.products.forEach(x => {
                 generateWarranty({
                     user: order.user || order.guest,
@@ -190,11 +189,10 @@ router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
                 x.product.quantity -= x.purchaseQuantity;
                 x.product.save();
             });
-            completed = true;
         }
 
         const newData = req.body;
-        newData.completed = completed;
+        newData.completed = req.body.status == 'completed';
         await updateOrder(req.body._id, req.body);
         const updated = await getOrder(req.body._id);
         res.status(200).send(updated);

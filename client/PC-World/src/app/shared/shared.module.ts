@@ -18,6 +18,7 @@ import { ProductListItemComponent } from './product-list-item/product-list-item.
 import { PromoProductsCarouselComponent } from './promo-products-carousel/promo-products-carousel.component';
 import { ShortenTextPipe } from './pipes/shorten-text.pipe';
 import { NotificationComponent } from './notification/notification.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -38,6 +39,7 @@ import { NotificationComponent } from './notification/notification.component';
     PromoProductsCarouselComponent,
     ShortenTextPipe,
     NotificationComponent,
+    SpinnerComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { NotificationComponent } from './notification/notification.component';
     PromotionCarouselComponent,
     ProductListItemComponent,
     PromoProductsCarouselComponent,
-    NotificationComponent
+    NotificationComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

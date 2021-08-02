@@ -1,3 +1,7 @@
+<div class="notifications">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+</div>
 <div class="container" *ngIf="part">
     <app-images [images]="part.images"></app-images>
     <div class="content">
