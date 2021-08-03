@@ -1,0 +1,13 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div *ngIf="!isLoading">
+    <form class="promo-product-form" (ngSubmit)="onAddSubmit()" #addForm="ngForm">
+        <label for="addProduct">Add product:</label>
+        <input ngModel type="text" name="addProduct" id="addProduct">
+        <input type="submit" value="Add">
+    </form>
+    <form class="promo-product-form" (ngSubmit)="onRemoveSubmit()" #removeForm="ngForm">
+        <label for="removeProduct">Remove product:</label>
+        <input ngModel type="text" name="removeProduct" id="removeProduct">
+        <input type="submit" value="Remove">
+    </form>
+</div>

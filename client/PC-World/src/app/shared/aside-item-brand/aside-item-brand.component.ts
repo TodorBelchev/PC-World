@@ -67,7 +67,7 @@ export class AsideItemBrandComponent implements OnInit {
       brands: this.selectedBrands.join(',')
     }
 
-    if(this.selectedBrands.length == 0) {
+    if (this.selectedBrands.length == 0) {
       delete queryParams.brands;
     }
 

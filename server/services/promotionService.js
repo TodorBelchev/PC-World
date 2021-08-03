@@ -12,6 +12,10 @@ const getById = (id, filter) => {
     });
 }
 
+const getByIdPure = (id) => {
+    return Promotion.findById(id);
+}
+
 const getAll = () => {
     return Promotion.find({});
 }
@@ -24,5 +28,6 @@ module.exports = {
     createPromo,
     getById,
     getAll,
-    deletePromo
+    deletePromo,
+    getByIdPure
 }

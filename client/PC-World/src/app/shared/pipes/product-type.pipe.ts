@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ProductTypePipe implements PipeTransform {
 
-  transform(value: string | undefined): string {
+  transform(value: string | undefined, isPromo?: boolean | undefined): string {
     let result = '';
     if (value == 'Notebook') {
       result = 'notebooks';
@@ -29,6 +29,9 @@ export class ProductTypePipe implements PipeTransform {
       result = 'components/ssds'
     } else if (value == 'Vga') {
       result = 'components/vgas'
+    }
+    if (isPromo) {
+      result = result.replace('components/', '');
     }
 
     return result;

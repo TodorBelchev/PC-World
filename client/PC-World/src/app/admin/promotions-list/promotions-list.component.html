@@ -5,6 +5,7 @@
             <a class="promo-link" href="/promotions/{{promo.productType | productType}}/{{promo._id}}">Go to promo</a>
             <button class="promo-btn-delete" (click)="onDeleteClick(promo)">X</button>
         </div>
+        <app-add-remove-product [promo]="promo"></app-add-remove-product>
     </article>
 </section>
 <div class="modal-background" *ngIf="showModal" (click)="onCancelClick()"></div>

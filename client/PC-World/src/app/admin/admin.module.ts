@@ -28,6 +28,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { PartsShareComponent } from './charts/parts-share/parts-share.component';
 import { AdminArchivedOrdersComponent } from './admin-archived-orders/admin-archived-orders.component';
 import { PromotionsListComponent } from './promotions-list/promotions-list.component';
+import { AddRemoveProductComponent } from './promo/add-remove-product/add-remove-product.component';
 
 
 
@@ -54,7 +55,8 @@ import { PromotionsListComponent } from './promotions-list/promotions-list.compo
     SalesVolumeComponent,
     PartsShareComponent,
     AdminArchivedOrdersComponent,
-    PromotionsListComponent
+    PromotionsListComponent,
+    AddRemoveProductComponent
   ],
   imports: [
     CommonModule,

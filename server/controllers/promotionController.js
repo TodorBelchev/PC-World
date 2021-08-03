@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const formidable = require('formidable');
 
-const { createPromo, getById, getAll, deletePromo } = require('../services/promotionService');
+const { createPromo, getById, getAll, deletePromo, getByIdPure } = require('../services/promotionService');
 const { getPromoNotebooks } = require('../services/notebookService');
 const { getPromoParts } = require('../services/partService');
 const { getPromoMonitors } = require('../services/monitorService');
@@ -71,6 +71,21 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.put('/:id', async (req, res) => {
+    try {
+        const promo = await getById(req.params.id, {});
+        if (req.body.addProduct) {
+            await promo.updateOne({ $push: { products: req.body.addProduct.addProduct } });
+        } else {
+            await promo.updateOne({ $pull: { products: req.body.removeProduct.removeProduct } });
+        }
+        res.status(200).send(promo);
+    } catch (error) {
+        console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.post('/', isLoggedIn(), async (req, res) => {
     try {
         const form = formidable({ multiples: true });
@@ -78,15 +93,16 @@ router.post('/', isLoggedIn(), async (req, res) => {
         formData.products = JSON.parse(formData.products);
         const imagesURL = [];
 
+        if (Object.values(incFiles).length == 0 || formData.products.length == 0 || !formData.productType || !formData.expirationDate || !formData.promoName) {
+            throw new Error('All fields are required!');
+        }
+
         for (const file of Object.values(incFiles)) {
             const url = await uploadToCloudinary(file.path);
             imagesURL.push(url);
         }
 
         formData.image = imagesURL[0];
-        if (!formData.image || formData.products.length == 0 || !formData.productType || !formData.expirationTime || !formData.promoName) {
-            throw new Error('All fields are required!');
-        }
         const promo = await createPromo(formData);
         res.status(201).send(promo);
     } catch (error) {

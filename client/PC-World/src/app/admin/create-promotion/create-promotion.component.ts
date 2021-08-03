@@ -64,6 +64,7 @@ export class CreatePromotionComponent implements OnInit {
     const formData = new FormData();
     formData.append('productType', this.createPromotionForm.value.productsType);
     formData.append('expirationDate', this.createPromotionForm.value.expirationDate);
+    formData.append('promoName', this.createPromotionForm.value.promoName);
 
     for (const [k, v] of Object.entries(this.fileList)) {
       formData.append('pic' + k, v as string);

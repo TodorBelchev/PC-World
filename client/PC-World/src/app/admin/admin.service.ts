@@ -50,4 +50,12 @@ export class AdminService {
     return this.http.delete(environment.api_url + '/promotions/' + id, { withCredentials: true });
   }
 
+  addProductToPromo(promoId: string, productId: string): Observable<any> {
+    return this.http.put(environment.api_url + `promotions/${promoId}`, { addProduct: productId }, { withCredentials: true });
+  }
+
+  removeProductFromPromo(promoId: string, productId: string): Observable<any> {
+    return this.http.put(environment.api_url + `promotions/${promoId}`, { removeProduct: productId }, { withCredentials: true });
+  }
+
 }

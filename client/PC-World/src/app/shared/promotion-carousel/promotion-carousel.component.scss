@@ -22,7 +22,7 @@
 .mySlides.fade img {
     width: 100%;
     height: 100%;
-    object-fit: unset;
+    object-fit: contain;
 }
 
 .prev,

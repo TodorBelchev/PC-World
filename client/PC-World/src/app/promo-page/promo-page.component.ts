@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { INotebook } from '../shared/interfaces/notebook.interface';
+import { IProcessor } from '../shared/interfaces/processor.interface';
 import { SharedService } from '../shared/shared.service';
 
 @Component({
@@ -12,7 +13,8 @@ import { SharedService } from '../shared/shared.service';
 export class PromoPageComponent implements OnInit {
   productType: string = '';
   promoId: string = '';
-  products: INotebook[] = [];
+  category: string = '';
+  products: (INotebook | IProcessor)[] = [];
   isLoading: boolean = false;
   message: string | undefined;
   msgType: string | undefined;
@@ -25,7 +27,9 @@ export class PromoPageComponent implements OnInit {
   ngOnInit(): void {
     this.productType = this.activatedRoute.snapshot.params['productType'];
     this.promoId = this.activatedRoute.snapshot.params['id'];
-
+    if (this.activatedRoute.snapshot.url[1].path !== 'notebooks' && this.activatedRoute.snapshot.url[1].path !== 'monitors') {
+      this.category = 'components';
+    }
 
     this.activatedRoute.queryParams.pipe(
       switchMap(params => {

@@ -2,7 +2,7 @@
 <div class="slideshow-container" *ngIf="!isLoading && !error">
     <div *ngFor="let promo of promotions; let i = index" class="slides">
         <div class="mySlides fade" *ngIf="i === currentIndex">
-            <a routerLink="/promotions/{{promo.productType | productType}}/{{promo._id}}">
+            <a routerLink="/promotions/{{promo.productType | productType:true}}/{{promo._id}}">
                 <img src="{{promo.image}}">
             </a>
         </div>

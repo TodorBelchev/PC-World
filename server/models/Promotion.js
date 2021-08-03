@@ -15,6 +15,10 @@ const promotionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    promoName: {
+        type: String,
+        required: true
+    },
     products: [
         {
             type: mongoose.Schema.Types.ObjectId,

@@ -15,7 +15,7 @@ module.exports = (query) => {
     if (query.promotion == 'false') {
         filter.promoPrice = 0;
     }
-    if (query.brands) {
+    if (query.brands && query.brands.length > 0) {
         const brands = query.brands.split(',');
         if (brands.length > 0) {
             filter.brand = { $in: brands }

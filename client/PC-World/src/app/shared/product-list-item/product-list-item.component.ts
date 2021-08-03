@@ -22,7 +22,8 @@ export class ProductListItemComponent {
   constructor(
     private store: Store<AppState>,
     private router: Router
-  ) { }
+  ) {     
+  }
 
   onAddToCart(product: ISimpleProduct): void {
     let productType = '';

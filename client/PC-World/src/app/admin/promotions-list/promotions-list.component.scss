@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .promo-name {
@@ -70,4 +71,8 @@
 
 .modal-btn-cancel {
     background: $secondary-color;
+}
+
+app-add-remove-product {
+    flex-basis: 100%;
 }
