@@ -10,7 +10,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminAsideComponent } from './admin-aside/admin-aside.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { ProductsComponent } from './products/products.component';
-import { PromotionsComponent } from './promotions/promotions.component';
 import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
 import { CreateMonitorComponent } from './create-parts/create-monitor/create-monitor.component';
 import { CreateNotebookComponent } from './create-parts/create-notebook/create-notebook.component';
@@ -27,8 +26,9 @@ import { SalesVolumeComponent } from './charts/sales-volume/sales-volume.compone
 import { StatisticsComponent } from './statistics/statistics.component';
 import { PartsShareComponent } from './charts/parts-share/parts-share.component';
 import { AdminArchivedOrdersComponent } from './admin-archived-orders/admin-archived-orders.component';
-import { PromotionsListComponent } from './promotions-list/promotions-list.component';
 import { AddRemoveProductComponent } from './promo/add-remove-product/add-remove-product.component';
+import { PromotionsListComponent } from './promo/promotions-list/promotions-list.component';
+import { PromotionsComponent } from './promo/promotions/promotions.component';
 
 
 

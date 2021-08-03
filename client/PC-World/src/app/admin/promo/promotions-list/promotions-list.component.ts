@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPromotion } from 'src/app/shared/interfaces/promotion.interface';
 import { SharedService } from 'src/app/shared/shared.service';
-import { AdminService } from '../admin.service';
+import { AdminService } from '../../admin.service';
 
 @Component({
   selector: 'app-promotions-list',

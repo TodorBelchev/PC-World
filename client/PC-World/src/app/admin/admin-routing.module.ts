@@ -6,11 +6,9 @@ import { CreateComponent } from "./create-parts/create/create.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AdminOrdersComponent } from "./admin-orders/admin-orders.component";
 import { ProductsComponent } from "./products/products.component";
-import { PromotionsComponent } from "./promotions/promotions.component";
+import { PromotionsComponent } from "./promo/promotions/promotions.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { AdminArchivedOrdersComponent } from "./admin-archived-orders/admin-archived-orders.component";
-import { CreateProcessorComponent } from "./create-parts/create-processor/create-processor.component";
-import { CreateCaseComponent } from "./create-parts/create-case/create-case.component";
 
 
 const routes: Routes = [
