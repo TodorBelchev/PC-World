@@ -23,7 +23,7 @@ export class AsideItemPriceComponent implements OnInit {
   }
 
   onSubmit(): void {
-    let queryParams = {};
+    let queryParams = this.route.snapshot.queryParams;
 
     if (isNaN(this.from!) === false) {
       queryParams = {
@@ -40,7 +40,7 @@ export class AsideItemPriceComponent implements OnInit {
     }
 
     const url = this.router.routerState.snapshot.url.split('?')[0];
-    this.router.navigate([url], { queryParams })
+    this.router.navigate([url], { queryParams });
   }
 
 }

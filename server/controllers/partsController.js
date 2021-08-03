@@ -6,7 +6,7 @@ const { uploadToCloudinary } = require('../utils/cloudinary');
 const { createPart, getPartCount, getById } = require('../services/partService');
 const isLoggedIn = require('../middlewares/isLogged');
 const { isAdmin } = require('../middlewares/guards');
-const { getPartsByPage, getFilteredCount, editPart } = require('../services/partService');
+const { getPartsByPage, getFilteredCount, editPart, getBrandsByQuery } = require('../services/partService');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
 
 const router = Router();
@@ -26,6 +26,23 @@ router.get('/', async (req, res) => {
         res.status(200).send({ products: parts, count: partsCount.length });
     } catch (error) {
         console.log(error.message);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/:partType/brands', async (req, res) => {
+    try {
+        let type = req.params.partType;
+        if (type === 'memories') {
+            type = 'memory';
+        } else {
+            type = type.substring(0, type.length - 1);
+        }
+        const filter = extractFilterFromQuery(req.query);
+        const brands = await getBrandsByQuery(type, filter);
+        res.status(200).send({ brands });
+    } catch (error) {
+        console.log(error);
         res.status(400).send({ message: error.message });
     }
 });

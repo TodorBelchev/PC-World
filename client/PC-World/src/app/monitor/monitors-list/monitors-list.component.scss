@@ -1,13 +1,17 @@
 ul {
     list-style: none;
-    flex-basis: 85%;
+    flex-basis: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 0 20px;
     margin: 0;
+    padding: 0;
 }
 
 .container {
     align-items: flex-start;
-    justify-content: center;
+}
+
+app-paginator {
+    flex-basis: 100%;
 }

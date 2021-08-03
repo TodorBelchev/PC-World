@@ -21,10 +21,15 @@ const getById = (id) => {
     return Monitor.findById(id);
 }
 
+const getBrandsByQuery = (filter) => {
+    return Monitor.find({ ...filter, isDeleted: false }).select('brand').distinct('brand') ;
+}
+
 module.exports = {
     createMonitor,
     getMonitorsByPage,
     getFilteredCount,
     getPromoMonitors,
-    getById
+    getById,
+    getBrandsByQuery
 }

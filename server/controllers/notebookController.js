@@ -3,7 +3,7 @@ const formidable = require('formidable');
 
 const { getFromData } = require('../utils/parseForm');
 const { uploadToCloudinary } = require('../utils/cloudinary');
-const { createNotebook, getNotebooksByPage, getCount, getById } = require('../services/notebookService');
+const { createNotebook, getNotebooksByPage, getCount, getById, getBrandsByQuery } = require('../services/notebookService');
 const isLoggedIn = require('../middlewares/isLogged');
 const { isAdmin } = require('../middlewares/guards');
 const extractFilterFromQuery = require('../utils/extractFilterFromQuery');
@@ -22,6 +22,17 @@ router.get('/', async (req, res) => {
         res.status(400).send({ message: error.message });
     }
 
+});
+
+router.get('/brands', async (req, res) => {
+    try {
+        const filter = extractFilterFromQuery(req.query);
+        const brands = await getBrandsByQuery(filter);
+        res.status(200).send({ brands });
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
 });
 
 router.get('/:id', async (req, res) => {
@@ -62,7 +73,6 @@ router.put('/:id', async (req, res) => {
         res.status(400).send({ message: error.message });
     }
 });
-
 
 router.post('/create', isLoggedIn(), async (req, res) => {
     try {

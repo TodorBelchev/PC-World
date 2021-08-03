@@ -1,3 +1,5 @@
+const { QuerystringParser } = require("formidable");
+
 module.exports = (query) => {
     const filter = {};
     if (query.priceFrom && !query.priceTo) {
@@ -12,6 +14,12 @@ module.exports = (query) => {
     }
     if (query.promotion == 'false') {
         filter.promoPrice = 0;
+    }
+    if (query.brands) {
+        const brands = query.brands.split(',');
+        if (brands.length > 0) {
+            filter.brand = { $in: brands }
+        }
     }
     return filter;
 }

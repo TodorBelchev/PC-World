@@ -45,6 +45,10 @@ const getById = (id, partName) => {
     return parts[partName].findById(id);
 }
 
+const getBrandsByQuery = (partName, filter) => {
+    return parts[partName].find({ ...filter, isDeleted: false }).select('brand').distinct('brand');
+}
+
 const getPromoParts = () => {
     return Promise.all([
         Processor.find({ promoPrice: { $gt: 0 } }).limit(2).lean(),
@@ -66,5 +70,6 @@ module.exports = {
     getFilteredCount,
     getById,
     editPart,
-    getPromoParts
+    getPromoParts,
+    getBrandsByQuery
 }

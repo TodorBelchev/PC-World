@@ -21,10 +21,15 @@ const getPromoNotebooks = () => {
     return Notebook.find({ promoPrice: { $gt: 0 }, isDeleted: false }).limit(10).lean();
 }
 
+const getBrandsByQuery = (filter) => {
+    return Notebook.find({ ...filter, isDeleted: false }).select('brand').distinct('brand') ;
+}
+
 module.exports = {
     createNotebook,
     getNotebooksByPage,
     getCount,
     getById,
-    getPromoNotebooks
+    getPromoNotebooks,
+    getBrandsByQuery
 }

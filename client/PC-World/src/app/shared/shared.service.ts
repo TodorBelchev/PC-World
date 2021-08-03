@@ -47,4 +47,8 @@ export class SharedService {
   getPromoProducts(): Observable<any> {
     return this.http.get(environment.api_url + 'promotions/products')
   }
+
+  getBrands(part: string, query: string): Observable<any> {
+    return this.http.get(environment.api_url + part + `/brands${query}`);
+  }
 }
