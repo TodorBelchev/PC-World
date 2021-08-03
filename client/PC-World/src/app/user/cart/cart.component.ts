@@ -84,9 +84,26 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
     this.products.sort((a, b) => b.price - a.price);
   }
 
+  onCloseNotification(): void {
+    this.message = undefined;
+    this.msgType = undefined;
+  }
+
   onSubmit(): void {
+    if (this.orderForm.invalid || this.orderForm.pending) {
+      let message = '';
+      this.msgType = 'error';
+      this.orderForm.get('firstName')?.hasError('required') ? message += 'First name is required.' : '';
+      this.orderForm.get('lastName')?.hasError('required') ? message += 'Last name is required.' : '';
+      this.orderForm.get('phoneNumber')?.hasError('required') ? message += 'Phone number is required.' : '';
+      this.orderForm.get('city')?.hasError('required') ? message += 'City is required.' : '';
+      this.orderForm.get('location')?.hasError('required') ? message += 'Location is required.' : '';
+      this.message = message;
+      return;
+    }
     const orderData = this.orderForm.value;
     orderData.products = [...this.products];
+
     this.isLoading = true;
     this.userService.placeOrder(orderData).subscribe(
       data => {

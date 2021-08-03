@@ -1,0 +1,62 @@
+.container {
+    margin: 0 auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.contacts p {
+    margin: 0 auto;
+}
+
+.coordinates {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+.coordinates-container {
+    padding: 2rem;
+    width: -webkit-fill-available;
+}
+
+iframe {
+    padding-bottom: 1rem;
+    width: -webkit-fill-available;
+}
+
+#about {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1500px) {
+    .coordinates {
+        display: block;
+    }
+
+    .coordinates-container {
+        margin: 0 auto;
+        display: flex;
+    }
+
+    iframe {
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 801px) {
+    .coordinates-container {
+        margin: 0 auto;
+        display: block;
+    }
+
+    iframe {
+        margin: 0;
+    }
+}

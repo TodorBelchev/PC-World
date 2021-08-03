@@ -67,6 +67,11 @@ export class AsideItemBrandComponent implements OnInit {
       brands: this.selectedBrands.join(',')
     }
 
+    if(this.selectedBrands.length == 0) {
+      delete queryParams.brands;
+    }
+
+    queryParams.page = 1;
     const url = this.router.routerState.snapshot.url.split('?')[0];
     this.router.navigate([url], { queryParams });
   }

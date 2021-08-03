@@ -1,8 +1,8 @@
 <div class="container">
     <app-user-aside></app-user-aside>
     <app-spinner *ngIf="isLoading"></app-spinner>
-    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
-    <div class="products-container" *ngIf="!isLoading && !message">
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message" (closeNotification)="onCloseNotification()"></app-notification>
+    <div class="products-container" *ngIf="!isLoading">
         <h3>Products:</h3>
         <div class="product" *ngFor="let product of products">
             <a routerLink="/{{product.urlPrefix}}/{{product.type}}/{{product._id}}" class="product-link">
@@ -55,7 +55,7 @@
             <label for="location">Delivery address:</label>
             <input formControlName="location" type="text" name="location" id="location" [value]="user?.location || ''">
             <div class="btn-container">
-                <input type="submit" class="btn-order" value="Finish order" [disabled]="orderForm.invalid">
+                <input type="submit" class="btn-order" value="Finish order">
             </div>
         </form>
     </div>

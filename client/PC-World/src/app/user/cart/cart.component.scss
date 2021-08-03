@@ -1,6 +1,7 @@
 @import '../../shared/variables.scss';
 .container {
     align-items: flex-start;
+    position: relative;
 }
 
 .products-container {
@@ -202,10 +203,17 @@ form input {
     color: gray;
 }
 
-input.ng-invalid {
+input.ng-touched.ng-invalid {
     border: 1px solid $primary-color;
 }
 
 app-spinner {
     flex-basis: 80%;
+}
+
+app-notification {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 5;
 }
