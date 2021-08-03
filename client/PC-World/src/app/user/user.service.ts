@@ -112,8 +112,12 @@ export class UserService {
     return of([]);
   }
 
-  loadProfile(): Observable<any> {
-    return this.http.get(environment.api_url + 'user/verify', { withCredentials: true });
+  loadProfile(): Observable<IUser> {
+    return this.http.get<IUser>(environment.api_url + 'user/verify', { withCredentials: true });
+  }
+
+  verifyProfile(id: string): Observable<IUser> {
+    return this.http.get<IUser>(environment.api_url + 'user/verify/' + id, { withCredentials: true });
   }
 
   editProfile(profile: IUser): Observable<any> {

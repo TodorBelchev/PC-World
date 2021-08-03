@@ -4,7 +4,6 @@ import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
-import { AuthService } from '../auth/auth.service';
 import { IComment } from './comment';
 
 @Injectable({
@@ -14,8 +13,7 @@ export class SharedService {
 
   commentCreated = new Subject<IComment>();
   constructor(
-    private http: HttpClient,
-    private authService: AuthService
+    private http: HttpClient
   ) { }
 
   createComment(comment: any, _id: string, productName: string): Observable<any> {
@@ -31,7 +29,6 @@ export class SharedService {
   }
 
   getCommentsByPage(productId: string, page: number = 1): Observable<any> {
-    this.authService.autoAuth();
     return this.http.get(environment.api_url + 'comments?page=' + page + '&modelId=' + productId);
   }
 

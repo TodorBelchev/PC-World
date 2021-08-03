@@ -37,11 +37,11 @@
             Repeat password must be at least 8 characters long!
         </div>
         <label for="terms">
-            <input formControlName="terms" type="checkbox" name="terms" id="terms">I agree with <a
+            <input formControlName="terms" type="checkbox" name="terms" id="terms" required>I agree with <a
                 routerLink="/terms-and-conditions">terms and conditions</a> of PC-World
         </label>
         <app-notification (closeNotification)="onCloseNotification()" *ngIf="error.length !== 0" [message]="error"
             [type]="'error'"></app-notification>
-        <input type="submit" value="Register">
+        <input type="submit" value="Register" [disabled]="registerForm.pending">
     </form>
 </div>

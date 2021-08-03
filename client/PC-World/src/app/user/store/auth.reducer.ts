@@ -9,6 +9,7 @@ export interface AuthState {
     cart: AuthActions.cartProps[];
     wishlist: AuthActions.wishlistProps[];
     message: AuthActions.msgProps | null;
+    isInitializing: boolean;
 }
 
 export const featureKey = 'auth';
@@ -17,7 +18,8 @@ const initialState: AuthState = {
     user: null,
     cart: [],
     wishlist: [],
-    message: null
+    message: null,
+    isInitializing: true
 };
 
 const _authReducer = createReducer(
@@ -27,6 +29,7 @@ const _authReducer = createReducer(
             ...state,
             loading: false,
             errorMsg: '',
+            isInitializing: true,
             user: {
                 email: action.email,
                 isAdmin: action.isAdmin,

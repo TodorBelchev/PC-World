@@ -100,6 +100,20 @@ router.get('/verify', isLogged(), async (req, res) => {
     res.status(200).send(payload);
 });
 
+router.get('/verify/:id', isLogged(), async (req, res) => {
+    try {
+        if (req.decoded.id !== req.params.id) {
+            throw new Error('Unauthorized');
+        }
+        const user = await getUserById(req.decoded.id);
+        const payload = removePass(user);
+        res.status(200).send(payload);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.put('/', isLogged(), async (req, res) => {
     const user = await getUserById(req.decoded.id);
     Object.assign(user, req.body);

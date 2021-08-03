@@ -44,11 +44,6 @@ export class RegisterComponent {
   onSubmit(): void {
     if (this.registerForm.invalid || this.registerForm.pending) {
       let message = '';
-      if (this.registerForm.pending) {
-        message = 'Something went wrong. Try again.';
-      } else {
-        message = '';
-      }
       this.registerForm.get('email')?.hasError('required') ? message += `Email is required.` : '';
       this.registerForm.get('email')?.hasError('invalidEmail') ? message += `\nInvalid email.` : '';
       this.registerForm.get('password')?.hasError('required') ? message += `\nPassword is required.` : '';

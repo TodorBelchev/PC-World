@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { AuthService } from './auth/auth.service';
+import { AppState } from './shared/interfaces/app-state.interface';
+import * as authActions from './user/store/auth.actions';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +13,9 @@ export class AppComponent implements OnInit {
   title = 'PC-World';
 
   constructor(
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
     this.authService.loadCart();

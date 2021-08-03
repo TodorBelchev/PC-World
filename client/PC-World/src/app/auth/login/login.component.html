@@ -24,6 +24,6 @@
         </div>
         <app-notification (closeNotification)="onCloseNotification()" *ngIf="error.length !== 0" [message]="error"
             [type]="'error'"></app-notification>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" [disabled]="loginForm.pending">
     </form>
 </div>

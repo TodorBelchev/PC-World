@@ -59,7 +59,9 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
         this.products = this.fetchCart(cart);
       },
       error => {
-        console.log(error.message);
+        this.isLoading = false;
+        this.message = 'Something went wrong. Please try again later.';
+        this.msgType = 'error';
       }
     );
 
@@ -69,7 +71,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
         this.orderForm.patchValue(user);
       },
       error => {
-        console.log(error.message);
+        this.store.dispatch(authActions.auth_check_fail());
       }
     );
   }
@@ -121,7 +123,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
 
   fetchCart(cart: authActions.cartProps[]): IProduct[] {
     const fetchedCart: IProduct[] = [];
-    if (cart.length == 0 ) {
+    if (cart.length == 0) {
       this.isLoading = false;
       return [];
     }
@@ -175,7 +177,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
           }
         )
       } else if (x.productType !== '') {
-        
+
         this.partsService.getItem(x.productType, x._id).subscribe(
           part => {
             this.isLoading = false;
@@ -202,7 +204,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
         );
       }
     });
-    
+
     return fetchedCart;
   }
 

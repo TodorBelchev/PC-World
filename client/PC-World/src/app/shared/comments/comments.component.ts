@@ -1,7 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
-import { AppState } from '../interfaces/app-state.interface';
+import { Subscription } from 'rxjs';
 import { IComment } from '../comment';
 import { SharedService } from '../shared.service';
 
@@ -18,8 +16,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   commentsSub: Subscription = new Subscription;
   newCommentsSub: Subscription = new Subscription;
   constructor(
-    private sharedService: SharedService,
-    private store: Store<AppState>
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {

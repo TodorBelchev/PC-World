@@ -37,11 +37,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.invalid || this.loginForm.pending) {
       let message = '';
-      if (this.loginForm.pending) {
-        message = 'Something went wrong. Try again.';
-      } else {
-        message = '';
-      }
       this.loginForm.get('email')?.hasError('required') ? message += `Email is required.` : '';
       this.loginForm.get('email')?.hasError('invalidEmail') ? message += `\nInvalid email.` : '';
       this.loginForm.get('password')?.hasError('required') ? message += `\nPassword is required.` : '';
