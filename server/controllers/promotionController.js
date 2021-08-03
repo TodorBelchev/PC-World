@@ -63,7 +63,11 @@ router.get('/products', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const filter = extractFilterFromQuery(req.query);
-        const promo = await getById(req.params.id, filter);
+        let sort = { price: 'asc' };
+        if (req.query.order && req.query.order === 'price-desc') {
+            sort.price = 'desc';
+        }
+        const promo = await getById(req.params.id, filter, sort);
         res.status(200).send(promo);
     } catch (error) {
         console.log(error.message);

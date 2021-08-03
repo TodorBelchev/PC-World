@@ -9,8 +9,8 @@ const getById = (id) => {
     return Notebook.findById(id);
 }
 
-const getNotebooksByPage = (page, filter) => {
-    return Notebook.find({ ...filter, isDeleted: false }).skip(page * 16).limit(16);
+const getNotebooksByPage = (page, filter, sort) => {
+    return Notebook.find({ ...filter, isDeleted: false }).sort(sort).skip(page * 16).limit(16);
 }
 
 const getCount = (filter) => {
@@ -22,7 +22,7 @@ const getPromoNotebooks = () => {
 }
 
 const getBrandsByQuery = (filter) => {
-    return Notebook.find({ ...filter, isDeleted: false }).select('brand').distinct('brand') ;
+    return Notebook.find({ ...filter, isDeleted: false }).select('brand').distinct('brand');
 }
 
 module.exports = {

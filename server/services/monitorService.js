@@ -5,8 +5,8 @@ const createMonitor = (data) => {
     return monitor.save();
 };
 
-const getMonitorsByPage = (page, filter) => {
-    return Monitor.find({ ...filter, isDeleted: false }).skip(page * 16).limit(16);
+const getMonitorsByPage = (page, filter, sort) => {
+    return Monitor.find({ ...filter, isDeleted: false }).sort(sort).skip(page * 16).limit(16);
 }
 
 const getFilteredCount = (filter) => {

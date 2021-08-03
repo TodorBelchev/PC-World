@@ -1,3 +1,4 @@
+@import '../../../shared/variables.scss';
 .promo-product-form {
     flex-basis: 100%;
 }
@@ -9,4 +10,16 @@
 
 input {
     margin: 5px 20px;
+}
+
+.add, .remove {
+    background: $primary-color;   
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px; 
+}
+
+.add {
+    background: $secondary-color;
 }

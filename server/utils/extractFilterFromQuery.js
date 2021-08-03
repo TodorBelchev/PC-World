@@ -1,5 +1,3 @@
-const { QuerystringParser } = require("formidable");
-
 module.exports = (query) => {
     const filter = {};
     if (query.priceFrom && !query.priceTo) {

@@ -1,0 +1,5 @@
+<label for="order">Order:</label>
+<select name="order" id="order" (change)="onSelectChange($event)">
+    <option value="price-asc" [selected]="selected == 'price-asc'">Price ascending</option>
+    <option value="price-desc"[selected]="selected == 'price-desc'">Price descending</option>
+</select>

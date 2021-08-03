@@ -21,7 +21,11 @@ router.get('/', async (req, res) => {
         }
         const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page || 1) - 1;
-        const parts = await getPartsByPage(type, page, filter);
+        let sort = { price: 'asc' };
+        if (req.query.order && req.query.order === 'price-desc') {
+            sort.price = 'desc';
+        }
+        const parts = await getPartsByPage(type, page, filter, sort);
         const partsCount = await getFilteredCount(type, filter);
         res.status(200).send({ products: parts, count: partsCount.length });
     } catch (error) {

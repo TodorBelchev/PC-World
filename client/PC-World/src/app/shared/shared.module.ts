@@ -20,6 +20,7 @@ import { ShortenTextPipe } from './pipes/shorten-text.pipe';
 import { NotificationComponent } from './notification/notification.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AsideItemBrandComponent } from './aside-item-brand/aside-item-brand.component';
+import { AsideOrderComponent } from './aside-order/aside-order.component';
 
 
 
@@ -42,6 +43,7 @@ import { AsideItemBrandComponent } from './aside-item-brand/aside-item-brand.com
     NotificationComponent,
     SpinnerComponent,
     AsideItemBrandComponent,
+    AsideOrderComponent,
   ],
   imports: [
     CommonModule,

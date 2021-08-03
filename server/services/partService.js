@@ -37,8 +37,8 @@ const getFilteredCount = (partName, filter) => {
     return parts[partName].find({ ...filter, isDeleted: false });
 }
 
-const getPartsByPage = (partName, page, filter) => {
-    return parts[partName].find({ ...filter, isDeleted: false }).skip(page * 16).limit(16).sort({ brand: 'asc' });
+const getPartsByPage = (partName, page, filter, sort) => {
+    return parts[partName].find({ ...filter, isDeleted: false }).sort(sort).skip(page * 16).limit(16).sort({ brand: 'asc' });
 }
 
 const getById = (id, partName) => {

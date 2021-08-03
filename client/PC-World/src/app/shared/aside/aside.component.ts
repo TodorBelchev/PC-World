@@ -13,7 +13,7 @@ export class AsideComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.activatedRoute.snapshot.url[0].path === 'promotions') {
+    if (this.activatedRoute.snapshot.url[0] && this.activatedRoute.snapshot.url[0].path === 'promotions') {
       this.isNotPromo = false;
     }
   }
