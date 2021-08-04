@@ -1,8 +1,9 @@
 <p>Filter by brand</p>
-<div class="brands-container">
+<div class="brands-container" *ngIf="!isLoading">
     <div *ngFor="let brand of brands">
         <input type="checkbox" [value]="brand" id="{{brand}}" name="{{brand}}"
             [checked]="selectedBrands.includes(brand)" (click)="onCheckClick($event)">
         <label for="{{brand}}">{{brand}}</label>
     </div>
 </div>
+<app-spinner *ngIf="isLoading"></app-spinner>

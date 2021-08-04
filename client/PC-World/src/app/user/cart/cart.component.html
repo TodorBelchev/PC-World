@@ -7,7 +7,7 @@
         <div class="product" *ngFor="let product of products">
             <a routerLink="/{{product.urlPrefix}}/{{product.type}}/{{product._id}}" class="product-link">
                 <div class="product-title">
-                    <img src="{{product.images[0]}}" alt="" srcset="">
+                    <img src="{{product.images[0] | httpMixedContent}}" alt="" srcset="">
                     <p>{{product.brand}} {{product.model}}</p>
                 </div>
             </a>

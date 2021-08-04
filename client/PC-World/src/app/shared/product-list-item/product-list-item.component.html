@@ -1,7 +1,7 @@
 <div class="card-container">
     <a routerLink="/{{category}}/{{type}}/{{product._id}}">
         <div class="card">
-            <img src="{{product.images[0]}}" alt="product-image">
+            <img src="{{product.images[0] | httpMixedContent}}" alt="product-image">
             <h3>{{product.brand}} {{product.model}}</h3>
             <div class="parameters" *ngIf="type == 'notebooks'">
                 <div class="parameter">

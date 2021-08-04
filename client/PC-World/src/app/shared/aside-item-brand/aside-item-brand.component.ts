@@ -11,6 +11,7 @@ import { SharedService } from '../shared.service';
 export class AsideItemBrandComponent implements OnInit {
   brands: string[] = [];
   selectedBrands: string[] = [];
+  isLoading: boolean = false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -20,12 +21,14 @@ export class AsideItemBrandComponent implements OnInit {
   ngOnInit(): void {
     let component = '';
     let query = '?';
-    if (this.activatedRoute.snapshot.routeConfig?.component?.name === 'MonitorsListComponent') {
+    const url = this.router.routerState.snapshot.url.split('?')[0];
+    if (url === '/monitors') {
       component = 'monitors';
-    } else if (this.activatedRoute.snapshot.routeConfig?.component?.name === 'NotebooksListComponent') {
+    } else if (url === '/notebooks') {
       component = 'notebooks';
     } else {
-      component = `parts/${this.activatedRoute.snapshot.url[0].path}`;
+      const part = url.split('/')[2];
+      component = `parts/${part}`;
     }
 
     this.activatedRoute.queryParams.pipe(
@@ -37,14 +40,17 @@ export class AsideItemBrandComponent implements OnInit {
               this.selectedBrands = v.split(',');
             }
           });
+          this.isLoading = true;
           return this.sharedService.getBrands(component, query)
         }
       )
     ).subscribe(
       data => {
         this.brands = data.brands;
+        this.isLoading = false;
       },
       error => {
+        this.isLoading = false;
         console.log(error.error.message);
       }
     )

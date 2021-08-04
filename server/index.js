@@ -1,9 +1,18 @@
 const express = require('express');
+const path = require('path');
 
 const config = require('./config');
 const expressSetup = require('./config/express');
 const mongooseSetup = require('./config/mongoose');
 const cloudinary = require('cloudinary').v2;
+
+const allowed = [
+    ".js",
+    ".css",
+    ".png",
+    ".jpg",
+    ".ico"
+];
 
 const start = async () => {
     const app = express();
@@ -11,7 +20,15 @@ const start = async () => {
     cloudinary.config(config.CLOUDINARY);
     await mongooseSetup();
 
-    app.listen(config.PORT, () => console.log('Server is listening on port 3000!'));
+    app.get("*", (req, res) => {
+        if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
+            res.sendFile(path.resolve(`public/${req.url}`));
+        } else {
+            res.sendFile(path.join(__dirname, "public/index.html"));
+        }
+    });
+
+    app.listen(config.PORT, () => console.log(`Server is listening on port ${config.PORT}!`));
 };
 
 start();

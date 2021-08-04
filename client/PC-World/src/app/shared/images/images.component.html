@@ -1,7 +1,7 @@
 <div class="image-container">
-    <img src="{{images[imageIndex]}}" alt="notebook image">
+    <img src="{{images[imageIndex] | httpMixedContent}}" alt="notebook image">
     <div class="image-subcontainer">
-        <img src="{{img}}" alt="notebook image" *ngFor="let img of images; let i = index"
+        <img src="{{img | httpMixedContent}}" alt="notebook image" *ngFor="let img of images; let i = index"
             (click)="onImgClick(i)">
     </div>
 </div>

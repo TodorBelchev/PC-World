@@ -6,7 +6,7 @@
         <section class="warranties">
             <h3 class="warranties-title">My warranties:</h3>
             <article class="warranties-item" *ngFor="let warranty of warranties">
-                <img class="warranties-item-image" src="{{warranty.product.images[0]}}" alt="product-image">
+                <img class="warranties-item-image" src="{{warranty.product.images[0] | httpMixedContent}}" alt="product-image">
                 <div class="warranties-item-title">
                     <div class="warranties-item-link">
                         <a routerLink="/{{warranty.onModel | productType}}/{{warranty.product._id}}">{{warranty.product.brand}}

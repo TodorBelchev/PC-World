@@ -21,6 +21,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AsideItemBrandComponent } from './aside-item-brand/aside-item-brand.component';
 import { AsideOrderComponent } from './aside-order/aside-order.component';
+import { HttpMixedContentPipe } from './pipes/http-mixed-content.pipe';
 
 
 
@@ -44,6 +45,7 @@ import { AsideOrderComponent } from './aside-order/aside-order.component';
     SpinnerComponent,
     AsideItemBrandComponent,
     AsideOrderComponent,
+    HttpMixedContentPipe,
   ],
   imports: [
     CommonModule,
@@ -66,7 +68,8 @@ import { AsideOrderComponent } from './aside-order/aside-order.component';
     ProductListItemComponent,
     PromoProductsCarouselComponent,
     NotificationComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    HttpMixedContentPipe
   ]
 })
 export class SharedModule { }

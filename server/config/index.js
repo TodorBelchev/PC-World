@@ -3,37 +3,35 @@ const env = process.env.NODE_ENV || 'development';
 const config = {
     development: {
         PORT: process.env.PORT || 3000,
-        DB_CONNECTION: 'mongodb+srv://admin:5boG8NDwIzw7XJHa@pc-world.3uinc.mongodb.net/PC-World?retryWrites=true&w=majority',
+        DB_CONNECTION: process.env.DB_CONNECTION_PC_WORLD,
         COOKIE_NAME: 'X-Authorization',
         SECRET: 'very strong secret',
         SALT_ROUNDS: 10,
         CLOUDINARY: {
-            cloud_name: 'dex8g0z5j',
-            api_key: '191732242924565',
-            api_secret: '-BPQCKi5uOoiiZ-1Ii1dv_dock4'
+            cloud_name: process.env.CLOUDINARY_NAME,
+            api_key: process.env.CLOUDINARY_KEY,
+            api_secret: process.env.CLOUDINARY_SECRET
         },
         CORS: {
             origin: ['http://localhost:4200'],
             credentials: true
-        },
-        PROD: false
+        }
     },
     production: {
-        PORT: 80,
-        DB_CONNECTION: 'mongodb+srv://admin:5boG8NDwIzw7XJHa@pc-world.3uinc.mongodb.net/PC-World?retryWrites=true&w=majority',
+        PORT: process.env.PORT || 80,
+        DB_CONNECTION: process.env.DB_CONNECTION,
         COOKIE_NAME: 'X-Authorization',
         SECRET: 'very strong secret',
         SALT_ROUNDS: 10,
         CLOUDINARY: {
-            cloud_name: 'dex8g0z5j',
-            api_key: '191732242924565',
-            api_secret: '-BPQCKi5uOoiiZ-1Ii1dv_dock4'
+            cloud_name: process.env.CLOUDINARY_NAME,
+            api_key: process.env.CLOUDINARY_KEY,
+            api_secret: process.env.CLOUDINARY_SECRET
         },
         CORS: {
             origin: ["https://pc-world-angular.herokuapp.com/"],
             credentials: true
-        },
-        PROD: true
+        }
     }
 };
 

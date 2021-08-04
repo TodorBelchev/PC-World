@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "publishToHeroku": "cd ../ && git subtree push --prefix pc-world-app-backend heroku-pc-world-app-backend master || true",
     "start:prod": "node index.js",
-    "start": "nodemon ./index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

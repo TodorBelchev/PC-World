@@ -3,7 +3,7 @@
     <div *ngFor="let promo of promotions; let i = index" class="slides">
         <div class="mySlides fade" *ngIf="i === currentIndex">
             <a routerLink="/promotions/{{promo.productType | productType:true}}/{{promo._id}}">
-                <img src="{{promo.image}}">
+                <img src="{{promo.image | httpMixedContent}}">
             </a>
         </div>
         <a class="prev" (click)="onPrevClick()" *ngIf="i === currentIndex">&#10094;</a>
