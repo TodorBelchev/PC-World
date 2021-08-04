@@ -10,7 +10,7 @@ module.exports = (app) => {
     if (config.PROD) {
         app.use(express.static(path.join(__dirname, "client/dist/PC-World")));
         app.get("*", (req, res) => {
-            res.sendFile(path.join(__dirname, "client/dist/PC-World", 'index.html'));
+            res.sendFile(path.join(__dirname, "client/PC-World/dist/PC-World", 'index.html'));
         });
     }
     app.use(cors(config.CORS));
