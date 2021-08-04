@@ -2,6 +2,7 @@
   "name": "pc-world",
   "version": "0.0.0",
   "scripts": {
+    "publishToHeroku": "cd ../ && git subtree push --prefix frontend heroku-pc-world-app-frontend master || true",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
