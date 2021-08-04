@@ -1,9 +1,9 @@
 {
-    "scripts": {
-        "client": "cd client && npm start",
+     "scripts": {
+        "client": "cd client && yarn start",
         "server": "nodemon server.js",
         "build": "cd client && npm run build",
-        "dev": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "start": "node server.js",
         "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
     }
