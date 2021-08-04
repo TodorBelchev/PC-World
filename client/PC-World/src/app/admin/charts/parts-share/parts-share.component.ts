@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { AdminService } from '../../admin.service';
 
@@ -8,6 +8,7 @@ import { AdminService } from '../../admin.service';
   styleUrls: ['./parts-share.component.scss']
 })
 export class PartsShareComponent implements OnInit {
+  @ViewChild('canvas') canvas!: ElementRef;
   myChart: Chart | undefined;
   isLoading: boolean = false;
   constructor(
@@ -15,7 +16,6 @@ export class PartsShareComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const ctx = document.getElementById('parts-share') as HTMLCanvasElement;
     this.isLoading = true;
     this.adminService.getPartsShare().subscribe(
       data => {
@@ -26,7 +26,7 @@ export class PartsShareComponent implements OnInit {
           sales.push(v);
         });
         this.isLoading = false;
-        this.myChart = new Chart(ctx, {
+        this.myChart = new Chart(this.canvas.nativeElement, {
           type: 'pie',
           data: {
             labels: dateLabels,

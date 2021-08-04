@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto'
 import { AdminService } from '../../admin.service';
 
@@ -8,6 +8,7 @@ import { AdminService } from '../../admin.service';
   styleUrls: ['./sales-volume.component.scss']
 })
 export class SalesVolumeComponent implements OnInit {
+  @ViewChild('canvas') canvas!: ElementRef;
   myChart: Chart | undefined;
   isLoading: boolean = false;
   constructor(
@@ -15,7 +16,6 @@ export class SalesVolumeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const ctx = document.getElementById('sales-volume') as HTMLCanvasElement;
     this.isLoading = true;
     this.adminService.getCurrentSales('current').subscribe(
       data => {
@@ -27,7 +27,7 @@ export class SalesVolumeComponent implements OnInit {
           dateLabels.push(`${date.getDate()}/${date.getMonth() + 1}`);
           sales.push(x.total);
         });
-        this.myChart = new Chart(ctx, {
+        this.myChart = new Chart(this.canvas.nativeElement, {
           type: 'bar',
           data: {
             labels: dateLabels,
