@@ -4,6 +4,7 @@ import { AppState } from '../interfaces/app-state.interface';
 import { SharedService } from '../shared.service';
 
 import * as authActions from '../../user/store/auth.actions';
+import { IPromotion } from '../interfaces/promotion.interface';
 
 @Component({
   selector: 'app-promotion-carousel',
@@ -11,7 +12,7 @@ import * as authActions from '../../user/store/auth.actions';
   styleUrls: ['./promotion-carousel.component.scss']
 })
 export class PromotionCarouselComponent implements OnInit, OnDestroy {
-  promotions: { _id: string, productType: string, image: string }[] = [];
+  promotions: IPromotion[] = [];
   currentIndex: number = 0;
   interval: any;
   isLoading: boolean = false;

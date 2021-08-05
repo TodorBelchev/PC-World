@@ -108,3 +108,10 @@ app-notification {
         opacity: 1;
     }
 }
+
+@media (max-width: 991.98px) {
+    .slideshow-container {
+        margin: 0;
+        height: 300px;
+    }
+}

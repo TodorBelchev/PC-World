@@ -14,6 +14,16 @@
         <a class="prev" (click)="onPrevClick()" *ngIf="index > 0">&#10094;</a>
         <a class="next" (click)="onNextClick()" *ngIf="index < promotions.length - 5">&#10095;</a>
     </div>
+    <div class="mySlides fade mobile">
+        <a
+            routerLink="/{{currentProduct!.productType !== 'notebooks' ?  currentProduct!.productType !== 'monitors' ? 'components': '' : ''}}/{{currentProduct!.productType}}/{{currentProduct!._id}}">
+            <img src="{{currentProduct!.images[0] | httpMixedContent}}">
+            <div class="title">{{currentProduct!.brand}} {{currentProduct!.model}}</div>
+            <div class="promo-price" *ngIf="currentProduct!.promoPrice">
+                <span>$ {{currentProduct!.promoPrice}}</span>
+            </div>
+        </a>
+    </div>
     <div class="dots">
         <span *ngFor="let dot of dotsArr; let i = index" class="dot" (click)="onDotClick(i)"
             [ngClass]="i === dotIndex ? 'active' : ''"></span>

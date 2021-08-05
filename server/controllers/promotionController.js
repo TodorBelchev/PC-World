@@ -75,7 +75,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', isLoggedIn(), isAdmin(), async (req, res) => {
     try {
         const promo = await getById(req.params.id, {});
         if (req.body.addProduct) {
@@ -90,7 +90,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.post('/', isLoggedIn(), async (req, res) => {
+router.post('/', isLoggedIn(), isAdmin(), async (req, res) => {
     try {
         const form = formidable({ multiples: true });
         const [formData, incFiles] = await getFromData(req, form);

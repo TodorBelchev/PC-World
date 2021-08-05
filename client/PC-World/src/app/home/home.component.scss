@@ -1,7 +1,6 @@
-@import '../shared/variables.scss';
+@import "../shared/variables.scss";
 .container {
     align-items: unset;
-    padding: 20px 0;
 }
 .benefits {
     display: flex;
@@ -17,6 +16,7 @@
 
 .benefits-content {
     flex-basis: 33%;
+    padding: 20px 0;
 }
 
 .benefits-img img {
@@ -33,4 +33,14 @@ app-notification {
     position: absolute;
     right: 50px;
     z-index: 5;
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .benefits {
+        text-align: center;
+    }
 }

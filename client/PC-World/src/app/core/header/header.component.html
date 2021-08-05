@@ -1,5 +1,5 @@
 <header>
-    <div class="container">
+    <nav class="container">
         <article>
             <a routerLink="/" class="logo-link">
                 <fa-icon [icon]="faDesktop" size="lg"></fa-icon>
@@ -41,5 +41,43 @@
                 </a>
             </li>
         </ul>
-    </div>
+        <div class="side-menu">
+            <div class="side-menu-background" [ngClass]=" isToggled ? 'change' : ''" (click)="onToggleClick()"></div>
+            <div class="toggle" [ngClass]=" isToggled ? 'change' : ''" (click)="onToggleClick()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div id="sidebar" [ngClass]=" isToggled ? 'change' : ''">
+                <div id="myLinks">
+                    <a routerLink="/" class="link" (click)="onToggleClick()">
+                        Home
+                    </a>
+                    <a routerLink="/dashboard" class="link" *ngIf="(user$ | async)?.isAdmin" (click)="onToggleClick()">
+                        Dashboard
+                    </a>
+                    <a routerLink="/auth/login" class="link" *ngIf="!(user$ | async)" (click)="onToggleClick()">
+                        Login
+                    </a>
+                    <a routerLink="/auth/register" class="link" *ngIf="!(user$ | async)" (click)="onToggleClick()">
+                        Register
+                    </a>
+                    <a routerLink="/users/{{(user$ | async)?._id}}" *ngIf="(user$ | async)" class="link"
+                        (click)="onToggleClick()">
+                        Profile
+                    </a>
+                    <a routerLink="/users/cart" class="link" (click)="onToggleClick()">
+                        Shopping cart
+                    </a>
+                    <a routerLink="/users/wishlist" class="link" (click)="onToggleClick()">
+                        Wishlist
+                    </a>
+                    <a routerLink="/about" class="link" (click)="onToggleClick()">About</a>
+                    <a routerLink="/terms-and-conditions" class="link" *ngIf="(user$ | async)"
+                        (click)="onToggleClick()">Terms and conditions</a>
+                    <a class="link" (click)="onLogout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </header>

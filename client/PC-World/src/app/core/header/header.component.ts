@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   faHeart = faHeart;
   faDesktop = faDesktop;
   faCogs = faCogs;
+  isToggled: boolean = false;
   cartItemsCount: number = 0;
   user$: Observable<IUser | null> = this.store.select(authSelectors.selectUser);
   cart$: Observable<cartProps[] | []> = this.store.select(authSelectors.selectCart);
@@ -55,6 +56,10 @@ export class HeaderComponent implements OnInit {
         console.log(error.error.message);
       }
     )
+  }
+
+  onToggleClick(): void {
+    this.isToggled = !this.isToggled;
   }
 
 }

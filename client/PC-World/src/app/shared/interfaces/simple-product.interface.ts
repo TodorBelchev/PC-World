@@ -6,6 +6,7 @@ export interface ISimpleProduct {
     quantity: number | string;
     price: number | string;
     promoPrice: number | string;
+    productType: string;
 }
 
 export interface IProduct {
