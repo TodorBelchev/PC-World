@@ -8,3 +8,7 @@
 * Node.js
 * HTML & CSS
 * [Cloudinary](https://cloudinary.com/) for image storage
+### Functionality
+* Guest users can save products to wishlist or cart and can make orders
+* Logged users extend functionality with option to add review to product, profile page, edit profile, profile order tracker and profile warranties page
+* Admin users have access to admin dashboard with shop statistics, create/edit products, promotion and order management
