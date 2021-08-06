@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsBarComponent } from './products-bar/products-bar.component';
+import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component';
 
 
 
@@ -13,7 +14,8 @@ import { ProductsBarComponent } from './products-bar/products-bar.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ProductsBarComponent
+    ProductsBarComponent,
+    ScrollTopBtnComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { ProductsBarComponent } from './products-bar/products-bar.component';
   exports: [
     HeaderComponent,
     FooterComponent,
-    ProductsBarComponent
+    ProductsBarComponent,
+    ScrollTopBtnComponent
   ]
 })
 export class CoreModule { }

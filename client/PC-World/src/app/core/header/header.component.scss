@@ -10,6 +10,10 @@ header fa-icon {
     padding: 0 10px;
 }
 
+header h2 {
+    margin: 10px 0;
+}
+
 header > article {
     display: flex;
     align-items: center;
@@ -20,6 +24,7 @@ header ul {
     align-items: center;
     justify-content: space-between;
     list-style: none;
+    margin: 10px 0;
 }
 
 header ul li {
@@ -83,7 +88,7 @@ header ul li a {
     min-width: 120px;
     box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
     z-index: 1;
-    top: 40px;
+    top: 38px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;
@@ -120,7 +125,7 @@ header ul li a {
     z-index: 10;
     position: absolute;
     right: 10px;
-    top: 15px;
+    top: 10px;
 }
 
 .bar1,
@@ -156,6 +161,7 @@ header ul li a {
 #sidebar {
     position: absolute;
     top: 0;
+    bottom: 0;
     right: -250px;
     transition: ease 0.4s;
     display: flex;

@@ -6,7 +6,8 @@
     <div class="content" *ngIf="isVisible">
         <a routerLink="/{{product?.onModel | productType}}/{{product.product._id}}" class="content-product"
             *ngFor="let product of order?.products">
-            <img src="{{product.product.images[0] }}" alt="product-image" class="content-product-image">
+            <img src="{{product.product.images[0] | httpMixedContent }}" alt="product-image"
+                class="content-product-image">
             <div class="content-product-title">{{product.product.brand}} {{product.product.model}}</div>
             <div class="content-product-quantity">Quantity: <strong>{{product.purchaseQuantity}}</strong></div>
             <div class="content-product-price">Price: <strong>$ {{product.purchasePrice}}</strong></div>

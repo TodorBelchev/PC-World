@@ -51,6 +51,7 @@ export class HeaderComponent implements OnInit {
       res => {
         this.store.dispatch(authActions.logout_user());
         this.router.navigateByUrl('/');
+        this.onToggleClick();
       },
       error => {
         console.log(error.error.message);
