@@ -1,9 +1,4 @@
 .container {
-    margin: 0 auto;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
     flex-direction: column;
     text-align: justify;
 }
@@ -35,7 +30,7 @@ iframe {
     width: 100%;
 }
 
-@media only screen and (max-width: 1500px) {
+@media (max-width: 1365.98px) {
     .coordinates {
         display: block;
     }
@@ -43,20 +38,7 @@ iframe {
     .coordinates-container {
         margin: 0 auto;
         display: flex;
-    }
-
-    iframe {
-        margin-left: 1rem;
-    }
-}
-
-@media only screen and (max-width: 801px) {
-    .coordinates-container {
-        margin: 0 auto;
-        display: block;
-    }
-
-    iframe {
-        margin: 0;
+        flex-direction: column;
+        padding: 0rem 1rem;
     }
 }

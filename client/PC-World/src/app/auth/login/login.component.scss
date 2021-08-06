@@ -87,3 +87,10 @@ app-notification {
 app-spinner {
     flex-basis: 100%;
 }
+
+@media (max-width: 767.98px) {
+    ul li.active::after {
+        width: 180px;
+        left: 55px;
+    }
+}

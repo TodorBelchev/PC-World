@@ -72,9 +72,8 @@
                     <a routerLink="/users/wishlist" class="link" (click)="onToggleClick()">
                         Wishlist
                     </a>
+                    <a routerLink="/terms-and-conditions" class="link" (click)="onToggleClick()">Terms and conditions</a>
                     <a routerLink="/about" class="link" (click)="onToggleClick()">About</a>
-                    <a routerLink="/terms-and-conditions" class="link" *ngIf="(user$ | async)"
-                        (click)="onToggleClick()">Terms and conditions</a>
                     <a class="link" (click)="onLogout()" *ngIf="(user$ | async)">Logout</a>
                 </div>
             </div>
