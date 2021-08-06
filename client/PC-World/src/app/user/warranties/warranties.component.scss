@@ -73,3 +73,33 @@
 app-spinner {
     flex-basis: 80%;
 }
+
+app-user-aside {
+    flex-basis: 17%;
+}
+
+@media (max-width: 1365.98px) {
+    .warranties-item-title {
+        flex-basis: 40%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .warranties-item-title, .order {
+        flex-basis: 100%;
+        padding: 0;
+    }
+
+    .warranties-item-title::after {
+        content: none;
+    }
+
+    .warranties-item-image {
+        flex-basis: 100%;
+    }
+
+}

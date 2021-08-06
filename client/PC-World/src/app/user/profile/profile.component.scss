@@ -1,4 +1,4 @@
-@import '../../shared/variables.scss';
+@import "../../shared/variables.scss";
 .container {
     align-items: flex-start;
     position: relative;
@@ -15,7 +15,8 @@
     flex-wrap: wrap;
 }
 
-.profile label, .profile input {
+.profile label,
+.profile input {
     margin: 10px 0;
 }
 
@@ -40,7 +41,8 @@
     flex-basis: 100%;
 }
 
-.profile-btn-edit, .profile-btn-save {
+.profile-btn-edit,
+.profile-btn-save {
     background: $primary-color;
     border: none;
     border-radius: 5px;
@@ -88,4 +90,39 @@ app-notification {
 
 app-spinner {
     flex-basis: 80%;
+}
+
+app-user-aside {
+    flex-basis: 17%;
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .profile {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .profile-title {
+        margin: 5px 0;
+    }
+
+    .profile-parameter {
+        margin: 5px 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .profile label, .profile input {
+        margin: 0;
+        width: 80%;
+        text-align: center;
+    }
+    
+    .profile-btn-save, .profile-btn-cancel {
+        margin: 10px 0 0 0;
+    }
 }

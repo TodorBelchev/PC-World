@@ -1,4 +1,4 @@
-@import '../../shared/variables.scss';
+@import "../../shared/variables.scss";
 :host {
     flex-basis: 80%;
     cursor: pointer;
@@ -54,7 +54,8 @@
     flex-basis: 76%;
 }
 
-.content-product-quantity, .content-product-price {
+.content-product-quantity,
+.content-product-price {
     flex-basis: 12%;
     text-align: right;
 }
@@ -72,7 +73,7 @@
 }
 
 .order-price {
-   flex-basis: 20%;
+    flex-basis: 20%;
 }
 
 .pending {
@@ -85,4 +86,42 @@
 
 .completed {
     background: green;
+}
+
+@media (max-width: 1365.98px) {
+    .content-product-price,
+    .content-product-quantity {
+        flex-basis: 22%;
+    }
+
+    .content-product-title {
+        flex-basis: 60%;
+    }
+
+    .order-price {
+        flex-basis: 36%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .content-product {
+        flex-wrap: wrap;
+    }
+
+    .content-product-title {
+        flex-basis: 53%;
+    }
+
+    .content-product-quantity, .content-product-price {
+        flex-basis: 42%;
+    }
+
+    .order-subinfo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-date {
+        padding: 0;
+    }
 }

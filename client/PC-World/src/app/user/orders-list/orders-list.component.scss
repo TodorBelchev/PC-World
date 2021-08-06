@@ -27,3 +27,13 @@
 app-spinner {
     flex-basis: 80%;
 }
+
+app-user-aside {
+    flex-basis: 17%;
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+}
