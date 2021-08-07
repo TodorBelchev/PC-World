@@ -156,21 +156,30 @@ header ul li a {
 .change#sidebar {
     -webkit-transform: translate(-100%);
     transform: translate(-100%);
-}
-
-#sidebar {
+    opacity: 1;
     position: absolute;
     top: 0;
     bottom: 0;
     right: -250px;
+    height: auto;
+    width: 250px;
+}
+
+.change#sidebar #myLinks {
+    display: flex;
+}
+
+#sidebar {
+    display: none;
+    opacity: 0;
     transition: ease 0.4s;
     display: flex;
     flex-wrap: wrap;
     background: white;
     height: 100%;
-    width: 250px;
     z-index: 5;
-    transition: ease 0.4s;
+    height: 0;
+    width: 0;
 }
 
 .side-menu-background {
@@ -191,7 +200,7 @@ header ul li a {
 }
 
 #myLinks {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;

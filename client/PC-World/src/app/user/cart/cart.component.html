@@ -36,7 +36,7 @@
                 <button (click)="onRemoveFromCartClick(product)" class="btn-remove">X</button>
             </div>
         </div>
-        <p *ngIf="products.length === 0">Your cart is empty. See some of our best offers.</p>
+        <p *ngIf="products.length === 0">Your cart is empty.</p>
         <div class="total" *ngIf="products.length !== 0">
             <p>Delivery: <strong>$ {{deliveryPrice}}</strong></p>
             <p class="total-price">Total price: <strong>$ {{totalPrice + deliveryPrice}}</strong></p>

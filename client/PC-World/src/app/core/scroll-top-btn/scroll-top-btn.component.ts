@@ -11,12 +11,12 @@ export class ScrollTopBtnComponent {
   faChevronUp = faChevronUp;
   windowScrolled: boolean = false;
   constructor(@Inject(DOCUMENT) private document: Document) { }
-  @HostListener("window:wheel", [])
+  @HostListener("window:scroll", [])
   onWindowScroll() {
-    if (this.document.body.scrollTop > 50) {
+    if (this.document.scrollingElement?.scrollTop! > 50) {
       this.windowScrolled = true;
     }
-    else if (document.body.scrollTop < 50) {
+    else if (this.document.scrollingElement?.scrollTop! < 50) {
       this.windowScrolled = false;
     }
   }
