@@ -156,10 +156,16 @@ app-notification {
 }
 
 @media (max-width: 767.98px) {
-    .mySlides.fade, .dots {
+    .mySlides.fade,
+    .dots {
         display: none;
     }
+
     .mySlides.fade.mobile {
         display: block;
+    }
+
+    .slideshow-container {
+        margin-bottom: 0;
     }
 }

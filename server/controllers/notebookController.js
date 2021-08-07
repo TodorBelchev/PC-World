@@ -14,9 +14,9 @@ router.get('/', async (req, res) => {
     try {
         const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page) - 1;
-        let sort = { price: 'asc' };
+        let sort = { currentPrice: 'asc' };
         if (req.query.order && req.query.order === 'price-desc') {
-            sort.price = 'desc';
+            sort.currentPrice = 'desc';
         }
         const notebooks = await getNotebooksByPage(page, filter, sort);
         const notebooksCount = await getCount(filter);

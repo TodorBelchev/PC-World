@@ -97,8 +97,11 @@ app-spinner {
 }
 
 @media (max-width: 767.98px) {
+    ul li a {
+        margin: 0;
+    }
     ul li.active::after {
         width: 180px;
-        left: 10px;
+        left: -2px;
     }
 }

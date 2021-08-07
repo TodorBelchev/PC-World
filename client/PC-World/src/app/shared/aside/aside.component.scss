@@ -10,3 +10,9 @@
     border-radius: 10px;
     text-align: center;
 }
+
+@media (max-width: 767.98px) {
+    .aside-container {
+        width: 100%;
+    }
+}

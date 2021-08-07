@@ -2,7 +2,7 @@
 <div class="container" *ngIf="!isLoading">
     <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
     <app-aside *ngIf="!message && !msgType"></app-aside>
-    <ul>
+    <ul class="products">
         <li *ngFor="let product of products">
             <app-product-list-item [product]="product" [type]="type" [category]="'components'"></app-product-list-item>
         </li>

@@ -1,7 +1,7 @@
 <div class="container">
     <ul>
         <li><a routerLink="/auth/login">Login</a></li>
-        <li class="active"><a routerLink="/register">Register</a></li>
+        <li class="active"><a routerLink="/auth/register">Register</a></li>
     </ul>
     <app-spinner *ngIf="isLoading"></app-spinner>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">

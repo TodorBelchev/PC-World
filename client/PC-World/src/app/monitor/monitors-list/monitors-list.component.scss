@@ -1,8 +1,8 @@
-ul {
+ul.products {
     list-style: none;
-    flex-basis: 80%;
+    flex-basis: calc(100% - 280px);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
     gap: 0 20px;
     margin: 0;
     padding: 0;
@@ -12,6 +12,24 @@ ul {
     align-items: flex-start;
 }
 
+ul li {
+    max-width: 300px;
+}
+
 app-paginator {
     flex-basis: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    ul li {
+        max-width: none;
+    }
 }

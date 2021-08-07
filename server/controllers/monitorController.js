@@ -38,9 +38,9 @@ router.get('/', async (req, res) => {
     try {
         const filter = extractFilterFromQuery(req.query);
         const page = Number(req.query.page || 1) - 1;
-        let sort = { price: 'asc' };
+        let sort = { currentPrice: 'asc' };
         if (req.query.order && req.query.order === 'price-desc') {
-            sort.price = 'desc';
+            sort.currentPrice = 'desc';
         }
         const monitors = await getMonitorsByPage(page, filter, sort);
         const monitorsCount = await getFilteredCount(filter);
