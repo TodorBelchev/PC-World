@@ -3,6 +3,10 @@
     font-size: 0.8rem;
 }
 
+h3 {
+    height: 44px;
+}
+
 .card-container {
     position: relative;
 }
@@ -13,6 +17,10 @@
     margin-top: 20px;
     border-radius: 10px;
     text-align: center;
+}
+
+.short {
+    margin-bottom: 0;
 }
 
 .card img {

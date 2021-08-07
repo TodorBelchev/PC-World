@@ -2,7 +2,8 @@
     <a routerLink="/{{category}}/{{type}}/{{product._id}}">
         <div class="card">
             <img src="{{product.images[0] | httpMixedContent}}" alt="product-image">
-            <h3>{{product.brand}} {{product.model}}</h3>
+            <h3 [ngClass]="(product.brand + product.model).length > 25 ? '' : 'short'">{{product.brand}}
+                {{product.model}}</h3>
             <div class="parameters" *ngIf="type == 'notebooks'">
                 <div class="parameter">
                     <span>Processor: </span>
@@ -256,7 +257,8 @@
     <button type="button" class="cart-container-wishlist-btn add-wishlist" (click)="onAddToWishlist(product)">
         <fa-icon [icon]="faHeart" size="lg"></fa-icon>
     </button>
-    <button type="button" class="cart-container-add-btn add-cart" [disabled]="product.quantity == 0" (click)="onAddToCart(product)">
+    <button type="button" class="cart-container-add-btn add-cart" [disabled]="product.quantity == 0"
+        (click)="onAddToCart(product)">
         <fa-icon [icon]="faCartPlus" size="lg"></fa-icon>
     </button>
 </div>

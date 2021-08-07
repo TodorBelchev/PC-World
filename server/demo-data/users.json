@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "email": "pesho@abv.bg",
+  "password": "$2b$10$qSLLM8CLdmU3VUMIpe5y/eCU/baE4K2M.eKQFU1WL8MRy5cceZGkm",
+  "isAdmin": false,
+  "__v": 0,
+  "firstName": "Peter",
+  "city": "Sofia",
+  "lastName": "Petrov",
+  "location": "Studentski grad 123",
+  "phoneNumber": 123
+},{
+  "_id": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "email": "stamat@abv.bg",
+  "password": "$2b$10$P5WTya9A.C2tamtyHwWGKuYPV4Bb1wKPYbmVyyaw4V8vsD6EmmB3O",
+  "isAdmin": false,
+  "__v": 0,
+  "firstName": "Stamat",
+  "lastName": "Stamatov",
+  "phoneNumber": 1234,
+  "city": "Dobrich",
+  "location": "Dobrotitsa 46 B, floor: 3, appartment 14"
+},{
+  "_id": {
+    "$oid": "6107b78c0a85c012a0286258"
+  },
+  "email": "admin@admin.com",
+  "password": "$2b$10$BFS5yWpeYYsdd/KDHCzsrewQurML.zj4Y9ton9hmmfKpPyb3Cdi8K",
+  "isAdmin": true,
+  "__v": 0,
+  "city": "",
+  "firstName": "God",
+  "lastName": "",
+  "location": "",
+  "phoneNumber": null
+}]

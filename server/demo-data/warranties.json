@@ -1,0 +1,685 @@
+[{
+  "_id": {
+    "$oid": "6102ae50182d472d0cd22801"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ed7d45b6394d0abc0a532d"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 1199,
+  "order": {
+    "$oid": "6102a53cbbe393398cb62be3"
+  },
+  "createdAt": "1627565648994",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102aeb64da161320093f0f8"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60e58e0dd0ab3b3340ac09f1"
+  },
+  "product": {
+    "$oid": "60e825fa1e51da3cec2eaf96"
+  },
+  "onModel": "Processor",
+  "purchasePrice": 479,
+  "order": {
+    "$oid": "6102ab456f44371d046ffac4"
+  },
+  "createdAt": "1627565750714",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102aeba4da161320093f0fb"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ffb8bf42a01d3c68294602"
+  },
+  "onModel": "Processor",
+  "purchasePrice": 699,
+  "order": {
+    "$oid": "6102a546bbe393398cb62be5"
+  },
+  "createdAt": "1627565754348",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610395b0a23ca53ef841c30d"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60e58e0dd0ab3b3340ac09f1"
+  },
+  "product": {
+    "$oid": "60fe8cf1379a2f4180641d9d"
+  },
+  "onModel": "Psu",
+  "purchasePrice": 59,
+  "order": {
+    "$oid": "61038c094b7ef43ac8a98ce2"
+  },
+  "createdAt": "1627624880312",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103c65e0bfbbb186082bb9d"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60e58e0dd0ab3b3340ac09f1"
+  },
+  "product": {
+    "$oid": "60ea8c7d804f53372415e475"
+  },
+  "onModel": "Vga",
+  "purchasePrice": 359,
+  "order": {
+    "$oid": "6103c6570bfbbb186082bb9b"
+  },
+  "createdAt": "1627637342706",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef6f"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60e8416ca09e893ba83eba2c"
+  },
+  "onModel": "Vga",
+  "purchasePrice": 599,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373885",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef71"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60fe8810fb746b4358fe4e7d"
+  },
+  "onModel": "Case",
+  "purchasePrice": 149,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373886",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef73"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 99,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60ebe60aa3c7dd1764064a6c"
+  },
+  "onModel": "Memory",
+  "purchasePrice": 119,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373887",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef72"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60e9481722721e2b8c3d41df"
+  },
+  "onModel": "Motherboard",
+  "purchasePrice": 129,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373887",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef70"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60e825fa1e51da3cec2eaf96"
+  },
+  "onModel": "Processor",
+  "purchasePrice": 479,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373886",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef74"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60eac32c6fb9a72f20815fb3"
+  },
+  "onModel": "Psu",
+  "purchasePrice": 119,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373888",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef76"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60fe8b3d379a2f4180641d9b"
+  },
+  "onModel": "Hdd",
+  "purchasePrice": 79,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373888",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef77"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 72,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60ebe1136984441650c4e376"
+  },
+  "onModel": "Cooler",
+  "purchasePrice": 69,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373889",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5bde0c739374469ef75"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60e9814dab6e3b2e3cc92f51"
+  },
+  "onModel": "Ssd",
+  "purchasePrice": 79,
+  "order": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "createdAt": "1627645373888",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e5c0e0c739374469ef8a"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 1099,
+  "order": {
+    "$oid": "6103e591e0c739374469ef6b"
+  },
+  "createdAt": "1627645376816",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103e8b52cdc783d20f95410"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60fa694673fca71f90437207"
+  },
+  "onModel": "Monitor",
+  "purchasePrice": 349,
+  "order": {
+    "$oid": "6103e599e0c739374469ef6d"
+  },
+  "createdAt": "1627646133496",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ec965e247716f8650025"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 60,
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "product": {
+    "$oid": "60ec1c84634c4b2d0045869d"
+  },
+  "onModel": "Monitor",
+  "purchasePrice": 0,
+  "order": {
+    "$oid": "6103ec625e247716f8650023"
+  },
+  "createdAt": "1627647126870",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650032"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ea8c7d804f53372415e475"
+  },
+  "onModel": "Vga",
+  "purchasePrice": 359,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812697",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650036"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fe8e06379a2f4180641d9e"
+  },
+  "onModel": "Ssd",
+  "purchasePrice": 79,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812699",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650034"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 99,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ebe60aa3c7dd1764064a6c"
+  },
+  "onModel": "Memory",
+  "purchasePrice": 119,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812698",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650033"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ffb6e842a01d3c682945ff"
+  },
+  "onModel": "Processor",
+  "purchasePrice": 279,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812697",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650035"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fe7855fb746b4358fe4e78"
+  },
+  "onModel": "Monitor",
+  "purchasePrice": 89,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812698",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650037"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fe86defb746b4358fe4e7b"
+  },
+  "onModel": "Case",
+  "purchasePrice": 79,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812699",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650039"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fe8cf1379a2f4180641d9d"
+  },
+  "onModel": "Psu",
+  "purchasePrice": 59,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812699",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f865003b"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fe8915fb746b4358fe4e7e"
+  },
+  "onModel": "Cooler",
+  "purchasePrice": 39,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812700",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f865003a"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60e97ddc985f993f24670de6"
+  },
+  "onModel": "Hdd",
+  "purchasePrice": 0,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812700",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef445e247716f8650038"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 36,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ea8f96804f53372415e476"
+  },
+  "onModel": "Motherboard",
+  "purchasePrice": 69,
+  "order": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "createdAt": "1627647812699",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f6111d070c1f9c497e3d"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ed6447f974ad22b8845940"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 349,
+  "order": {
+    "$oid": "6103f444ededa0291c5347ea"
+  },
+  "createdAt": "1627649553598",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f6141d070c1f9c497e3f"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ed6642f974ad22b8845941"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 349,
+  "order": {
+    "$oid": "6103f44fededa0291c5347ec"
+  },
+  "createdAt": "1627649556536",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f61a1d070c1f9c497e41"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ed75b8b6394d0abc0a532a"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 799,
+  "order": {
+    "$oid": "6103f46aededa0291c5347ee"
+  },
+  "createdAt": "1627649562500",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f61d1d070c1f9c497e43"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fa9824b6d2fa0a8c427dbe"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 799,
+  "order": {
+    "$oid": "6103f479ededa0291c5347f0"
+  },
+  "createdAt": "1627649565041",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f61f1d070c1f9c497e45"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fa9affb6d2fa0a8c427dbf"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 999,
+  "order": {
+    "$oid": "6103f488ededa0291c5347f2"
+  },
+  "createdAt": "1627649567465",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f6251d070c1f9c497e47"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fa9ca7b6d2fa0a8c427dc0"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 799,
+  "order": {
+    "$oid": "6103f48fededa0291c5347f4"
+  },
+  "createdAt": "1627649573066",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f6261d070c1f9c497e49"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fe854bfb746b4358fe4e7a"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 1499,
+  "order": {
+    "$oid": "6103f4a3ededa0291c5347f6"
+  },
+  "createdAt": "1627649574701",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f6281d070c1f9c497e4b"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60fe7d2391e5beb11d512430"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 1399,
+  "order": {
+    "$oid": "6103f4aaededa0291c5347f8"
+  },
+  "createdAt": "1627649576585",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107caea3f686617ac6ee9ef"
+  },
+  "purchaseQuantity": 1,
+  "warranty": 24,
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "product": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "purchasePrice": 1099,
+  "order": {
+    "$oid": "6107abcb0a85c012a0286256"
+  },
+  "createdAt": "1627900650898",
+  "__v": 0
+}]

@@ -1,0 +1,547 @@
+[{
+  "_id": {
+    "$oid": "60e8416ca09e893ba83eba2c"
+  },
+  "connectors": "1 x HDMI 2.1 , 2 x DisplayPort 1.4, 1 x USB-C",
+  "power": [
+    "Two 8-pin PCI Express Power connectors, Minimum System Power requirement (W):850W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625833833/erdtzlm0poyksubjgxui.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625833834/rkopshmacxxtvuuwckjn.jpg"
+  ],
+  "brand": "POWERCOLOR",
+  "model": "RED DEVIL AMD RADEON RX 6800 XT 16G",
+  "price": 649,
+  "cores": 4608,
+  "gameClock": 2015,
+  "boostClock": 2250,
+  "memory": 16,
+  "memoryClock": 16,
+  "warranty": 36,
+  "__v": 0,
+  "quantity": 9,
+  "currentPrice": 599,
+  "promoPrice": 599,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ea8c7d804f53372415e475"
+  },
+  "power": [
+    "One 8-pin PCI Express Power connectors, Minimum System Power requirement (W):750W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625984125/qb6rl6lxgfekvlenhkoo.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625984123/u3xiwtutrjwel6oadxfe.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625984122/nc5jlxxoxrc24yuuizp3.png"
+  ],
+  "brand": "ASUS",
+  "model": "TUF Gaming GeForce RTX™ 3060 OC Edition",
+  "cores": 3584,
+  "gameClock": 1852,
+  "boostClock": 1882,
+  "memory": 12,
+  "memoryClock": 15,
+  "connectors": "2 x HDMI (2.1a), 3 x Display Port(1.4a)",
+  "warranty": 24,
+  "price": 379,
+  "__v": 0,
+  "quantity": 10,
+  "currentPrice": 359,
+  "promoPrice": 359,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "610e657b90815c0015f4c70a"
+  },
+  "isDeleted": false,
+  "power": [
+    "Minimum System Power requirement (W):250W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628333434/y9pcbwr0vxukiv0y2cij.jpg"
+  ],
+  "brand": "Biostar",
+  "model": "RADEON RX550 Gaming 2GB OC",
+  "cores": 512,
+  "gameClock": 1100,
+  "boostClock": 1183,
+  "memory": 2,
+  "memoryClock": 7,
+  "connectors": "DVI-D, HDMI, DisplayPort",
+  "warranty": 36,
+  "price": 149,
+  "promoPrice": 0,
+  "quantity": 12,
+  "currentPrice": 149,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e670090815c0015f4c70b"
+  },
+  "isDeleted": false,
+  "power": [
+    "Minimum System Power requirement (W):250W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628333823/or4pen2gobcrgvdvzqvj.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628333824/d2i7uau0fn5n6wvgyfug.jpg"
+  ],
+  "brand": "Biostar",
+  "model": "RADEON RX560 2GB Gaming",
+  "cores": 896,
+  "gameClock": 1100,
+  "boostClock": 1176,
+  "memory": 4,
+  "memoryClock": 7,
+  "connectors": "DVI-D, HDMI, DisplayPort",
+  "warranty": 36,
+  "price": 199,
+  "promoPrice": 0,
+  "quantity": 12,
+  "currentPrice": 199,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e68b190815c0015f4c70c"
+  },
+  "isDeleted": false,
+  "power": [
+    "One 8-pin PCI Express Power connectors, Minimum System Power requirement (W):550W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628334256/mv6mivoyiv1gnp7hjunt.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628334257/tmx3rkghukjjwskyjedn.png"
+  ],
+  "brand": "EVGA",
+  "model": "GeForce RTX™ 3060 XC Gaming 12G+",
+  "cores": 3584,
+  "gameClock": 1882,
+  "boostClock": 1882,
+  "memory": 12,
+  "memoryClock": 15,
+  "connectors": "1 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 399,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 399,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e6a0590815c0015f4c70d"
+  },
+  "isDeleted": false,
+  "power": [
+    "Two 8-pin PCI Express Power connectors, Minimum System Power requirement (W):700W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628334596/uh0qyki0oxrifafuwrxe.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628334597/txokifubcsds71sloywd.png"
+  ],
+  "brand": "POWERCOLOR",
+  "model": "RED DEVIL AMD RADEON RX 6700 XT 12G",
+  "cores": 2560,
+  "gameClock": 2433,
+  "boostClock": 2615,
+  "memory": 12,
+  "memoryClock": 16,
+  "connectors": "1 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 549,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 549,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e6b7290815c0015f4c70e"
+  },
+  "isDeleted": false,
+  "power": [
+    "Minimum System Power requirement (W):450W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628334960/ymbmwxy7kk0otnhsqhkf.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628334961/bmxlccknh6lwqldoaguj.jpg"
+  ],
+  "brand": "MSI",
+  "model": "GeForce GTX™ 1650 VENTUS XS 4G OC",
+  "cores": 896,
+  "gameClock": 1485,
+  "boostClock": 1740,
+  "memory": 4,
+  "memoryClock": 8,
+  "connectors": "1 x DisplayPort, 1 x DVI, 1 x HDMI 2.0",
+  "warranty": 36,
+  "price": 199,
+  "promoPrice": 0,
+  "quantity": 12,
+  "currentPrice": 199,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e6ca390815c0015f4c70f"
+  },
+  "isDeleted": false,
+  "power": [
+    "One 8-pin PCI Express Power connectors, Minimum System Power requirement (W):450W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628335266/vxl4cj8lle8oigr3w9r6.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628335266/zbq7qhh4ww2srzfxof5t.jpg"
+  ],
+  "brand": "MSI",
+  "model": "GeForce GTX™ 1660 AERO ITX 6G OC",
+  "cores": 1408,
+  "gameClock": 1700,
+  "boostClock": 1830,
+  "memory": 6,
+  "memoryClock": 8,
+  "connectors": "DVI-D, HDMI, DisplayPort",
+  "warranty": 36,
+  "price": 199,
+  "promoPrice": 0,
+  "quantity": 12,
+  "currentPrice": 199,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e6e0f90815c0015f4c710"
+  },
+  "isDeleted": false,
+  "power": [
+    "One 8-pin PCI Express Power connectors, Minimum System Power requirement (W):550W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628335629/iu7sxtbbu7k77wmjbbkf.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628335630/celdqbhlx5tw92h7fhgc.png"
+  ],
+  "brand": "MSI",
+  "model": "GeForce GTX™ 1660 Ti ARMOR 6G OC",
+  "cores": 1536,
+  "gameClock": 1500,
+  "boostClock": 1860,
+  "memory": 6,
+  "memoryClock": 6,
+  "connectors": "1 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 249,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 249,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e70febff96c3694714d9e"
+  },
+  "isDeleted": false,
+  "power": [
+    "One 8-pin PCI Express Power connectors, Minimum System Power requirement (W):500W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628336381/yskdnhxlakipfmkn1fen.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628336382/uep310k8xzvmf3x4ijkg.jpg"
+  ],
+  "brand": "MSI",
+  "model": "GeForce RTX™ 2060 VENTUS GP OC",
+  "cores": 1920,
+  "gameClock": 1600,
+  "boostClock": 1710,
+  "memory": 6,
+  "memoryClock": 14,
+  "connectors": "1 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 349,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 349,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e71eabff96c3694714d9f"
+  },
+  "isDeleted": false,
+  "power": [
+    "Three 8-pin PCI Express Power connectors, Minimum System Power requirement (W):850W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628336617/dvnlvtunmdqxi1gcn9s9.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628336618/yreofvoy5kmievgnjatj.jpg"
+  ],
+  "brand": "MSI",
+  "model": "GeForce RTX™ 3080 SUPRIM X LHR",
+  "cores": 8704,
+  "gameClock": 1800,
+  "boostClock": 1905,
+  "memory": 10,
+  "memoryClock": 19,
+  "connectors": "1 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 699,
+  "promoPrice": 0,
+  "quantity": 4,
+  "currentPrice": 699,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e730ebff96c3694714da0"
+  },
+  "isDeleted": false,
+  "power": [
+    "Three 8-pin PCI Express Power connectors, Minimum System Power requirement (W):850W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628336909/bsxq8fguyftyue75ndl8.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628336910/os2nuyekgduc88lkwbpz.jpg"
+  ],
+  "brand": "MSI",
+  "model": "GeForce RTX™ 3080 Ti GAMING X TRIO",
+  "cores": 10240,
+  "gameClock": 1365,
+  "boostClock": 1770,
+  "memory": 12,
+  "memoryClock": 19,
+  "connectors": "1 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 999,
+  "promoPrice": 0,
+  "quantity": 4,
+  "currentPrice": 999,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e74e9bff96c3694714da1"
+  },
+  "isDeleted": false,
+  "power": [
+    "Two 8-pin PCI Express Power connectors, Minimum System Power requirement (W):650W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628337384/l8cbhnuhoxnvbfktbtkc.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628337385/hb5hmcfqqcqf4tzkfile.jpg"
+  ],
+  "brand": "GIGABYTE",
+  "model": "GeForce RTX™ 3060 Ti AORUS Elite LHR",
+  "cores": 4864,
+  "gameClock": 1320,
+  "boostClock": 1867,
+  "memory": 8,
+  "memoryClock": 15,
+  "connectors": "2 x HDMI, 2 x DisplayPort",
+  "warranty": 36,
+  "price": 499,
+  "promoPrice": 0,
+  "quantity": 12,
+  "currentPrice": 499,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e760fbff96c3694714da2"
+  },
+  "isDeleted": false,
+  "power": [
+    "Two 8-pin PCI Express Power connectors, Minimum System Power requirement (W):850W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628337677/mjwipy1tn0qarqsbtxzl.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628337678/j02cwq9ddqf41tqrz5yd.jpg"
+  ],
+  "brand": "GIGABYTE",
+  "model": "GeForce RTX™ 3080 Ti Gaming OC",
+  "cores": 10240,
+  "gameClock": 1365,
+  "boostClock": 1710,
+  "memory": 12,
+  "memoryClock": 19,
+  "connectors": "2 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 999,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 999,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e77c38a21cb429cfd5f93"
+  },
+  "isDeleted": false,
+  "power": [
+    "Three 8-pin PCI Express Power connectors, Minimum System Power requirement (W):750W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338114/ahcr8che4icqnrpvesab.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338115/gwgfxjaxacqiz1p5oiqt.jpg"
+  ],
+  "brand": "GIGABYTE",
+  "model": "GeForce RTX™ 3080 Ti AORUS XTREME",
+  "cores": 10240,
+  "gameClock": 1365,
+  "boostClock": 1830,
+  "memory": 12,
+  "memoryClock": 19,
+  "connectors": "3 x HDMI (2.1a), 3 x Display Port(1.4a)",
+  "warranty": 36,
+  "price": 1099,
+  "promoPrice": 0,
+  "quantity": 3,
+  "currentPrice": 1099,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e78a08a21cb429cfd5f94"
+  },
+  "isDeleted": false,
+  "power": [
+    "Two 8-pin PCI Express Power connectors, Minimum System Power requirement (W):750W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338334/jw1el8glxl5h1gicoldl.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338336/wabjuqi3vazqh6ewsvae.jpg"
+  ],
+  "brand": "GIGABYTE",
+  "model": "GeForce RTX™ 3090 Gaming OC",
+  "cores": 10496,
+  "gameClock": 1395,
+  "boostClock": 1755,
+  "memory": 24,
+  "memoryClock": 19,
+  "connectors": "2 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 1499,
+  "promoPrice": 0,
+  "quantity": 2,
+  "currentPrice": 1499,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e79918a21cb429cfd5f95"
+  },
+  "isDeleted": false,
+  "power": [
+    "Minimum System Power requirement (W):250W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338576/kmffynxynfzig4gmkxrn.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338577/jofhw28z4ebual8ijzy2.jpg"
+  ],
+  "brand": "GIGABYTE",
+  "model": "GeForce GT 1030 DVI HDMI LP",
+  "cores": 384,
+  "gameClock": 1177,
+  "boostClock": 1417,
+  "memory": 2,
+  "memoryClock": 5,
+  "connectors": "1 x HDMI 2.1 , 1 x DVI",
+  "warranty": 36,
+  "price": 99,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 99,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e7a768a21cb429cfd5f96"
+  },
+  "isDeleted": false,
+  "power": [
+    "Minimum System Power requirement (W):250W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338805/hdtwqtsmwbbavlpdlor0.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628338806/dq72uut8xirk6ozwy0px.jpg"
+  ],
+  "brand": "MSI",
+  "model": "GeForce GT 1030 AERO DVI HDMI",
+  "cores": 384,
+  "gameClock": 1177,
+  "boostClock": 1189,
+  "memory": 2,
+  "memoryClock": 5,
+  "connectors": "1 x HDMI 2.1 , 1 x DisplayPort",
+  "warranty": 36,
+  "price": 99,
+  "promoPrice": 0,
+  "quantity": 8,
+  "currentPrice": 99,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e7c7c8a21cb429cfd5f97"
+  },
+  "isDeleted": false,
+  "power": [
+    "One 8-pin PCI Express Power connectors, Minimum System Power requirement (W):550W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628339323/otypq1d0ot9n5sfhlyty.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628339324/lzt88nqusbnbd8au3ilr.png"
+  ],
+  "brand": "EVGA",
+  "model": "GeForce RTX™ 2060 SC OVERCLOCKED",
+  "cores": 1920,
+  "gameClock": 1600,
+  "boostClock": 1710,
+  "memory": 6,
+  "memoryClock": 14,
+  "connectors": "1 x HDMI 2.1 , 1 x DisplayPort, 1 x DVI",
+  "warranty": 36,
+  "price": 299,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 299,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e7d5c8a21cb429cfd5f98"
+  },
+  "isDeleted": false,
+  "power": [
+    "One 8-pin PCI Express Power connectors, Minimum System Power requirement (W):550W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628339547/qfev8fo2tn8ovklbfleb.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628339548/okvzgmqkbg7nuf5tpbqm.jpg"
+  ],
+  "brand": "EVGA",
+  "model": "GeForce GTX™ 1660 SUPER SC ULTRA GAMING",
+  "cores": 1408,
+  "gameClock": 1710,
+  "boostClock": 1830,
+  "memory": 6,
+  "memoryClock": 15,
+  "connectors": "1 x HDMI 2.1 , 1 x DisplayPort, 1 x DVI",
+  "warranty": 36,
+  "price": 249,
+  "promoPrice": 0,
+  "quantity": 4,
+  "currentPrice": 249,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e7ea58a21cb429cfd5f99"
+  },
+  "isDeleted": false,
+  "power": [
+    " Two 8-pin PCI Express Power connectors, Minimum System Power requirement (W):700W"
+  ],
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628339876/v4gqyo48ljfioccygsgu.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628339877/bwisl2sslp2zkdfs78n3.jpg"
+  ],
+  "brand": "ASUS",
+  "model": "TUF GAMING RADEON RX 6700 XT",
+  "cores": 2560,
+  "gameClock": 2511,
+  "boostClock": 2622,
+  "memory": 12,
+  "memoryClock": 16,
+  "connectors": "1 x HDMI 2.1 , 3 x DisplayPort",
+  "warranty": 36,
+  "price": 559,
+  "promoPrice": 0,
+  "quantity": 6,
+  "currentPrice": 559,
+  "__v": 0
+}]

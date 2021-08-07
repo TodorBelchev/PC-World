@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "60e977d596892a1618aac692"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625913301/ds21fkrnftngyafqymda.jpg"
+  ],
+  "brand": "HyperX",
+  "model": "Fury",
+  "warranty": 99,
+  "price": 59,
+  "ramCapacity": 8,
+  "memorySpeeds": 3200,
+  "memoryType": "DDR4",
+  "timings": "CL16-18-18-38 1.35V",
+  "platform": "desktop",
+  "__v": 0,
+  "quantity": 14,
+  "currentPrice": 59,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ea9195804f53372415e477"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625985429/iqu6dkih1bwbahqqjark.png"
+  ],
+  "brand": "G.SKILL",
+  "model": "Aegis",
+  "ramCapacity": 16,
+  "memorySpeeds": 3000,
+  "memoryType": "DDR4",
+  "timings": "CL16-18-18-38 1.35V",
+  "platform": "desktop",
+  "warranty": 99,
+  "price": 79,
+  "__v": 0,
+  "quantity": 14,
+  "currentPrice": 59,
+  "promoPrice": 59,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ebe60aa3c7dd1764064a6c"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626072586/emd1l6ac5q1cjpgqny3h.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626072587/jj1elrib4fxvc7dnurgh.png"
+  ],
+  "brand": "G.SKILL",
+  "model": "Ripjaws V Red",
+  "ramCapacity": 16,
+  "memorySpeeds": 3200,
+  "memoryType": "DDR4",
+  "timings": "CL16-18-18-38 1.35V",
+  "platform": "desktop",
+  "warranty": 99,
+  "price": 139,
+  "quantity": 8,
+  "__v": 0,
+  "currentPrice": 119,
+  "promoPrice": 119,
+  "isDeleted": false
+}]

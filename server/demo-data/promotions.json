@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "60fd482a0fe051369cd8d5f3"
+  },
+  "products": [
+    {
+      "$oid": "60fe810ffb746b4358fe4e79"
+    },
+    {
+      "$oid": "60fe854bfb746b4358fe4e7a"
+    },
+    {
+      "$oid": "610e5c2b90815c0015f4c708"
+    }
+  ],
+  "expirationDate": "1.8.2021",
+  "image": "https://res.cloudinary.com/dex8g0z5j/image/upload/v1627219213/dell-promo-min_rv2nb9.jpg",
+  "__v": 0,
+  "promoName": "Dell gaming notebooks promo",
+  "productType": "Notebook"
+},{
+  "_id": {
+    "$oid": "60fd4cb86ebaa13460fa0fc2"
+  },
+  "products": [
+    {
+      "$oid": "60ed7d45b6394d0abc0a532d"
+    },
+    {
+      "$oid": "60fab11d5faeff3188b68dd3"
+    },
+    {
+      "$oid": "60fe7cc991e5beb11d51242f"
+    },
+    {
+      "$oid": "60fe7d2391e5beb11d512430"
+    },
+    {
+      "$oid": "610e5f4390815c0015f4c709"
+    }
+  ],
+  "expirationDate": "15.09.2021",
+  "image": "https://res.cloudinary.com/dex8g0z5j/image/upload/v1627221396/asus-promo-min_jyqgi3.jpg",
+  "__v": 0,
+  "promoName": "Asus rog notebooks promo",
+  "productType": "Notebook"
+},{
+  "_id": {
+    "$oid": "61091f249ca2ac09dc7bbfbd"
+  },
+  "products": [
+    {
+      "$oid": "60ffb6e842a01d3c682945ff"
+    },
+    {
+      "$oid": "60e823811b6fc01770273530"
+    },
+    {
+      "$oid": "610e8b407d2de8276093c4f7"
+    },
+    {
+      "$oid": "610e8bfc7d2de8276093c4f8"
+    }
+  ],
+  "expirationDate": "31.8.2021",
+  "promoName": "Intel core i5 promo",
+  "image": "https://res.cloudinary.com/dex8g0z5j/image/upload/v1627984529/ois64kiyjxo5601vi4cn.jpg",
+  "__v": 9,
+  "productType": "Processor"
+}]

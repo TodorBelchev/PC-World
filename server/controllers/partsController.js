@@ -133,7 +133,7 @@ router.post('/create/:partType', isLoggedIn(), isAdmin(), async (req, res) => {
         if (formData.images.length == 0) {
             throw new Error('At least one image is required!');
         }
-        formData.promoPrice !== 0 ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
+        formData.promoPrice !== '0' ? formData.currentPrice = formData.promoPrice : formData.currentPrice = formData.price;
         const product = await createPart(partType, formData);
         res.status(201).send(product);
     } catch (error) {
@@ -166,15 +166,15 @@ router.get('/count/all', async (req, res) => {
             getPartCount('cooler')
         ]);
         res.status(200).send({
-            processors: procCount,
-            vga: vgaCount,
-            MB: MBCount,
-            memory: memoryCount,
-            hdd: hddCount,
-            ssd: ssdCount,
-            case: caseCount,
-            psu: psuCount,
-            cooler: coolerCount
+            processors: procCount.length,
+            vga: vgaCount.length,
+            MB: MBCount.length,
+            memory: memoryCount.length,
+            hdd: hddCount.length,
+            ssd: ssdCount.length,
+            case: caseCount.length,
+            psu: psuCount.length,
+            cooler: coolerCount.length
         });
     } catch (error) {
         res.status(400).send({ message: error.message });

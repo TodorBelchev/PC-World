@@ -1,0 +1,171 @@
+[{
+  "_id": {
+    "$oid": "60e9481722721e2b8c3d41df"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625901077/ng5cjaeyt7hv1v3e744y.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625901078/gkvqcanxpu7rmvq1owee.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625901079/css53q9unrgzh0i8hmod.png"
+  ],
+  "brand": "GIGABYTE",
+  "model": "B550 GAMING X",
+  "price": 139,
+  "socket": "AMD AM4",
+  "formFactor": "ATX",
+  "chipset": "AMD B550",
+  "memorySlots": 4,
+  "memorySpeeds": "Support for DDR4 4400(O.C.) / 4000(O.C.) / 3866(O.C.) / 3800(O.C.) / 3733(O.C.) / 3600(O.C.) / 3466(O.C.) / 3400(O.C.) / 3333(O.C.) / 3300(O.C.) / 3200 / 2933 / 2667 / 2400 / 2133 MHz memory modules",
+  "ramCapacity": 128,
+  "audio": "Realtek® ALC887 codec, High Definition Audio, 2/4/5.1/7.1-channel",
+  "lan": "Realtek® GbE LAN chip (1000 Mbit/100 Mbit)",
+  "wireless": "",
+  "connectors": "1 x USB 3.2 Gen 2 Type-A port (red) on the back panel, 3 x USB 3.2 Gen 1 ports on the back panel, 2 x USB 3.2 Gen 1 ports available through the internal USB header, 6 x USB 2.0/1.1 ports (2 ports on the back panel, 4 ports available through the internal USB headers)",
+  "storage": "2 x M.2 connectors, 4 x SATA 6Gb/s connectors",
+  "warranty": 36,
+  "__v": 0,
+  "quantity": 5,
+  "currentPrice": 129,
+  "promoPrice": 129,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ea8f96804f53372415e476"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625984915/aaueuyxzg5ltbvytsvlf.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625984917/p8rgfnpgd24unmscooof.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625984918/k0dxmahttm8whq1mlc13.png"
+  ],
+  "brand": "ASROCK",
+  "model": "H510M-HDV",
+  "socket": "Intel 1200",
+  "formFactor": "Micro ATX",
+  "chipset": "Intel H510",
+  "memorySlots": 2,
+  "memorySpeeds": "Supports DDR4 3200(OC) / 2933 / 2800 / 2666 / 2400 / 2133 non-ECC, un-buffered memory",
+  "ramCapacity": 64,
+  "audio": "Realtek ALC897 Audio Codec, 7.1 CH HD Audio",
+  "lan": "Realtek® RTL8111H (10/100/1000 Mb/s)",
+  "wireless": "",
+  "connectors": "1 x PS/2 Keyboard Port, 1 x PS/2 Mouse Port, 1 x D-Sub Port, 1 x DVI-D Port, 1 x HDMI Port, 2 x USB 3.2 Gen1, 4 x USB 2.0 Ports, 1 x RJ-45 LAN Port with LED, HD Audio Jacks: Line in / Front Speaker / Microphone",
+  "storage": "4 x SATA3 6.0 Gb/s Connectors, support Intel® Rapid Storage Technology 18",
+  "warranty": 36,
+  "price": 79,
+  "__v": 0,
+  "quantity": 14,
+  "currentPrice": 69,
+  "promoPrice": 69,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "610e817f8a21cb429cfd5f9a"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628340606/kjy9uayngbehxmyqtrlm.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628340607/yokuv237xudrgbckevvi.png"
+  ],
+  "brand": "ASROCK",
+  "model": "B450M STEEL LEGEND",
+  "socket": "AMD AM4",
+  "formFactor": "Micro ATX",
+  "chipset": "AMD B450",
+  "memorySlots": 4,
+  "memorySpeeds": "Supports DDR4 3200(OC) / 2933 / 2800 / 2666 / 2400 / 2133 non-ECC, un-buffered memory",
+  "ramCapacity": 128,
+  "audio": "Realtek ALC892/897 Audio Codec, 7.1 CH HD Audio",
+  "lan": "Realtek® RTL8111H (10/100/1000 Mb/s)",
+  "wireless": "",
+  "connectors": " 1 x PS/2 Keyboard Port, 1 x PS/2 Mouse Port, 1 x D-Sub Port, 1 x DVI-D Port, 1 x HDMI Port, 2 x USB 3.2 Gen1, 4 x USB 2.0 Ports, 1 x RJ-45 LAN Port with LED, HD Audio Jacks: Line in / Front Speaker / Microphone",
+  "storage": "4 x SATA3 6.0 Gb/s Connectors",
+  "warranty": 36,
+  "price": 99,
+  "promoPrice": 0,
+  "quantity": 7,
+  "currentPrice": 99,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e82e17d2de8276093c4f4"
+  },
+  "isDeleted": false,
+  "wireless": "Intel® 802.11ac WiFi Module, wireless connections up to 433Mbps",
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628340959/q7e9ixkrda57ww091sjc.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628340961/tpvbhadbc1sb5ydf5ngt.png"
+  ],
+  "brand": "ASROCK",
+  "model": "B550 PHANTOM GAMING",
+  "socket": "AMD AM4",
+  "formFactor": "ATX",
+  "chipset": "AMD B550",
+  "memorySlots": 4,
+  "memorySpeeds": "Support for DDR4 4533+(OC) / 4466(OC) / 4400(OC) / 4333(OC) / 4266(OC) / 4200(OC) / 4133(OC) / 4000(OC) / 3866(OC) / 3800(OC) / 3733(OC) / 3600(OC) / 3466(OC) / 3200 / 2933 / 2667 / 2400 / 2133 ECC & non-ECC, un-buffered memory",
+  "ramCapacity": 128,
+  "audio": "Realtek ALC1200 Audio Codec, 7.1 CH HD Audio",
+  "lan": "Realtek® RTL8111H (10/100/1000 Mb/s)",
+  "connectors": "1 x USB 3.2 Gen 2 Type-A port (red) on the back panel, 3 x USB 3.2 Gen 1 ports on the back panel, 2 x USB 3.2 Gen 1 ports available through the internal USB header, 6 x USB 2.0/1.1 ports (2 ports on the back panel, 4 ports available through the internal USB headers)",
+  "storage": "1 x M.2 connector, 4 x SATA 6Gb/s connectors",
+  "warranty": 36,
+  "price": 149,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 149,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e83fc7d2de8276093c4f5"
+  },
+  "isDeleted": false,
+  "wireless": "null",
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628341243/ua8klfr7e1egfr12xong.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628341244/ceaq0z6iefaf8nzje9zm.png"
+  ],
+  "brand": "ASROCK",
+  "model": "B560 STEEL LEGEND",
+  "socket": "Intel 1200",
+  "formFactor": "ATX",
+  "chipset": "Intel B560",
+  "memorySlots": 4,
+  "memorySpeeds": "Support for DDR4 4400(O.C.) / 4000(O.C.) / 3866(O.C.) / 3800(O.C.) / 3733(O.C.) / 3600(O.C.) / 3466(O.C.) / 3400(O.C.) / 3333(O.C.) / 3300(O.C.) / 3200 / 2933 / 2667 / 2400 / 2133 MHz memory modules",
+  "ramCapacity": 128,
+  "audio": "Realtek ALC897 Audio Codec, 7.1 CH HD Audio",
+  "lan": "Realtek® Dragon RTL8125BG (10/100/1000/2500 Mb/s)",
+  "connectors": "1 x USB 3.2 Gen 2 Type-A port (red) on the back panel, 3 x USB 3.2 Gen 1 ports on the back panel, 2 x USB 3.2 Gen 1 ports available through the internal USB header, 6 x USB 2.0/1.1 ports (2 ports on the back panel, 4 ports available through the internal USB headers)",
+  "storage": "2 x M.2 connectors, 4 x SATA 6Gb/s connectors",
+  "warranty": 36,
+  "price": 169,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 169,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e85937d2de8276093c4f6"
+  },
+  "isDeleted": false,
+  "wireless": "null",
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628341650/cchncpms5krgpyqbiqju.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628341651/qbhixqofcrsqqincusnj.png"
+  ],
+  "brand": "GIGABYTE",
+  "model": "A320M-H",
+  "socket": "AMD AM4",
+  "formFactor": "Micro ATX",
+  "chipset": "AMD A320",
+  "memorySlots": 2,
+  "memorySpeeds": "Supports DDR4 3200(OC) / 2933 / 2800 / 2666 / 2400 / 2133 non-ECC, un-buffered memory",
+  "ramCapacity": 32,
+  "audio": "Realtek Audio Codec, 7.1 CH HD Audio",
+  "lan": "Realtek® GbE LAN chip (10/100/1000 Mbit)",
+  "connectors": " 1 x USB 3.2 Gen 2 Type-A port (red) on the back panel, 3 x USB 3.2 Gen 1 ports on the back panel, 2 x USB 3.2 Gen 1 ports available through the internal USB header, 6 x USB 2.0/1.1 ports (2 ports on the back panel, 4 ports available through the internal USB headers)",
+  "storage": "1 x M.2 connectors, 4 x SATA 6Gb/s connectors",
+  "warranty": 36,
+  "price": 79,
+  "promoPrice": 69,
+  "quantity": 9,
+  "currentPrice": 69,
+  "__v": 0
+}]

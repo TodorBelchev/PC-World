@@ -1,0 +1,2227 @@
+[{
+  "_id": {
+    "$oid": "6102a51bbbe393398cb62be1"
+  },
+  "status": "completed",
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6102a51bbbe393398cb62be2"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-07-29T00:01:01.001Z"
+  },
+  "__v": 3,
+  "completed": true
+},{
+  "_id": {
+    "$oid": "6102a53cbbe393398cb62be3"
+  },
+  "status": "completed",
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6102a53cbbe393398cb62be4"
+      },
+      "product": {
+        "$oid": "60ed7d45b6394d0abc0a532d"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1199
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1199,
+  "createdAt": {
+    "$date": "2021-07-29T00:01:01.001Z"
+  },
+  "__v": 3,
+  "completed": true
+},{
+  "_id": {
+    "$oid": "6102a546bbe393398cb62be5"
+  },
+  "status": "completed",
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6102a546bbe393398cb62be6"
+      },
+      "product": {
+        "$oid": "60ffb8bf42a01d3c68294602"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 699
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 699,
+  "createdAt": {
+    "$date": "2021-07-29T00:01:01.001Z"
+  },
+  "__v": 3,
+  "completed": true
+},{
+  "_id": {
+    "$oid": "6102ab456f44371d046ffac4"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6102ab456f44371d046ffac5"
+      },
+      "product": {
+        "$oid": "60e825fa1e51da3cec2eaf96"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 479
+    }
+  ],
+  "user": {
+    "$oid": "60e58e0dd0ab3b3340ac09f1"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 479,
+  "createdAt": {
+    "$date": "2021-07-29T00:01:01.001Z"
+  },
+  "__v": 6
+},{
+  "_id": {
+    "$oid": "61038c094b7ef43ac8a98ce2"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61038c094b7ef43ac8a98ce3"
+      },
+      "product": {
+        "$oid": "60fe8cf1379a2f4180641d9d"
+      },
+      "onModel": "Psu",
+      "purchasePrice": 59
+    }
+  ],
+  "user": {
+    "$oid": "60e58e0dd0ab3b3340ac09f1"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 69,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6103a2cf95fd5607980b213f"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a2cf95fd5607980b2140"
+      },
+      "product": {
+        "$oid": "60e825fa1e51da3cec2eaf96"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 479
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 479,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a30295fd5607980b2143"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a30295fd5607980b2144"
+      },
+      "product": {
+        "$oid": "60ed7af2b6394d0abc0a532c"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1499
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1499,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a31795fd5607980b2145"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a31795fd5607980b2146"
+      },
+      "product": {
+        "$oid": "60ec1c84634c4b2d0045869d"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 199
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 199,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a33095fd5607980b2147"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a33095fd5607980b2148"
+      },
+      "product": {
+        "$oid": "60ea8c7d804f53372415e475"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 359
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 359,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a34295fd5607980b2149"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a34295fd5607980b214a"
+      },
+      "product": {
+        "$oid": "60ed6447f974ad22b8845940"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 349
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 349,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a35895fd5607980b214b"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a35895fd5607980b214c"
+      },
+      "product": {
+        "$oid": "60ed71abb6394d0abc0a5328"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 689
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 689,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a36e95fd5607980b214d"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a36e95fd5607980b214e"
+      },
+      "product": {
+        "$oid": "60ed75b8b6394d0abc0a532a"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 799
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 799,
+  "createdAt": {
+    "$date": "2021-07-31T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a39895fd5607980b214f"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a39895fd5607980b2150"
+      },
+      "product": {
+        "$oid": "60fe810ffb746b4358fe4e79"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 799
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 799,
+  "createdAt": {
+    "$date": "2021-07-31T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a40395fd5607980b2169"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a40395fd5607980b216a"
+      },
+      "product": {
+        "$oid": "60ed423b412d0e1ff89e2e02"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 799
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 799,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103a41495fd5607980b216b"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103a41495fd5607980b216c"
+      },
+      "product": {
+        "$oid": "60fe7855fb746b4358fe4e78"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 89
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 99,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103c6570bfbbb186082bb9b"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103c6570bfbbb186082bb9c"
+      },
+      "product": {
+        "$oid": "60ea8c7d804f53372415e475"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 359
+    }
+  ],
+  "user": {
+    "$oid": "60e58e0dd0ab3b3340ac09f1"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 359,
+  "createdAt": {
+    "$date": "2021-07-31T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103e58ae0c739374469ef61"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef62"
+      },
+      "product": {
+        "$oid": "60e8416ca09e893ba83eba2c"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 599
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef63"
+      },
+      "product": {
+        "$oid": "60e825fa1e51da3cec2eaf96"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 479
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef64"
+      },
+      "product": {
+        "$oid": "60fe8810fb746b4358fe4e7d"
+      },
+      "onModel": "Case",
+      "purchasePrice": 149
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef65"
+      },
+      "product": {
+        "$oid": "60e9481722721e2b8c3d41df"
+      },
+      "onModel": "Motherboard",
+      "purchasePrice": 129
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef66"
+      },
+      "product": {
+        "$oid": "60ebe60aa3c7dd1764064a6c"
+      },
+      "onModel": "Memory",
+      "purchasePrice": 119
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef67"
+      },
+      "product": {
+        "$oid": "60eac32c6fb9a72f20815fb3"
+      },
+      "onModel": "Psu",
+      "purchasePrice": 119
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef68"
+      },
+      "product": {
+        "$oid": "60e9814dab6e3b2e3cc92f51"
+      },
+      "onModel": "Ssd",
+      "purchasePrice": 79
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef69"
+      },
+      "product": {
+        "$oid": "60fe8b3d379a2f4180641d9b"
+      },
+      "onModel": "Hdd",
+      "purchasePrice": 79
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e58ae0c739374469ef6a"
+      },
+      "product": {
+        "$oid": "60ebe1136984441650c4e376"
+      },
+      "onModel": "Cooler",
+      "purchasePrice": 69
+    }
+  ],
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1821,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103e591e0c739374469ef6b"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e591e0c739374469ef6c"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6103e599e0c739374469ef6d"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103e599e0c739374469ef6e"
+      },
+      "product": {
+        "$oid": "60fa694673fca71f90437207"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 349
+    }
+  ],
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 349,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6103ec625e247716f8650023"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ec625e247716f8650024"
+      },
+      "product": {
+        "$oid": "60ec1c84634c4b2d0045869d"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 0
+    }
+  ],
+  "user": {
+    "$oid": "60e6a0d18c5d843de838f31b"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 10,
+  "createdAt": {
+    "$date": "2021-07-30T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103ef015e247716f8650027"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f8650028"
+      },
+      "product": {
+        "$oid": "60ea8c7d804f53372415e475"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 359
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f8650029"
+      },
+      "product": {
+        "$oid": "60ffb6e842a01d3c682945ff"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 279
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f865002a"
+      },
+      "product": {
+        "$oid": "60ebe60aa3c7dd1764064a6c"
+      },
+      "onModel": "Memory",
+      "purchasePrice": 119
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f865002b"
+      },
+      "product": {
+        "$oid": "60fe7855fb746b4358fe4e78"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 89
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f865002c"
+      },
+      "product": {
+        "$oid": "60fe8e06379a2f4180641d9e"
+      },
+      "onModel": "Ssd",
+      "purchasePrice": 79
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f865002d"
+      },
+      "product": {
+        "$oid": "60fe86defb746b4358fe4e7b"
+      },
+      "onModel": "Case",
+      "purchasePrice": 79
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f865002e"
+      },
+      "product": {
+        "$oid": "60ea8f96804f53372415e476"
+      },
+      "onModel": "Motherboard",
+      "purchasePrice": 69
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f865002f"
+      },
+      "product": {
+        "$oid": "60fe8cf1379a2f4180641d9d"
+      },
+      "onModel": "Psu",
+      "purchasePrice": 59
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f8650030"
+      },
+      "product": {
+        "$oid": "60e97ddc985f993f24670de6"
+      },
+      "onModel": "Hdd",
+      "purchasePrice": 0
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103ef015e247716f8650031"
+      },
+      "product": {
+        "$oid": "60fe8915fb746b4358fe4e7e"
+      },
+      "onModel": "Cooler",
+      "purchasePrice": 39
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1171,
+  "createdAt": {
+    "$date": "2021-07-28T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f444ededa0291c5347ea"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f444ededa0291c5347eb"
+      },
+      "product": {
+        "$oid": "60ed6447f974ad22b8845940"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 349
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 349,
+  "createdAt": {
+    "$date": "2021-07-28T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f44fededa0291c5347ec"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f44fededa0291c5347ed"
+      },
+      "product": {
+        "$oid": "60ed6642f974ad22b8845941"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 349
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 349,
+  "createdAt": {
+    "$date": "2021-07-27T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f46aededa0291c5347ee"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f46aededa0291c5347ef"
+      },
+      "product": {
+        "$oid": "60ed75b8b6394d0abc0a532a"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 799
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 799,
+  "createdAt": {
+    "$date": "2021-07-27T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f479ededa0291c5347f0"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f479ededa0291c5347f1"
+      },
+      "product": {
+        "$oid": "60fa9824b6d2fa0a8c427dbe"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 799
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 799,
+  "createdAt": {
+    "$date": "2021-07-26T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f488ededa0291c5347f2"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f488ededa0291c5347f3"
+      },
+      "product": {
+        "$oid": "60fa9affb6d2fa0a8c427dbf"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 999
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 999,
+  "createdAt": {
+    "$date": "2021-07-25T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f48fededa0291c5347f4"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f48fededa0291c5347f5"
+      },
+      "product": {
+        "$oid": "60fa9ca7b6d2fa0a8c427dc0"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 799
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 799,
+  "createdAt": {
+    "$date": "2021-07-24T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f4a3ededa0291c5347f6"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f4a3ededa0291c5347f7"
+      },
+      "product": {
+        "$oid": "60fe854bfb746b4358fe4e7a"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1499
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1499,
+  "createdAt": {
+    "$date": "2021-07-23T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f4aaededa0291c5347f8"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6103f4aaededa0291c5347f9"
+      },
+      "product": {
+        "$oid": "60fe7d2391e5beb11d512430"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1399
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1399,
+  "createdAt": {
+    "$date": "2021-07-22T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6106444eba6da137402572d6"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6106444eba6da137402572d7"
+      },
+      "product": {
+        "$oid": "60ed6447f974ad22b8845940"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 349
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 349,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6106447dba6da137402572d8"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6106447dba6da137402572d9"
+      },
+      "product": {
+        "$oid": "60eaa09c9f54591adce33343"
+      },
+      "onModel": "Case",
+      "purchasePrice": 0
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 10,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610645bdba6da137402572da"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610645bdba6da137402572db"
+      },
+      "product": {
+        "$oid": "60fe8e06379a2f4180641d9e"
+      },
+      "onModel": "Ssd",
+      "purchasePrice": 79
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 89,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064638ba6da137402572dc"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064638ba6da137402572dd"
+      },
+      "product": {
+        "$oid": "60e9481722721e2b8c3d41df"
+      },
+      "onModel": "Motherboard",
+      "purchasePrice": 129
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 129,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064755ba6da137402572de"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064755ba6da137402572df"
+      },
+      "product": {
+        "$oid": "60fe7855fb746b4358fe4e78"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 89
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 99,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610647c5ba6da137402572e0"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610647c5ba6da137402572e1"
+      },
+      "product": {
+        "$oid": "60fe7855fb746b4358fe4e78"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 89
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 99,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064844ba6da137402572e2"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064844ba6da137402572e3"
+      },
+      "product": {
+        "$oid": "60fe7855fb746b4358fe4e78"
+      },
+      "onModel": "Monitor",
+      "purchasePrice": 89
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 99,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064966ba6da137402572e4"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064966ba6da137402572e5"
+      },
+      "product": {
+        "$oid": "60fe8915fb746b4358fe4e7e"
+      },
+      "onModel": "Cooler",
+      "purchasePrice": 39
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 49,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610649f6ba6da137402572e6"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610649f6ba6da137402572e7"
+      },
+      "product": {
+        "$oid": "60eacfc2e4087b2e94f771d5"
+      },
+      "onModel": "Cooler",
+      "purchasePrice": 0
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 10,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064a3bba6da137402572e8"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064a3bba6da137402572e9"
+      },
+      "product": {
+        "$oid": "60ed75b8b6394d0abc0a532a"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 799
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 799,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064c39ba6da137402572ea"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064c39ba6da137402572eb"
+      },
+      "product": {
+        "$oid": "60ea9195804f53372415e477"
+      },
+      "onModel": "Memory",
+      "purchasePrice": 59
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 69,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064d6dba6da137402572ec"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064d6dba6da137402572ed"
+      },
+      "product": {
+        "$oid": "60e821311b6fc0177027352f"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 449
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 449,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064da8ba6da137402572ee"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064da8ba6da137402572ef"
+      },
+      "product": {
+        "$oid": "60ffafce42a01d3c682945f9"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 79
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 89,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61064f76ba6da137402572f0"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61064f76ba6da137402572f1"
+      },
+      "product": {
+        "$oid": "60ffb07a42a01d3c682945fa"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 99
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 109,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6106530dba6da13740257312"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6106530dba6da13740257313"
+      },
+      "product": {
+        "$oid": "60ebe4e5a3c7dd1764064a6b"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 159
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 159,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610653efba6da13740257314"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610653efba6da13740257315"
+      },
+      "product": {
+        "$oid": "60ffb07a42a01d3c682945fa"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 99
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 10,
+  "totalPrice": 109,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61065434ba6da13740257316"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61065434ba6da13740257317"
+      },
+      "product": {
+        "$oid": "60ffb76542a01d3c68294600"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 289
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 289,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61065515ba6da13740257318"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61065515ba6da13740257319"
+      },
+      "product": {
+        "$oid": "60ebe4e5a3c7dd1764064a6b"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 159
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 159,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6106578aba6da1374025731e"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6106578aba6da1374025731f"
+      },
+      "product": {
+        "$oid": "60e8416ca09e893ba83eba2c"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 599
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 599,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610657a9ba6da13740257320"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610657a9ba6da13740257321"
+      },
+      "product": {
+        "$oid": "60ea8c7d804f53372415e475"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 359
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 359,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61065ca12969ac43887f2ffa"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61065ca12969ac43887f2ffb"
+      },
+      "product": {
+        "$oid": "60ea8c7d804f53372415e475"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 359
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 359,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61065f852969ac43887f2ffc"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "61065f852969ac43887f2ffd"
+      },
+      "product": {
+        "$oid": "60e825fa1e51da3cec2eaf96"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 479
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 479,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610660ea2969ac43887f2ffe"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610660ea2969ac43887f2fff"
+      },
+      "product": {
+        "$oid": "60ea8920715f7b1e684b5990"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 549
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 549,
+  "createdAt": {
+    "$date": "2021-08-01T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107abcb0a85c012a0286256"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107abcb0a85c012a0286257"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "user": {
+    "$oid": "60f5625bc1ddff25c836c04f"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107cbcd488bd329681d5d5c"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107cbcd488bd329681d5d5d"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107cc0b488bd329681d5d5e"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107cc0b488bd329681d5d5f"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107cc1f488bd329681d5d60"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107cc1f488bd329681d5d61"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107cddf6eda5627d049723d"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107cddf6eda5627d049723e"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107ce076eda5627d049723f"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107ce076eda5627d0497240"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107ce136eda5627d0497241"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107ce136eda5627d0497242"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107cea46eda5627d0497246"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107cea46eda5627d0497247"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107ced46eda5627d0497249"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107ced46eda5627d049724a"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107cfa16eda5627d049724c"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107cfa16eda5627d049724d"
+      },
+      "product": {
+        "$oid": "60ec0f627d39702e6c0ae881"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 1099
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1099,
+  "createdAt": {
+    "$date": "2021-08-02T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107d4f16eda5627d049726a"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "6107d4f16eda5627d049726b"
+      },
+      "product": {
+        "$oid": "60ea8c7d804f53372415e475"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 359
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 359,
+  "createdAt": {
+    "$date": "2021-07-31T00:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610a8d626ac52700159cd5ad"
+  },
+  "status": "completed",
+  "completed": true,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610a8d626ac52700159cd5ae"
+      },
+      "product": {
+        "$oid": "60ed6642f974ad22b8845941"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 349
+    }
+  ],
+  "guest": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": 123,
+    "city": "Varna",
+    "location": "8mi primorski polk"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 349,
+  "createdAt": {
+    "$date": "2021-08-04T03:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610a9657589b6300157e89c2"
+  },
+  "status": "pending",
+  "completed": false,
+  "products": [
+    {
+      "purchaseQuantity": 3,
+      "_id": {
+        "$oid": "610a9657589b6300157e89c3"
+      },
+      "product": {
+        "$oid": "60ed6447f974ad22b8845940"
+      },
+      "onModel": "Notebook",
+      "purchasePrice": 349
+    }
+  ],
+  "user": {
+    "$oid": "610a95b1244b9800159fa30e"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 349,
+  "createdAt": {
+    "$date": "2021-08-04T03:01:01.001Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610c478eafd4051c60fb7fd0"
+  },
+  "status": "pending",
+  "completed": false,
+  "products": [
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610c478eafd4051c60fb7fd1"
+      },
+      "product": {
+        "$oid": "60ffba847d66433500a6adeb"
+      },
+      "onModel": "Processor",
+      "purchasePrice": 999
+    },
+    {
+      "purchaseQuantity": 1,
+      "_id": {
+        "$oid": "610c478eafd4051c60fb7fd2"
+      },
+      "product": {
+        "$oid": "60e8416ca09e893ba83eba2c"
+      },
+      "onModel": "Vga",
+      "purchasePrice": 599
+    }
+  ],
+  "guest": {
+    "firstName": "fjdf",
+    "lastName": "vfldb;tdo",
+    "phoneNumber": 85685684,
+    "city": "jpbtpor",
+    "location": "ifhfdi"
+  },
+  "deliveryPrice": 0,
+  "totalPrice": 1598,
+  "createdAt": {
+    "$date": "2021-08-05T00:01:01.001Z"
+  },
+  "__v": 0
+}]

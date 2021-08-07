@@ -30,7 +30,7 @@ const editPart = (partName, id, data) => {
 }
 
 const getPartCount = (partName) => {
-    return parts[partName].collection.countDocuments();
+    return parts[partName].find({ isDeleted: false });
 }
 
 const getFilteredCount = (partName, filter) => {

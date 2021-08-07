@@ -1,0 +1,289 @@
+[{
+  "_id": {
+    "$oid": "60f16efd8a01481688c67dbd"
+  },
+  "body": {
+    "comment": "Some random comment",
+    "rating": 4,
+    "firstName": "Peter",
+    "lastName": "Petrov"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1526515881883"
+},{
+  "_id": {
+    "$oid": "60f172086b8a8024681c0c70"
+  },
+  "body": {
+    "comment": "Another random review",
+    "rating": 5,
+    "firstName": "Todor",
+    "lastName": "Belchev"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1526515981883"
+},{
+  "_id": {
+    "$oid": "60f295c202e4cf13bcdeb533"
+  },
+  "body": {
+    "comment": "Very good laptop",
+    "rating": 5,
+    "firstName": "Drago",
+    "lastName": "Draganov"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1326515881883"
+},{
+  "_id": {
+    "$oid": "60f29bb802e4cf13bcdeb534"
+  },
+  "body": {
+    "comment": "Very slim and ligjht, excellent build quality.",
+    "rating": 5,
+    "firstName": "Stamat",
+    "lastName": "Stamatov"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1326515881999"
+},{
+  "_id": {
+    "$oid": "60f29c2f02e4cf13bcdeb535"
+  },
+  "body": {
+    "comment": "Very cold even under heavy load.",
+    "rating": 5,
+    "firstName": "Maria",
+    "lastName": "Ilieva"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1496515881883"
+},{
+  "_id": {
+    "$oid": "60f29c6002e4cf13bcdeb536"
+  },
+  "body": {
+    "comment": "Very limited ports",
+    "rating": 3,
+    "firstName": "Gosho",
+    "lastName": "Goshev"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1529515881883"
+},{
+  "_id": {
+    "$oid": "60f2a765c0c8de2924c02866"
+  },
+  "body": {
+    "comment": "Rock solid",
+    "rating": 5,
+    "firstName": "Jay",
+    "lastName": "Z"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1459515881883"
+},{
+  "_id": {
+    "$oid": "60f2a87fc0c8de2924c02867"
+  },
+  "body": {
+    "comment": "Very happy with this notebook",
+    "rating": 5,
+    "firstName": "Ilia",
+    "lastName": "Iliev"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "__v": 0,
+  "createdAt": "1529595881883"
+},{
+  "_id": {
+    "$oid": "60f2aa3cbea99808e421dd2c"
+  },
+  "body": {
+    "comment": "Best laptop ever",
+    "rating": 5,
+    "firstName": "Peter",
+    "lastName": "Jackson"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1626516028093",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f2ac6df4d54f1ad4df946c"
+  },
+  "body": {
+    "comment": "Random review",
+    "rating": 5,
+    "firstName": "Random",
+    "lastName": "User"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1626516589621",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f2aca8f4d54f1ad4df946d"
+  },
+  "body": {
+    "comment": "Magical notebook",
+    "rating": 5,
+    "firstName": "Harry",
+    "lastName": "Potter"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1626516648981",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f2ad32f4d54f1ad4df946e"
+  },
+  "body": {
+    "comment": "Good for watching movies",
+    "rating": 5,
+    "firstName": "Guy",
+    "lastName": "Ritchie"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1626516786915",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f2add7f4d54f1ad4df946f"
+  },
+  "body": {
+    "comment": "Very expensive",
+    "rating": 3,
+    "firstName": "Hitar",
+    "lastName": "Petar"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1626516951615",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f6702c8548691cb479c880"
+  },
+  "body": {
+    "comment": "Some random comment",
+    "rating": 5,
+    "firstName": "Peter",
+    "lastName": "Petrov"
+  },
+  "modelId": {
+    "$oid": "60ec0f627d39702e6c0ae881"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1626763308066",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61079548ed628d0ecc54fb75"
+  },
+  "body": {
+    "comment": "Very good monitor",
+    "rating": 5,
+    "firstName": "Peter",
+    "lastName": "Petrov"
+  },
+  "modelId": {
+    "$oid": "60ec1c84634c4b2d0045869d"
+  },
+  "onModel": "Monitor",
+  "createdAt": "1627886920013",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107a85c69fa20342c2cfd04"
+  },
+  "body": {
+    "comment": "BenQ is the best!",
+    "rating": 5,
+    "firstName": "Stamat",
+    "lastName": "Stamatov"
+  },
+  "modelId": {
+    "$oid": "60ec1c84634c4b2d0045869d"
+  },
+  "onModel": "Monitor",
+  "createdAt": "1627891804077",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107ab252498ed21d0004a28"
+  },
+  "body": {
+    "comment": "Very happy with my purchase. Playing games is a breeze.",
+    "rating": 5,
+    "firstName": "Stamat",
+    "lastName": "Stamatov"
+  },
+  "modelId": {
+    "$oid": "60ed8122b6394d0abc0a532e"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1627892517155",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610a967b589b6300157e89c4"
+  },
+  "body": {
+    "comment": "qweqweqweqweqw",
+    "rating": 4,
+    "firstName": "asd",
+    "lastName": "asd"
+  },
+  "modelId": {
+    "$oid": "60ed6f4af974ad22b8845944"
+  },
+  "onModel": "Notebook",
+  "createdAt": "1628083835815",
+  "__v": 0
+}]

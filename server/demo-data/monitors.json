@@ -1,0 +1,495 @@
+[{
+  "_id": {
+    "$oid": "60ec1c84634c4b2d0045869d"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626086532/m2gte9rehbcfcy5u8hbd.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626086533/zuwifwe9cffbhn83cdeo.jpg"
+  ],
+  "brand": "BenQ",
+  "model": "BL2480T",
+  "type": "IPS",
+  "size": 24,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 5,
+  "brightness": 250,
+  "ports": "D-Sub (VGA), 3.5mm audio jack, HDMI, Display Port",
+  "warranty": 60,
+  "price": 219,
+  "quantity": 3,
+  "__v": 0,
+  "currentPrice": 219,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fa694673fca71f90437207"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627023686/gvk1toaj6d8voxuneesn.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627023687/ohm1ljknrrioc0otyk1a.png"
+  ],
+  "brand": "HP",
+  "model": "OMENX 25F",
+  "type": "TN",
+  "size": 25,
+  "resolution": "1920 x 1080",
+  "refreshRate": 240,
+  "responseTime": 1,
+  "brightness": 400,
+  "ports": "HDMI, Display Port",
+  "warranty": 24,
+  "price": 399,
+  "promoPrice": 349,
+  "quantity": 4,
+  "__v": 0,
+  "currentPrice": 349,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe7855fb746b4358fe4e78"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627289685/ldsqmgqxy6ddmk6uaszw.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627289686/bfsrstc6yh81tydmzcis.jpg"
+  ],
+  "brand": "Acer",
+  "model": "SA220Q",
+  "type": "IPS",
+  "size": 22,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 250,
+  "ports": "D-Sub (VGA), HDMI",
+  "warranty": 24,
+  "price": 99,
+  "promoPrice": 89,
+  "quantity": 5,
+  "currentPrice": 89,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "610e8d4a7d2de8276093c4f9"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628343626/u9r0l8dt7dtrhihfppjb.png",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628343626/nwwv9hakx9bhlrqvzbey.png"
+  ],
+  "brand": "BenQ",
+  "model": "BL2780T",
+  "type": "IPS",
+  "size": 27,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 5,
+  "brightness": 250,
+  "ports": "D-Sub (VGA), HDMI, Display Port",
+  "warranty": 36,
+  "price": 249,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 249,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e8de47d2de8276093c4fa"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628343779/ozbehnnljbntqkpyf7ef.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628343780/ajencyt0yrb8urry5z3m.webp"
+  ],
+  "brand": "BenQ",
+  "model": "PD2500Q",
+  "type": "IPS",
+  "size": 25,
+  "resolution": "2560 x 1440",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 350,
+  "ports": "3.5мм audio jack, HDMI, Display Port, USB-A, Mini Display Port",
+  "warranty": 60,
+  "price": 399,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 399,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e8f55d3566c10d82a1f57"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344149/mzszmuddbhr8bcakgtpq.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344150/qqzuttmiopgi0xxwopnr.jpg"
+  ],
+  "brand": "BenQ",
+  "model": "EX3203R",
+  "type": "VA",
+  "size": 31.5,
+  "resolution": "2560 x 1440",
+  "refreshRate": 144,
+  "responseTime": 4,
+  "brightness": 320,
+  "ports": "3.5мм audio jack, HDMI, Display Port, USB-C",
+  "warranty": 60,
+  "price": 599,
+  "promoPrice": 0,
+  "quantity": 4,
+  "currentPrice": 599,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e9010d3566c10d82a1f58"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344335/l9emyorwi0kurzjya3ea.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344336/o8dsgag2wefzbcisphkh.jpg"
+  ],
+  "brand": "BenQ",
+  "model": "EW2780U",
+  "type": "IPS",
+  "size": 27,
+  "resolution": "3840 x 2160",
+  "refreshRate": 60,
+  "responseTime": 5,
+  "brightness": 320,
+  "ports": "3.5мм audio jack, HDMI, Display Port, USB-C",
+  "warranty": 36,
+  "price": 599,
+  "promoPrice": 499,
+  "quantity": 3,
+  "currentPrice": 499,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e9112d3566c10d82a1f59"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344593/xlozcv5n96ve6ys0eea6.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344594/cyqdelugfgzb8awbzgho.png"
+  ],
+  "brand": "Acer",
+  "model": "SA240Y",
+  "type": "IPS",
+  "size": 24,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 250,
+  "ports": "HDMI, D-Sub",
+  "warranty": 24,
+  "price": 139,
+  "promoPrice": 0,
+  "quantity": 9,
+  "currentPrice": 139,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e91a2d3566c10d82a1f5a"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344737/zzop2x6zmrklap7yg9ng.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344738/bbu7gxiu92lhodu40xyz.jpg"
+  ],
+  "brand": "Acer",
+  "model": "Nitro RG271P",
+  "type": "IPS",
+  "size": 27,
+  "resolution": "1920 x 1080",
+  "refreshRate": 165,
+  "responseTime": 1,
+  "brightness": 250,
+  "ports": "2 x HDMI, 1 x DisplayPort",
+  "warranty": 24,
+  "price": 249,
+  "promoPrice": 0,
+  "quantity": 9,
+  "currentPrice": 249,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e9212d3566c10d82a1f5b"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344850/biw7y8twfprijeif5urq.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628344851/xuajsguoqxg7nntenpbq.jpg"
+  ],
+  "brand": "Acer",
+  "model": "ED320QR",
+  "type": "VA",
+  "size": 31.5,
+  "resolution": "1920 x 1080",
+  "refreshRate": 165,
+  "responseTime": 5,
+  "brightness": 300,
+  "ports": "2 x HDMI, 1 x DisplayPort",
+  "warranty": 24,
+  "price": 299,
+  "promoPrice": 0,
+  "quantity": 4,
+  "currentPrice": 299,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e92acd3566c10d82a1f5c"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628345002/toacuctlohytsjmfgvsw.jpg"
+  ],
+  "brand": "HP",
+  "model": "27w WIDE",
+  "type": "IPS",
+  "size": 27,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 5,
+  "brightness": 250,
+  "ports": "HDMI, D-Sub",
+  "warranty": 24,
+  "price": 199,
+  "promoPrice": 0,
+  "quantity": 9,
+  "currentPrice": 199,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e93efd3566c10d82a1f5d"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628345327/ho2f9wndbsfagmxvicdf.jpg"
+  ],
+  "brand": "HP",
+  "model": "25x",
+  "type": "TN",
+  "size": 25,
+  "resolution": "1920 x 1080",
+  "refreshRate": 144,
+  "responseTime": 1,
+  "brightness": 400,
+  "ports": "1 x HDMI, 1 X DisplayPort",
+  "warranty": 24,
+  "price": 249,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 249,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e949ed3566c10d82a1f5e"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628345502/ha0juayeyzgsxmiiegil.jpg"
+  ],
+  "brand": "BenQ",
+  "model": "EX2710",
+  "type": "IPS",
+  "size": 27,
+  "resolution": "1920 x 1080",
+  "refreshRate": 144,
+  "responseTime": 2,
+  "brightness": 400,
+  "ports": "2 x HDMI, 1 x DisplayPort",
+  "warranty": 36,
+  "price": 399,
+  "promoPrice": 0,
+  "quantity": 6,
+  "currentPrice": 399,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e95ced3566c10d82a1f5f"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628345806/ryer5mjlbgyziwjqhyfg.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "C22-25",
+  "type": "TN",
+  "size": 21.5,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 5,
+  "brightness": 200,
+  "ports": "HDMI, D-Sub",
+  "warranty": 24,
+  "price": 99,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 99,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e9621d3566c10d82a1f60"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628345889/co2fqvbm61wfr5432m8o.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "C24-25",
+  "type": "VA",
+  "size": 24,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 250,
+  "ports": "HDMI, D-Sub",
+  "warranty": 24,
+  "price": 119,
+  "promoPrice": 0,
+  "quantity": 9,
+  "currentPrice": 119,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e968ed3566c10d82a1f61"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628345998/c7ntlzsjxtsrytdtj3gf.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "C27-35",
+  "type": "VA",
+  "size": 27,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 250,
+  "ports": "D-Sub (VGA), HDMI",
+  "warranty": 24,
+  "price": 159,
+  "promoPrice": 0,
+  "quantity": 9,
+  "currentPrice": 159,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e971bd3566c10d82a1f62"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628346139/wsrruc3dospbtizbniec.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "L24q-30",
+  "type": "IPS",
+  "size": 24,
+  "resolution": "2560 x 1440",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 300,
+  "ports": "1 x HDMI, 1 X DisplayPort",
+  "warranty": 36,
+  "price": 229,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 229,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e97a7d3566c10d82a1f63"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628346278/ma4kkfzvz4hmppa7rvvw.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628346279/ssacfe5c63mqffeffhwi.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "LEGION Y25F-10",
+  "type": "TN",
+  "size": 24.5,
+  "resolution": "1920 x 1080",
+  "refreshRate": 144,
+  "responseTime": 1,
+  "brightness": 400,
+  "ports": "1 x HDMI, 1 X DisplayPort, 2 x USB",
+  "warranty": 36,
+  "price": 249,
+  "promoPrice": 0,
+  "quantity": 4,
+  "currentPrice": 249,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e9818d3566c10d82a1f64"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628346392/farbgqdrcyndhjy1ajes.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "G27c-10",
+  "type": "VA",
+  "size": 27,
+  "resolution": "1920 x 1080",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 350,
+  "ports": "1 x HDMI, 1 X DisplayPort",
+  "warranty": 36,
+  "price": 279,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 279,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e9873d3566c10d82a1f65"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628346483/s2pnh71gktmccuv6mgco.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "C32QC-20",
+  "type": "IPS",
+  "size": 31.5,
+  "resolution": "2560 x 1440",
+  "refreshRate": 60,
+  "responseTime": 4,
+  "brightness": 250,
+  "ports": "1 x HDMI, 1 X DisplayPort",
+  "warranty": 36,
+  "price": 299,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 299,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e98c2d3566c10d82a1f66"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628346562/rg5xmuuvmzuy6bmzehbg.jpg"
+  ],
+  "brand": "Lenovo",
+  "model": "G34w-10",
+  "type": "VA",
+  "size": 34,
+  "resolution": "3440 x 1440",
+  "refreshRate": 144,
+  "responseTime": 4,
+  "brightness": 350,
+  "ports": "1 x HDMI, 1 X DisplayPort",
+  "warranty": 36,
+  "price": 499,
+  "promoPrice": 0,
+  "quantity": 3,
+  "currentPrice": 499,
+  "__v": 0
+}]

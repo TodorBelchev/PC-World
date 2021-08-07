@@ -1,0 +1,74 @@
+[{
+  "_id": {
+    "$oid": "60eacfc2e4087b2e94f771d5"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626001346/gko4b7hdj67fnnweuvqc.jpg"
+  ],
+  "brand": "Noctua",
+  "model": "NH-U12S",
+  "socket": "1150, 1151, 1155, 1156, 2011, 2066, AM2, AM2+, AM3, AM3+, FM1, FM2, FM2+, AM4, 2011-3, 1200",
+  "height": 158,
+  "fanRPM": 1500,
+  "airflow": 55,
+  "noise": 22.4,
+  "fanSize": 12,
+  "connector": "4-pin PWM",
+  "type": "air",
+  "warranty": 72,
+  "price": 69,
+  "quantity": 4,
+  "__v": 0,
+  "currentPrice": 0,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ebe1136984441650c4e376"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626071314/i6s023fl2kusfhvqxrrj.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626071315/polbqw8blfual7xzc19j.jpg"
+  ],
+  "brand": "Noctua",
+  "model": "NH-U14S",
+  "socket": "1150, 1151, 1155, 1156, 2011, 2066, AM2, AM2+, AM3, AM3+, FM1, FM2, FM2+, AM4, 2011-3, 1200",
+  "height": 165,
+  "fanRPM": 1500,
+  "airflow": 82.57,
+  "noise": 24.6,
+  "fanSize": 14,
+  "connector": "4-pin PWM",
+  "type": "air",
+  "warranty": 72,
+  "price": 79,
+  "quantity": 1,
+  "__v": 0,
+  "currentPrice": 69,
+  "promoPrice": 69,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe8915fb746b4358fe4e7e"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627293973/ulg1qdr102v3nivpnt7s.jpg"
+  ],
+  "brand": "Cooler Master",
+  "model": "Hyper 212X",
+  "socket": "1150, 1151, 1155, 1156, 2011, 2066, AM3, AM3+, FM1, FM2, FM2+, AM4, 2011-3, 1200",
+  "height": 158,
+  "fanRPM": 1700,
+  "airflow": 54.6,
+  "noise": 28.6,
+  "fanSize": 12,
+  "connector": "4-pin PWM",
+  "type": "air",
+  "warranty": 24,
+  "price": 49,
+  "promoPrice": 39,
+  "quantity": 9,
+  "currentPrice": 39,
+  "__v": 0,
+  "isDeleted": false
+}]

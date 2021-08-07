@@ -1,0 +1,47 @@
+[{
+  "_id": {
+    "$oid": "60eac32c6fb9a72f20815fb3"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625998123/j6ouncowa42dthe0zajs.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625998124/eyg9bt0mktk3mpwkrckg.jpg"
+  ],
+  "brand": "EVGA",
+  "model": "SuperNOVA G3",
+  "formFactor": "ATX",
+  "certificate": "80+ Gold",
+  "efficiency": "90 %",
+  "type": "modular",
+  "connectors": "1 x  24 Pin ATX, 1 x EPS (CPU) - 8pin (4+4), 3 x 8pin (6+2), 6 x SATA, 4 x Four-Pin Peripheral, 1 x Floppy",
+  "warranty": 24,
+  "price": 129,
+  "quantity": 14,
+  "__v": 0,
+  "currentPrice": 119,
+  "promoPrice": 119,
+  "power": 600,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe8cf1379a2f4180641d9d"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627294961/fp1ic1sfhyldf8c0ss28.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627294962/ly9s6hzp9w9ch6bcoqfe.jpg"
+  ],
+  "brand": "FSP Group",
+  "model": "Hydro PRO 500W",
+  "formFactor": "ATX",
+  "certificate": "80+ Bronze",
+  "efficiency": "88 %",
+  "type": "none-modular",
+  "connectors": "1 x  24 Pin ATX, 1 x EPS (CPU) - 8pin (4+4), 2 x 8pin (6+2), 6 x SATA, 3 x Four-Pin Peripheral, 1 x Floppy",
+  "warranty": 36,
+  "price": 69,
+  "promoPrice": 59,
+  "quantity": 17,
+  "currentPrice": 59,
+  "__v": 0,
+  "power": 500,
+  "isDeleted": false
+}]

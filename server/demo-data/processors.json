@@ -1,0 +1,441 @@
+[{
+  "_id": {
+    "$oid": "60e8201e1b6fc0177027352e"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625900759/ydyddy3bq5a9kiptud6p.jpg"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 5 3600X",
+  "price": 249,
+  "cores": 6,
+  "threads": 12,
+  "baseClock": 3.8,
+  "boostClock": 4.4,
+  "cache": 32,
+  "__v": 0,
+  "box": true,
+  "warranty": 36,
+  "quantity": 20,
+  "promoPrice": 229,
+  "currentPrice": 229,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60e821311b6fc0177027352f"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625825585/m5exjbkwtkpt7q2d9j7q.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ i7-11700K",
+  "price": 449,
+  "cores": 8,
+  "threads": 16,
+  "baseClock": 3.6,
+  "boostClock": 5,
+  "cache": 16,
+  "__v": 0,
+  "box": true,
+  "warranty": 36,
+  "quantity": 10,
+  "promoPrice": 0,
+  "currentPrice": 449,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60e823811b6fc01770273530"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625826177/fgxghfyqkajznpturwzf.png"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ i5-11400",
+  "price": 249,
+  "cores": 6,
+  "threads": 12,
+  "baseClock": 2.6,
+  "boostClock": 4.4,
+  "cache": 12,
+  "__v": 0,
+  "box": true,
+  "warranty": 36,
+  "quantity": 12,
+  "promoPrice": 219,
+  "currentPrice": 219,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60e825fa1e51da3cec2eaf96"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625826811/issdvvezryrlqvdeuiwe.jpg"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 7 5800X",
+  "price": 479,
+  "cores": 8,
+  "threads": 16,
+  "baseClock": 3.8,
+  "boostClock": 4.7,
+  "cache": 32,
+  "box": true,
+  "__v": 0,
+  "warranty": 36,
+  "quantity": 3,
+  "currentPrice": 479,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60e946d7a68caf1f8007280f"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625900759/ydyddy3bq5a9kiptud6p.jpg"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 5 5600X",
+  "price": 279,
+  "cores": 6,
+  "threads": 12,
+  "baseClock": 3.7,
+  "boostClock": 4.6,
+  "cache": 32,
+  "warranty": 36,
+  "box": true,
+  "__v": 0,
+  "quantity": 10,
+  "currentPrice": 279,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ea8920715f7b1e684b5990"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625983264/dcmazxlzeeqfwtmv4vse.jpg"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 9 5900X",
+  "cores": 12,
+  "threads": 24,
+  "baseClock": 3.7,
+  "boostClock": 4.8,
+  "cache": 64,
+  "box": true,
+  "warranty": 36,
+  "price": 599,
+  "__v": 0,
+  "quantity": 20,
+  "currentPrice": 549,
+  "promoPrice": 549,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ebe4e5a3c7dd1764064a6b"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1626072293/vpoawnktm2otsbbzmm2n.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ I3-10100F",
+  "cores": 4,
+  "threads": 8,
+  "baseClock": 3.6,
+  "boostClock": 4.3,
+  "cache": 6,
+  "box": true,
+  "warranty": 36,
+  "price": 159,
+  "quantity": 4,
+  "__v": 0,
+  "currentPrice": 159,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffafce42a01d3c682945f9"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627369422/ii3ynidmmt5i1jlwjoxd.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Celeron G5925",
+  "cores": 2,
+  "threads": 2,
+  "baseClock": 3.6,
+  "boostClock": 3.6,
+  "cache": 4,
+  "box": true,
+  "warranty": 36,
+  "price": 89,
+  "promoPrice": 79,
+  "quantity": 19,
+  "currentPrice": 79,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb07a42a01d3c682945fa"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627369594/zcu1je4yaloqa3aowkid.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Pentium G6400",
+  "cores": 2,
+  "threads": 4,
+  "baseClock": 4,
+  "boostClock": 4,
+  "cache": 4,
+  "box": true,
+  "warranty": 36,
+  "price": 99,
+  "promoPrice": 0,
+  "quantity": 19,
+  "currentPrice": 99,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb18442a01d3c682945fb"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627369861/t4d9r8bo22kf5xpotijy.png"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 3 3200G",
+  "cores": 4,
+  "threads": 4,
+  "baseClock": 3.6,
+  "boostClock": 4,
+  "cache": 4,
+  "box": true,
+  "warranty": 36,
+  "price": 119,
+  "promoPrice": 99,
+  "quantity": 15,
+  "currentPrice": 99,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb3f542a01d3c682945fc"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627370486/oxipqkjlmkpnp150wtew.jpg"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 5 3400G",
+  "cores": 4,
+  "threads": 8,
+  "baseClock": 3.7,
+  "boostClock": 4.2,
+  "cache": 4,
+  "box": true,
+  "warranty": 38,
+  "price": 179,
+  "promoPrice": 0,
+  "quantity": 9,
+  "currentPrice": 179,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb53a42a01d3c682945fd"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627370810/rmstc9o7clk2mpz0c946.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ I3-9100F",
+  "cores": 4,
+  "threads": 4,
+  "baseClock": 3.6,
+  "boostClock": 4.2,
+  "cache": 6,
+  "box": true,
+  "warranty": 36,
+  "price": 139,
+  "promoPrice": 0,
+  "quantity": 3,
+  "currentPrice": 139,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb5bf42a01d3c682945fe"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625900759/ydyddy3bq5a9kiptud6p.jpg"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 5 3500X",
+  "cores": 6,
+  "threads": 6,
+  "baseClock": 3.6,
+  "boostClock": 4.1,
+  "cache": 35,
+  "box": true,
+  "warranty": 36,
+  "price": 249,
+  "promoPrice": 0,
+  "quantity": 11,
+  "currentPrice": 249,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb6e842a01d3c682945ff"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627371240/exxfiyabqzzpoyx5f6kk.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ i5-10600K",
+  "cores": 6,
+  "threads": 12,
+  "baseClock": 4.1,
+  "boostClock": 4.8,
+  "cache": 12,
+  "box": true,
+  "warranty": 36,
+  "price": 299,
+  "promoPrice": 279,
+  "quantity": 6,
+  "currentPrice": 279,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb76542a01d3c68294600"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627371366/fwrviyqrluxblnflg6uw.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ i7-11500",
+  "cores": 6,
+  "threads": 12,
+  "baseClock": 2.7,
+  "boostClock": 4.6,
+  "cache": 12,
+  "box": true,
+  "warranty": 36,
+  "price": 289,
+  "promoPrice": 0,
+  "quantity": 5,
+  "currentPrice": 289,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb82b42a01d3c68294601"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627371564/rk6vz4orfuxnhvgbwwo3.png"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 7 3700X",
+  "cores": 8,
+  "threads": 16,
+  "baseClock": 3.6,
+  "boostClock": 4.4,
+  "cache": 36,
+  "box": true,
+  "warranty": 36,
+  "price": 399,
+  "promoPrice": 0,
+  "quantity": 6,
+  "currentPrice": 399,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffb8bf42a01d3c68294602"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627371712/sjbkxqfuve1pnw3dvagx.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ i9-11900K",
+  "cores": 8,
+  "threads": 16,
+  "baseClock": 3.5,
+  "boostClock": 5.3,
+  "cache": 16,
+  "box": false,
+  "warranty": 36,
+  "price": 699,
+  "promoPrice": 0,
+  "quantity": -1,
+  "currentPrice": 699,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60ffba847d66433500a6adeb"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627372165/jchsdquldacb94gkp2nd.jpg"
+  ],
+  "brand": "AMD",
+  "model": "Ryzen™ 9 5950X",
+  "cores": 16,
+  "threads": 32,
+  "baseClock": 3.4,
+  "boostClock": 4.8,
+  "cache": 72,
+  "box": false,
+  "warranty": 36,
+  "price": 999,
+  "promoPrice": 0,
+  "quantity": 2,
+  "currentPrice": 999,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "610e8b407d2de8276093c4f7"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628343105/fkqndd9bh7sx02ugkxgx.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ i5-11500",
+  "cores": 6,
+  "threads": 12,
+  "baseClock": 2.7,
+  "boostClock": 4.6,
+  "cache": 12,
+  "box": true,
+  "warranty": 36,
+  "price": 269,
+  "promoPrice": 249,
+  "quantity": 11,
+  "currentPrice": 249,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610e8bfc7d2de8276093c4f8"
+  },
+  "isDeleted": false,
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1628343292/hlydduzlua1lyz3ivc43.jpg"
+  ],
+  "brand": "Intel®",
+  "model": "Core™ i5-11600K",
+  "cores": 6,
+  "threads": 12,
+  "baseClock": 3.9,
+  "boostClock": 4.9,
+  "cache": 12,
+  "box": false,
+  "warranty": 36,
+  "price": 319,
+  "promoPrice": 299,
+  "quantity": 5,
+  "currentPrice": 299,
+  "__v": 0
+}]

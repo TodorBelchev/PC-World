@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "60e97ddc985f993f24670de6"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625914844/yngmne7jegbexn4ltrxf.jpg"
+  ],
+  "brand": "WD",
+  "model": "BLUE 1TB",
+  "warranty": 24,
+  "price": 49,
+  "capacity": 1000,
+  "readSpeed": 150,
+  "writeSpeed": 150,
+  "interface": "SATA III",
+  "formFactor": "3.5''",
+  "__v": 0,
+  "quantity": 29,
+  "currentPrice": 0,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe8b3d379a2f4180641d9b"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627294526/dz5hzbbhbggg6652svat.jpg"
+  ],
+  "brand": "WD",
+  "model": "BLUE 2TB",
+  "capacity": 2000,
+  "readSpeed": 147,
+  "writeSpeed": 147,
+  "interface": "SATA III",
+  "formFactor": "3.5''",
+  "warranty": 24,
+  "price": 89,
+  "promoPrice": 79,
+  "quantity": 8,
+  "currentPrice": 79,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe8ba9379a2f4180641d9c"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627294634/pmelgxcotxbd63jq28qa.jpg"
+  ],
+  "brand": "Seagate",
+  "model": "SkyHawk 2TB",
+  "capacity": 2000,
+  "readSpeed": 180,
+  "writeSpeed": 180,
+  "interface": "SATA III",
+  "formFactor": "3.5''",
+  "warranty": 36,
+  "price": 89,
+  "promoPrice": 69,
+  "quantity": 13,
+  "currentPrice": 69,
+  "__v": 0,
+  "isDeleted": false
+}]

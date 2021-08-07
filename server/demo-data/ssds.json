@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "60e9814dab6e3b2e3cc92f51"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625915725/t35cyv9goqp32285tzrf.jpg"
+  ],
+  "brand": "Samsung",
+  "model": "870 EVO 500GB",
+  "warranty": 36,
+  "price": 99,
+  "capacity": 500,
+  "readSpeed": 560,
+  "writeSpeed": 530,
+  "randomRead": 98,
+  "randomWrite": 88,
+  "mtbf": 300,
+  "interface": "SATA III",
+  "formFactor": "2.5''",
+  "__v": 0,
+  "quantity": 16,
+  "currentPrice": 79,
+  "promoPrice": 79,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe8e06379a2f4180641d9e"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627295239/x1hxucnhih7tkzjcyuux.jpg"
+  ],
+  "brand": "Samsung",
+  "model": "870 EVO 250GB",
+  "capacity": 250,
+  "readSpeed": 560,
+  "writeSpeed": 530,
+  "randomRead": 98,
+  "randomWrite": 88,
+  "mtbf": 150,
+  "interface": "SATA III",
+  "formFactor": "2.5''",
+  "warranty": 36,
+  "price": 89,
+  "promoPrice": 79,
+  "quantity": 9,
+  "currentPrice": 79,
+  "__v": 0,
+  "isDeleted": false
+}]

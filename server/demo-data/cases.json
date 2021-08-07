@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "60eaa09c9f54591adce33343"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625989273/nudzn9hyhkpzkplw4hrt.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625989274/rwxqb6xhs23dwvjd76qi.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625989275/m3xboonatg8bhakhfssv.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1625989276/yjhd5lnfspb67z5bgrml.jpg"
+  ],
+  "brand": "Corsair",
+  "model": "Carbide Series™ 88R",
+  "formFactor": "Mid-Tower",
+  "supportedMB": "MicroATX",
+  "frontPanel": "1 x USB 3.0, 1 x USB 2.0, Audio In & Out",
+  "height": 378,
+  "width": 198,
+  "length": 440,
+  "warranty": 24,
+  "price": 49,
+  "__v": 0,
+  "quantity": 9,
+  "currentPrice": 0,
+  "promoPrice": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe86defb746b4358fe4e7b"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627293407/yiehvkhpbdvsubhyxk0t.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627293406/ojvojzpno9oked2e4il4.jpg"
+  ],
+  "brand": "Phanteks",
+  "model": "Eclipse P360A White",
+  "formFactor": "Mid-Tower",
+  "supportedMB": "ATX, Micro ATX, Mini ITX, EATX",
+  "frontPanel": "USB 3.0, Audio In & Out",
+  "height": 465,
+  "width": 200,
+  "length": 455,
+  "warranty": 24,
+  "price": 89,
+  "promoPrice": 79,
+  "quantity": 8,
+  "currentPrice": 79,
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "60fe8810fb746b4358fe4e7d"
+  },
+  "images": [
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627293712/t1r039ptdjbbhy6d9vuw.jpg",
+    "http://res.cloudinary.com/dex8g0z5j/image/upload/v1627293713/mcfkwmf6qogxofgbk2sz.jpg"
+  ],
+  "brand": "Phanteks",
+  "model": "Eclipse P500A DRGB",
+  "formFactor": "Mid-Tower",
+  "supportedMB": "ATX, Micro ATX, Mini ITX, EATX",
+  "frontPanel": "USB 3.0, Audio In & Out, USB 3.1 Gen 2 (Type-C)",
+  "height": 510,
+  "width": 240,
+  "length": 505,
+  "warranty": 24,
+  "price": 169,
+  "promoPrice": 149,
+  "quantity": 3,
+  "currentPrice": 149,
+  "__v": 0,
+  "isDeleted": false
+}]

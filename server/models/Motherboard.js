@@ -47,7 +47,8 @@ const motherboardSchema = new mongoose.Schema({
         required: true
     },
     wireless: {
-        type: String
+        type: String,
+        default: ''
     },
     connectors: {
         type: String,
