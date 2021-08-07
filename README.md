@@ -12,3 +12,7 @@
 * Guest users can save products to wishlist or cart and can make orders
 * Logged users extend functionality with option to add review to product, profile page, edit profile, profile order tracker and profile warranties page
 * Admin users have access to admin dashboard with shop statistics, create/edit products, promotion and order management
+### Test
+* To run server cd server folder and npm run dev(there is some demo data for local database in server/demo-data folder, in case you want to setup your own database project locally)
+* To run angular app cd client/PC-World and ng serve
+* Default admin account is admin@admin.com with password 12345678
