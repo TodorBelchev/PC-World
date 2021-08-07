@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import "../variables.scss";
 .modal {
     position: absolute;
     z-index: 1;
@@ -13,11 +13,12 @@ form {
     background: white;
     position: absolute;
     z-index: 20;
-    top: 30%;
+    top: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    width: 500px;
 }
 
 label {
@@ -116,7 +117,8 @@ input {
     text-shadow: 0 0 5px $stars-color;
 }
 
-input[type="submit"], input[type="button"] {
+input[type="submit"],
+input[type="button"] {
     background: $secondary-color;
     border: none;
     border-radius: 5px;
@@ -144,4 +146,32 @@ input[type="button"] {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 20%;
+}
+
+@media (max-width: 1199.98px) {
+    form {
+        top: 15%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    form {
+        width: 300px;
+        flex-direction: column;
+    }
+
+    .spinner-container {
+        width: 300px;
+    }
+
+    input[type="submit"] {
+        margin-bottom: 0;
+    }
+
+    input,
+    textarea {
+        width: 80%;
+    }
 }

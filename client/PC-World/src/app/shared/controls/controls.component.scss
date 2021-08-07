@@ -24,7 +24,9 @@
     background: $secondary-color;
 }
 
-.green, .yellow, .red {
+.green,
+.yellow,
+.red {
     color: green;
     position: absolute;
     left: 10px;
@@ -59,7 +61,7 @@
     position: relative;
 }
 
-.tooltip-container>fa-icon:hover + .tooltip {
+.tooltip-container > fa-icon:hover + .tooltip {
     opacity: 1;
 }
 
@@ -86,7 +88,9 @@
     margin-left: 50px;
 }
 
-.promo-price, .old-price, .price {
+.promo-price,
+.old-price,
+.price {
     text-align: start;
     font-size: 2rem;
     font-weight: 800;
@@ -101,4 +105,22 @@
     font-size: 2rem;
     font-weight: 800;
     color: gray;
+}
+
+@media (max-width: 767.98px) {
+    .green,
+    .red,
+    .yellow {
+        top: 5px;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tooltip {
+        left: 20px;
+        top: -29px;
+    }
 }

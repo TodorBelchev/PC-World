@@ -20,22 +20,19 @@
     gap: 20px;
     border-bottom: 1px solid gray;
     padding: 1rem;
-}
-
-.author, .content, .rating {
+    position: relative;
 }
 
 .rating {
     display: inline-block;
-    position: relative;
     font-size: 20px;
     margin-right: 48%;
 }
 
 .rating label {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 15px;
+    right: 20px;
     height: 100%;
 }
 
@@ -93,4 +90,26 @@ input[type="submit"] {
 .no-review {
     text-align: center;
     padding: 20px;
+}
+
+@media (max-width: 767.98px) {
+    :host {
+        width: 100%;
+    }
+
+    .comment {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .rating {
+        width: 0;
+        height: 0;
+    }
+
+    .rating label {
+        top: 13px;
+        right: 0;
+        left: unset;
+    }
 }

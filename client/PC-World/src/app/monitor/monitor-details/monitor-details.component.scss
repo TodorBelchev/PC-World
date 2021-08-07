@@ -23,3 +23,17 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .content h2 {
+        text-align: center;
+    }
+
+    .parameter {
+        width: 110px;
+    }
+}
