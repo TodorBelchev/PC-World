@@ -1,6 +1,6 @@
 @import "../../shared/variables.scss";
 :host {
-    flex-basis: 80%;
+    flex-basis: calc(100% - 280px);
 }
 
 .products-container {
@@ -98,7 +98,8 @@ button {
     z-index: 15;
 }
 
-.modal-btn-confirm, .modal-btn-cancel {
+.modal-btn-confirm,
+.modal-btn-cancel {
     background: $primary-color;
     border: none;
     border-radius: 5px;
@@ -117,4 +118,49 @@ button {
 
 app-spinner {
     flex-basis: 100%;
+}
+
+@media (max-width: 1365.98px) {
+    .product:nth-child(1),
+    .product:nth-child(2),
+    .product:nth-child(5),
+    .product:nth-child(6),
+    .product:nth-child(9),
+    .product:nth-child(10),
+    .product:nth-child(13),
+    .product:nth-child(14) {
+        background: white;
+    }
+
+    .product:nth-child(odd) {
+        background: lightgray;
+    }
+
+    .product {
+        flex-basis: 100%;
+    }
+
+    .product-controls {
+        width: 30%;
+        text-align: right;
+    }
+
+    .product-name {
+        width: 70%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .products-selects {
+        margin-left: unset;
+    }
+
+    .modal-confirmation {
+        width: 60%;
+        transform: translate(30%, 50%);
+    }
+
+    .modal-confirmation h4 {
+        margin: 10px;
+    }
 }

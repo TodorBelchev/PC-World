@@ -1,6 +1,30 @@
 :host {
-    flex-basis: 80%;
+    flex-basis: calc(100% - 280px);
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    min-width: 0;
+}
+
+app-sales-volume,
+app-parts-share {
+    min-width: 0;
+}
+
+@media (max-width:767.98px) {
+    .container {
+        flex-direction: column;
+    }
+
+    :host {
+        width: 100%;
+    }
+
+    .aside, app-admin-aside {
+        width: 100%;
+    }
+
+    app-parts-share {
+        flex-basis: 100%;
+    }
 }

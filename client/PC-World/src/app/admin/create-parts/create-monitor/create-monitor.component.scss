@@ -1,6 +1,7 @@
 @import "../../../shared/variables.scss";
 :host {
-    flex-basis: 80%;
+    flex-basis: calc(100% - 280px);
+    min-width: 0;
 }
 
 .container {
@@ -76,4 +77,25 @@ input[type="submit"]:disabled {
 .error {
     flex-basis: 100%;
     text-align: center;
+}
+
+@media (max-width: 767.98px) {
+    :host {
+        width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    form input,
+    form label {
+        width: 70%;
+        margin: 10px 0 0 0;
+    }
+
+    form input[type="submit"] {
+        width: 100%;
+    }
 }

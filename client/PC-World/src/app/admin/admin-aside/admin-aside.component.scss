@@ -35,3 +35,9 @@
     background: $secondary-color;
     color: white;
 }
+
+@media (max-width:767.98px) {
+    .aside, :host {
+        width: 100%;
+    }
+}

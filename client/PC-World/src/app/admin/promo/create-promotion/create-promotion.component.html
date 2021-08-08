@@ -1,13 +1,13 @@
 <app-spinner *ngIf="isLoading"></app-spinner>
 <form [formGroup]="createPromotionForm" (ngSubmit)="onSubmit()" class="create-promotion" *ngIf="!isLoading">
-    <label for="promoName">Promo name:</label>
-    <input formControlName="promoName" type="text" name="promoName" id="promoName">
-    <label for="productsType">Products type:</label>
-    <input formControlName="productsType" type="text" name="productsType" id="productsType">
-    <label for="expirationDate">Expiration date:</label>
-    <input formControlName="expirationDate" type="text" name="expirationDate" id="expirationDate">
-    <label for="image">Image:</label>
-    <input (change)="onFileSelected($event)" type="file" name="image" id="image">
+    <label for="promoName">Promo name:<input formControlName="promoName" type="text" name="promoName" id="promoName"></label>
+    
+    <label for="productsType">Products type:<input formControlName="productsType" type="text" name="productsType" id="productsType"></label>
+    
+    <label for="expirationDate">Expiration date: <input formControlName="expirationDate" type="text" name="expirationDate" id="expirationDate"></label>
+   
+    <label for="image">Image: <input (change)="onFileSelected($event)" type="file" name="image" id="image"></label>
+   
     <div class="break"></div>
     <ng-container *ngFor="let productFormGroup of getControls(); let i = index">
         <form [formGroup]="productFormGroup" class="form-inner">

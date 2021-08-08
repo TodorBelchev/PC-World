@@ -1,3 +1,9 @@
 .container {
     align-items: flex-start;
 }
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+}

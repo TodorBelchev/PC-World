@@ -1,4 +1,4 @@
-@import '../../../shared/variables.scss';
+@import "../../../shared/variables.scss";
 .promo-product-form {
     flex-basis: 100%;
 }
@@ -12,14 +12,28 @@ input {
     margin: 5px 20px;
 }
 
-.add, .remove {
-    background: $primary-color;   
+.add,
+.remove {
+    background: $primary-color;
     border: none;
     border-radius: 5px;
     color: white;
-    padding: 5px 10px; 
+    padding: 5px 10px;
 }
 
 .add {
     background: $secondary-color;
+}
+
+@media (max-width: 767.98px) {
+    .promo-product-form label, input {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 5px auto;
+    }
+
+    input[type="submit"] {
+        width: 50%;
+    }
 }

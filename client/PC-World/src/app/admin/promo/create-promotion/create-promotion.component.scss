@@ -1,4 +1,4 @@
-@import "../../shared/variables.scss";
+@import "../../../shared/variables.scss";
 .create-promotion {
     flex-basis: 80%;
     padding: 20px;
@@ -11,21 +11,20 @@
     flex-wrap: wrap;
 }
 
-label,
-input {
+label{
     flex-basis: 12%;
     text-align: left;
     margin: 10px;
 }
 
-.input {
-    flex-basis: 20%;
-}
+// .input {
+//     flex-basis: 20%;
+// }
 
 .form-inner {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     flex-basis: 30.9%;
 }
 
@@ -60,6 +59,7 @@ input {
     border-radius: 5px;
     width: 24px;
     height: 24px;
+    margin-left: 10px;
 }
 
 .break {

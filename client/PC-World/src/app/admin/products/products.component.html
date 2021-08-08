@@ -23,7 +23,7 @@
             <div class="product-name">
                 {{product.brand}} {{product.model}}
             </div>
-            <div>
+            <div class="product-controls">
                 <a routerLink="/dashboard/edit-products/{{link}}/{{fetchedProduct}}/{{product._id}}">Edit</a>
                 <button class="btn-delete" (click)="onDeleteOrder(product)">X</button>
             </div>

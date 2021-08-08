@@ -1,10 +1,7 @@
 @import '../../../shared/variables.scss';
 :host {
-    flex-basis: 80%;
-}
-
-.container {
-    flex-basis: 100%;
+    flex-basis: calc(100% - 280px);
+    min-width: 0;
 }
 
 ul {
@@ -92,4 +89,25 @@ input[type="password"] {
 .error {
     flex-basis: 100%;
     text-align: center;
+}
+
+@media (max-width: 767.98px) {
+    :host {
+        width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    form input, form label {
+        width: 70%;
+        margin: 10px 0 0 0;
+    }
+
+    form input[type="submit"] {
+        width: 100%;
+    }
 }

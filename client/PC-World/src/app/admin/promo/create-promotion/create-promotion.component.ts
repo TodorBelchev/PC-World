@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AdminService } from '../admin.service';
+import { AdminService } from '../../admin.service';
 
 @Component({
   selector: 'app-create-promotion',

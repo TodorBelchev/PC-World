@@ -1,6 +1,6 @@
-@import '../../shared/variables.scss';
+@import "../../shared/variables.scss";
 :host {
-    flex-basis: 80%;
+    flex-basis: calc(100% - 280px);
 }
 
 form {
@@ -11,7 +11,8 @@ form {
     text-align: left;
 }
 
-label, input {
+label,
+input {
     margin-right: 20px;
 }
 
@@ -44,7 +45,8 @@ label, input {
     flex-basis: 70%;
 }
 
-.order-product-quantity, .order-product-price {
+.order-product-quantity,
+.order-product-price {
     flex-basis: 15%;
     text-align: right;
 }
@@ -65,28 +67,21 @@ label, input {
     flex-basis: 50%;
 }
 
-.order-btn-edit, .order-btn-save, .order-btn-delete {
+.order-btn-delete {
     position: absolute;
-    background: green;
+    background: $primary-color;
     border: none;
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
     color: white;
     font-size: 1rem;
-    right: 45px;
     top: 10px;
-}
-
-.order-btn-save {
-    background: $secondary-color;
-    right: 182px;
-    top: 10px;
+    right: 10px;
+    width: 28px;
 }
 
 .order-btn-delete {
-    right: 10px;
-    width: 28px;
     background: $primary-color;
 }
 
@@ -110,7 +105,8 @@ label, input {
     z-index: 15;
 }
 
-.modal-btn-confirm, .modal-btn-cancel {
+.modal-btn-confirm,
+.modal-btn-cancel {
     background: $primary-color;
     border: none;
     border-radius: 5px;
@@ -138,4 +134,40 @@ input[type="submit"] {
 
 .error {
     color: $primary-color;
+}
+
+@media (max-width: 767.98px) {
+    form {
+        text-align: center;
+    }
+    label {
+        display: inline-block;
+        width: 20%;
+    }
+
+    input {
+        width: 60%;
+    }
+
+    input[type="submit"] {
+        margin-top: 10px;
+    }
+
+    .order-product {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-btn-delete {
+        right: 5px;
+    }
+
+    .modal-confirmation {
+        width: 60%;
+        transform: translate(30%, 50%);
+    }
+
+    .modal-confirmation h4 {
+        margin: 10px;
+    }
 }

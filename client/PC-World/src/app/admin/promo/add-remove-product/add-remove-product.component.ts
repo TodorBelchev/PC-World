@@ -25,12 +25,10 @@ export class AddRemoveProductComponent implements OnInit {
     this.adminService.addProductToPromo(this.promo._id, this.addForm.value).subscribe(
       data => {
         this.isLoading = false;
-        this.addForm.reset()
       },
       error => {
         console.log(error.error.message);
         this.isLoading = false;
-        this.addForm.reset()
       }
     )
   }
@@ -40,12 +38,10 @@ export class AddRemoveProductComponent implements OnInit {
     this.adminService.removeProductFromPromo(this.promo._id, this.removeForm.value).subscribe(
       data => {
         this.isLoading = false;
-        this.removeForm.reset()
       },
       error => {
         console.log(error.error.message);
         this.isLoading = false;
-        this.removeForm.reset()
       }
     )
 

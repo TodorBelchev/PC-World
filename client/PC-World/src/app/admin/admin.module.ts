@@ -10,7 +10,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminAsideComponent } from './admin-aside/admin-aside.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { ProductsComponent } from './products/products.component';
-import { CreatePromotionComponent } from './create-promotion/create-promotion.component';
 import { CreateMonitorComponent } from './create-parts/create-monitor/create-monitor.component';
 import { CreateNotebookComponent } from './create-parts/create-notebook/create-notebook.component';
 import { CreateComponent } from './create-parts/create/create.component';
@@ -29,6 +28,7 @@ import { AdminArchivedOrdersComponent } from './admin-archived-orders/admin-arch
 import { AddRemoveProductComponent } from './promo/add-remove-product/add-remove-product.component';
 import { PromotionsListComponent } from './promo/promotions-list/promotions-list.component';
 import { PromotionsComponent } from './promo/promotions/promotions.component';
+import { CreatePromotionComponent } from './promo/create-promotion/create-promotion.component';
 
 
 

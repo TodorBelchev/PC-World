@@ -1,3 +1,4 @@
 :host {
-    flex-basis: 80%;
+    flex-basis: calc(100% - 280px);
+    min-width: 0;
 }

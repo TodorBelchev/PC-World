@@ -1,4 +1,4 @@
-@import '../../../shared/variables.scss';
+@import "../../../shared/variables.scss";
 .promo {
     padding: 20px;
     box-shadow: 2px 2px 17px 2px rgba(0, 0, 0, 0.31);
@@ -56,7 +56,8 @@
     z-index: 15;
 }
 
-.modal-btn-confirm, .modal-btn-cancel {
+.modal-btn-confirm,
+.modal-btn-cancel {
     background: $primary-color;
     border: none;
     border-radius: 5px;
@@ -75,4 +76,20 @@
 
 app-add-remove-product {
     flex-basis: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .promo-controls {
+        text-align: center;
+        width: 100%;
+    }
+
+    .modal-confirmation {
+        width: 60%;
+        transform: translate(30%, 50%);
+    }
+
+    .modal-confirmation h4 {
+        margin: 10px;
+    }
 }
