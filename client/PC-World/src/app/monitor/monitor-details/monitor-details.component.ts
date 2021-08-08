@@ -32,7 +32,7 @@ export class MonitorDetailsComponent implements OnInit {
       },
       error => {
         this.isLoading = false;
-        this.message = 'Something went wrong. Please try again later.';
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
       }
     )

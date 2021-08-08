@@ -3,4 +3,5 @@ export interface IPromotion {
     productType: string;
     promoName: string;
     image: string;
+    products: [];
 }

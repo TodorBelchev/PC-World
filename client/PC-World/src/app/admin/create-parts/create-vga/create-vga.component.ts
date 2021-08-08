@@ -26,7 +26,7 @@ export class CreateVgaComponent implements OnInit {
     if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
       this.partsService.getItem('vgas', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.vga = part;
+          this.vga = part as IVga;
           this.editMode = true;
         },
         error => {

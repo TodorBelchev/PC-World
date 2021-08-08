@@ -46,16 +46,13 @@ export class AdminArchivedOrdersComponent implements OnInit {
         this.startDate = params['startDate'] || undefined;
         this.endDate = params['endDate'] || undefined;
         if (!this.startDate || !this.endDate) {
-          return of({ error: true });
+          return of({ orders: [], count: 0 });
         }
         this.isLoading = true;
         return this.adminService.getArchivedOrdersByPage(query)
       })
     ).subscribe(
       data => {
-        if (data.error) {
-          return;
-        }
         this.isLoading = false;
         this.orders = data.orders;
         this.count = data.count;

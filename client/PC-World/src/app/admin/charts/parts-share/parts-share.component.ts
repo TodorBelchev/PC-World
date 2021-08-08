@@ -21,7 +21,7 @@ export class PartsShareComponent implements OnInit {
       data => {
         const dateLabels: string[] = [];
         const sales: number[] = [];
-        Object.entries(data as { part: number }).forEach(([k, v]) => {
+        Object.entries(data).forEach(([k, v]) => {
           dateLabels.push(k);
           sales.push(v);
         });

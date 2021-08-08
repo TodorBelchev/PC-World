@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { IMonitor } from 'src/app/shared/interfaces/monitor.interface';
 import { MonitorService } from '../monitor.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { MonitorService } from '../monitor.service';
   styleUrls: ['./monitors-list.component.scss']
 })
 export class MonitorsListComponent implements OnInit {
-  monitors: [] = [];
+  monitors: IMonitor[] = [];
   page: number = 1;
   count: number = 0;
   isLoading: boolean = false;
@@ -44,7 +45,7 @@ export class MonitorsListComponent implements OnInit {
         },
         error => {
           this.isLoading = false;
-          this.message = 'Something went wrong. Please try again later.';
+          this.message = error.error.message || 'Something went wrong. Please try again later.';
           this.msgType = 'error';
         }
       );;

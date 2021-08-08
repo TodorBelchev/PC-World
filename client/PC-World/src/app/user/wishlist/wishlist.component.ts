@@ -44,7 +44,7 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
       },
       error => {
         this.isLoading = false;
-        this.message = 'Something went wrong. Please try again later.';
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
       }
     );
@@ -69,10 +69,21 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
         this.notebookService.getById(x._id).subscribe(
           notebook => {
             this.isLoading = false;
-            fetchedWishlist.push({ ...notebook, type: x.productType, urlPrefix: x.productType });
+            fetchedWishlist.push({
+              _id: notebook._id,
+              brand: notebook.brand,
+              images: notebook.images,
+              model: notebook.model,
+              price: Number(notebook.price),
+              promoPrice: Number(notebook.promoPrice),
+              quantity: Number(notebook.quantity),
+              warranty: Number(notebook.warranty),
+              type: x.productType,
+              urlPrefix: x.productType
+            });
           },
           error => {
-            this.message = 'Something went wrong. Please try again later.';
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
             this.msgType = 'error';
             this.isLoading = false;
           }
@@ -81,10 +92,20 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
         this.monitorService.getItem(x._id).subscribe(
           monitor => {
             this.isLoading = false;
-            fetchedWishlist.push({ ...monitor, type: x.productType });
+            fetchedWishlist.push({
+              _id: monitor._id,
+              brand: monitor.brand,
+              images: monitor.images,
+              model: monitor.model,
+              price: Number(monitor.price),
+              promoPrice: Number(monitor.promoPrice),
+              quantity: Number(monitor.quantity),
+              warranty: Number(monitor.warranty),
+              type: x.productType
+            });
           },
           error => {
-            this.message = 'Something went wrong. Please try again later.';
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
             this.msgType = 'error';
             this.isLoading = false;
           }
@@ -93,10 +114,21 @@ export class WishlistComponent implements OnInit, AfterContentChecked, OnDestroy
         this.partsService.getItem(x.productType, x._id).subscribe(
           part => {
             this.isLoading = false;
-            fetchedWishlist.push({ ...part, type: x.productType, urlPrefix: `/components/${x.productType}` });
+            fetchedWishlist.push({
+              _id: part!._id,
+              brand: part!.brand,
+              images: part!.images,
+              model: part!.model,
+              price: Number(part!.price),
+              promoPrice: Number(part!.promoPrice),
+              quantity: Number(part!.quantity),
+              warranty: Number(part!.warranty),
+              type: x.productType,
+              urlPrefix: `/components/${x.productType}`
+            });
           },
           error => {
-            this.message = 'Something went wrong. Please try again later.';
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
             this.msgType = 'error';
             this.isLoading = false;
           }

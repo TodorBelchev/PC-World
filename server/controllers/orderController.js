@@ -44,12 +44,18 @@ const router = Router();
 
 router.post('/', checkUser(), async (req, res) => {
     try {
-
         const mapped = [];
         const orderData = req.body;
         let currentUser;
         let deliveryPrice = 0;
         let totalCost = 0;
+        if (!orderData.firstName.length ||
+            !orderData.lastName ||
+            !orderData.phoneNumber ||
+            !orderData.city ||
+            !orderData.location) {
+            throw new Error('All fields are required!');
+        }
         if (!req.decoded) {
             currentUser = {
                 firstName: orderData.firstName,
@@ -78,7 +84,7 @@ router.post('/', checkUser(), async (req, res) => {
                 }
                 const currentProduct = await services[x.type].getById(x._id, partName);
                 if (currentProduct.quantity < x.quantity) {
-                    throw new Error('Not enough quantity!');
+                    throw new Error(`Not enough quantity! Max quantity for ${currentProduct.brand} ${currentProduct.model} is ${currentProduct.quantity}.`);
                 }
                 mapped.push({
                     product: currentProduct._id,
@@ -175,17 +181,19 @@ router.put('/admin', isLogged(), isAdmin(), async (req, res) => {
         if (order.status == 'completed') {
             throw new Error('This order is completed!')
         }
-        if (req.body.status == 'completed' && order.user) {
+        if (req.body.status == 'completed' && (order.user || order.guest)) {
             order.products.forEach(x => {
-                generateWarranty({
-                    user: order.user || order.guest,
-                    product: x.product._id,
-                    onModel: x.onModel,
-                    purchaseQuantity: x.purchaseQuantity,
-                    purchasePrice: x.purchasePrice,
-                    warranty: x.product.warranty,
-                    order: order._id
-                });
+                if (order.user) {
+                    generateWarranty({
+                        user: order.user,
+                        product: x.product._id,
+                        onModel: x.onModel,
+                        purchaseQuantity: x.purchaseQuantity,
+                        purchasePrice: x.purchasePrice,
+                        warranty: x.product.warranty,
+                        order: order._id
+                    });
+                }
                 x.product.quantity -= x.purchaseQuantity;
                 x.product.save();
             });

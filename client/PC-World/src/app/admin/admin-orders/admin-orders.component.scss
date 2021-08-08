@@ -121,6 +121,10 @@ p {
 }
 
 @media (max-width: 767.98px) {
+    :host {
+        width: 100%;
+    }
+
     .order-status {
         width: 100%;
     }

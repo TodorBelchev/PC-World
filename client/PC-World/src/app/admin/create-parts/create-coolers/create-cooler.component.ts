@@ -26,7 +26,7 @@ export class CreateCoolerComponent implements OnInit {
     if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
       this.partsService.getItem('coolers', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.cooler = part;
+          this.cooler = part as ICooler;
           this.editMode = true;
         },
         error => {

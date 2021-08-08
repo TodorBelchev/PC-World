@@ -5,7 +5,7 @@ const promotionSchema = new mongoose.Schema({
     productType: {
         type: String,
         required: true,
-        enum: ['Notebook', 'Case', 'Cooler', 'HDD', 'Memory', 'Monitor', 'Motherboard', 'Processor', 'PSU', 'SSD', 'VGA']
+        enum: ['Notebook', 'Case', 'Cooler', 'Hdd', 'Memory', 'Monitor', 'Motherboard', 'Processor', 'Psu', 'Ssd', 'Vga']
     },
     expirationDate: {
         type: String,

@@ -26,7 +26,7 @@ export class CreateMotherboardComponent implements OnInit {
     if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
       this.partsService.getItem('motherboards', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.motherboard = part;
+          this.motherboard = part as IMotherboard;
           this.editMode = true;
         },
         error => {

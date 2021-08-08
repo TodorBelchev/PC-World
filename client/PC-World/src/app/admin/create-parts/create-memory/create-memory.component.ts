@@ -25,7 +25,7 @@ export class CreateMemoryComponent implements OnInit {
     if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
       this.partsService.getItem('memories', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.memory = part;
+          this.memory = part as IMemory;
           this.editMode = true;
         },
         error => {

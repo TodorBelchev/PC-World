@@ -1,9 +1,9 @@
-<div class="order-container" (click)="onItemClick()">
+<div class="order-container" (click)="onItemClick()"[ngClass]=" isVisible ? 'slidedown' : 'slideup'">
     <div class="order-id">Order id: <strong>{{order?._id}}</strong></div>
     <div class="order-status">Status: <span
             [ngClass]="order?.status == 'pending' ? 'pending' : order?.status == 'sent' ? 'sent' : 'completed'">{{order?.status}}</span>
     </div>
-    <div class="content" *ngIf="isVisible">
+    <div class="content" >
         <a routerLink="/{{product?.onModel | productType}}/{{product.product._id}}" class="content-product"
             *ngFor="let product of order?.products">
             <img src="{{product.product.images[0] | httpMixedContent }}" alt="product-image"

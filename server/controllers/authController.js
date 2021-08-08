@@ -3,10 +3,8 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 
 const { COOKIE_NAME, SALT_ROUNDS } = require('../config');
-const { isAuth } = require('../middlewares/guards');
 const { createToken } = require('../utils/jwt');
 const isLogged = require('../middlewares/isLogged');
-const notebookService = require('../services/notebookService');
 const { getWarrantiesByUserIdAndPage, getAllWarrantiesByUserId } = require('../services/orderService');
 const { createUser, getUserById, getUserByEmail } = require('../services/userService');
 
@@ -47,7 +45,6 @@ router.post('/login',
             res.status(200).send(payload);
         } catch (error) {
             console.log(error);
-
             res.status(400).send({ message: error.message });
         }
     });

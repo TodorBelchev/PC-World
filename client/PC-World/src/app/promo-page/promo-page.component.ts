@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { IMonitor } from '../shared/interfaces/monitor.interface';
 import { INotebook } from '../shared/interfaces/notebook.interface';
-import { IProcessor } from '../shared/interfaces/processor.interface';
+import { IPartsUnion } from '../shared/interfaces/parts-union.interface';
 import { SharedService } from '../shared/shared.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class PromoPageComponent implements OnInit {
   productType: string = '';
   promoId: string = '';
   category: string = '';
-  products: (INotebook | IProcessor)[] = [];
+  products: (IPartsUnion | INotebook | IMonitor)[] = [];
   isLoading: boolean = false;
   message: string | undefined;
   msgType: string | undefined;
@@ -47,7 +48,7 @@ export class PromoPageComponent implements OnInit {
         },
         error => {
           this.isLoading = false;
-          this.message = 'Something went wrong. Please try again later.';
+          this.message = error.error.message || 'Something went wrong. Please try again later.';
           this.msgType = 'error';
         });
   };

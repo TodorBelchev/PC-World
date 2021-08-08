@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
       },
       error => {
         this.isLoading = false;
-        this.message = 'Something went wrong. Please try again later.';
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
         this.serverError = true;
       }
@@ -70,7 +70,16 @@ export class ProfileComponent implements OnInit {
     this.userService.editProfile(this.editProfileForm.value)
       .subscribe(
         user => {
-          this.store.dispatch(AuthActions.auth_success(user));
+          this.store.dispatch(AuthActions.auth_success({
+            _id: user._id,
+            city: user.city || '',
+            email: user.email,
+            isAdmin: user.isAdmin,
+            location: user.location || '',
+            firstName: user.firstName,
+            lastName: user.lastName,
+            phoneNumber: user.phoneNumber
+          }));
           this.editMode = !this.editMode;
           this.user = Object.assign(this.user, user);
           this.msgType = 'success';
@@ -79,7 +88,7 @@ export class ProfileComponent implements OnInit {
         },
         error => {
           this.isLoading = false;
-          this.message = 'Something went wrong. Please try again later.';
+          this.message = error.error.message || 'Something went wrong. Please try again later.';
           this.msgType = 'error';
           this.serverError = true;
         }

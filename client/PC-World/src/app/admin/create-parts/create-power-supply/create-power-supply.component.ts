@@ -25,7 +25,7 @@ export class CreatePowerSupplyComponent implements OnInit {
     if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
       this.partsService.getItem('psus', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.psu = part;
+          this.psu = part as IPsu;
           this.editMode = true;
         },
         error => {

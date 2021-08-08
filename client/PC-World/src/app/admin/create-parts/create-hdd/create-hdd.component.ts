@@ -37,7 +37,11 @@ export class CreateHddComponent implements OnInit {
       }
       this.partsService.getItem(this.partType + 's', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.part = part;
+          if (this.partType = 'hdd') {
+            this.part = part as IHdd;
+          } else {
+            this.part = part as ISsd;
+          }
           this.editMode = true;
         },
         error => {

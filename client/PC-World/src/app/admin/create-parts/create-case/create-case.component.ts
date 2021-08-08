@@ -26,7 +26,7 @@ export class CreateCaseComponent implements OnInit {
     if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
       this.partsService.getItem('cases', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.case = part;
+          this.case = part as ICase;
           this.editMode = true;
         },
         error => {

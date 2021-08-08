@@ -49,28 +49,28 @@ export class PartDetailsComponent implements OnInit {
         this.isLoading = false;
         this.part = data;
         if (this.partType == 'cases') {
-          this.case = data;
+          this.case = data as ICase;
         } else if (this.partType == 'processors') {
-          this.processor = data;
+          this.processor = data as IProcessor;
         } else if (this.partType == 'vgas') {
-          this.vga = data;
+          this.vga = data as IVga;
         } else if (this.partType == 'motherboards') {
-          this.motherboard = data;
+          this.motherboard = data as IMotherboard;
         } else if (this.partType == 'memories') {
-          this.memory = data;
+          this.memory = data as IMemory;
         } else if (this.partType == 'hdds') {
-          this.hdd = data;
+          this.hdd = data as IHdd;
         } else if (this.partType == 'ssds') {
-          this.ssd = data;
+          this.ssd = data as ISsd;
         } else if (this.partType == 'psus') {
-          this.psu = data;
+          this.psu = data as IPsu;
         } else if (this.partType == 'coolers') {
-          this.cooler = data;
+          this.cooler = data as ICooler;
         }
       },
       error => {
         this.isLoading = false;
-        this.message = 'Something went wrong. Please try again later.';
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
       }
     )

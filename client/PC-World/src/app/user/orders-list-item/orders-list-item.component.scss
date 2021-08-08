@@ -22,6 +22,20 @@
     padding: 15px 15px 0 15px;
 }
 
+.slideup,
+.slidedown {
+    max-height: 75px;
+    overflow-y: hidden;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.slidedown {
+    max-height: 1500px;
+}
+
 .order-status {
     width: 160px;
 }
@@ -112,7 +126,8 @@
         flex-basis: 53%;
     }
 
-    .content-product-quantity, .content-product-price {
+    .content-product-quantity,
+    .content-product-price {
         flex-basis: 42%;
     }
 

@@ -35,8 +35,8 @@ export class PromoProductsCarouselComponent implements OnInit {
       },
       error => {
         this.isLoading = false;
-        this.error = 'Something went wrong. Please try again later.';
-        this.store.dispatch(authActions.add_message({ msgType: 'error', text: this.error }));
+        this.error = error.error.message || 'Something went wrong. Please try again later.';
+        this.store.dispatch(authActions.add_message({ msgType: 'error', text: this.error! }));
       }
     );
   }

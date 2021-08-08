@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IOrder } from '../shared/interfaces/order.interface';
 import { IUser } from '../shared/interfaces/user.interface';
+import { IWarranty } from '../shared/interfaces/warranty.interface';
 import * as AuthActions from '../user/store/auth.actions';
 
 @Injectable({
@@ -120,19 +122,19 @@ export class UserService {
     return this.http.get<IUser>(environment.api_url + 'user/verify/' + id, { withCredentials: true });
   }
 
-  editProfile(profile: IUser): Observable<any> {
-    return this.http.put(environment.api_url + 'user', profile, { withCredentials: true });
+  editProfile(profile: IUser): Observable<IUser> {
+    return this.http.put<IUser>(environment.api_url + 'user', profile, { withCredentials: true });
   }
 
-  placeOrder(orderData: any): Observable<any> {
-    return this.http.post(environment.api_url + 'orders', orderData, { withCredentials: true });
+  placeOrder(orderData: any): Observable<IOrder> {
+    return this.http.post<IOrder>(environment.api_url + 'orders', orderData, { withCredentials: true });
   }
 
-  getOrders(userId: string, page: number): Observable<any> {
-    return this.http.get(environment.api_url + `orders/customer/${userId}?page=${page}`, { withCredentials: true });
+  getOrders(userId: string, page: number): Observable<{ orders: IOrder[], count: number }> {
+    return this.http.get<{ orders: IOrder[], count: number }>(environment.api_url + `orders/customer/${userId}?page=${page}`, { withCredentials: true });
   }
 
-  getWarranties(page: number): Observable<any> {
-    return this.http.get(environment.api_url + `user/warranties?page=` + page, { withCredentials: true });
+  getWarranties(page: number): Observable<{ warranties: IWarranty[], count: number }> {
+    return this.http.get<{ warranties: IWarranty[], count: number }>(environment.api_url + `user/warranties?page=` + page, { withCredentials: true });
   }
 }

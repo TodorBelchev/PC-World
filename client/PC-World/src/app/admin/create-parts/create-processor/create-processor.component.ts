@@ -26,7 +26,7 @@ export class CreateProcessorComponent implements OnInit {
     if (this.activatedRoute.snapshot.url[0].path === 'edit-products') {
       this.partsService.getItem('processors', this.activatedRoute.snapshot.url[3].path).subscribe(
         part => {
-          this.processor = part;
+          this.processor = part as IProcessor;
           this.editMode = true;
         },
         error => {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { INotebook } from 'src/app/shared/interfaces/notebook.interface';
 import { NotebookService } from '../notebook.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { NotebookService } from '../notebook.service';
   styleUrls: ['./notebooks-list.component.scss']
 })
 export class NotebooksListComponent implements OnInit {
-  notebooks: [] = [];
+  notebooks: INotebook[] = [];
   pages: string[] = [];
   page: number = 1;
   count: number = 0;

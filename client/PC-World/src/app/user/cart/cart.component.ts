@@ -60,7 +60,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
       },
       error => {
         this.isLoading = false;
-        this.message = 'Something went wrong. Please try again later.';
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
       }
     );
@@ -121,7 +121,7 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
       },
       error => {
         this.isLoading = false;
-        this.message = 'Something went wrong. Please try again later.';
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
       }
     )
@@ -154,17 +154,17 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
               images: notebook.images,
               brand: notebook.brand,
               model: notebook.model,
-              price: notebook.price,
-              promoPrice: notebook.promoPrice,
+              price: Number(notebook.price),
+              promoPrice: Number(notebook.promoPrice),
               type: x.productType,
               quantity: cart[index].quantity,
-              warranty: notebook.warranty
+              warranty: Number(notebook.warranty)
             });
-            notebook.promoPrice !== 0 ? this.totalPrice += notebook.promoPrice * cart[index].quantity : this.totalPrice += notebook.price * cart[index].quantity;
+            notebook.promoPrice !== 0 ? this.totalPrice += Number(notebook.promoPrice) * cart[index].quantity : this.totalPrice += Number(notebook.price) * cart[index].quantity;
             this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
           },
           error => {
-            this.message = 'Something went wrong. Please try again later.';
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
             this.msgType = 'error';
             this.isLoading = false;
           }
@@ -178,43 +178,42 @@ export class CartComponent implements OnInit, AfterContentChecked, OnDestroy {
               images: monitor.images,
               brand: monitor.brand,
               model: monitor.model,
-              price: monitor.price,
-              promoPrice: monitor.promoPrice,
+              price: Number(monitor.price),
+              promoPrice: Number(monitor.promoPrice),
               type: x.productType,
               quantity: cart[index].quantity,
-              warranty: monitor.warranty
+              warranty: Number(monitor.warranty)
             });
-            monitor.promoPrice !== 0 ? this.totalPrice += monitor.promoPrice * cart[index].quantity : this.totalPrice += monitor.price * cart[index].quantity;
+            monitor.promoPrice !== 0 ? this.totalPrice += Number(monitor.promoPrice) * cart[index].quantity : this.totalPrice += Number(monitor.price) * cart[index].quantity;
             this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
           },
           error => {
-            this.message = 'Something went wrong. Please try again later.';
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
             this.msgType = 'error';
             this.isLoading = false;
           }
         )
       } else if (x.productType !== '') {
-
         this.partsService.getItem(x.productType, x._id).subscribe(
           part => {
             this.isLoading = false;
             fetchedCart.push({
-              _id: part._id,
-              images: part.images,
-              brand: part.brand,
-              model: part.model,
-              price: part.price,
-              promoPrice: part.promoPrice,
+              _id: part!._id,
+              images: part!.images,
+              brand: part!.brand,
+              model: part!.model,
+              price: Number(part!.price),
+              promoPrice: Number(part!.promoPrice),
               type: x.productType,
               quantity: cart[index].quantity,
-              warranty: part.warranty,
+              warranty: Number(part!.warranty),
               urlPrefix: `/components`
             });
-            part.promoPrice !== 0 ? this.totalPrice += part.promoPrice * cart[index].quantity : this.totalPrice += part.price * cart[index].quantity;
+            Number(part!.promoPrice) !== 0 ? this.totalPrice += Number(part!.promoPrice) * cart[index].quantity : this.totalPrice += Number(part!.price) * cart[index].quantity;
             this.deliveryPrice = this.totalPrice > 100 ? 0 : 10;
           },
           error => {
-            this.message = 'Something went wrong. Please try again later.';
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
             this.msgType = 'error';
             this.isLoading = false;
           }
