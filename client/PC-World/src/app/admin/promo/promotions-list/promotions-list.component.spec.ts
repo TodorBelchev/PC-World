@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedService } from 'src/app/shared/shared.service';
+import { AdminService } from '../../admin.service';
 
 import { PromotionsListComponent } from './promotions-list.component';
 
@@ -8,7 +11,14 @@ describe('PromotionsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PromotionsListComponent ]
+      declarations: [ PromotionsListComponent ],
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        AdminService,
+        SharedService
+      ]
     })
     .compileComponents();
   });

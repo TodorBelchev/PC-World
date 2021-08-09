@@ -1,4 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
+import { MonitorService } from '../monitor.service';
 
 import { MonitorsListComponent } from './monitors-list.component';
 
@@ -8,9 +13,28 @@ describe('MonitorsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MonitorsListComponent ]
+      declarations: [MonitorsListComponent],
+      imports: [
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      providers: [
+        MonitorService,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            queryParams: of({
+              brands: "Lenovo",
+              page: 1,
+              priceFrom: 100,
+              priceTo: 250,
+              order: "price-desc"
+            })
+          }
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

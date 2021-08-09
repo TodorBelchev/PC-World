@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminService } from '../../admin.service';
 
 import { SalesVolumeComponent } from './sales-volume.component';
 
@@ -8,7 +10,11 @@ describe('SalesVolumeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SalesVolumeComponent ]
+      declarations: [ SalesVolumeComponent ],
+      imports: [HttpClientModule],
+      providers:[
+        AdminService
+      ]
     })
     .compileComponents();
   });

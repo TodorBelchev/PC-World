@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpMixedContentPipe } from '../pipes/http-mixed-content.pipe';
 
 import { ImagesComponent } from './images.component';
 
@@ -8,14 +9,18 @@ describe('ImagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImagesComponent ]
+      declarations: [
+        ImagesComponent,
+        HttpMixedContentPipe
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ImagesComponent);
     component = fixture.componentInstance;
+    component.images = [''];
     fixture.detectChanges();
   });
 

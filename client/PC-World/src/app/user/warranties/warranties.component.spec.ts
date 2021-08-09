@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { UserService } from '../user.service';
 
 import { WarrantiesComponent } from './warranties.component';
 
@@ -8,7 +11,14 @@ describe('WarrantiesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WarrantiesComponent ]
+      declarations: [ WarrantiesComponent ],
+      imports: [
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      providers: [
+        UserService
+      ]
     })
     .compileComponents();
   });

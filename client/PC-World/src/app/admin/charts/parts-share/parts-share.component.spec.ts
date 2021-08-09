@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminService } from '../../admin.service';
 
 import { PartsShareComponent } from './parts-share.component';
 
@@ -8,7 +10,11 @@ describe('PartsShareComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PartsShareComponent ]
+      declarations: [ PartsShareComponent ],
+      imports: [HttpClientModule],
+      providers:[
+        AdminService
+      ]
     })
     .compileComponents();
   });

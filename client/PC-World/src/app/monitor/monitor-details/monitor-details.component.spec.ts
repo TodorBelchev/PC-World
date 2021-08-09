@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MonitorService } from '../monitor.service';
 
 import { MonitorDetailsComponent } from './monitor-details.component';
 
@@ -8,7 +11,14 @@ describe('MonitorDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MonitorDetailsComponent ]
+      declarations: [ MonitorDetailsComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientModule
+      ],
+      providers: [
+        MonitorService
+      ]
     })
     .compileComponents();
   });
