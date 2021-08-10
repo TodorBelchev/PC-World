@@ -22,7 +22,7 @@ export class SharedService {
     return this.http.post<IComment>(environment.api_url + 'comments/create', { comment, _id, productName }, { withCredentials: true })
       .pipe(
         catchError((err: HttpErrorResponse) => {
-          return throwError(err.message);
+          return throwError(err);
         }),
         tap(comment => {
           this.commentCreated.next(comment);

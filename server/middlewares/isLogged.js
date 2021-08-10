@@ -11,7 +11,7 @@ module.exports = () => (req, res, next) => {
         next();
     } catch (error) {
         res.clearCookie(COOKIE_NAME);
-        res.status(401).send({ message: 'Invalid token' });
+        res.status(401).send({ message: 'Please log in' });
     }
 
 }

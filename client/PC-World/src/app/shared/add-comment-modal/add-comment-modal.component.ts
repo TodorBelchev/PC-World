@@ -8,6 +8,7 @@ import { SharedService } from '../shared.service';
 import * as authSelectors from '../../user/store/auth.selectors';
 import { IComment } from '../comment';
 import { ISimpleProduct } from '../interfaces/simple-product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-comment-modal',
@@ -31,8 +32,8 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private sharedService: SharedService,
-    private store: Store<AppState>
-
+    private store: Store<AppState>,
+    private router: Router
   ) {
     this.commentForm = this.fb.group({
       comment: ['', [Validators.required, Validators.minLength(10)]],
@@ -83,6 +84,9 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
       },
       error => {
         this.isLoading = false;
+        if (error.status == 401) {
+          this.router.navigateByUrl('/auth/login');
+        }
         this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
       }

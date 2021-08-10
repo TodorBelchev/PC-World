@@ -20,7 +20,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.sharedService.commentCreated.subscribe(comment => {
+    this.newCommentsSub = this.sharedService.commentCreated.subscribe(comment => {
       this.comments = [comment, ...this.comments];
     });
     this.fetchComments();
@@ -28,6 +28,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.commentsSub.unsubscribe();
+    this.newCommentsSub.unsubscribe();
   }
 
   fetchComments(): void {
