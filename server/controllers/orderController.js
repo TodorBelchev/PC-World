@@ -92,13 +92,13 @@ router.post('/', checkUser(), async (req, res) => {
                     purchaseQuantity: x.quantity,
                     purchasePrice: currentProduct.currentPrice
                 });
-                totalCost += currentProduct.currentPrice;
+                totalCost += currentProduct.currentPrice * x.quantity;
                 totalCost >= 100 ? deliveryPrice = 0 : deliveryPrice = 10;
             });
             orderData.products = mapped;
             orderData.deliveryPrice = deliveryPrice;
             orderData.totalPrice = totalCost + deliveryPrice;
-            const date = new Date().setHours(3, 1, 1, 1);
+            const date = new Date().setHours(6, 1, 1, 1);
             orderData.createdAt = date;
             const order = await createOrder(orderData);
             res.status(201).send(order);
