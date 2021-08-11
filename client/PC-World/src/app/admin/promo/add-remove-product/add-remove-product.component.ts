@@ -1,7 +1,10 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { IPromotion } from 'src/app/shared/interfaces/promotion.interface';
 import { AdminService } from '../../admin.service';
+import * as authActions from '../../../user/store/auth.actions';
 
 @Component({
   selector: 'app-add-remove-product',
@@ -14,7 +17,8 @@ export class AddRemoveProductComponent implements OnInit {
   @Input('promo') promo!: IPromotion;
   isLoading: boolean = false;
   constructor(
-    private adminService: AdminService
+    private adminService: AdminService,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +33,10 @@ export class AddRemoveProductComponent implements OnInit {
       error => {
         console.log(error.error.message);
         this.isLoading = false;
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     )
   }
@@ -42,6 +50,10 @@ export class AddRemoveProductComponent implements OnInit {
       error => {
         console.log(error.error.message);
         this.isLoading = false;
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     )
 

@@ -34,7 +34,7 @@ export class CreateNotebookComponent implements OnInit {
         error => {
           this.editMode = false;
           this.isLoading = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       )
     }

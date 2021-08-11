@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators';
+import { AppState } from '../interfaces/app-state.interface';
 import { SharedService } from '../shared.service';
+import * as authActions from '../../user/store/auth.actions';
 
 @Component({
   selector: 'app-aside-item-brand',
@@ -15,7 +18,8 @@ export class AsideItemBrandComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +56,10 @@ export class AsideItemBrandComponent implements OnInit {
       error => {
         this.isLoading = false;
         console.log(error.error.message);
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     )
   }

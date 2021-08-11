@@ -32,7 +32,7 @@ export class CreateCoolerComponent implements OnInit {
         error => {
           this.cooler = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

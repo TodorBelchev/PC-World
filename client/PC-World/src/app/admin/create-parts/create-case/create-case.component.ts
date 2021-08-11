@@ -32,7 +32,7 @@ export class CreateCaseComponent implements OnInit {
         error => {
           this.case = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

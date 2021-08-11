@@ -20,6 +20,7 @@ export class AdminOrdersComponent implements OnInit {
   totalPrice: number | undefined = undefined;
   orderToDelete: IOrder | null = null;
   orderToSave: IOrder | null = null;
+  message: string | undefined;
   constructor(
     private adminService: AdminService,
     private router: Router,
@@ -44,7 +45,8 @@ export class AdminOrdersComponent implements OnInit {
       },
       error => {
         this.isLoading = false;
-        console.log(error.message);
+        console.log(error.error.message);
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
       }
     );
   }
@@ -54,9 +56,7 @@ export class AdminOrdersComponent implements OnInit {
   }
 
   onChangeStatus(order: IOrder): void {
-    const index = this.orders.indexOf(order);
     order.status == 'pending' ? order.status = 'sent' : order.status == 'sent' ? order.status = 'completed' : order.status == 'completed' ? order.status = 'pending' : '';
-    this.orders.splice(index, 1, order);
   }
 
   onChangeSave(): void {
@@ -76,7 +76,8 @@ export class AdminOrdersComponent implements OnInit {
       },
       error => {
         this.isLoading = false;
-        console.log(error.message);
+        console.log(error.error.message);
+        this.message = error.error.message || 'Something went wrong. Please try again later.';
       }
     )
   }
@@ -114,10 +115,15 @@ export class AdminOrdersComponent implements OnInit {
         error => {
           this.orderToDelete = null;
           this.isLoading = false;
-          console.log(error.message);
+          this.message = error.error.message || 'Something went wrong. Please try again later.';
+          console.log(error.error.message);
         }
       )
     }
+  }
+
+  onCloseNotificatrion(): void {
+    this.message = undefined;
   }
 
 }

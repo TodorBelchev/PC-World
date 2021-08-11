@@ -24,6 +24,13 @@
     justify-content: center;
 }
 
+app-notification {
+    position: fixed;
+    right: 50px;
+    top: 50px;
+    z-index: 2;
+}
+
 @media (max-width: 767.98px) {
     .container {
         flex-direction: column;
@@ -35,5 +42,10 @@
 
     .parameter {
         width: 110px;
+    }
+
+    app-notification {
+        right: 30px;
+        max-width: 300px;
     }
 }

@@ -32,7 +32,7 @@ export class CreateMotherboardComponent implements OnInit {
         error => {
           this.motherboard = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

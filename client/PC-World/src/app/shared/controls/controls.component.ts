@@ -3,7 +3,7 @@ import { faCheckSquare, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faComment } from '@fortawesome/free-regular-svg-icons';
 import { Store } from '@ngrx/store';
 import { AppState } from '../interfaces/app-state.interface';
-import { add_cart, add_wishlist } from '../../user/store/auth.actions';
+import { add_cart, add_message, add_wishlist } from '../../user/store/auth.actions';
 import * as authSelectors from '../../user/store/auth.selectors';
 import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
@@ -43,10 +43,12 @@ export class ControlsComponent implements OnInit {
 
   onAddToCartClick(): void {
     this.store.dispatch(add_cart({ _id: this.product!._id, quantity: 1, productType: this.productName }));
+    this.store.dispatch(add_message({ msgType: 'success', text: 'Successfully added to cart.' }));
   }
 
   onAddToWishlistClick(): void {
     this.store.dispatch(add_wishlist({ _id: this.product!._id, productType: this.productName }));
+    this.store.dispatch(add_message({ msgType: 'success', text: 'Successfully added to wishlist.' }));
   }
 
 

@@ -1,7 +1,10 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { IComment } from '../comment';
+import { AppState } from '../interfaces/app-state.interface';
+import { IComment } from '../interfaces/comment';
 import { SharedService } from '../shared.service';
+import * as authActions from '../../user/store/auth.actions';
 
 
 @Component({
@@ -16,7 +19,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
   commentsSub: Subscription = new Subscription;
   newCommentsSub: Subscription = new Subscription;
   constructor(
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +41,11 @@ export class CommentsComponent implements OnInit, OnDestroy {
         this.commentsCount = data.count;
       },
       error => {
-        console.log(error.message);
+        console.log(error.error.message);
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     );
 
@@ -47,6 +55,10 @@ export class CommentsComponent implements OnInit, OnDestroy {
       },
       error => {
         console.log(error.message);
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     );
   }
@@ -58,7 +70,11 @@ export class CommentsComponent implements OnInit, OnDestroy {
         this.comments = [...this.comments, ...comments];
       },
       error => {
-        console.log(error.message);
+        console.log(error.error.message);
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     )
   }

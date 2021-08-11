@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
   link: string = '';
   page: number = 1;
   count: number = 0;
+  message: string | undefined;
   isLoading: boolean = false;
   services: {
     notebooks: NotebookService,
@@ -94,7 +95,8 @@ export class ProductsComponent implements OnInit {
           },
           error => {
             this.isLoading = false;
-            console.log(error.message);
+            console.log(error.error.message);
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
           }
         );
       }
@@ -147,9 +149,14 @@ export class ProductsComponent implements OnInit {
         error => {
           this.isLoading = false;
           console.log(error.error.message);
+          this.message = error.error.message || 'Something went wrong. Please try again later.';
         }
       )
     }
+  }
+
+  onCloseNotificatrion(): void {
+    this.message = undefined;
   }
 
 }

@@ -32,7 +32,7 @@ export class CreateVgaComponent implements OnInit {
         error => {
           this.vga = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

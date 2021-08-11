@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { ICase } from 'src/app/shared/interfaces/case.interface';
 import { ICooler } from 'src/app/shared/interfaces/cooler.interface';
 import { IHdd } from 'src/app/shared/interfaces/hdd.interface';
@@ -12,6 +15,8 @@ import { ISimpleProduct } from 'src/app/shared/interfaces/simple-product.interfa
 import { ISsd } from 'src/app/shared/interfaces/ssd.interface';
 import { IVga } from 'src/app/shared/interfaces/vga.interface';
 import { PartsService } from '../parts.service';
+import * as authSelectors from '../../user/store/auth.selectors';
+import * as authActions from '../../user/store/auth.actions';
 
 @Component({
   selector: 'app-part-details',
@@ -37,9 +42,12 @@ export class PartDetailsComponent implements OnInit {
   isLoading: boolean = false;
   message: string | undefined;
   msgType: string | undefined;
+  timeout: any;
+  messageSub: Subscription = new Subscription();
   constructor(
     private router: Router,
-    private partsService: PartsService
+    private partsService: PartsService,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -73,7 +81,20 @@ export class PartDetailsComponent implements OnInit {
         this.message = error.error.message || 'Something went wrong. Please try again later.';
         this.msgType = 'error';
       }
-    )
+    );
+
+    this.messageSub = this.store.select(authSelectors.selectMessage).subscribe(
+      message => {
+        this.message = message?.text;
+        this.msgType = message?.msgType;
+        clearTimeout(this.timeout);
+        if (this.msgType === 'success') {
+          this.timeout = setTimeout(() => {
+            this.store.dispatch(authActions.clear_message());
+          }, 3000);
+        }
+      }
+    );
   }
 
   onImgClick(index: number): void {
@@ -86,6 +107,11 @@ export class PartDetailsComponent implements OnInit {
 
   onCloseModal(): void {
     this.showModal = false;
+  }
+
+  onCloseNotification(): void {
+    this.store.dispatch(authActions.clear_message());
+    clearTimeout(this.timeout);
   }
 
 }

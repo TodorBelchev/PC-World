@@ -10,8 +10,9 @@
     <button class="modal-btn-cancel" (click)="onCancelClick()">Cancel</button>
 </div>
 <app-spinner *ngIf="isLoading"></app-spinner>
-<p *ngIf="orders.length === 0 && !isLoading">No active orders.</p>
-<div *ngIf="!isLoading">
+<p *ngIf="orders.length === 0 && !isLoading && !message">No active orders.</p>
+<div *ngIf="!isLoading" class="orders-container">
+    <app-notification *ngIf="message" [type]="'error'" [message]="message" (closeNotification)="onCloseNotificatrion()"></app-notification>
     <div *ngFor="let order of orders">
         <div class="order">
             <div class="order-title">Order id: {{order._id}}</div>

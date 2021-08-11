@@ -65,6 +65,7 @@ export class AdminArchivedOrdersComponent implements OnInit {
       error => {
         this.isLoading = false;
         console.log(error.error.message);
+        this.error = error.error.message || 'Something went wrong. Please try again later.'
       }
     );
   }
@@ -104,6 +105,7 @@ export class AdminArchivedOrdersComponent implements OnInit {
         error => {
           this.orderToDelete = null;
           this.isLoading = false;
+          this.error = error.error.message || 'Something went wrong. Please try again later.'
           console.log(error.message);
         }
       );

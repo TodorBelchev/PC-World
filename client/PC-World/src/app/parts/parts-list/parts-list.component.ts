@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { PartsService } from '../parts.service';
+import * as authSelectors from '../../user/store/auth.selectors';
+import * as authActions from '../../user/store/auth.actions';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-parts-list',
   templateUrl: './parts-list.component.html',
   styleUrls: ['./parts-list.component.scss']
 })
-export class PartsListComponent implements OnInit {
+export class PartsListComponent implements OnInit, OnDestroy {
   products: [] = [];
   type: string = '';
   page: number = 1;
@@ -16,10 +21,13 @@ export class PartsListComponent implements OnInit {
   isLoading: boolean = false;
   message: string | undefined;
   msgType: string | undefined;
+  timeout: any;
+  messageSub: Subscription = new Subscription();
   constructor(
     private activatedRoute: ActivatedRoute,
     private partsService: PartsService,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -52,5 +60,27 @@ export class PartsListComponent implements OnInit {
           this.msgType = 'error';
         }
       );
+
+    this.messageSub = this.store.select(authSelectors.selectMessage).subscribe(
+      message => {
+        this.message = message?.text;
+        this.msgType = message?.msgType;
+        clearTimeout(this.timeout);
+        if (this.msgType === 'success') {
+          this.timeout = setTimeout(() => {
+            this.store.dispatch(authActions.clear_message());
+          }, 3000);
+        }
+      }
+    );
   };
+
+  ngOnDestroy(): void {
+    this.messageSub.unsubscribe();
+  }
+
+  onCloseNotificatrion(): void {
+    this.store.dispatch(authActions.clear_message());
+    clearTimeout(this.timeout);
+  }
 }

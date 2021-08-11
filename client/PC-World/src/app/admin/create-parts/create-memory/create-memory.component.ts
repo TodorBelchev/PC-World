@@ -31,7 +31,7 @@ export class CreateMemoryComponent implements OnInit {
         error => {
           this.memory = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

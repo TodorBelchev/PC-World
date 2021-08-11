@@ -4,7 +4,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { ISimpleProduct } from '../interfaces/simple-product.interface';
 import { Store } from '@ngrx/store';
 import { AppState } from '../interfaces/app-state.interface';
-import { add_cart, add_wishlist } from '../../user/store/auth.actions';
+import { add_cart, add_wishlist, add_message, clear_message } from '../../user/store/auth.actions';
 import { Router } from '@angular/router';
 
 
@@ -22,7 +22,7 @@ export class ProductListItemComponent {
   constructor(
     private store: Store<AppState>,
     private router: Router
-  ) {     
+  ) {
   }
 
   onAddToCart(product: ISimpleProduct): void {
@@ -38,6 +38,7 @@ export class ProductListItemComponent {
     }
 
     this.store.dispatch(add_cart({ _id: product!._id, quantity: 1, productType }));
+    this.store.dispatch(add_message({ msgType: 'success', text: 'Successfully added to cart.' }));
   }
 
   onAddToWishlist(product: ISimpleProduct): void {
@@ -53,6 +54,7 @@ export class ProductListItemComponent {
     }
 
     this.store.dispatch(add_wishlist({ _id: product!._id, productType }));
+    this.store.dispatch(add_message({ msgType: 'success', text: 'Successfully added to wishlist.' }));
   }
 
 }

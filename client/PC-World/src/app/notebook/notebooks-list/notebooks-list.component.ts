@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { INotebook } from 'src/app/shared/interfaces/notebook.interface';
 import { NotebookService } from '../notebook.service';
+import * as authSelectors from '../../user/store/auth.selectors';
+import * as authActions from '../../user/store/auth.actions';
 
 @Component({
   selector: 'app-notebooks-list',
   templateUrl: './notebooks-list.component.html',
   styleUrls: ['./notebooks-list.component.scss']
 })
-export class NotebooksListComponent implements OnInit {
+export class NotebooksListComponent implements OnInit, OnDestroy {
   notebooks: INotebook[] = [];
   pages: string[] = [];
   page: number = 1;
@@ -17,10 +22,13 @@ export class NotebooksListComponent implements OnInit {
   isLoading: boolean = false;
   message: string | undefined;
   msgType: string | undefined;
+  timeout: any;
+  messageSub: Subscription = new Subscription();
   constructor(
     private notebookService: NotebookService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -47,10 +55,31 @@ export class NotebooksListComponent implements OnInit {
           },
           error => {
             this.isLoading = false;
-            this.message = 'Something went wrong. Please try again later.';
+            this.message = error.error.message || 'Something went wrong. Please try again later.';
             this.msgType = 'error';
           }
         );
+
+    this.messageSub = this.store.select(authSelectors.selectMessage).subscribe(
+      message => {
+        this.message = message?.text;
+        this.msgType = message?.msgType;
+        clearTimeout(this.timeout);
+        if (this.msgType === 'success') {
+          this.timeout = setTimeout(() => {
+            this.store.dispatch(authActions.clear_message());
+          }, 3000);
+        }
+      }
+    );
   }
 
+  ngOnDestroy(): void {
+    this.messageSub.unsubscribe();
+  }
+
+  onCloseNotificatrion(): void {
+    this.store.dispatch(authActions.clear_message());
+    clearTimeout(this.timeout);
+  }
 }

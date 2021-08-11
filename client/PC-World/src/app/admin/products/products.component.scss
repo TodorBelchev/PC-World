@@ -1,6 +1,7 @@
 @import "../../shared/variables.scss";
 :host {
     flex-basis: calc(100% - 280px);
+    position: relative;
 }
 
 .products-container {
@@ -118,6 +119,13 @@ button {
 
 app-spinner {
     flex-basis: 100%;
+}
+
+app-notification {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
 }
 
 @media (max-width: 1365.98px) {

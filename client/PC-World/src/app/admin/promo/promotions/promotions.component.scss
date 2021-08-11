@@ -1,4 +1,11 @@
 :host {
     flex-basis: calc(100% - 280px);
     min-width: 0;
+    position: relative;
+}
+
+app-notification {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }

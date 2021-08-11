@@ -1,2 +1,4 @@
-<app-create-promotion></app-create-promotion>
-<app-promotions-list></app-promotions-list>
+<app-notification *ngIf="message" [type]="'error'" [message]="message" (closeNotification)="onCloseNotificatrion()">
+</app-notification>
+<app-create-promotion *ngIf="!message"></app-create-promotion>
+<app-promotions-list *ngIf="!message"></app-promotions-list>

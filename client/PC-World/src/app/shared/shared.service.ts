@@ -4,7 +4,7 @@ import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
-import { IComment } from './comment';
+import { IComment } from './interfaces/comment';
 import { IPromotion } from './interfaces/promotion.interface';
 import { ISimpleProduct } from './interfaces/simple-product.interface';
 

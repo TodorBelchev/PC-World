@@ -1,3 +1,4 @@
+<app-notification *ngIf="message" [type]="'error'" [message]="message" (closeNotification)="onCloseNotificatrion()"></app-notification>
 <div class="products-container">
     <div class="products-selects">
         <select name="products" id="products-select" [(ngModel)]="selectedProduct">
@@ -18,7 +19,7 @@
         <button (click)="onSelectClick()">Select</button>
     </div>
     <app-spinner *ngIf="isLoading"></app-spinner>
-    <div class="products" *ngIf="!isLoading">
+    <div class="products" *ngIf="!isLoading && !message">
         <div *ngFor="let product of products" class="product">
             <div class="product-name">
                 {{product.brand}} {{product.model}}

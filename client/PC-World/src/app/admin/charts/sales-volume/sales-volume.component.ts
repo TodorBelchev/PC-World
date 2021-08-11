@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto'
 import { AdminService } from '../../admin.service';
+import * as authActions from '../../../user/store/auth.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 
 @Component({
   selector: 'app-sales-volume',
@@ -12,7 +15,8 @@ export class SalesVolumeComponent implements OnInit {
   myChart: Chart | undefined;
   isLoading: boolean = false;
   constructor(
-    private adminService: AdminService
+    private adminService: AdminService,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -69,8 +73,12 @@ export class SalesVolumeComponent implements OnInit {
         });
       },
       error => {
-        this.isLoading = false;
         console.log(error.error.message);
+        this.isLoading = false;
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     )
   }
@@ -96,7 +104,12 @@ export class SalesVolumeComponent implements OnInit {
         this.myChart?.update();
       },
       error => {
-        console.log(error.message);
+        console.log(error.error.message);
+        this.isLoading = false;
+        this.store.dispatch(authActions.add_message({
+          msgType: 'error',
+          text: error.error.message || 'Something went wrong. Please try again later.'
+        }));
       }
     )
   }

@@ -1,7 +1,7 @@
 <app-spinner *ngIf="isLoading"></app-spinner>
 <div class="container" *ngIf="!isLoading">
-    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
-    <app-aside *ngIf="!message && !msgType"></app-aside>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message" (closeNotification)="onCloseNotificatrion()"></app-notification>
+    <app-aside></app-aside>
     <ul class="products">
         <li *ngFor="let notebook of notebooks">
             <app-product-list-item [product]="notebook" [type]="'notebooks'"></app-product-list-item>

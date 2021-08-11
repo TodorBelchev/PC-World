@@ -31,7 +31,7 @@ export class CreatePowerSupplyComponent implements OnInit {
         error => {
           this.psu = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

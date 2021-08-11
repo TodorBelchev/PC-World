@@ -40,7 +40,7 @@ export class AdminServiceStub {
                     }
                 ]
             }],
-            count: 2
+            count: 1
         })
     }
 

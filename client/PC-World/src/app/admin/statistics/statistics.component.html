@@ -1,2 +1,4 @@
-<app-sales-volume></app-sales-volume>
-<app-parts-share></app-parts-share>
+<app-notification *ngIf="message" [type]="'error'" [message]="message" (closeNotification)="onCloseNotificatrion()">
+</app-notification>
+<app-sales-volume *ngIf="!message"></app-sales-volume>
+<app-parts-share *ngIf="!message"></app-parts-share>

@@ -32,7 +32,7 @@ export class CreateProcessorComponent implements OnInit {
         error => {
           this.processor = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

@@ -47,7 +47,7 @@ export class CreateHddComponent implements OnInit {
         error => {
           this.part = undefined;
           this.editMode = false;
-          console.log(error.message);
+          console.log(error.error.message);
         }
       );
     }

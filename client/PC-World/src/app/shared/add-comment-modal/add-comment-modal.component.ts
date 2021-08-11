@@ -6,7 +6,7 @@ import { IUser } from '../interfaces/user.interface';
 import { AppState } from '../interfaces/app-state.interface';
 import { SharedService } from '../shared.service';
 import * as authSelectors from '../../user/store/auth.selectors';
-import { IComment } from '../comment';
+import { IComment } from '../interfaces/comment';
 import { ISimpleProduct } from '../interfaces/simple-product.interface';
 import { Router } from '@angular/router';
 
@@ -50,7 +50,7 @@ export class AddCommentModalComponent implements OnInit, OnDestroy {
         this.commentForm.patchValue(user!);
       },
       error => {
-        console.log(error.message);
+        console.log(error.error.message);
       }
     );
   }

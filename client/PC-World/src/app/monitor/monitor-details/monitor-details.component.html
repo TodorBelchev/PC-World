@@ -1,6 +1,6 @@
 <div class="notificaiotns">
     <app-spinner *ngIf="isLoading"></app-spinner>
-    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message" (closeNotification)="onCloseNotification()"></app-notification>
 </div>
 <div class="container" *ngIf="!isLoading && monitor">
     <app-images *ngIf="monitor" [images]="monitor.images"></app-images>
