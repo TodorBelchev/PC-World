@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contacts', component: AboutComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

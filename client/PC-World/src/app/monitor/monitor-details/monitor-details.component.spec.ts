@@ -1,10 +1,18 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 import { MonitorService } from '../monitor.service';
 
 import { MonitorDetailsComponent } from './monitor-details.component';
 
+const testStore = {
+  select() {
+    return of([]);
+  },
+  dispatch() {}
+}
 describe('MonitorDetailsComponent', () => {
   let component: MonitorDetailsComponent;
   let fixture: ComponentFixture<MonitorDetailsComponent>;
@@ -17,7 +25,11 @@ describe('MonitorDetailsComponent', () => {
         HttpClientModule
       ],
       providers: [
-        MonitorService
+        MonitorService,
+        {
+          provide: Store,
+          useValue: testStore
+        }
       ]
     })
     .compileComponents();

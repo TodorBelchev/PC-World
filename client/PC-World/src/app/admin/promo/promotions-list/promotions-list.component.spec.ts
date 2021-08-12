@@ -1,10 +1,18 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 import { SharedService } from 'src/app/shared/shared.service';
 import { AdminService } from '../../admin.service';
 
 import { PromotionsListComponent } from './promotions-list.component';
 
+const testStore = {
+  select() {
+    return of([]);
+  },
+  dispatch() {}
+}
 describe('PromotionsListComponent', () => {
   let component: PromotionsListComponent;
   let fixture: ComponentFixture<PromotionsListComponent>;
@@ -17,7 +25,11 @@ describe('PromotionsListComponent', () => {
       ],
       providers: [
         AdminService,
-        SharedService
+        SharedService,
+        {
+          provide: Store,
+          useValue: testStore
+        }
       ]
     })
     .compileComponents();

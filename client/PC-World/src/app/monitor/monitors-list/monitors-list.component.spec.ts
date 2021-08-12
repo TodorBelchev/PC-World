@@ -2,11 +2,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { MonitorService } from '../monitor.service';
 
 import { MonitorsListComponent } from './monitors-list.component';
 
+const testStore = {
+  select() {
+    return of([]);
+  },
+  dispatch() {}
+}
 describe('MonitorsListComponent', () => {
   let component: MonitorsListComponent;
   let fixture: ComponentFixture<MonitorsListComponent>;
@@ -31,6 +38,10 @@ describe('MonitorsListComponent', () => {
               order: "price-desc"
             })
           }
+        },
+        {
+          provide: Store,
+          useValue: testStore
         }
       ]
     })

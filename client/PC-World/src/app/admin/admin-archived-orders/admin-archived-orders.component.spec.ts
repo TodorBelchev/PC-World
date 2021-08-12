@@ -83,7 +83,7 @@ describe('AdminArchivedOrdersComponent', () => {
     });
   }));
 
-  // it('should show no orders message', async () => {
+  // it('should show no orders message', waitForAsync(() => {
   //   mockAdminService.getArchivedOrdersByPage.and.returnValue(
   //     of({
   //       orders: [],
@@ -93,5 +93,5 @@ describe('AdminArchivedOrdersComponent', () => {
   //     let result = fixture.nativeElement.querySelector('.order').textContent;
   //     expect(result).toContain('No orders for selected period.');
   //   });
-  // });
+  // }));
 });

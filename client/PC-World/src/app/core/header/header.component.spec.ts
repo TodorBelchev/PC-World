@@ -27,7 +27,8 @@ describe('HeaderComponent', () => {
       providers: [
         AuthService,
         {
-          provide: Store, useValue: testStore
+          provide: Store,
+          useValue: testStore
         }
       ]
     })

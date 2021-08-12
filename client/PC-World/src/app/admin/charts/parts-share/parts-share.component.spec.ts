@@ -1,9 +1,17 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 import { AdminService } from '../../admin.service';
 
 import { PartsShareComponent } from './parts-share.component';
 
+const testStore = {
+  select() {
+    return of([]);
+  },
+  dispatch() {}
+}
 describe('PartsShareComponent', () => {
   let component: PartsShareComponent;
   let fixture: ComponentFixture<PartsShareComponent>;
@@ -13,7 +21,11 @@ describe('PartsShareComponent', () => {
       declarations: [ PartsShareComponent ],
       imports: [HttpClientModule],
       providers:[
-        AdminService
+        AdminService,
+        {
+          provide: Store,
+          useValue: testStore
+        }
       ]
     })
     .compileComponents();
