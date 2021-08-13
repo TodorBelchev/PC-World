@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AppState } from '../shared/interfaces/app-state.interface';
-import * as authSelectors from '../user/store/auth.selectors';
-import * as authActions from '../user/store/auth.actions';
+import * as authSelectors from '../../user/store/auth.selectors';
+import * as authActions from '../../user/store/auth.actions';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 
 @Component({
   selector: 'app-home',

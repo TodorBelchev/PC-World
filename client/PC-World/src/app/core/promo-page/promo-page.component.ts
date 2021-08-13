@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { IMonitor } from '../shared/interfaces/monitor.interface';
-import { INotebook } from '../shared/interfaces/notebook.interface';
-import { IPartsUnion } from '../shared/interfaces/parts-union.interface';
-import { SharedService } from '../shared/shared.service';
+import { IMonitor } from '../../shared/interfaces/monitor.interface';
+import { INotebook } from '../../shared/interfaces/notebook.interface';
+import { IPartsUnion } from '../../shared/interfaces/parts-union.interface';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-promo-page',
