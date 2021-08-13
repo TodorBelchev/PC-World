@@ -98,7 +98,7 @@ router.post('/', checkUser(), async (req, res) => {
             orderData.products = mapped;
             orderData.deliveryPrice = deliveryPrice;
             orderData.totalPrice = totalCost + deliveryPrice;
-            const date = new Date().setHours(6, 1, 1, 1);
+            const date = new Date().setHours(3, 1, 1, 1);
             orderData.createdAt = date;
             const order = await createOrder(orderData);
             res.status(201).send(order);
@@ -152,8 +152,8 @@ router.get('/admin/archived', isLogged(), isAdmin(), async (req, res) => {
         if (!req.query.startDate || !req.query.endDate) {
             throw new Error('Start and end date are required!');
         }
-        const startDate = new Date(req.query.startDate).setHours(3, 1, 1, 1);
-        const endDate = new Date(req.query.endDate).setHours(3, 1, 1, 1);
+        const startDate = new Date(req.query.startDate).setHours(0, 0, 0, 0);
+        const endDate = new Date(req.query.endDate).setHours(23, 59, 59, 999);
         const page = Number(req.query.page || 1) - 1;
         const orders = await getArchivedOrders(page, startDate, endDate);
         const ordersCount = await getArchivedOrdersCount(startDate, endDate);

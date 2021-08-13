@@ -84,6 +84,7 @@ export class AdminArchivedOrdersComponent implements OnInit {
     }
 
     this.router.navigate([], { relativeTo: this.activatedRoute, queryParams: urlParams });
+    this.ngOnInit();
   }
 
   onDeleteOrder(order: IOrder): void {
