@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -27,20 +27,14 @@ export class NotebooksListComponent implements OnInit, OnDestroy {
   constructor(
     private notebookService: NotebookService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    }
-
-    let query = '';
-
     this.activatedRoute.queryParams.pipe(
       switchMap(
         params => {
+          let query = '';
           Object.entries(params).forEach(([k, v]) => {
             query += '&' + k + '=' + v;
           });

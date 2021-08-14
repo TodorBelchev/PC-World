@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { switchMap } from 'rxjs/operators';
+import { first, switchMap } from 'rxjs/operators';
 import { AppState } from '../interfaces/app-state.interface';
 import { SharedService } from '../shared.service';
 import * as authActions from '../../user/store/auth.actions';
@@ -24,7 +24,6 @@ export class AsideItemBrandComponent implements OnInit {
 
   ngOnInit(): void {
     let component = '';
-    let query = '?';
     const url = this.router.routerState.snapshot.url.split('?')[0];
     if (url === '/monitors') {
       component = 'monitors';
@@ -36,8 +35,10 @@ export class AsideItemBrandComponent implements OnInit {
     }
 
     this.activatedRoute.queryParams.pipe(
+      first(),
       switchMap(
         params => {
+          let query = '?';
           Object.entries(params).forEach(([k, v]) => {
             query += '&' + k + '=' + v;
             if (k == 'brands') {

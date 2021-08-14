@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
@@ -26,18 +26,13 @@ export class MonitorsListComponent implements OnInit, OnDestroy {
   constructor(
     private monitorService: MonitorService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    }
-    let query = '';
-
     this.activatedRoute.queryParams.pipe(
       switchMap(params => {
+        let query = '';
         Object.entries(params).forEach(([k, v]) => {
           query += '&' + k + '=' + v;
         });
@@ -58,18 +53,18 @@ export class MonitorsListComponent implements OnInit, OnDestroy {
         }
       );
 
-      this.messageSub = this.store.select(authSelectors.selectMessage).subscribe(
-        message => {
-          this.message = message?.text;
-          this.msgType = message?.msgType;
-          clearTimeout(this.timeout);
-          if (this.msgType === 'success') {
-            this.timeout = setTimeout(() => {
-              this.store.dispatch(authActions.clear_message());
-            }, 3000);
-          }
+    this.messageSub = this.store.select(authSelectors.selectMessage).subscribe(
+      message => {
+        this.message = message?.text;
+        this.msgType = message?.msgType;
+        clearTimeout(this.timeout);
+        if (this.msgType === 'success') {
+          this.timeout = setTimeout(() => {
+            this.store.dispatch(authActions.clear_message());
+          }, 3000);
         }
-      )
+      }
+    )
   }
 
   ngOnDestroy(): void {

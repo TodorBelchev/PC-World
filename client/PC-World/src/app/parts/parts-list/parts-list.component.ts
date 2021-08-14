@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
@@ -26,14 +26,10 @@ export class PartsListComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private partsService: PartsService,
-    private router: Router,
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    }
     this.activatedRoute.queryParams.pipe(
       switchMap(params => {
         this.type = this.activatedRoute.snapshot.url[0].path;
