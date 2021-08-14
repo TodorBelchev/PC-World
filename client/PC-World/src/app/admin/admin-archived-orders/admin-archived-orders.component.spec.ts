@@ -13,7 +13,6 @@ import { AdminArchivedOrdersComponent } from './admin-archived-orders.component'
 describe('AdminArchivedOrdersComponent', () => {
   let component: AdminArchivedOrdersComponent;
   let fixture: ComponentFixture<AdminArchivedOrdersComponent>;
-  let mockAdminService = jasmine.createSpyObj('AdminService', ['getArchivedOrdersByPage']);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -84,11 +83,12 @@ describe('AdminArchivedOrdersComponent', () => {
   }));
 
   // it('should show no orders message', waitForAsync(() => {
-  //   mockAdminService.getArchivedOrdersByPage.and.returnValue(
-  //     of({
-  //       orders: [],
-  //       count: 0
-  //     }));
+  //   let adminService = fixture.debugElement.injector.get(AdminService);
+  //   spyOn(adminService, 'getArchivedOrdersByPage').and.returnValue(of({
+  //     orders: [],
+  //     count: 0
+  //   }));
+  //   fixture.detectChanges();
   //   fixture.whenStable().then(() => {
   //     let result = fixture.nativeElement.querySelector('.order').textContent;
   //     expect(result).toContain('No orders for selected period.');

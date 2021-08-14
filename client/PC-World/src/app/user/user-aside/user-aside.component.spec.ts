@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 
@@ -17,9 +16,6 @@ describe('UserAsideComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ UserAsideComponent ],
-      imports: [
-        RouterTestingModule
-      ],
       providers: [
         {
           provide: Store, useValue: testStore

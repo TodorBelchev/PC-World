@@ -62,6 +62,10 @@ export class PromotionCarouselComponent implements OnInit, OnDestroy {
 
   onDotClick(index: number): void {
     this.currentIndex = index;
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.currentIndex === this.promotions.length - 1 ? this.currentIndex = 0 : this.currentIndex++;
+    }, 5000);
   }
 
 }

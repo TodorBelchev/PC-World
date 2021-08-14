@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/shared/interfaces/app-state.interface';
@@ -11,17 +10,11 @@ import { IUser } from '../../shared/interfaces/user.interface';
   templateUrl: './user-aside.component.html',
   styleUrls: ['./user-aside.component.scss']
 })
-export class UserAsideComponent implements OnInit {
-  url: string = '';
+export class UserAsideComponent {
   user$: Observable<IUser | null> = this.store.select(authSelectors.selectUser);
 
   constructor(
-    private store: Store<AppState>,
-    private router: Router
+    private store: Store<AppState>
   ) { }
-
-  ngOnInit(): void {
-    this.url = this.router.url;
-  }
 
 }
