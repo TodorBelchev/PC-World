@@ -112,11 +112,23 @@ router.get('/verify/:id', isLogged(), async (req, res) => {
 });
 
 router.put('/', isLogged(), async (req, res) => {
-    const user = await getUserById(req.decoded.id);
-    Object.assign(user, req.body);
-    await user.save();
-    const payload = removePass(user);
-    res.status(200).send(payload);
+    try {
+        if (!req.body.email) {
+            throw new Error('Email is required.');
+        }
+        if (typeof req.body.phoneNumber !== 'number') {
+            throw new Error('Phone must be a number.');
+        }
+        const user = await getUserById(req.decoded.id);
+        Object.assign(user, req.body);
+        await user.save();
+        const payload = removePass(user);
+        res.status(200).send(payload);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+
 });
 
 router.get('/warranties', isLogged(), async (req, res) => {
