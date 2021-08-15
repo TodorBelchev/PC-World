@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppState } from 'src/app/shared/interfaces/app-state.interface';
 import { IMonitor } from '../../shared/interfaces/monitor.interface';
 import { INotebook } from '../../shared/interfaces/notebook.interface';
 import { IPartsUnion } from '../../shared/interfaces/parts-union.interface';
 import { SharedService } from '../../shared/shared.service';
+import * as authSelectors from '../../user/store/auth.selectors';
+import * as authActions from '../../user/store/auth.actions';
 
 @Component({
   selector: 'app-promo-page',
@@ -19,10 +24,13 @@ export class PromoPageComponent implements OnInit {
   isLoading: boolean = false;
   message: string | undefined;
   msgType: string | undefined;
+  messageSub: Subscription = new Subscription();
+  timeout: any;
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private sharedService: SharedService
-
+    private sharedService: SharedService,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +59,29 @@ export class PromoPageComponent implements OnInit {
           this.message = error.error.message || 'Something went wrong. Please try again later.';
           this.msgType = 'error';
         });
+
+    this.messageSub = this.store.select(authSelectors.selectMessage).subscribe(
+      message => {
+        this.message = message?.text;
+        this.msgType = message?.msgType;
+        clearTimeout(this.timeout);
+        if (this.msgType === 'success') {
+          this.timeout = setTimeout(() => {
+            this.store.dispatch(authActions.clear_message());
+          }, 3000);
+        }
+      }
+    );
   };
+
+  ngOnDestroy(): void {
+    this.messageSub.unsubscribe();
+    this.store.dispatch(authActions.clear_message());
+    clearTimeout(this.timeout);
+  }
+
+  onCloseNotification(): void {
+    this.store.dispatch(authActions.clear_message());
+  }
 
 }

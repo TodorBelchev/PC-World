@@ -1,6 +1,6 @@
 <div class="notifications">
     <app-spinner *ngIf="isLoading"></app-spinner>
-    <app-notification *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
+    <app-notification (closeNotification)="onCloseNotification()" *ngIf="message && msgType" [type]="msgType" [message]="message"></app-notification>
 </div>
 <div class="container" *ngIf="!isLoading && products.length > 0">
     <app-aside></app-aside>

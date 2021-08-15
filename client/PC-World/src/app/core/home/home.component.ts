@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isMessage: boolean = false;
   type: string | undefined;
   messageSub: Subscription = new Subscription();
+  timeout: any;
 
   constructor(
     private store: Store<AppState>
@@ -25,6 +26,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       message => {
         this.message = message?.text;
         this.type = message?.msgType;
+        clearTimeout(this.timeout);
+        if (this.type === 'success') {
+          this.timeout = setTimeout(() => {
+            this.store.dispatch(authActions.clear_message());
+          }, 3000);
+        }
       }
     );
   }
@@ -32,6 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.messageSub.unsubscribe();
     this.store.dispatch(authActions.clear_message());
+    clearTimeout(this.timeout);
   }
 
   onCloseNotification(): void {
