@@ -15,4 +15,3 @@
 ### Test
 * To run server cd server folder and npm run dev(there is some demo data for local database in server/demo-data folder, in case you want to setup your own database project locally)
 * To run angular app cd client/PC-World and ng serve
-* Default admin account is admin@admin.com with password 12345678
