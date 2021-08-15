@@ -15,3 +15,4 @@
 ### Test
 * To run server cd server folder and npm run dev(there is some demo data for local database in server/demo-data folder, in case you want to setup your own database project locally)
 * To run angular app cd client/PC-World and ng serve
+* You can see admin pages images [here](https://github.com/TodorBelchev/PC-World/tree/main/client/admin-pages-images)
